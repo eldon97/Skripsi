@@ -16,7 +16,7 @@
 \makeatletter
 \renewcommand{\@maketitle} {\begin{center} {\LARGE \textbf{ \textsc{\@title}} \par} \bigskip {\large \textbf{\textsc{\@author}} }\end{center} }
 \renewcommand{\thispagestyle}[1]{}
-\markright{\textbf{\textsc{AIF184001/AIF184002 \textemdash Rencana Kerja Skripsi \textemdash Sem. Genap 2016/2017}}}
+\markright{\textbf{\textsc{AIF184001/AIF184002 \textemdash Rencana Kerja Skripsi \textemdash Sem. Ganjil 2019/2020}}}
 
 \newcommand{\HRule}{\rule{\linewidth}{0.4mm}}
 \renewcommand{\baselinestretch}{1}
@@ -35,7 +35,7 @@
 \newcommand{\@npm}{2016730073}
 \newcommand{\@judultopik}{Privacy Preserving Data Mining dengan Metode Randomization} % Judul/topik anda
 \newcommand{\jumpemb}{1} % Jumlah pembimbing, 1 atau 2
-\newcommand{\tanggal}{22/08/2019}
+\newcommand{\tanggal}{23/08/2019}
 
 % Dokumen hasil template ini harus dicetak bolak-balik !!!!
 
@@ -44,64 +44,72 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat memproses data-data yang akan ditambang menjadi data-data yang tidak mengandung privasi tetapi masih dapat digunakan untuk dilakukan penambangan data.
+Penambangan data semakin gencar dilakukan bahkan terus menerus dilakukan demi mendapat keuntungan berupa informasi, oleh sebab itu banyak data-data orang lain yang dimiliki oleh pihak lain. Tetapi karena banyaknya data-data yang digunakan atau diambil dari banyak orang, banyak juga privasi seseorang yang terdapat pada data tersebut. Hal ini bisa berbahaya bagi orang tersebut karena privasinya bisa saja disalahgunakan untuk mencelakakan orang tersebut.
 
-Dengan semakin banyaknya data-data yang ditambang, semakin banyak juga privasi-privasi di dalam data tersebut yang tersebar dan akhirnya data yang sensitif bocor kepada orang yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah kebocoran privasi pada proses penambangan data. Istilah untuk hal tersebut adalah \textit{Privacy Preserving Data Mining}.
+Dengan semakin banyaknya penambangan data yang dilakukan dan data-data yang digunakan juga semakin banyak, semakin banyak juga privasi-privasi di dalam data yang digunakan untuk penambangan data. Akhirnya data-data privasi yang sensitif sangat berpotensi bocor kepada orang yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah kebocoran privasi pada proses penambangan data, menjaga privasi pada data-data tersebut. Istilah untuk hal tersebut adalah \textit{Privacy Preserving Data Mining}.
 
+Salah satu cara untuk melakukan \textit{Privacy Preserving Data Mining} adalah dengan memodifikasi data yang ada sebelum diberikan kepada pihak lain. Ada macam-macam teknik dan algoritma yang bertujuan memodifikasi data untuk \textit{Privacy Preserving Data Mining} yang bisa dibagi menjadi dua jenis yaitu \textit{Perturbation Approach} dan \textit{Anonymization Approach}. 
 
+\textit{Perturbation Approach} adalah pendekatan untuk \textit{Privacy Preserving Data Mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap bisa dilakukan penambangan data. \textit{Perturbation Approach} bisa dibagi menjadi dua jenis yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}. \textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{ random noise} pada data. \textit{Value-based Perturbation Techniques} bisa dibagi menjadi dua jenis lagi yaitu \textit{Random Noise Addition} dan \textit{Randomized Response}
 
+Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat memproses data-data yang akan ditambang menjadi data-data yang telah dikacaukan dengan metode \textit{Randomization} sehingga tidak mengandung privasi tetapi masih dapat digunakan untuk dilakukan penambangan data.
+
+Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih satu teknik yaitu \textit{Random Noise Addition} untuk diimplementasikan menjadi perangkat lunak.
 
 \section{Rumusan Masalah}
-Tuliskan rumusan dari masalah yang akan anda bahas pada skripsi ini. Rumusan masalah biasanya berupa kalimat pertanyaan. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+\begin{itemize}
+	\item Bagaimana cara kerja dari teknik \textit{Random Noise Addition} untuk \textit{Privacy Preserving Data Mining}?
+	\item Bagaimana implementasi dari teknik \textit{Random Noise Addition} pada perangkat lunak?
+	\item Apakah teknik \textit{Random Noise Addition} bagus dalam arti seimbang antara \textit{Privacy Loss} dengan \textit{Information Loss}?
+\end{itemize}
 
 \section{Tujuan}
-Tuliskan tujuan dari topik skripsi yang anda ajukan. Tujuan penelitian biasanya berkaitan erat dengan pertanyaan yang diajukan di bagian rumusan masalah. Gunakan itemize seperti contoh di bagian Deskripsi Perangkat Lunak.
+\begin{itemize}
+	\item Mempelajari cara kerja dari teknik \textit{Random Noise Addition} untuk \textit{Privacy Preserving Data Mining}
+	\item Mengimplementasikan teknik \textit{Random Noise Addition} pada perangkat lunak
+	\item Menganalisa \textit{Privacy Loss} dan \textit{Information Loss} yang dihasilkan dari perangkat lunak yang dibuat dengan teknik \textit{Random Noise Addition}
+\end{itemize}
 
 \section{Deskripsi Perangkat Lunak}
-Tuliskan deksripsi dari perangkat lunak yang akan anda hasilkan. Apa saja fitur yang disediakan oleh PL tersebut dan apa saja kemampuan dari PL tersebut. Perhatikan contoh di bawah ini:
-
 Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 \begin{itemize}
-	\item Pengguna dapat melihat denah Musem Geologi Bandung dalam bidang dua dimensi. Sedangkan pengunjung direpresentasikan menggunakan lingkaran-lingkaran kecil (tidak menggunakan gambar manusia yang diambil dari atas)
-	\item Pengguna dapat memunculkan atau menghilangkan gambar {\it flow tiles} pada denah museum. 
-	\item Pengguna dapat mengatur jalannya simulasi: memulai(start) simulasi, menunda(pause) simulasi, melanjutkan(continue) simulasi, maupun menghentikan(stop) simulasi
-	\item Pengguna dapat mengatur banyaknya pengunjung di dalam museum, baik melalui perubahan frekuensi kedatangan pengunjung maupun menambahkan dan menghapus pengunjung satu-persatu secara manual.
-	\item Posisi kamera dapat diubah (pergerakan di bidang tiga dimensi) sehingga pengguna dapat melihat simulasi di museum dari berbagai arah. 
-	\item Posisi kamera dapat diubah untuk emngikuti perjalanan seorang pengunjung di dalam 
-	\item Pengguna dapat memilih apakah akan menggunakan teknik {\it flow tiles} atau tidak pada saat simulasi berlangsung
-	\item Jenis {\it flow tiles} yang digunakan dapat diubah-ubah pada saat simulasi sedang berlangsung
-		
+	\item Pengguna dapat memasukkan data mentah yang ingin dilakukan penambangan data (input)
+	\item Pengguna dapat mengatur berbagai pengaturan untuk teknik \textit{Random Noise Addition} 
+	\item Pengguna dapat mengatur jalannya proses perangkat lunak: memulai proses teknik \textit{Random Noise Addition} dan menghentikan perangkat lunak di tengah proses
+	\item Pengguna dapat mendapatkan data yang telah diproses dengan teknik \textit{Random Noise Addition} (output)
 \end{itemize}
 
 \section{Detail Pengerjaan Skripsi}
-Tuliskan bagian-bagian pengerjaan skripsi secara detail. Bagian pekerjaan tersebut mencakup awal hingga akhir skripsi, termasuk di dalamnya pengerjaan dokumentasi skripsi, pengujian, survei, dll.
-
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
-		\item Melakukan survei ke Museum Geologi Bandung untuk mendapatkan denah serta mengetahui perilaku pengunjung museum secara umum (arah perjalanan, kecepatan, lama melihat objek, dll)
-		\item Melakukan analisis pada hasil survei terhadap pergerakan pengunjung di museum dan membuat rancangan denah di komputer yang dilengkapi dengan penghalang dan objek di museum.
-		\item Melakukan studi literatur mengenai sifat kolektif suatu kerumunan, teknik {\it social force model} dan teknik {\it flow tiles}
-		\item Mempelajari bahasa pemrograman C++ dan cara menggunakan framework OpenSteer
-		\item Merancang pergerakan kerumunan di dalam museum menggunakan teknik {\it social force model} dan {\it flow tiles} serta menggunakan teknik lainnya seperti konsep pathway dan waypoints. Selain itu, dirancang pula adanya waktu tunggu (pada saat pengunjung melihat objek di museum) dan cara pembuatan jalur bagi setiap individu pengunjung
-		\item Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)
-		\item Mengimplementasikan keseluruhan algoritma dan struktur data yang dirancang, dengan menggunakan framework OpenSteer 
-		\item Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif
+		\item Mempelajari dasar-dasar privasi data
+		\item Mempelajari teknik penambangan data yang akan digunakan
+		\item Mempelajari teknik \textit{Random Noise Addition} untuk \textit{Privacy Preserving Data Mining}
+		\item Membangun perangkat lunak yang mengimplementasikan teknik \textit{Random Noise Addition}
+		\item Memodifikasi algoritma penambangan data \textit{distribution-based} yang dipakai agar bisa menggunakan data yang telah dimodifikasi oleh teknik \textit{Random Noise Addition} 
+		\item Menguji perangkat lunak dengan menggunakan real data
+		\item Menerapkan teknik penambangan data untuk menganalisis hasil dari metode \textit{Randomization} pada data
+		\item Melakukan analisa terhadap hasil pengujian
 		\item Menulis dokumen skripsi
 	\end{enumerate}
 
 \section{Rencana Kerja}
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+	\item Mempelajari dasar-dasar privasi data
+	\item Mempelajari teknik penambangan data yang akan digunakan
+	\item Mempelajari teknik \textit{Random Noise Addition} untuk \textit{Privacy Preserving Data Mining}
+	\item Menulis dokumen skripsi bab 1, 2, dan 3
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 \begin{enumerate}
-\item
-\item
-\item
+	\item Membangun perangkat lunak yang mengimplementasikan teknik \textit{Random Noise Addition}
+	\item Memodifikasi algoritma penambangan data \textit{distribution-based} yang dipakai agar bisa menggunakan data yang telah dimodifikasi oleh teknik \textit{Random Noise Addition} 
+	\item Menguji perangkat lunak dengan menggunakan real data
+	\item Menerapkan teknik penambangan data untuk menganalisis hasil dari metode \textit{Randomization} pada data
+	\item Melakukan analisa terhadap hasil pengujian
+	\item Menulis dokumen skripsi bab 4, 5, dan 6
 \end{enumerate}
 
 \vspace{1cm}
