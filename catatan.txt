@@ -1,0 +1,13 @@
+1. pada latar belakang harus menceritakan sejauh apa? apa keamanan informasi juga perlu dijelaskan dahulu atau hanya berkaitan dengan privasi saja?
+
+2. kalau random rotation pertubation dan random projection pertubation itu termasuk metode randomization?
+
+3. privasi yang bakal kita hilangkan itu kita tentuin sendiri atau algoritmanya yang sudah menentukan?
+
+4. kalau privacy loss dan information loss itu tergantung implementasi algoritma kita atau udah pasti klo algoritma ini privacy loss dan information loss nya segituh?
+
+5. kalau pakai value based perturbation itu berarti butuh algoritma penambangan data yang baru? jadi harus bikin sendiri juga algoritma yang dimodifikasi?
+
+6. pengujian dilakukan dengan cara membandingkan hasil data mining terhadap data biasa dengan data yang telah dimodifikasi?
+
+7. kalau ada fitur yang tidak bisa jalan apa tidak apa2?

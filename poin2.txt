@@ -1,0 +1,17 @@
+Bab 1 Pendahuluan
+latar belakang, rumusan masalah, tujuan, batasan masalah
+
+Bab 2 Dasar Teori
+Membahas penjelasan privasi data, teknik penambangan data, privacy preserving data mining, metode Randomization, teknik random noise addition
+
+Bab 3 Analisis
+penerapan dari teknik random noise addition, analisis algoritma penambangan data yang dipakai dan bagaimana cara memodifikasi agar bisa dipakai dengan data yg dimodifikasi
+
+Bab 4 Perancangan
+fitur2 perangkat lunak, rancangan perangkat lunak(diagram kelas), fungsi tiap kelas, kebutuhan keluaran dan masukan, perancangan antarmuka,
+
+Bab 5 Implementasi dan Pengujian Perangkat Lunak
+tampilan, pengujian pl, kesimpulan dari hasil pl
+
+Bab 6 Kesimpulan dan Saran
+kesimpulan dari penelitian dan saran untuk pengembangan nya lebih lanjut
