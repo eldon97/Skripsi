@@ -44,35 +44,35 @@
 \pagenumbering{arabic}
 
 \section{Deskripsi}
-Dengan semakin banyaknya penambangan data yang dilakukan dan data-data yang digunakan juga semakin banyak, semakin banyak juga privasi-privasi di dalam data tersebut yang tersebar kepada pihak yang melakukan penambangan data. Data-data privasi yang sensitif sangat berpotensi bocor kepada pihak yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah kebocoran privasi pada proses penambangan data, menjaga privasi pada data-data tersebut. Istilah untuk hal tersebut adalah \textit{Privacy Preserving Data Mining}.
+Dengan semakin banyaknya penambangan data yang dilakukan dan data yang digunakan juga semakin banyak, semakin banyak juga privasi di dalam data tersebut yang tersebar kepada pihak yang melakukan penambangan data. Data privasi tersebut dapat tersebar kepada pihak yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah privasi tersebar pada proses penambangan data, menjaga privasi pada data tersebut. Istilah untuk hal tersebut adalah \textit{privacy preserving data mining}.
 
-Salah satu cara untuk melakukan \textit{Privacy Preserving Data Mining} adalah dengan memodifikasi data yang ada sebelum diberikan kepada pihak lain. Ada macam-macam teknik dan algoritma yang bertujuan memodifikasi data untuk \textit{Privacy Preserving Data Mining} yang bisa dibagi menjadi dua jenis yaitu \textit{Perturbation Approach} dan \textit{Anonymization Approach}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{Privacy Preserving Data Mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap bisa ditambang. \textit{Perturbation Approach} bisa dibagi menjadi dua jenis yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}.
+Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Ada macam-macam teknik dan algoritma yang bertujuan modifikasi data untuk \textit{privacy preserving data mining} yang bisa dibagi menjadi dua jenis yaitu \textit{Perturbation Approach} dan \textit{Anonymization Approach}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap bisa ditambang. \textit{Perturbation Approach} bisa dibagi menjadi dua jenis yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}.
 
-\textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik {Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara memodifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu.
+\textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.785]{ppdm}
-	\caption{Berbagai macam teknik memodifikasi data untuk \textit{Privacy Preserving Data Mining}}
+	\caption{Berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining}}
 	\label{fig:ppdm}
 \end{figure}
 
-Dari berbagai macam teknik memodifikasi data untuk \textit{Privacy Preserving Data Mining} yang dapat dilihat pada Gambar \ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
+Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar \ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
 
-Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat memproses data-data yang akan ditambang menjadi data-data yang telah dimodifikasi dengan metode \textit{Randomization} sehingga tidak mengandung privasi, tetapi masih dapat ditambang.
-
-Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih dua buah teknik yaitu \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk diimplementasikan pada perangkat lunak.
+Pada skripsi ini, akan dibuat sebuah perangkat lunak yang dapat memproses data yang akan ditambang menjadi data yang telah dimodifikasi dengan metode \textit{Randomization} sehingga tidak mengandung privasi, tetapi masih dapat ditambang. Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih dua buah teknik yaitu \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk diimplementasikan pada perangkat lunak.
 
 \section{Rumusan Masalah}
+Berdasarkan latar belakang, rumusan masalah pada skripsi adalah sebagai berikut.
 \begin{itemize}
-	\item Bagaimana cara kerja dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{Privacy Preserving Data Mining}?
+	\item Bagaimana cara kerja dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{privacy preserving data mining}?
 	\item Bagaimana implementasi dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} pada perangkat lunak?
 	\item Bagaimana perbandingan antara hasil dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}?
 \end{itemize}
 
 \section{Tujuan}
+Berdasarkan rumusan masalah, maka tujuan dari skripsi ini adalah sebagai berikut.
 \begin{itemize}
-	\item Mempelajari cara kerja dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{Privacy Preserving Data Mining}
+	\item Mempelajari cara kerja dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{privacy preserving data mining}
 	\item Mengimplementasikan teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} pada perangkat lunak
 	\item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
 \end{itemize}
@@ -83,7 +83,7 @@ Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 	\item Pengguna dapat memasukkan data mentah yang akan ditambang (input)
 	\item Pengguna dapat memilih teknik mana yang ingin digunakan antara teknik \textit{Random Noise Addition} atau \textit{Random Rotation Perturbation}
 	\item Pengguna dapat mengatur berbagai pengaturan seperti parameter untuk teknik \textit{Random Noise Addition} maupun \textit{Random Rotation Perturbation}
-	\item Perangkat lunak dapat memodifikasi data mentah yang dimasukkan dengan menggunakan teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
+	\item Perangkat lunak dapat melakukan modifikasi data mentah yang dimasukkan dengan menggunakan teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
 	\item Pengguna dapat memperoleh data yang telah diproses dengan teknik \textit{Random Noise Addition} atau \textit{Random Rotation Perturbation} (output)
 \end{itemize}
 
@@ -91,7 +91,7 @@ Perangkat lunak akhir yang akan dibuat memiliki fitur minimal sebagai berikut:
 Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 	\begin{enumerate}
 		\item Mempelajari dasar-dasar privasi data
-		\item Mempelajari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{Privacy Preserving Data Mining}
+		\item Mempelajari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{privacy preserving data mining}
 		\item Mempelajari teknik penambangan data yang akan digunakan
 		\item Melakukan analisis terhadap teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
 		\item Melakukan perancangan perangkat lunak yang mengimplementasikan teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
@@ -106,10 +106,10 @@ Bagian-bagian pekerjaan skripsi ini adalah sebagai berikut :
 Rincian capaian yang direncanakan di Skripsi 1 adalah sebagai berikut:
 \begin{enumerate}
 	\item Mempelajari dasar-dasar privasi data
-	\item Mempelajari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{Privacy Preserving Data Mining}
+	\item Mempelajari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{privacy preserving data mining}
 	\item Mempelajari teknik penambangan data yang akan digunakan
 	\item Melakukan analisis terhadap teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
-	\item Menulis dokumen skripsi bab 1, 2, dan 3
+	\item Menulis dokumen skripsi
 \end{enumerate}
 
 Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
@@ -119,7 +119,7 @@ Sedangkan yang akan diselesaikan di Skripsi 2 adalah sebagai berikut:
 	\item Menguji perangkat lunak secara fungsional dan eksperimental dengan menggunakan \textit{real} data
 	\item Menerapkan teknik penambangan data terhadap data yang telah diproses untuk menganalisis hasil dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
 	\item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation}
-	\item Menulis dokumen skripsi bab 4, 5, dan 6
+	\item Menulis dokumen skripsi
 \end{enumerate}
 
 \vspace{1cm}
