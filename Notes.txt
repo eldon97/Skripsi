@@ -1,0 +1,5 @@
+1 September 2019
+
+- Ada macam-macam teknik dan algoritma yang bertujuan modikasi data -> Ada macam-macam teknik dan algoritma modikasi data
+- Perangkat lunak dapat melakukan modikasi data mentah yang dimasukkan -> Perangkat lunak dapat melakukan modikasi pada data mentah yang dimasukkan
+- ambil gambar ppdm dengan resolusi tinggi atau copy latexny dari papernya
