@@ -4,41 +4,80 @@
    
 \section{Latar Belakang}
 \label{sec:label}
+Dengan semakin banyaknya penambangan data yang dilakukan dan data yang digunakan juga semakin banyak, semakin banyak juga privasi di dalam data tersebut yang tersebar kepada pihak yang melakukan penambangan data. Data privasi tersebut dapat tersebar kepada pihak yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah privasi tersebar pada proses penambangan data, menjaga privasi pada data tersebut. Istilah untuk hal tersebut adalah \textit{privacy preserving data mining}.
 
-Bagian ini akan diisi dengan apa yang melatarbelakangi pembuatan template skripsi ini.
-Termasuk juga masalah-masalah yang akan dihadapi untuk membuatnya, termasuk kurangnya kemampuan penguasaan \LaTeX{} sehingga template ini dibuat dengan mengandalkan berbagai contoh yang tersebar di dunia maya, yang digabung-gabung menjadi satu jua.
-Bagian lain juga akan dilengkapi, untuk sementara diisi dengan lorem ipsum versi bahasa inggris.
+Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Ada macam-macam teknik dan algoritma yang bertujuan modifikasi data untuk \textit{privacy preserving data mining} yang bisa dibagi menjadi dua jenis yaitu \textit{Perturbation Approach} dan \textit{Anonymization Approach}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap bisa ditambang. \textit{Perturbation Approach} bisa dibagi menjadi dua jenis yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}.
 
-\dtext{5-10}
+\textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu. Sedangkan \textit{Dimension Reduction-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sekaligus mengurangi dimensi dari data asli.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.56]{ppdm}
+	\caption{Berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining}}
+	\label{fig:ppdm}
+\end{figure}
+
+Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar \ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
+
+Pada penelitian ini, akan dibuat sebuah perangkat lunak yang dapat memproses data yang akan ditambang menjadi data yang telah dimodifikasi dengan metode \textit{Randomization} sehingga tidak mengandung privasi, tetapi masih dapat ditambang. Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih dua buah teknik yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk diimplementasikan pada perangkat lunak serta membandingkan hasil dari kedua teknik tersebut.
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
-Bagian ini akan diisi dengan penajaman dari masalah-masalah yang sudah diidentifikasi di bagian sebelumnya. 
-
-\dtext{6}
+Berdasarkan latar belakang, rumusan masalah pada penelitian ini adalah sebagai berikut.
+\begin{enumerate}
+	\item Bagaimana cara kerja dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk \textit{privacy preserving data mining}?
+	\item Bagaimana implementasi dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} pada perangkat lunak?
+	\item Bagaimana perbandingan antara hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}?
+\end{enumerate}
 
 \section{Tujuan}
 \label{sec:tujuan}
-Akan dipaparkan secara lebih terperinci dan tersturkur apa yang menjadi tujuan pembuatan template skripsi ini
-
-\dtext{7}
+Berdasarkan rumusan masalah, maka tujuan dari penilitian ini adalah sebagai berikut.
+\begin{enumerate}
+	\item Mempelajari cara kerja dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk \textit{privacy preserving data mining}
+	\item Mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} pada perangkat lunak
+	\item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+\end{enumerate}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
-Untuk mempermudah pembuatan template ini, tentu ada hal-hal yang harus dibatasi, misalnya saja bahwa template ini bukan berupa style \LaTeX{} pada umumnya (dengan alasannya karena belum mampu jika diminta membuat seperti itu)
+Batasan-batasan masalah untuk penelitian ini adalah sebagai berikut.
+\begin{enumerate}
+    \item 
+\end{enumerate}
 
 \dtext{8}
 
 \section{Metodologi}
 \label{sec:metlit}
-Tentunya akan diisi dengan metodologi yang serius sehingga templatenya terkesan lebih serius.
-
-\dtext{9}
+Metodologi yang digunakan dalam penelitian ini adalah sebagai berikut.
+\begin{enumerate}
+    \item Melakukan studi literatur dasar-dasar privasi data
+    \item Melakukan studi literatur teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk \textit{privacy preserving data mining}
+    \item Melakukan studi literatur teknik penambangan data yang akan digunakan
+    \item Melakukan analisis terhadap teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
+    \item Melakukan perancangan perangkat lunak yang mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+    \item Membangun perangkat lunak yang mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+    \item Menguji perangkat lunak secara fungsional dan eksperimental dengan menggunakan \textit{real} data
+    \item Menerapkan teknik penambangan data terhadap data yang telah diproses untuk menganalisis hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+    \item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+    \item Menarik kesimpulan berdasarkan hasil eksperiment yang telah dilakukan
+\end{enumerate}
 
 \section{Sistematika Pembahasan}
 \label{sec:sispem}
-Rencananya Bab 2 akan berisi petunjuk penggunaan template dan dasar-dasar \LaTeX.
-Mungkin bab 3,4,5 dapt diisi oleh ketiga jurusan, misalnya peraturan dasar skripsi atau pedoman penulisan, tentu jika berkenan.
-Bab 6 akan diisi dengan kesimpulan, bahwa membuat template ini ternyata sungguh menghabiskan banyak waktu.
-
-\dtext{10}
+Laporan penelitian tersusun ke dalam enam bab secara sistematis sebagai berikut.
+\begin{itemize}
+    \item Bab 1 Pendahuluan\\
+    Berisi latar belakang, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan.
+    \item Bab 2 Dasar Teori\\
+    Berisi dasar teori tentang dasar-dasar privasi data, \textit{Random Rotation Perturbation}, \textit{Random Projection Perturbation}, \textit{Random Rotation Perturbation}, dan teknik penambangan data.
+    \item Bab 3 Analisis Masalah
+    Berisi analisis masalah, studi kasus, dan diagram aliran proses.
+    \item Bab 4 Perancangan
+    Berisi perancangan perangkat lunak yang dibangun meliputi perancangan antarmuka dan diagram kelas yang lengkap.
+    \item Bab 5 Implementasi dan Pengujian
+    Berisi implementasi antarmuka perangkat lunak, pengujian fungsional, pengujian eksperimental, dan kesimpulan dari pengujian.
+    \item Bab 6 Kesimpulan dan Saran
+    Berisi kesimpulan dari awal hingga akhir penelitian dan saran untuk pengembangan selanjutnya.
+\end{itemize}
