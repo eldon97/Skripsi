@@ -33,20 +33,51 @@ Pada era teknologi informasi, sangat banyak data terkumpul pada basis data. Data
 
 Penambangan data adalah proses mengekstrak sebuah pola atau sebuah pengetahuan dari kumpulan data yang besar, yang mana dapat direpresentasikan dan diinterpretasikan.~\cite{mendes:17:ppdmieee} Pada penambangan data, teknik \textit{machine learning} dan \textit{pattern recognition} intensif dipakai untuk mendapatkan pola maupun pengetahuan baru dari data. Tujuan utama dari penambangan data adalah untuk membentuk model deskriptif dan prediktif dari suatu data. Model deskriptif berusaha untuk mengubah pola-pola yang ada pada data menjadi deskripsi yang bisa dimengerti oleh orang awam. Sedangkan model prediktif digunakan untuk memprediksi data yang tidak diketahui atau data yang berpotensi muncul di kemudian hari.
 
-Model tersebut biasanya dibuat dengan menggunakan teknik \textit{machine learning}, yang mana terdapat dua teknik \textit{machine learning} yang paling sering dipakai yaitu \textit{classification} dan \textit{clustering}. Subbab berikutnya akan menjelaskan secara singkat kedua teknik tersebut dan contoh penerapannya.
+Model tersebut biasanya dibuat dengan menggunakan teknik \textit{machine learning}, yang mana terdapat dua teknik \textit{machine learning} yang paling sering dipakai yaitu \textit{classification} dan \textit{clustering}. Subbab berikutnya akan menjelaskan secara singkat kedua teknik tersebut dan contoh algoritmanya.
+
+\subsection{\textit{Classification}}
+
+Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data.~\cite{mendes:17:ppdmieee} Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas. Ada dua tahap dalam proses klasifikasi yaitu tahap latihan dan tahap klasifikasi.
+
+Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
+
+Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{k-nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{k-nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{k-nearest Neighbors} saja.
+
+Teknik \textit{k-nearest Neighbors} adalah 
+
+\subsection{\textit{Clustering}}
+
+\textit{Clustering} adalah proses mengelompokan kumpulan objek ke dalam sebuah kelompok (\textit{cluster}) sedemikian rupa sehingga objek-objek dari suatu \textit{cluster} memiliki lebih banyak kemiripan dari pada objek-objek dari \textit{cluster} lainnya.~\cite{mendes:17:ppdmieee} 
+
+Salah satu contoh teknik \textit{clustering} adalah \textit{k-means}. Teknik \textit{k-means} adalah 
 
 \section{\textit{Privacy Preserving Data Mining}}
 \label{sec:ppdm}
 
-Aktivitas penambangan data melibatkan jumlah data yang sangat besar. Data-data yang dipakai memiliki privasi banyak individu di dalamnya. Hal ini berpotensi menyebabkan pelanggaran privasi dalam kasus tidak adanya proteksi yang cukup dan penyalahgunaan privasi data untuk tujuan lain.~\cite{rezaseifi:11:ppdm} Faktor utama pelanggaran privasi pada penambangan data adalah penyalahgunaan data sehingga hal ini dapat merugikan seorang individu maupun sebuah organisasi. Oleh karena itu, ada kebutuhan untuk menghindari penyebaran informasi pribadi yang rahasia maupun pengetahuan lainnya yang dapat diambil dari data yang dipakai untuk aktivitas penambangan data.
+Aktivitas penambangan data melibatkan jumlah data yang sangat masif. Data-data yang dipakai memiliki privasi banyak individu di dalamnya. Hal ini berpotensi menyebabkan pelanggaran privasi dalam kasus tidak adanya proteksi yang cukup dan penyalahgunaan privasi data untuk tujuan lain.~\cite{rezaseifi:11:ppdm} Faktor utama pelanggaran privasi pada penambangan data adalah penyalahgunaan data sehingga hal ini dapat merugikan seorang individu maupun sebuah organisasi. Oleh karena itu, ada kebutuhan untuk menghindari penyebaran informasi pribadi yang rahasia maupun pengetahuan lainnya yang dapat diambil dari data yang dipakai untuk aktivitas penambangan data.
 
-Konsep privasi sering kali lebih kompleks dari pada yang dibayangkan. Dalam kasus penambangan data, definisi dari menjaga privasi masih tidak jelas dan hanya sedikit literatur yang mendiskusikan topik ini.
+Konsep privasi sering kali lebih kompleks dari pada yang dibayangkan. Dalam kasus penambangan data, definisi dari menjaga privasi masih tidak jelas. Ada sebuah paper yang mendefinisikan \textit{privacy preserving data mining} sebagai “getting valid data mining results without learning the underlying data values”, mendapatkan hasil penambangan data yang valid tanpa  nilai pada data. Tetapi pada saat ini setiap teknik \textit{privacy preserving data mining} yang ada mempunyai definisi privasinya masing-masing. 
+
+Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Berbagai macam pendekatan modifikasi data untuk \textit{privacy preserving data mining} telah dikembangkan antara lain \textit{Perturbation Approach} dan \textit{Anonymization Approach}, selengkapnya dapat dilihat pada Gambar \ref{fig:ppdm}.~\cite{rezaseifi:11:ppdm} \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap bisa ditambang. Sedangkan pada \textit{Anonymization Approach}, data diterapkan de-identifikasi di mana dataset mentah disebarluaskan setelah menghapus inti dari identitas setiap rekord.~\cite{rezaseifi:11:ppdm}
+
+\textit{Perturbation Approach} bisa dibagi menjadi dua jenis lagi yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}. \textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu. Sedangkan \textit{Dimension Reduction-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sekaligus mengurangi dimensi dari data asli.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.56]{ppdm}
+	\caption{Berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining}}
+	\label{fig:ppdm}
+\end{figure}
 
 
 \section{Metode \textit{Randomization}}
 \label{sec:metoderandomization}
 
+Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar \ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
 
+Berbagai macam teknik dengan metode randomisasi umumnya menerapkan perusakan nilai pada data. Salah satu teknik yang pertama kali menggunakan metode randomisasi untuk \textit{privacy preserving data mining} adalah teknik \textit{Random Noise Addition} yang dikemukakan oleh Agrawal dan Srikant pada paper berikut ~\cite{agrawalsrikant:00:randomnoise}. Teknik \textit{Random Noise Addition} ini dilakukan dengan cara menambahkan nilai random (\textit{noise}) pada data. Nilai random tersebut diambil dari sebuah distribusi. Untuk menambang data yang telah ditambahkan \textit{noise} ini perlu dilakukan rekonstruksi distribusi untuk mendapatkan distribusi yang asli. Oleh karena itu, teknik \textit{Random Noise Addition} ini hanya menjaga distribusi data asli sehingga hanya teknik penambangan data yang bergantung pada distribusi data saja yang bisa dipakai. Penyesuaian algoritma penambangan data yang dipakai pun perlu dilakukan agar teknik \textit{Random Noise Addition} ini dapat dipakai dan mendapatkan hasil penambangan data yang hampir sama dengan tanpa menggunakan teknik \textit{Random Noise Addition}.
+
+Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik lain pun dikembangkan terinspirasi dari teknik \textit{Random Noise Addition} ini. Teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} adalah teknik adalah salah satunya, tetapi teknik tersebut tidak dilakukan dengan cara menambahkan \textit{noise} melainkan mengkalikan data asli dengan nilai random. Bagaimanapun juga, inti dari teknik-teknik randomisasi yang telah disebutkan di atas masih sama yaitu merusak data sehingga data yang dirilis bukanlah data asli melainkan data yang sudah rusak sehingga data yang dirilis tidak mengandung privasi dan privasi pun terjaga. Masing-masing dari dua teknik tersebut akan dijelaskan lebih detil pada subbab berikut.
 
 \subsection{\textit{Random Rotation Perturbation}}
 

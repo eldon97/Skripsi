@@ -395,6 +395,9 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbxi10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbxi10.tfm
+INPUT Gambar\ppdm.jpg
+INPUT .\Gambar\ppdm.jpg
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr12.tfm
@@ -441,7 +444,6 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmr8.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmcsc10.tfm
 INPUT Gambar\ular-png.png
