@@ -41,9 +41,9 @@ Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dal
 
 Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
 
-Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{k-nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{k-nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{k-nearest Neighbors} saja.
+Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{K-Nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{K-Nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{K-Nearest Neighbors} saja.
 
-Teknik \textit{k-nearest Neighbors} adalah 
+Teknik \textit{K-Nearest Neighbors} adalah 
 
 \subsection{\textit{Clustering}}
 
@@ -82,7 +82,10 @@ Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik l
 
 \subsection{\textit{Random Rotation Perturbation}}
 
-Teknik \textit{Random Rotation Perturbation} 
+Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix Xd*n, \textit{rotation perturbation} dari datasest X didefinisikan sebagai G(x)=RX. Dimana Rd*d adalah \textit{random rotation othonormal matrix}.
+Teknik ini menjaga beberapa properti pada data antara lain yaitu jarak Euclidean, \textit{inner product}, dan \textit{geometric shape hyper} pada bidang multi-dimensi.~\cite{rezaseifi:11:ppdm} Oleh karena itu, beberapa teknik penambangan data tidak berpengaruh (dapat digunakan) terhadap teknik \textit{Random Rotation Perturbation} antara lain yaitu \textit{K-Nearest Neighbors}, \textit{Support Vector Machines}, dan \textit{Perceptrons}. Teknik ini dipercaya dapat memberikan hasil penambangan yang maksimal, hasil penambangan data yang telah dirusak persis sama dengan hasil penambangan data aslinya. Sehingga jumlah informasi yang hilang tidak ada, tetapi jumlah privasi yang hilangnya tinggi. Walaupun demikian ada beberapa penelitian yang mengatakan bahwa karena teknik \textit{Random Rotation Perturbation} ini mempunyai sifat demikian sehigga teknik ini dikatakan tidak aman dan dapat diserang dengan beberapa teknik untuk mendapatkan data asli yang lengkap.
+
+
 
 \subsection{\textit{Random Projection Perturbation}}
 
