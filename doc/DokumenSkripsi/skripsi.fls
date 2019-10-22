@@ -400,17 +400,16 @@ INPUT .\Gambar\ppdm.jpg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr8.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr6.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi8.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi6.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy8.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy6.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmex10.tfm
@@ -428,21 +427,22 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-ms
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr8.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr6.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi8.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi6.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy8.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy6.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy7.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmr8.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr5.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi5.tfm
@@ -592,10 +592,10 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-rm.enc
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathit.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy6.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy6.pfb
