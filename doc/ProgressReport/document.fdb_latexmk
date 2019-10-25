@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1571390799 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/ProgressReport/document.pdf" "document" 1571800123
+["pdflatex"] 1571390799 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/ProgressReport/document.pdf" "document" 1571925503
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1566833245 25420 3796307ed3b3f83701b91f67e70474de ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1566355596 40136 5e13deb262644410ebab7be1b6bd9a4f ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecrm1000.pk" 1566355600 23808 d6c25e3cbdc2128bc4886e1e5eea00cf ""
@@ -77,6 +77,6 @@
   (generated)
   "c:/Projects/Skripsi/doc/ProgressReport/document.pdf"
   "document.log"
+  "document.pdf"
   "document.aux"
   "c:/Projects/Skripsi/doc/ProgressReport/document.log"
-  "document.pdf"
