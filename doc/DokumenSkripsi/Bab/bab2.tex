@@ -82,9 +82,9 @@ Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik l
 
 \subsection{\textit{Random Rotation Perturbation}}
 
-Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{d \times n}\) , \textit{rotation perturbation} dari datasest X didefinisikan sebagai berikut.
+Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari datasest X didefinisikan sebagai berikut.
 \begin{equation}
-	G(X)=RX
+	G(X) = X_{n \times d} R_{d \times d}
 \end{equation}
 Dimana \(R_{d \times d}\) adalah \textit{random rotation othonormal matrix} yang mempunyai sifat \textit{orthonormal}, yang mana matriks \textit{orthonormal} adalah matriks yang menghasilkan matriks identitas apabila dikalikan dengan transposenya sendiri. Matriks rotasi ini dapat dibuat secara efisien mengikuti distribusi Haar.~\cite{stewart:80:orthogonal} Dari definisi di atas dapat disimpulkan tranformasi rotasi tersebut menjaga jarak Euclidean.~\cite{rotation:05:chenliu}
 
@@ -100,9 +100,9 @@ Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi 
 
 \textit{Projection perturbation} dari datasest X didefinisikan sebagai berikut.~\cite{kargupta:06:projection}
 \begin{equation}
-	U = \frac{1}{\sqrt{k}\sigma_{r}}RX
+	G(X) = X_{n \times m} R_{m \times k}
 \end{equation}
-Dimana \(R_{k \times m}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi standar normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{k \times m}\) disesuaikan dengan matriks \(X_{m \times n}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah attribut \(m\), yang mana \(m\) akan menjadi dimensi matriks. Oleh karena reduksi dimensi lah yang diinginkan maka \(k\) harus lebih kecil dari pada \(m\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
+Dimana \(R_{m \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{m \times k}\) disesuaikan dengan matriks \(X_{n \times m}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah attribut \(m\), yang mana \(m\) akan menjadi dimensi matriks. Oleh karena reduksi dimensi lah yang diinginkan maka \(k\) harus lebih kecil dari pada \(m\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
 
 Jika \textit{random projection matrix} yang dipakai dihasilkan secara acak saja, hasil dari \textit{projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah membuat \textit{random projection matrix} yang dipakai menjadi matriks \textit{orthogonal}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi mempunyai kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
 
