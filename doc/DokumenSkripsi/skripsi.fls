@@ -324,24 +324,6 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab8.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab8.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
 OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.aux
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-cmr.cfg
@@ -427,39 +409,6 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-ms
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr12.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi12.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmmi7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\lmsy7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmr8.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmcsc10.tfm
-INPUT Gambar\ular-png.png
-INPUT .\Gambar\ular-png.png
-INPUT .\Gambar\ular-png.png
-INPUT .\Gambar\ular-png.png
-INPUT .\Gambar\ular-png.png
-INPUT Gambar\ular-jpg.jpg
-INPUT .\Gambar\ular-jpg.jpg
-INPUT .\Gambar\ular-jpg.jpg
-INPUT .\Gambar\ular-jpg.jpg
-INPUT .\Gambar\ular-jpg.jpg
-INPUT Gambar\ular-pdf.pdf
-INPUT .\Gambar\ular-pdf.pdf
-INPUT .\Gambar\ular-pdf.pdf
-INPUT .\Gambar\ular-pdf.pdf
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.tex
 OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.tex
@@ -490,63 +439,7 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.tex
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.tex
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.bbl
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.bbl
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmtt10.tfm
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.tex
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\bera\t1fvm.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\bera\t1fvm.fd
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmr8t.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmr8t.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmro8t.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmb8t.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmsy6.tfm
-INPUT Lampiran\MyCode.java
-INPUT Lampiran\MyCode.java
-INPUT Lampiran\MyCode.java
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\bera\fvmro8t.vf
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmro8r.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\bera\fvmr8t.vf
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmr8r.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\bera\fvmb8t.vf
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\bera\fvmb8r.tfm
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.tex
-OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.tex
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.tex
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab1.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab1.aux
@@ -566,39 +459,12 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab8.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab8.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampA.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampB.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampC.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampD.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampE.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampF.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampG.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampH.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
-INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Lampiran\lampI.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-rm.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathit.enc
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy6.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy6.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmb8a.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmb8a.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmr8a.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmr8a.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmro8a.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\bera\fvmro8a.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmbx10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmbx10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmbx12.pfb
@@ -613,8 +479,6 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmmi8.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr10.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr6.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr6.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr8.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmr8.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmri10.pfb
@@ -625,5 +489,3 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lms
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmsy10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmsy8.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmsy8.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmtt10.pfb
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmtt10.pfb
