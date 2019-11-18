@@ -1,0 +1,2 @@
+1. apakah perlu ada landasan teori tentang matriks(transformasi, dll) dan geometri?
+2. perlukah diagram aktivitas perangkat lunak analisis dan proses penambangan data?
