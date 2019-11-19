@@ -8,3 +8,11 @@ ________________________________________________________________________________
 
 - Randomness may not necessarily imply uncertainty.
 Random events can often be analyzed and their properties can be explained using probabilistic frameworks.
+________________________________________________________________________________
+19 November 2019
+
+- tambahkan random noise addition di dokumen bab 3 analisis dan progress report
+
+kendala:
+- kesibukan dengan tugas, kerja praktek dan hal2 lain
+- kurang mahir dalam matematika

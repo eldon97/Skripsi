@@ -1,2 +1,4 @@
 1. apakah perlu ada landasan teori tentang matriks(transformasi, dll) dan geometri?
 2. perlukah diagram aktivitas perangkat lunak analisis dan proses penambangan data?
+3. langkah kerja yang dicapai bolehkah ditambah? atau diubah? terkait dengan penggantian algoritma random noise addition
+4. bagaimana cara mengukur privasi yang hilang?
