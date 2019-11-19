@@ -407,6 +407,7 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-ms
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.tex
 OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.tex
@@ -437,7 +438,6 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.tex
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.tex
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.bbl
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.bbl
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab1.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab1.aux
@@ -459,8 +459,8 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab9.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.out
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-rm.enc
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-ec.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathsy.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\lm\lm-mathit.enc
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\lm\lmbx10.pfb
