@@ -139,13 +139,13 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 
 			Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{K-Nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{K-Nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{K-Nearest Neighbors} saja.
 
-			Teknik \textit{K-Nearest Neighbors} adalah <<TODO>>
+			Teknik \textit{K-Nearest Neighbors} adalah teknik penambangan data klasifikasi yang mencari label terbanyak pada sejumlah tetangga terdekatnya. Teknik ini bergantung pada jarak Euclidean antara titik yang mana adalah data yang akan diprediksi dengan tetangga-tetangganya.
 			
 			\item \textit{Clustering}
 			
 			\textit{Clustering} adalah proses mengelompokan kumpulan objek ke dalam sebuah kelompok (\textit{cluster}) sedemikian rupa sehingga objek-objek dari suatu \textit{cluster} memiliki lebih banyak kemiripan dari pada objek-objek dari \textit{cluster} lainnya. 
 
-			Salah satu contoh teknik \textit{clustering} adalah \textit{k-means}. Teknik \textit{k-means} adalah <<TODO>>
+			Salah satu contoh teknik \textit{clustering} adalah \textit{k-means}. Teknik \textit{k-means} adalah adalah teknik penambangan data \textit{clustering} yang memanfaatkan jarak Euclidean antara titik-titik yang ada untuk menentukan titik mana saja yang masuk ke kluster mana.
 		\end{enumerate}
 
 		\item \textbf{Melakukan studi literatur mengenai \textit{privacy preserving data mining}}\\
@@ -167,21 +167,38 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		Berbagai macam teknik dengan metode randomisasi umumnya menerapkan perusakan nilai pada data. Salah satu teknik yang pertama kali menggunakan metode randomisasi untuk \textit{privacy preserving data mining} adalah teknik \textit{Random Noise Addition} yang dikemukakan oleh Agrawal dan Srikant pada paper berikut. Teknik \textit{Random Noise Addition} ini dilakukan dengan cara menambahkan nilai random (\textit{noise}) pada data. Nilai random tersebut diambil dari sebuah distribusi. Untuk menambang data yang telah ditambahkan \textit{noise} ini perlu dilakukan rekonstruksi distribusi untuk mendapatkan distribusi yang asli. Oleh karena itu, teknik \textit{Random Noise Addition} ini hanya menjaga distribusi data asli sehingga hanya teknik penambangan data yang bergantung pada distribusi data saja yang bisa digunakan. Penyesuaian pada algoritma penambangan data yang digunakan pun perlu dilakukan agar teknik \textit{Random Noise Addition} ini dapat digunakan dan mendapatkan hasil penambangan data yang hampir sama dengan tanpa menggunakan teknik \textit{Random Noise Addition}.
 		
 		Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik lain pun dikembangkan terinspirasi dari teknik \textit{Random Noise Addition} ini. Teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} adalah teknik adalah salah satunya, tetapi teknik tersebut tidak dilakukan dengan cara menambahkan \textit{noise} melainkan mengkalikan data asli dengan nilai random. Bagaimanapun juga, inti dari teknik-teknik randomisasi yang telah disebutkan di atas masih sama yaitu merusak data sehingga data yang dirilis bukanlah data asli melainkan data yang sudah rusak sehingga data yang dirilis tidak mengandung privasi dan privasi pun terjaga.
+		
+		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Noise Addition}}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi tetapi tidak dilanjutkan.\\
+		{\bf Hasil :} Ide utama dari teknik \textit{Random Noise Addition} adalah mendistorsi nilai pada data dengan cara menambahkan \textit{random noise} yang diambil dari distribusi \textit{Uniform} atau \textit{Gaussian} dan memiliki rata-rata bernilai 0. Tetapi menurut penelitian yang telah dilakukan, distribusi \textit{Gaussian} lebih baik digunakan untuk teknik ini. \textit{Random noise} yang digunakan mempunyai nilai yang berbeda untuk setiap nilai pada data.
+
+		Dengan teknik \textit{Random Noise Addition}, dari data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Gambar \ref{fig:rnaalgorithm}.
+		
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.4]{rnaalgorithm}
+			\caption{Algoritma rekonstruksi}
+			\label{fig:rnaalgorithm}
+		\end{figure}
+
+		Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena distribusi lah yang terjaga oleh teknik \textit{Random Noise Addition} maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
+
+		Modifikasi pada algoritma penambangan data yang digunakan pun perlu dilakukan. Contohnya apabila algoritma pohon keputusan digunakan, maka perlu modifikasi pada algoritma pohon keputusan tersebut. Hal ini menimbulkan masalah pada aplikasi pada dunia nyata karena tidak efisien dan memakan waktu untuk memodifikasi setiap algoritma yang ingin digunakan untuk menyesuaikan dengan teknik \textit{Random Noise Addition}. Masalah mengenai algoritma yang dapat digunakan pun menjadi perhatian karena teknik \textit{Random Noise Addition} hanya bisa digunakan untuk algoritma yang bergantung pada distribusi saja sedangkan teknik randomisasi lain tidak menjaga distribusi pada data. Ada juga penelitian yang mengatakan bahwa teknik \textit{Random Noise Addition} ini mempunyai kualitas yang kurang baik dalam menjaga privasi data karena banyaknya celah yang dapat diserang pada teknik ini. Oleh karena masalah-masalah tersebut, akhirnya teknik ini pun tidak akan digunakan untuk diuji kualitas hasilnya. Teknik \textit{Random Projection Perturbation} akan digunakan untuk menggantikan teknik \textit{Random Noise Addition}.
 
 		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Rotation Perturbation}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari datasest X didefinisikan sebagai berikut.
+		{\bf Hasil :} Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari dataset X didefinisikan sebagai berikut.
 		\begin{equation}
 			G(X) = X_{n \times d} R_{d \times d}
 		\end{equation}
-		Dimana \(R_{d \times d}\) adalah \textit{random rotation othonormal matrix} yang mempunyai sifat \textit{orthonormal}, yang mana matriks \textit{orthonormal} adalah matriks yang menghasilkan matriks identitas apabila dikalikan dengan transposenya sendiri. Matriks rotasi ini dapat dibuat secara efisien mengikuti distribusi Haar. Dari definisi di atas dapat disimpulkan tranformasi rotasi tersebut menjaga jarak Euclidean.
+		Dimana \(R_{d \times d}\) adalah \textit{random rotation matrix}. \textit{Random rotation matrix} berukuran \(d\) dimensi dapat dibuat dengan cara membuat matriks \textit{special orthogonal} acak karena matriks rotasi mempunyai sifat {special orthogonal}. Matriks \textit{special orthogonal} adalah matriks yang mempunyai sifat \textit{orthogonal} dan determinannya bernilai +1, yang mana matriks \textit{orthogonal} adalah matriks yang menghasilkan matriks identitas apabila dikalikan dengan transposenya sendiri. Matriks rotasi ini dapat dibuat secara efisien mengikuti distribusi Haar. Dari definisi di atas dapat disimpulkan tranformasi rotasi tersebut menjaga jarak Euclidean.
 		
 		Teknik ini menjaga beberapa properti pada data antara lain yaitu jarak Euclidean, \textit{inner product}, dan \textit{geometric shape hyper} pada bidang multi-dimensi. Oleh karena itu, beberapa teknik penambangan data tidak berpengaruh (dapat digunakan) terhadap teknik \textit{Random Rotation Perturbation} antara lain yaitu \textit{K-Nearest Neighbors}, \textit{Support Vector Machines}, dan \textit{Perceptrons}. Teknik ini dipercaya dapat memberikan hasil penambangan yang maksimal, hasil penambangan data yang telah dirusak persis sama dengan hasil penambangan data aslinya. Sehingga jumlah informasi yang hilang tidak ada, tetapi jumlah privasi yang hilangnya tinggi. Walaupun demikian ada beberapa penelitian yang mengatakan bahwa karena teknik \textit{Random Rotation Perturbation} ini mempunyai sifat demikian sehigga teknik ini dikatakan tidak aman dan dapat diserang dengan beberapa teknik untuk mendapatkan data asli yang lengkap.
 		
 		Transformasi translasi juga perlu dilakukan agar rotasi yang dilakukan merusak data secara menyeluruh. Apabila tidak dilakukan translasi, nilai pada data yang mendekati nilai nol akan menghasilkan nilai yang mendekati nol juga setelah dirotasi. Implikasi dari hal tersebut adalah lemahnya dalam menjaga privasi. Translasi dapat dilakukan dengan cara membuat matriks translasi yang acak lalu kalikan dengan matriks data asli. Translasi dapat dilakukan karena translasi tidak mengubah properti geometris dari matriks yang ditranslasi sehingga jarak Euclidean dan properti lainnya pun terjaga dan hasil penambangan data pun tetap sama.
 
 		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Projection Perturbation}} \\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Status :} Ditambahkan untuk menggantikan teknik \textit{Random Noise Addition}.\\
 		{\bf Hasil :} Ide utama dari teknik \textit{Random Projection Perturbation} adalah mereduksi dimensi dari representasi matriks data asli dengan syarat dimensi matriks tersebut cukup besar. Dasar dari teknik \textit{Random Projection Perturbation} berdiri pada \textit{Johnson-Lindenstrauss Lemma}. 
 		\newtheorem{theorem}{Lemma}
 		\begin{theorem}[\textit{JOHNSON-LINDENSTRAUSS LEMMA}]
@@ -190,13 +207,13 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		<<TEOREMA>>
 		Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\), sedemikian rupa sehingga jarak antara dua titik tetap konsisten dengan \textit{error} yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya \textit{error} yang muncul, properti-properti pada data pun relatif sedikit berubah dan hal ini menyebabkan akurasi pada model yang dibuat dengan data tersebut berkurang dibandingkan data aslinya.
 		
-		\textit{Projection perturbation} dari datasest X didefinisikan sebagai berikut.
+		\textit{Projection perturbation} dari dataset X didefinisikan sebagai berikut.
 		\begin{equation}
 			G(X) = X_{n \times d} R_{d \times k}
 		\end{equation}
 		Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah attribut \(d\), yang mana \(d\) akan menjadi dimensi matriks. Oleh karena reduksi dimensi lah yang diinginkan maka \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
 		
-		Jika \textit{random projection matrix} yang dipakai dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi mempunyai kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
+		Jika \textit{random projection matrix} yang digunakan dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi mempunyai kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
 		
 		Menurut \textit{Johnson-Lindenstrauss Lemma}, reduksi dimensi pada matriks berdimensi tinggi minimal berdimensi \(k\), yang mana \(k\) didefinisikan sebagai berikut.
 		\begin{equation}
@@ -209,24 +226,87 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 			(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 		\end{equation}
 		Pada hasil proyeksi, jarak Euclidean antara suatu titik dengan suatu titik lainnya dapat dipastikan berada pada rentang tersebut dan tidak akan melebihi \textit{error} yang ditentukan.		
+
+		\item \textbf{Melakukan analisa terhadap \textit{privacy preserving data mining} dan metode randomisasi}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Privasi yang perlu dijaga antara lain mengenai identitas seseorang atau hal yang dapat dikaitkan terhadap identitas seseorang. Pada data yang digunakan untuk penambangan data sangat banyak sekali data privasi tersebut sehingga perlu adanya cara untuk menjaga privasi tersebut. Metode randomisasi dapat digunakan untuk menghilangkan privasi-privasi pada data tetapi masih dapat dilakukan penambangan data. Metode yang dipilih untuk diimplementasikan adalah teknik \textit{Random Rotation Perturbation} dan  \textit{Random Projection Perturbation}. Tetapi ada kekurangan pada kedua teknik tersebut. kekurangan tersebut adalah nilai setiap fitur yang ada pada data harus bersifat numerik dan kedua teknik tersebut hanya menjaga jarak Euclidean sehingga hanya teknik penambangan data yang bergantung pada jarak Euclidean saja yang dapat digunakan.
+
+		\item \textbf{Melakukan analisa terhadap teknik \textit{Random Rotation Perturbation}}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Algoritma \textit{Random Rotation Perturbation} mempunyai beberapa langkah yaitu sebagai berikut.
+		\begin{enumerate}
+			\item Dataset yang mempunyai atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+			\item Buatlah matriks translasi acak yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0, 100] berdimensi \((d+1)\times(d+1)\)
+			\item Untuk keperluan transformasi translasi, matriks dataset perlu ditambahkan sebuah kolom dengan nilai 1 pada seluruh barisnya.
+			\item Lakukan transformasi translasi dengan cara mengkalikan matriks dataset dengan matriks translasi yang telah dibuat pada langkah kedua
+			\item Oleh karena keperluan transformasi translasi, hasil translasi akan berupa matriks berdimensi \(n\times(d+1)\) dengan kolom terakhir berisi nilai 1 pada setiap barisnya. Oleh karena itu, kolom tersebut perlu dibuang agar dimensi matriks dataset kembali sesuai aslinya
+			\item Buatlah \textit{random rotation matrix} dengan membuat matriks \textit{orthogonal} acak. Matriks \textit{orthogonal} mempunyai sifat yaitu determinannya sebesar 1 dan hasil perkalian matriks tersebut dengan transposenya adalah matriks identitas
+			\item Lakukan transformasi rotasi dengan cara mengkalikan matriks dataset dengan random rotation matrix yang telah dibuat pada langkah keenam
+			\item Hasil matriks yang telah dirotasi sudah dapat langsung digunakan untuk penambangan data
+		\end{enumerate}
+
+		\item \textbf{Melakukan analisa terhadap teknik \textit{Random Projection Perturbation}}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Algoritma \textit{Random Projection Perturbation} mempunyai beberapa langkah yaitu sebagai berikut.
+		\begin{enumerate}
+			\item Dataset yang mempunyai atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+			\item Tentukan nilai \(\epsilon\) (eps) yang diinginkan dan berada pada rentang [0, 1]
+			\item Hitung nilai \(k\) (dimensi minimal) dengan rumus berikut \(k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\)
+			\item Tentukan nilai \(k\) yang diinginkan atau tentukan secara acak dengan syarat pada langkah ketiga terpenuhi dan \(k\) harus lebih kecil dari \(d\)
+			\item Buatlah matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\)
+			\item Lakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah kelima
+			\item Hasil matriks yang telah diproyeksi sudah dapat langsung digunakan untuk penambangan data
+		\end{enumerate}
+
+		\item \textbf{Melakukan analisa dan merancang diagram aktivitas perangkat lunak randomisasi}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifikasi data dengan metode randomisasi. Diagram aktivitas untuk perangkat lunak randomisasi dapat dilihat pada Gambar ~\ref{fig:activitydiagram}. Detail dari diagram aktivitas tersebut adalah sebagai berikut.
+		\begin{enumerate}
+			\item Pengguna memberikan masukan berupa dataset yang berupa file berjenis \textit{comma separated value} (CSV). File ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam file tersebut
+			\item Perangkat lunak akan membersihkan file yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
+			\item Pengguna memilih teknik randomisasi yang ingin digunakan antara \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Jika \textit{Random Projection Perturbation} yang dipiilih maka akan ada beberapa langkah yang harus dipenuhi yaitu sebagai berikut.
+			\begin{enumerate}
+				\item Pengguna memberi masukan nilai epsilon yang diinginkan
+				\item Perangkat lunak memeriksa syarat yang harus dipenuhi oleh matriks dataset dengan menghitung menggunakan algoritma tertentu. Pengecekan ini adalah pengecekan jumlah kolom pada matriks dataset apakah cukup untuk matriks tersebut direduksi dimensinya. Jika syarat terpenuhi maka langkah selanjutnya adalah perangkat lunak mengaplikasikan teknik yang dipilih
+				\item Jika syarat tidak terpenuhi maka pengguna harus memilih untuk mengganti datasetnya atau mengganti nilai epsilon
+			\end{enumerate}
+			\item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks
+			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah file CSV yang berisi dataset yang sudah diaplikasikan teknik randomisasi
+			\item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
+		\end{enumerate}
+
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.4]{activitydiagram}
+			\caption{Diagram aktivitas perangkat lunak randomisasi}
+			\label{fig:activitydiagram}
+		\end{figure}
+
+		\item \textbf{Melakukan analisa dan merancang diagram kelas perangkat lunak randomisasi}\\
+		{\bf Status :} Ada sejak rencana kerja skripsi.\\
+		{\bf Hasil :} Detail dari diagram kelas perangkat lunak randomisasi pada Gambar ~\ref{fig:classdiagram} adalah sebagai berikut.
+		\begin{itemize}
+			\item Kelas \textit{Perturbation} adalah kelas abstrak yang akan di-\textit{extend} oleh kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+			\item Kelas \textit{RandomRotationPerturbation} adalah kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation}. Kelas ini merupakan \textit{subclass} dari kelas \textit{Perturbation}
+			\item Kelas \textit{RandomProjectionPerturbation} adalah kelas yang mengimplementasikan algoritma \textit{Random Projection Perturbation}. Kelas ini merupakan \textit{subclass} dari kelas \textit{Perturbation}
+			\item Kelas \textit{Matrix} adalah kelas untuk merepresentasikan matriks dan menyimpan nilai-nilai pada setiap elemen matriks. Kelas ini juga memiliki fungsi perkalian yang akan digunakan untuk implementasi algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
+			\item Kelas \textit{RandomTranslationMatrix} adalah kelas untuk membuat matriks translasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
+			\item Kelas \textit{RandomRotationMatrix} adalah kelas untuk membuat matriks rotasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
+			\item Kelas \textit{RandomProjectionMatrix} adalah kelas untuk membuat matriks proyeksi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
+			\item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa file CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi file CSV menjadi matriks dan sebaliknya.
+		\end{itemize}
 		
+		\begin{figure}
+			\centering
+			\includegraphics[scale=0.4]{classdiagram}
+			\caption{Diagram kelas perangkat lunak randomisasi}
+			\label{fig:classdiagram}
+		\end{figure}
+
 		\item \textbf{Menulis dokumen skripsi}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Penulisan dokumen skripsi telah dilakukan sampai hasilnya sekarang sudah ada bab 1 yang berisi pendahuluan, bab 2 yang berisi dasar teori, dan bab 3 yang berisi analisis masalah. Tetapi masih belum 100\% selesai, perlu adanya proses finalisasi.
-
-		\item \textbf{Melakukan analisa dan merancang struktur data yang cocok untuk menyimpan penghalang (obstacle)}\\
-		{\bf Status :} dihapuskan/tidak dikerjakan \\
-		{\bf Hasil :} berdasarkan analisis singkat, tidak dilakukan analisis lebih jauh karena tidak diperlukan struktur data baru, karena sudah disediakan oleh OpenSteer versi terbaru
-
-		\item \textbf{Melakukan pengujian (dan eksperimen) yang melibatkan responde untuk menilai hasil simulasi secara kualitatif}\\
-		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :}
 		
-		\item \textbf{Mempelajari cara menggunakan fitur manipulasi obstacle yang disediakan oleh framework Opensteer versi terbaru}\\
-		{\bf Status :} baru ditambahkan pada semester ini\\
-		{\bf Hasil :} baru direncanakan karena framework Opensteer versi paling akhir baru selesai diinstall dan dilihat-lihat bagian contoh-contoh simulasinya
-		
-
 	\end{enumerate}
 
 \section{Pencapaian Rencana Kerja}
@@ -235,7 +315,7 @@ Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah seba
 	\item Mempelajari dasar-dasar privasi data
 	\item Mempelajari teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} untuk \textit{privacy preserving data mining}
 	\item Mempelajari teknik penambangan data yang akan digunakan
-	\item Melakukan analisis terhadap teknik <<TODO>> dan \textit{Random Rotation Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
+	\item Melakukan analisis terhadap teknik \textit{Random Noise Addition} dan \textit{Random Rotation Perturbation} serta bagaimana penerapannya dengan teknik penambangan data yang akan digunakan
 	\item Menulis dokumen skripsi
 \end{enumerate}
 
@@ -245,10 +325,11 @@ Langkah-langkah kerja yang berhasil diselesaikan dalam Skripsi 1 ini adalah seba
 %TULISKAN BAGIAN INI JIKA DOKUMEN ANDA TIPE A ATAU C
 Kendala - kendala yang dihadapi selama mengerjakan skripsi :
 \begin{itemize}
-	\item Terlalu banyak melakukan prokratinasi
-	\item Terlalu banyak godaan berupa hiburan (game, film, dll)
-	\item Skripsi diambil bersamaan dengan kuliah ASD karena selama 5 semester pertama kuliah tersebut sangat dihindari dan tidak diambil, dan selama 4 semester terakhir kuliah tersebut selalu mendapat nilai E
-	\item Mengalami kesulitan pada saat sudah mulai membuat program komputer karena selama ini selalu dibantu teman
+	\item Kesibukan lain yang menghabiskan banyak waktu seperti kuliah, kerja praktek, tugas-tugas mata kuliah lain, masalah pribadi dan hal-hal lainnya
+	\item Kesulitan dalam melakukan studi literatur dengan membaca paper yang berbahasa Inggris dan penuh dengan rumus matematika
+	\item Kesulitan dalam memahami konsep matematika yang ada pada teknik-teknik yang digunakan
+	\item Kesulitan dalam mengetahui apa saja yang perlu ada di dokumen skripsi dan apa saja analisis yang harus dilakukan
+	\item Kesulitan dalam menjaga mental untuk tetap semangat mengerjakan skripsi di kala masa-masa sulit
 \end{itemize}
 
 \vspace{1cm}

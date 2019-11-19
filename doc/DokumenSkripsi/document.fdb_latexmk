@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1574195750 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/ProgressReport/document.pdf" "document" 1574195752
+["pdflatex"] 1574195550 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/DokumenSkripsi/document.pdf" "document" 1574195553
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1574134537 34112 9cb105875b341c6d97dbc8dabac668b2 ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1566833245 25420 3796307ed3b3f83701b91f67e70474de ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1566355596 40136 5e13deb262644410ebab7be1b6bd9a4f ""
@@ -78,16 +78,13 @@
   "C:/Users/eldon/AppData/Local/Programs/MiKTeX 2.9/tex/latex/preprint/fullpage.sty" 1369148873 2867 05b418f78b224ec872f5b11081138605 ""
   "C:/Users/eldon/AppData/Local/Programs/MiKTeX 2.9/tex/latex/setspace/setspace.sty" 1324294077 22913 a27d7908fc6f0385466454a966a316eb ""
   "activitydiagram.jpg" 1574189666 129150 9a91fd6cbe1812caea101c1aab6b7bb2 ""
-  "c:/Projects/Skripsi/doc/ProgressReport/document.aux" 1574195752 1520 47bc1bc4945992023812ce31c5b0786a ""
-  "c:/Projects/Skripsi/doc/ProgressReport/document.tex" 1574195749 43581 4537e6cc77ee0a6d86c1d4e9a9be62d5 ""
+  "c:/Projects/Skripsi/doc/DokumenSkripsi/document.aux" 1574195553 1520 47bc1bc4945992023812ce31c5b0786a "pdflatex"
+  "c:/Projects/Skripsi/doc/ProgressReport/document.tex" 1574195548 43416 f973c1c21d2daf03d2650c243ceba80c ""
   "classdiagram.jpg" 1574184328 208818 3d649ea0e45a88f58cb726eee2dd4417 ""
-  "document.aux" 1574195752 1520 47bc1bc4945992023812ce31c5b0786a "pdflatex"
-  "document.tex" 1574195749 43581 4537e6cc77ee0a6d86c1d4e9a9be62d5 ""
+  "document.tex" 1574195548 43416 f973c1c21d2daf03d2650c243ceba80c ""
   "ppdm.jpg" 1571388327 93589 2edb376dd356a5c89039f33cd9a9dde7 ""
   "rnaalgorithm.png" 1574180767 21289 19cafe37ca5bf19a70c42f2077ed41a1 ""
   (generated)
-  "c:/Projects/Skripsi/doc/ProgressReport/document.log"
-  "document.log"
-  "document.pdf"
-  "c:/Projects/Skripsi/doc/ProgressReport/document.pdf"
-  "document.aux"
+  "c:/Projects/Skripsi/doc/DokumenSkripsi/document.aux"
+  "c:/Projects/Skripsi/doc/DokumenSkripsi/document.pdf"
+  "c:/Projects/Skripsi/doc/DokumenSkripsi/document.log"
