@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1574620320 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/ProgressReport/document.pdf" "document" 1574620411
+["pdflatex"] 1574620909 "c:/Projects/Skripsi/doc/ProgressReport/document.tex" "c:/Projects/Skripsi/doc/ProgressReport/document.pdf" "document" 1574620916
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbi1000.pk" 1574134537 34112 9cb105875b341c6d97dbc8dabac668b2 ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1000.pk" 1566833245 25420 3796307ed3b3f83701b91f67e70474de ""
   "C:/Users/eldon/AppData/Local/MiKTeX/2.9/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1440.pk" 1566355596 40136 5e13deb262644410ebab7be1b6bd9a4f ""
@@ -86,16 +86,16 @@
   "C:/Users/eldon/AppData/Local/Programs/MiKTeX 2.9/tex/latex/preprint/fullpage.sty" 1369148873 2867 05b418f78b224ec872f5b11081138605 ""
   "C:/Users/eldon/AppData/Local/Programs/MiKTeX 2.9/tex/latex/setspace/setspace.sty" 1324294077 22913 a27d7908fc6f0385466454a966a316eb ""
   "activitydiagram.jpg" 1574189666 129150 9a91fd6cbe1812caea101c1aab6b7bb2 ""
-  "c:/Projects/Skripsi/doc/ProgressReport/document.aux" 1574620322 1725 d42c27410f4a99efab0ddcc7da14cbac ""
-  "c:/Projects/Skripsi/doc/ProgressReport/document.tex" 1574620319 60233 ccb36e2788dc2c9c0347045b472da245 ""
+  "c:/Projects/Skripsi/doc/ProgressReport/document.aux" 1574620911 1725 d42c27410f4a99efab0ddcc7da14cbac ""
+  "c:/Projects/Skripsi/doc/ProgressReport/document.tex" 1574620909 60233 e4da6cd8b38478ec9baf0f7e04a06022 ""
   "classdiagram.jpg" 1574184328 208818 3d649ea0e45a88f58cb726eee2dd4417 ""
-  "document.aux" 1574620322 1725 d42c27410f4a99efab0ddcc7da14cbac "pdflatex"
-  "document.tex" 1574620319 60233 ccb36e2788dc2c9c0347045b472da245 ""
+  "document.aux" 1574620911 1725 d42c27410f4a99efab0ddcc7da14cbac "pdflatex"
+  "document.tex" 1574620909 60233 e4da6cd8b38478ec9baf0f7e04a06022 ""
   "ppdm.jpg" 1571388327 93589 2edb376dd356a5c89039f33cd9a9dde7 ""
   "rnaalgorithm.png" 1574180767 21289 19cafe37ca5bf19a70c42f2077ed41a1 ""
   (generated)
+  "document.pdf"
+  "c:/Projects/Skripsi/doc/ProgressReport/document.log"
   "c:/Projects/Skripsi/doc/ProgressReport/document.pdf"
   "document.aux"
-  "document.pdf"
   "document.log"
-  "c:/Projects/Skripsi/doc/ProgressReport/document.log"
