@@ -327,7 +327,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				4.4		&		2.9		&		1.4		&		0.2 
 				\end{bmatrix}_{9\times 4}
 			\]
-			\item Buatlah matriks translasi diambil mengikuti distribusi uniform dengan rentang [0,100] dengan dimensi sesuai dimensi matriks dataset
+			\item Membuat matriks translasi yang diambil mengikuti distribusi uniform dengan rentang [0,100] dengan dimensi sesuai dimensi matriks dataset
 			\[
 				\begin{bmatrix}
 					1				&		0				&		0				&		0			&		0 \\
@@ -337,7 +337,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					71.35281261		&		93.96479736		&		77.16763568		&		27.88189356 &		1 \\
 				\end{bmatrix}_{5\times 5}
 			\]
-			\item Untuk keperluan translasi, matriks dataset perlu ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya
+			\item Untuk keperluan translasi, matriks dataset ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya
 			\[
 				\begin{bmatrix}
 					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
@@ -351,7 +351,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					4.4		&		2.9		&		1.4		&		0.2		&		1
 				\end{bmatrix}_{9\times 5}
 			\]
-			\item Lakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks translasi
+			\item Dilakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks translasi
 			\[
 				\begin{bmatrix}
 					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
@@ -387,16 +387,16 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					75.75281261  & 96.86479736 &  78.56763568 &  28.08189356 & 1 \\
 				\end{bmatrix}_{9\times 5}
 			\]
-			\item Berikutnya buatlah matriks rotasi dengan cara membuat matriks spesial orthogonal. Matriks rotasi berikut dibuat dengan \textit{library} Scipy pada bahasa pemograman Python
+			\item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial orthogonal yang berdimensi sesuai dimensi matriks dataset. Matriks rotasi berikut dibuat dengan \textit{library} Scipy pada bahasa pemograman Python
 			\[
 				\begin{bmatrix}
 					-0.45126938		&		-0.70425922		&		 0.32389616		&		0.44211556 \\
 					-0.43989334		&		 0.70728617		&		 0.39249528		&		0.39011226 \\
 					-0.17797534		&		 0.06110969		&		-0.83056872		&		0.52416218 \\
 					 0.75576092		&		 0.00555185		&		 0.22626167		&		0.61449187 \\
-				\end{bmatrix}
+				\end{bmatrix}_{4\times 4}
 			\]
-			\item Lakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks rotasi
+			\item Dilakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks rotasi
 			\item Berikut adalah hasil rotasi pada matriks dataset. Hasil teknik \textit{Random Rotation Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
 			\[
 				\begin{bmatrix}
@@ -409,14 +409,84 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				-69.78963253 &   20.33201179  &   3.93670924 &  130.06284949 \\
 				-70.06351391 &   20.05586388   &  3.96058467 &  130.23066274 \\
 				-69.55500808  &  20.11866536  &   3.65305621  & 129.71792106 \\
-				\end{bmatrix}
+				\end{bmatrix}_{9\times 4}
 			\]
 		\end{enumerate} 
 
 		\item \textbf{Melakukan studi kasus terhadap teknik \textit{Random Projection Perturbation}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Projection Perturbation}, studi kasus dilakukan pada dataset \textit{iris}, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai hanya sebagian kecil saja dari seluruh data pada dataset \textit{iris}. Data tersebut dapat dilihat pada tabel~\ref{table:iris_table}. Dataset \textit{iris} adalah dataset yang berisi data tentang korelasi antara ukuran bunga dengan spesiesnya. Dataset ini mempunyai empat buah fitur dan satu label. Fitur-fitur pada dataset \textit{iris} adalah kolom \textit{sepal\textunderscore length}, \textit{sepal\textunderscore width}, \textit{petal\textunderscore length}, dan \textit{petal\textunderscore width}. Label pada dataset \textit{iris} adalah kolom \textit{species}
+		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Projection Perturbation}, studi kasus dilakukan pada dataset \textit{iris}. Teknik \textit{Random Projection Perturbation} mempunyai persyaratan pada dataset agar teknik ini menghasilkan hasil yang baik yaitu dataset tersebut harus mempunyai dimensi yang cukup besar. Sebetulnya dataset \textit{iris} tersebut tidak memenuhi persyaratan untuk mendapatkan hasil yang baik, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai adalah dataset \textit{iris} yang memiliki dimensi yang kecil dan hanya sebagian kecil saja data yang dipakai. Data tersebut dapat dilihat pada tabel~\ref{table:iris_table}. Dalam menghitung nilai \(k\) juga, pada studi kasus ini menggunakan jumlah rekord dan attribut yang tidak sesuai dengan dataset \textit{iris} untuk keperluan kemudahan dalam melakukan studi kasus dan juga agar memenuhi persyaratan teknik \textit{Random Projection Perturbation}. Jumlah rekordnya adalah 1000 dan jumlah attributnya adalah 500.
 
+		Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diaplikasikan pada dataset \textit{iris} pada tabel~\ref{table:iris_table}.
+		\begin{enumerate}
+			\item Fitur-fitur pada dataset tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
+			\[
+				\begin{bmatrix}
+				5.1		&		3.5		&		1.4		&		0.2	\\
+				4.9		&		3		&		1.4		&		0.2	\\
+				4.7		&		3.2		&		1.3		&		0.2	\\
+				4.6		&		3.1		&		1.5		&		0.2	\\
+				5		&		3.6		&		1.4		&		0.2	\\
+				5.4		&		3.9		&		1.7		&		0.4	\\
+				4.6		&		3.4		&		1.4		&		0.3	\\
+				5		&		3.4		&		1.5		&		0.2	\\
+				4.4		&		2.9		&		1.4		&		0.2 
+				\end{bmatrix}_{9\times 4}
+			\]
+			\item Ditentukan nilai \(\epsilon\) (eps) yang diinginkan adalah 0.5
+			\item Nilai \(k\) (dimensi minimal) dihitung dengan rumus berikut
+			\begin{align*}
+				k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
+				&= \frac{4\ln{1000}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
+				&= \frac{27.63}{0.125-0.041666} \\
+				&= 331.57
+			\end{align*}
+			\item Nilai \(k\) dipilih sesuai keinginan, dalam kasus ini dipilih nilai \(k\) sebesar 332
+			\item Membuat matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\). Untuk keperluan kemudahan dalam melakukan studi kasus, dataset \textit{iris} akan direduksi dimensinya menjadi 3 dimensi
+			\[
+				\begin{bmatrix}
+				0.11483014 &  -0.10167359  &  0.06652355 \\
+				0.0638684 &   -0.1499892   &  0.10146435 \\
+				-0.10429573 &   0.03839861 &   0.04955419 \\
+				-0.0315941  &  -0.06905021  & -0.17782438 \\
+				\end{bmatrix}_{4\times 3}
+			\]
+			\item Dilakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya
+			\[
+				\begin{bmatrix}
+				5.1		&		3.5		&		1.4		&		0.2	\\
+				4.9		&		3		&		1.4		&		0.2	\\
+				4.7		&		3.2		&		1.3		&		0.2	\\
+				4.6		&		3.1		&		1.5		&		0.2	\\
+				5		&		3.6		&		1.4		&		0.2	\\
+				5.4		&		3.9		&		1.7		&		0.4	\\
+				4.6		&		3.4		&		1.4		&		0.3	\\
+				5		&		3.4		&		1.5		&		0.2	\\
+				4.4		&		2.9		&		1.4		&		0.2 
+				\end{bmatrix}
+				\times
+				\begin{bmatrix}
+				0.11483014 &  -0.10167359  &  0.06652355 \\
+				0.0638684 &   -0.1499892   &  0.10146435 \\
+				-0.10429573 &   0.03839861 &   0.04955419 \\
+				-0.0315941  &  -0.06905021  & -0.17782438 \\
+				\end{bmatrix}
+			\]
+			\item Berikut adalah hasil matriks yang telah diproyeksi. Hasil dari teknik \textit{Random Projection Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
+			\[
+				\begin{bmatrix}
+				0.65684027 &  -1.0035495   &  0.72820632 \\
+				0.60194004 &  -0.90822018  &  0.66416944 \\
+				0.60217727  & -0.92172316  &  0.66620218 \\
+				0.56344827 &  -0.88887716  &  0.65931422 \\
+				0.6517441   & -1.00838106  &  0.7317004  \\
+				0.67922914  & -1.09633771  &  0.76805051 \\
+				0.58987895  & -0.9446188   &  0.66701567 \\
+				0.62854085  & -0.97454336  &  0.71636295 \\
+				0.53813813  & -0.84238446  &  0.62076123 \\
+				\end{bmatrix}_{9\times 3}
+			\]
+		\end{enumerate}
 
 		\item \textbf{Melakukan analisis dan merancang diagram aktivitas perangkat lunak randomisasi}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\

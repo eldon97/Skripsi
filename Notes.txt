@@ -16,3 +16,7 @@ ________________________________________________________________________________
 kendala:
 - kesibukan dengan tugas, kerja praktek dan hal2 lain
 - kurang mahir dalam matematika
+________________________________________________________________________________
+24 November 2019
+
+- update gitignore
