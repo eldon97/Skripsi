@@ -306,16 +306,6 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplotmarks.code.tex
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\relsize\relsize.sty
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\relsize\relsize.sty
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\skripsi.aux
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab1.aux
@@ -384,10 +374,6 @@ INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab2.tex
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmr12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx12.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbxi10.tfm
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbxi10.tfm
-INPUT Gambar\ppdm.jpg
-INPUT .\Gambar\ppdm.jpg
-INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\rm-lmr10.tfm
@@ -417,6 +403,10 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-ms
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbxi10.tfm
+INPUT Gambar\ppdm.jpg
+INPUT .\Gambar\ppdm.jpg
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmri10.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\lm\ec-lmbx10.tfm
 INPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.tex
 OUTPUT c:\Projects\Skripsi\doc\DokumenSkripsi\Bab\bab3.aux

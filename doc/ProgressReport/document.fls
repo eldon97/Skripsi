@@ -67,6 +67,16 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xpar
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lipsum\lipsum.ltd.tex
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lipsum\lipsum.ltd.tex
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty
@@ -122,6 +132,8 @@ INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\ecs
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\ecbl1000.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\ecxc1000.tfm
 INPUT C:\Users\eldon\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\ecbi1000.tfm
 INPUT c:\Projects\Skripsi\doc\ProgressReport\rnaalgorithm.png
 INPUT c:\Projects\Skripsi\doc\ProgressReport\rnaalgorithm.png
@@ -157,6 +169,8 @@ INPUT C:\Users\eldon\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 INPUT C:\Users\eldon\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecrm1000.pk
 INPUT C:\Users\eldon\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1000.pk
 INPUT C:\Users\eldon\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\ecxc1000.pk
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi10.pfb
 INPUT C:\Users\eldon\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmmi7.pfb
