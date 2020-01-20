@@ -20,3 +20,7 @@ ________________________________________________________________________________
 24 November 2019
 
 - update gitignore
+________________________________________________________________________________
+2 December 2019
+
+- [diagram kelas]apakah seharusnya constructor pada kelas random translation, rotation, projection mempunyai kolom dimensi saja? bukan number of rows, columns..
