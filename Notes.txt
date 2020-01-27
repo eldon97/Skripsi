@@ -1,26 +1,0 @@
-1 September 2019
-
-- Ada macam-macam teknik dan algoritma yang bertujuan modikasi data -> Ada macam-macam teknik dan algoritma modikasi data
-- Perangkat lunak dapat melakukan modikasi data mentah yang dimasukkan -> Perangkat lunak dapat melakukan modikasi pada data mentah yang dimasukkan
-- ambil gambar ppdm dengan resolusi tinggi atau copy latexny dari papernya
-________________________________________________________________________________
-5 September 2019
-
-- Randomness may not necessarily imply uncertainty.
-Random events can often be analyzed and their properties can be explained using probabilistic frameworks.
-________________________________________________________________________________
-19 November 2019
-
-- tambahkan random noise addition di dokumen bab 3 analisis dan progress report
-
-kendala:
-- kesibukan dengan tugas, kerja praktek dan hal2 lain
-- kurang mahir dalam matematika
-________________________________________________________________________________
-24 November 2019
-
-- update gitignore
-________________________________________________________________________________
-2 December 2019
-
-- [diagram kelas]apakah seharusnya constructor pada kelas random translation, rotation, projection mempunyai kolom dimensi saja? bukan number of rows, columns..
