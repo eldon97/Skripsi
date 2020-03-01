@@ -277,6 +277,13 @@ Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifi
 \subsection{Diagram Kelas}
 \label{sec:diagram-kelas}
 
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.4]{classdiagram}
+    \caption{Diagram kelas perangkat lunak randomisasi}
+    \label{fig:classdiagram}
+\end{figure}
+
 Perancangan diagram kelas didasarkan pada analisis terhadap algoritma yang ingin diimplementasikan yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}, serta berdasarkan pada diagram aktivitas yang telah dibuat, dan dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua algoritma randomisasi yang ingin diimplementasikan. Detail dari diagram kelas perangkat lunak randomisasi pada Gambar~\ref{fig:classdiagram} adalah sebagai berikut.
 \begin{itemize}
     \item Kelas \textit{Perturbation} adalah kelas abstrak yang akan di-\textit{extend} oleh kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
@@ -288,10 +295,3 @@ Perancangan diagram kelas didasarkan pada analisis terhadap algoritma yang ingin
     \item Kelas \textit{RandomProjectionMatrix} adalah kelas untuk membuat matriks proyeksi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
     \item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa file CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi file CSV menjadi matriks dan sebaliknya.
 \end{itemize}
-
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.4]{classdiagram}
-    \caption{Diagram kelas perangkat lunak randomisasi}
-    \label{fig:classdiagram}
-\end{figure}

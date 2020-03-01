@@ -124,12 +124,12 @@ Pada penelitian ini, masukan perangkat lunak yang dimaksud adalah dataset yang a
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.4]{perturbationclassdiagram}
-	\caption{Diagram kelas pada \textit{package} perturbation}
+	\includegraphics[scale=0.39]{perturbationclassdiagram}
+	\caption{Diagram kelas pada \textit{package Perturbation}}
 	\label{fig:perturbationclassdiagram}
 \end{figure}
 
-\textit{Package Perturbation} memiliki tiga buah kelas yang bertujuan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Ketiga kelas tersebut adalah \textit{Perturbation}, \textit{RandomRotationPerturbation}, dan \textit{RandomProjectionPerturbation} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Perturbation} dapat dilihat pada Gambar~\ref{fig:perturbationclassdiagram}
+\textit{Package Perturbation} memiliki tiga buah kelas yang bertujuan untuk mengimplementasikan algoritma teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Ketiga kelas tersebut adalah \textit{Perturbation}, \textit{RandomRotationPerturbation}, dan \textit{RandomProjectionPerturbation} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Perturbation} dapat dilihat pada Gambar~\ref{fig:perturbationclassdiagram}.
 
 \subsubsection{Kelas \textit{Perturbation}}
 \label{subsubsec:kelas-perturbation}
@@ -144,17 +144,17 @@ Berikut adalah deskripsi setiap atribut pada kelas \textit{Perturbation}.
 
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{Perturbation}.
 \begin{itemize}
-	\item \textit{Perturbation} adalah \textit{constructor} dari kelas \textit{Perturbation}. Tujuan utama fungsi ini adalah mendefinisikan atribut-atribut yang ada. Fungsi ini memiliki sebuah \textit{parameter} yang dinamakan \textit{dataset} yang bertipe data \textit{Matrix} dan berfungsi untuk mendefinisikan atribut \textit{dataset}.
-	\item \textit{getOriginalDataset} adalah fungsi untuk mendapatkan dataset asli yang belum dirandomisasi atau dengan kata lain mendapatkan atribut \textit{dataset}. Fungsi ini tidak memiliki \textit{parameter} apapun dan mempunyai tipe data kembalian berupa \textit{Matrix}.
+	\item \textit{Perturbation} adalah \textit{constructor} dari kelas \textit{Perturbation}. Tujuan utama fungsi ini adalah mendefinisikan atribut-atribut yang ada. Fungsi ini memiliki sebuah masukan yang dinamakan \textit{dataset} yang bertipe data \textit{Matrix} dan berfungsi untuk mendefinisikan atribut \textit{dataset}.
+	\item \textit{getOriginalDataset} adalah fungsi untuk mendapatkan dataset asli yang belum dirandomisasi atau dengan kata lain mendapatkan atribut \textit{dataset}. Fungsi ini tidak memiliki masukan apapun dan mempunyai tipe data kembalian berupa \textit{Matrix}.
 	\item \textit{getPerturbedDataset} adalah fungsi untuk mendapatkan hasil dari dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{perturbedDataset}. Fungsi ini tidak memiliki parameter apapun. Tipe data kembalian pada fungsi ini berupa \textit{Matrix}.
-	\item \textit{setDataset} adalah fungsi untuk mendefinisikan ulang atribut \textit{dataset} dengan dataset yang baru. Fungsi ini memiliki sebuah \textit{parameter} yang dinamakan \textit{dataset} yang bertipe data \textit{Matrix} dan berfungsi untuk mendefinisikan atribut \textit{dataset}. Tidak ada kembalian pada fungsi ini.
-	\item \textit{perturbDataset} adalah fungsi untuk melakukan randomisasi pada atribut \textit{dataset} dan menyimpan hasilnya pada atribut \textit{perturbedDataset}. Fungsi ini bersifat abstrak yang berarti fungsi ini belum didefinisikan sehingga fungsi ini harus didefinisikan pada setiap kelas turunannya. Tidak ada kembalian ataupun \textit{parameter} pada fungsi ini.
+	\item \textit{setDataset} adalah fungsi untuk mendefinisikan ulang atribut \textit{dataset} dengan dataset yang baru. Fungsi ini memiliki sebuah masukan yang dinamakan \textit{dataset} yang bertipe data \textit{Matrix} dan berfungsi untuk mendefinisikan atribut \textit{dataset}. Tidak ada kembalian pada fungsi ini.
+	\item \textit{perturbDataset} adalah fungsi untuk melakukan randomisasi pada atribut \textit{dataset} dan menyimpan hasilnya pada atribut \textit{perturbedDataset}. Fungsi ini bersifat abstrak yang berarti fungsi ini belum didefinisikan sehingga fungsi ini harus didefinisikan pada setiap kelas turunannya. Tidak ada kembalian ataupun masukan pada fungsi ini.
 \end{itemize}
 
 \subsubsection{Kelas \textit{RandomRotationPerturbation}}
 \label{subsubsec:kelas-rrp}
 
-Kelas \textit{RandomRotationPerturbation} adalah kelas yang mempunyai tujuan utama melakukan randomisasi dengan teknik \textit{Random Rotation Perturbation} pada dataset yang menjadi masukan perangkat lunak. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation} sehingga kelas inipun mewarisi semua atribut dan fungsi yang dimiliki oleh kelas \textit{Perturbation}. Oleh karena itu, fungsi \textit{perturbDataset} yang diturunkan dari kelas \textit{Perturbation} harus didefinisikan oleh kelas \textit{RandomRotationPerturbation}. Kelas ini akan mengimplementasikan algoritma dari teknik \textit{Random Rotation Perturbation} untuk melakukan randomisasi pada fungsi \textit{perturbDataset}.
+Kelas \textit{RandomRotationPerturbation} adalah kelas yang mempunyai tujuan utama melakukan randomisasi dengan teknik \textit{Random Rotation Perturbation} pada dataset yang menjadi masukan perangkat lunak. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation} sehingga kelas inipun mewarisi semua atribut dan fungsi yang dimiliki oleh kelas \textit{Perturbation}. Oleh karena itu, fungsi \textit{perturbDataset} yang diturunkan dari kelas \textit{Perturbation} harus didefinisikan oleh kelas \textit{RandomRotationPerturbation}. Kelas ini akan mengimplementasikan algoritma dari teknik \textit{Random Rotation Perturbation} untuk melakukan randomisasi pada fungsi \textit{perturbDataset}. Selanjutnya akan dijelaskan secara rinci tiap atribut dan fungsi pada kelas ini.
 
 Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomRotationPerturbation}.
 \begin{itemize}
@@ -165,17 +165,17 @@ Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomRotationPerturb
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationPerturbation}.
 \begin{itemize}
 	\item \textit{RandomRotationPerturbation} adalah \textit{constructor} untuk mendefinisikan atribut-atribut yang ada dan memanggil \textit{constructor} dari kelas \textit{super} milik kelas \textit{RandomRotationPerturbation} yaitu \textit{Perturbation}. Tujuan utama fungsi ini adalah memanggil \textit{constructor} dari kelas \textit{super} yaitu \textit{Perturbation} sehingga fungsi ini berguna untuk mendefinisikan atribut \textit{dataset}. Selain itu, fungsi ini juga akan mendefinisikan atribut \textit{randomTranslationMatrix} dan \textit{randomRotationMatrix}.
-	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomRotationPerturbation} diimplementasikan algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Rotation Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
-	\item \textit{getRandomTranslationMatrix} adalah fungsi untuk mendapatkan matriks translasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomTranslationMatrix}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa matriks translasi yang bertipe data \textit{RandomTranslationMatrix}.
-	\item \textit{generateRandomTranslationMatrix} adalah fungsi untuk membuat matriks translasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks translasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomTranslationMatrix}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
-	\item \textit{getRandomRotationMatrix} adalah fungsi untuk mendapatkan matriks rotasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomRotationMatrix}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa matriks rotasi yang bertipe data \textit{RandomRotationMatrix}.
-	\item \textit{generateRandomRotationMatrix} adalah fungsi untuk membuat matriks rotasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks rotasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomRotationMatrix}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
+	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomRotationPerturbation} diimplementasikan algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Rotation Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada masukan pada fungsi ini tetapi memiliki kembalian berupa \textit{boolean} yang menyatakan apakah randomisasi berhasil dilakukan.
+	\item \textit{getRandomTranslationMatrix} adalah fungsi untuk mendapatkan matriks translasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomTranslationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks translasi yang bertipe data \textit{RandomTranslationMatrix}.
+	\item \textit{generateRandomTranslationMatrix} adalah fungsi untuk membuat matriks translasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks translasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomTranslationMatrix}. Tidak ada masukan ataupun kembalian pada fungsi ini.
+	\item \textit{getRandomRotationMatrix} adalah fungsi untuk mendapatkan matriks rotasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomRotationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks rotasi yang bertipe data \textit{RandomRotationMatrix}.
+	\item \textit{generateRandomRotationMatrix} adalah fungsi untuk membuat matriks rotasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks rotasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomRotationMatrix}. Tidak ada masukan ataupun kembalian pada fungsi ini.
 \end{itemize}
 
 \subsubsection{Kelas \textit{RandomProjectionPerturbation}}
 \label{subsubsec:kelas-rpp}
 
-Kelas \textit{RandomProjectionPerturbation} adalah kelas yang mempunyai tujuan utama melakukan randomisasi dengan teknik \textit{Random Projection Perturbation} pada dataset yang menjadi masukan perangkat lunak. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation} sehingga kelas inipun mewarisi semua atribut dan fungsi yang dimiliki oleh kelas \textit{Perturbation}. Oleh karena itu, fungsi \textit{perturbDataset} yang diturunkan dari kelas \textit{Perturbation} harus didefinisikan oleh kelas \textit{RandomProjectionPerturbation}. Kelas ini akan mengimplementasikan algoritma dari teknik \textit{Random Projection Perturbation} untuk melakukan randomisasi pada fungsi \textit{perturbDataset}.
+Kelas \textit{RandomProjectionPerturbation} adalah kelas yang mempunyai tujuan utama melakukan randomisasi dengan teknik \textit{Random Projection Perturbation} pada dataset yang menjadi masukan perangkat lunak. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation} sehingga kelas inipun mewarisi semua atribut dan fungsi yang dimiliki oleh kelas \textit{Perturbation}. Oleh karena itu, fungsi \textit{perturbDataset} yang diturunkan dari kelas \textit{Perturbation} harus didefinisikan oleh kelas \textit{RandomProjectionPerturbation}. Kelas ini akan mengimplementasikan algoritma dari teknik \textit{Random Projection Perturbation} untuk melakukan randomisasi pada fungsi \textit{perturbDataset}. Selanjutnya akan dijelaskan secara rinci tiap atribut dan fungsi pada kelas ini.
 
 Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomProjectionPerturbation}.
 \begin{itemize}
@@ -188,14 +188,108 @@ Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomProjectionPertu
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomProjectionPerturbation}.
 \begin{itemize}
 	\item \textit{RandomProjectionPerturbation} adalah \textit{constructor} untuk mendefinisikan atribut-atribut yang ada dan memanggil \textit{constructor} dari kelas \textit{super} milik kelas \textit{RandomProjectionPerturbation} yaitu \textit{Perturbation}. Tujuan utama fungsi ini adalah memanggil \textit{constructor} dari kelas \textit{super} yaitu \textit{Perturbation} sehingga fungsi ini berguna untuk mendefinisikan atribut \textit{dataset}. Selain itu, fungsi ini juga akan mendefinisikan atribut \textit{epsilon}, \textit{k}, \textit{randomProjectionMatrix}, dan \textit{dimensionTarget}.
-	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomProjectionPerturbation} diimplementasikan algoritma teknik \textit{Random Projection Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Projection Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
-	\item \textit{getEpsilon} adalah fungsi untuk mendapatkan nilai batas maksimal distorsi yang dapat terjadi pada hasil randomisasi atau dengan kata lain mendapatkan atribut \textit{epsilon}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{epsilon} yang bertipe data \textit{float}, bilangan riil.
-	\item \textit{setEpsilon} adalah fungsi untuk mengubah nilai dari atribut \textit{epsilon} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setEpsilon} memiliki sebuah \textit{parameter} \textit{epsilon} yang bertipe data \textit{float}, bilangan riil dan berfungsi untuk mendefinisikan atribut \textit{epsilon}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{epsilon}. Tidak ada kembalian pada fungsi ini.
-	\item \textit{getK} adalah fungsi untuk mendapatkan besar dimensi minimal hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{k}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{k} yang bertipe data \textit{double}, bilangan riil.
-	\item \textit{calculateK} adalah fungsi untuk menghitung nilai \textit{k} sesuai dengan atribut \textit{epsilon} dan jumlah baris pada dataset yang ingin dirandomisasi. Fungsi ini akan menghitung nilai \textit{k} tersebut dan menyimpan hasilnya pada atribut \textit{k}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
-	\item \textit{checkMinDim} adalah fungsi untuk memeriksa apakah dimensi dari \textit{dataset} yang ingin dirandomisasi lebih besar dari nilai \textit{k}, besar dimensi minimal. Selain itu, fungsi ini memeriksa apakah nilai \textit{dimensionTarget} lebih besar dari atau sama dengan nilai \textit{k}. Intinya fungsi ini menguji apakah dataset dan keinginan pengguna memenuhi syarat untuk mengaplikasikan teknik \textit{Random Projection Perturbation}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa sebuah \textit{boolean} yang menandakan apakah \textit{dataset} dan \textit{dimensionTarget} yang diberikan oleh pengguna memenuhi syarat untuk mengaplikasikan teknik \textit{Random Projection Perturbation} dengan \textit{dataset} dan \textit{dimensionTarget} tersebut.
-	\item \textit{getRandomProjectionMatrix} adalah fungsi untuk mendapatkan matriks proyeksi yang digunakan untuk implementasi algoritma teknik \textit{Random Projection Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomProjectionMatrix}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa matriks proyeksi yang bertipe data \textit{RandomProjectionMatrix}.
-	\item \textit{generateRandomProjectionMatrix} adalah fungsi untuk membuat matriks proyeksi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Projection Perturbation}. Fungsi ini akan membuat matriks proyeksi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomProjectionMatrix}. Tidak ada \textit{parameter} ataupun kembalian pada fungsi ini.
-	\item \textit{setDimensionTarget} adalah fungsi untuk mengubah nilai dari atribut \textit{dimensionTarget} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setDimensionTarget} memiliki sebuah \textit{parameter} \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat dan berfungsi untuk mendefinisikan atribut \textit{dimensionTarget}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{dimensionTarget}. Tidak ada kembalian pada fungsi ini.
-	\item \textit{getDimensionTarget} adalah fungsi untuk mendapatkan besar dimensi akhir yang diinginkan pengguna dimiliki oleh hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{dimensionTarget}. Fungsi ini tidak memiliki \textit{parameter} apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat.
+	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomProjectionPerturbation} diimplementasikan algoritma teknik \textit{Random Projection Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Projection Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada masukan pada fungsi ini tetapi memiliki kembalian berupa \textit{boolean} yang menyatakan apakah randomisasi berhasil dilakukan.
+	\item \textit{getEpsilon} adalah fungsi untuk mendapatkan nilai batas maksimal distorsi yang dapat terjadi pada hasil randomisasi atau dengan kata lain mendapatkan atribut \textit{epsilon}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{epsilon} yang bertipe data \textit{float}, bilangan riil.
+	\item \textit{setEpsilon} adalah fungsi untuk mengubah nilai dari atribut \textit{epsilon} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setEpsilon} memiliki sebuah masukan \textit{epsilon} yang bertipe data \textit{float}, bilangan riil dan berfungsi untuk mendefinisikan atribut \textit{epsilon}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{epsilon}. Tidak ada kembalian pada fungsi ini.
+	\item \textit{getK} adalah fungsi untuk mendapatkan besar dimensi minimal hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{k}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{k} yang bertipe data \textit{double}, bilangan riil.
+	\item \textit{calculateK} adalah fungsi untuk menghitung nilai \textit{k} sesuai dengan atribut \textit{epsilon} dan jumlah baris pada dataset yang ingin dirandomisasi. Fungsi ini akan menghitung nilai \textit{k} tersebut dan menyimpan hasilnya pada atribut \textit{k}. Tidak ada masukan ataupun kembalian pada fungsi ini.
+	\item \textit{checkMinDim} adalah fungsi untuk memeriksa apakah dimensi dari \textit{dataset} yang ingin dirandomisasi lebih besar dari nilai \textit{k}, besar dimensi minimal. Selain itu, fungsi ini memeriksa apakah nilai \textit{dimensionTarget} lebih besar dari atau sama dengan nilai \textit{k}. Intinya fungsi ini menguji apakah dataset dan keinginan pengguna memenuhi syarat untuk mengaplikasikan teknik \textit{Random Projection Perturbation}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa sebuah \textit{boolean} yang menandakan apakah \textit{dataset} dan \textit{dimensionTarget} yang diberikan oleh pengguna memenuhi syarat untuk mengaplikasikan teknik \textit{Random Projection Perturbation} dengan \textit{dataset} dan \textit{dimensionTarget} tersebut.
+	\item \textit{getRandomProjectionMatrix} adalah fungsi untuk mendapatkan matriks proyeksi yang digunakan untuk implementasi algoritma teknik \textit{Random Projection Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomProjectionMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks proyeksi yang bertipe data \textit{RandomProjectionMatrix}.
+	\item \textit{generateRandomProjectionMatrix} adalah fungsi untuk membuat matriks proyeksi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Projection Perturbation}. Fungsi ini akan membuat matriks proyeksi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomProjectionMatrix}. Tidak ada masukan ataupun kembalian pada fungsi ini.
+	\item \textit{setDimensionTarget} adalah fungsi untuk mengubah nilai dari atribut \textit{dimensionTarget} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setDimensionTarget} memiliki sebuah masukan \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat dan berfungsi untuk mendefinisikan atribut \textit{dimensionTarget}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{dimensionTarget}. Tidak ada kembalian pada fungsi ini.
+	\item \textit{getDimensionTarget} adalah fungsi untuk mendapatkan besar dimensi akhir yang diinginkan pengguna dimiliki oleh hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{dimensionTarget}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat.
+\end{itemize}
+
+\subsection{Diagram Kelas pada \textit{Package Matrix}}
+\label{sec:diagram-kelas-matrix}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.425]{matrixclassdiagram}
+	\caption{Diagram kelas pada \textit{package Matrix}}
+	\label{fig:matrixclassdiagram}
+\end{figure}
+
+\textit{Package Matrix} memiliki empat buah kelas yang bertujuan untuk menangani segala jenis fungsi yang berkaitan dengan matriks maupun pembuatan matriks yang khusus digunakan untuk implementasi algoritma. Keempat kelas tersebut adalah \textit{Matrix}, \textit{RandomTranslationMatrix}, \textit{RandomRotationMatrix}, dan \textit{RandomProjectionMatrix} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Matrix} dapat dilihat pada Gambar~\ref{fig:matrixclassdiagram}.
+
+\subsubsection{Kelas \textit{Matrix}}
+\label{subsubsec:kelas-matrix}
+
+Kelas \textit{Matrix} adalah kelas yang menangani struktur data matriks serta segala fungsi atau operasi yang berkaitan dengan matriks. Kelas ini akan mempunyai semua kebutuhan terkait dengan urusan struktur data matriks yang ada untuk implementasi algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}, antara lain seperti perkalian, transpose matriks, dan mencari determinan. Selanjutnya akan dijelaskan secara rinci tiap atribut dan fungsi pada kelas ini.
+
+Berikut adalah deskripsi setiap atribut pada kelas \textit{Matrix}.
+\begin{itemize}
+	\item \textit{matrix} adalah atribut untuk menyimpan matriks dengan cara menyimpannya memakai \textit{array} 2 dimensi dengan tipe data \textit{double}, bilangan riil.
+\end{itemize}
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{Matrix}.
+\begin{itemize}
+	\item \textit{Matrix} adalah \textit{constructor} dari kelas \textit{PerturbMatrixation}. Tujuan utama fungsi ini adalah mendefinisikan atribut-atribut yang ada. Fungsi ini memiliki sebuah masukan berbentuk array yang dinamakan \textit{matrix} yang bertipe data \textit{double} dan berfungsi untuk mendefinisikan atribut \textit{matrix}.
+	\item \textit{getNumberOfRows} adalah fungsi untuk mendapatkan jumlah baris yang ada pada matriks kelas ini atau dengan kata lain mendapatkan ukuran dari atribut \textit{matrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa jumlah baris yang bertipe data \textit{integer}, bilangan bulat.
+	\item \textit{getNumberOfColumns} adalah fungsi untuk mendapatkan jumlah kolom yang ada pada matriks kelas ini atau dengan kata lain mendapatkan ukuran dari atribut \textit{matrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa jumlah baris yang bertipe data \textit{integer}, bilangan bulat.
+	\item \textit{multiply} adalah fungsi yang berguna untuk mengkalikan matriks yang ada pada atribut \textit{matrix} dengan suatu matriks lain. Tentu saja matriks lain tersebut harus sudah berbentuk objek kelas \textit{Matrix} sehingga mempunyai tipe data yang sama dan dapat dikalikan. Fungsi ini mempunyai sebuah parameter yaitu \textit{multiplierMatrix} bertipe data objek kelas \textit{Matrix} yang berguna sebagai pengali matriks yang ingin dikalikan. Kembalian pada fungsi ini adalah hasil kali antara kedua matriks dan kembalian ini bertipe data objek kelas \textit{Matrix}.
+	\item \textit{get} adalah fungsi untuk mendapatkan sebuah elemen pada matriks atau dengan kata lain sebuah nilai pada atribut \textit{matrix}. Fungsi ini memiliki dua buah masukan yaitu \textit{row} dan \textit{col} yang masing-masing berguna sebagai penunjuk baris dan kolom mana yang ingin didapatkan. Kembalian pada fungsi ini adalah elemen matriks pada baris dan kolom yang diinginkan dan bertipe data \textit{double}, bilangan riil.
+	\item \textit{transpose} adalah fungsi untuk mendapatkan transpose dari matriks kelas ini atau dengan kata lain transpose dari atribut \textit{matrix}. Fungsi ini memiliki kembalian berupa matriks yang merupakan hasil transpose dan bertipe data objek kelas \textit{Matrix}. Tidak ada masukan apapun pada fungsi ini.
+	\item \textit{determinant} adalah fungsi untuk mendapatkan determinan dari matriks kelas ini. Fungsi ini memiliki kembalian berupa determinan matriks yang bertipe data \textit{double}, bilangan riil. Tidak ada masukan apapun pada fungsi ini.
+	\item \textit{getMatrix} adalah fungsi untuk mendapatkan matriks pada kelas ini atau dengan kata lain mendapatkan atribut \textit{matrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa \textit{array} yang bertipe data \textit{double}, bilangan riil.
+\end{itemize}
+
+\subsubsection{Kelas \textit{RandomTranslationMatrix}}
+\label{subsubsec:kelas-rtm}
+
+Kelas \textit{RandomTranslationMatrix} adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja. Tujuan utama dari kelas ini adalah menangani pembuatan matriks translasi yang akan digunakan untuk melakukan operasi translasi yang akan diimplementasikan di kelas \textit{RandomRotationPerturbation}. Kelas ini tidak memiliki atribut apapun tetapi memiliki tiga buah fungsi statis yang memiliki fungsi seputar pembuatan matriks translasi dan fungsi yang mendukung operasi translasi. Selanjutnya akan dijelaskan secara rinci tiap fungsi pada kelas ini.
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomTranslationMatrix}.
+\begin{itemize}
+	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks translasi. Fungsi ini memiliki sebuah parameter yaitu \textit{dimension} yang akan menentukan ukuran atau dimensi matriks translasi yang ingin dibuat. Kembalian pada fungsi ini tentu saja sebuah matriks translasi yang bertipe data objek kelas \textit{Matrix}.
+	\item \textit{addAColumnOfOnes} adalah fungsi statis yang berguna untuk menambahkan sebuah kolom pada suatu matriks di posisi terakhir (setelah kolom terakhir). Kolom tersebut akan berisi angka satu pada setiap barisnya. Alasan dibuatnya fungsi ini dikarenakan kebutuhan persyaratan yang harus dipenuhi sebuah matriks apabila ingin diterapkan operasi translasi. Fungsi ini memiliki sebuah parameter yaitu matriks yang diinginkan bernama \textit{matrix} dan bertipe data objek kelas \textit{Matrix}. Kembalian pada fungsi ini adalah matriks yang telah ditambahkan sebuah kolom dan bertipe data objek kelas \textit{Matrix}.
+	\item \textit{removeLastColumn} adalah fungsi statis yang berguna untuk menghapus kolom terakhir pada suatu matriks. Alasan dibuatnya fungsi ini dikarenakan kebutuhan persyaratan yang harus dipenuhi sebuah matriks apabila ingin diterapkan operasi translasi. Setelah matriks ditambahkan dengan menggunakan fungsi \textit{addAColumnOfOnes} dan diterapkan operasi translasi, kolom terakhir pada matriks tersebut perlu dibuang dikarenakan kolom tersebut adalah kolom hasil penambahan yang hanya digunakan untuk operasi translasi dan bukan kolom asli matriks tersebut.
+\end{itemize}
+
+\subsubsection{Kelas \textit{RandomRotationMatrix}}
+\label{subsubsec:kelas-rrm}
+
+Kelas \textit{RandomRotationMatrix} adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja. Tujuan utama dari kelas ini adalah menangani pembuatan matriks rotasi yang akan digunakan untuk melakukan operasi rotasi yang akan diimplementasikan di kelas \textit{RandomRotationPerturbation}. Kelas ini tidak memiliki atribut apapun tetapi memiliki sebuah fungsi statis yang memiliki fungsi untuk pembuatan matriks rotasi. Selanjutnya akan dijelaskan secara rinci tiap fungsi pada kelas ini.
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationMatrix}.
+\begin{itemize}
+	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks rotasi. Pembuatan matriks rotasi dilakukan dengan mengikuti distribusi Haar~\cite{stewart:80:orthogonal}. Fungsi ini memiliki sebuah parameter yaitu \textit{dimension} yang akan menentukan ukuran atau dimensi matriks rotasi yang ingin dibuat. Kembalian pada fungsi ini tentu saja sebuah matriks rotasi yang bertipe data objek kelas \textit{Matrix}.
+\end{itemize}
+
+\subsubsection{Kelas \textit{RandomProjectionMatrix}}
+\label{subsubsec:kelas-rpm}
+
+Kelas \textit{RandomProjectionMatrix} adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja. Tujuan utama dari kelas ini adalah menangani pembuatan matriks proyeksi yang akan digunakan untuk melakukan operasi proyek yang akan diimplementasikan di kelas \textit{RandomProjectionPerturbation}. Kelas ini tidak memiliki atribut apapun tetapi memiliki sebuah fungsi statis yang memiliki fungsi untuk pembuatan matriks translasi. Selanjutnya akan dijelaskan secara rinci tiap fungsi pada kelas ini.
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomProjectionMatrix}.
+\begin{itemize}
+	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks proyeksi.
+	Fungsi ini membuat matriks proyeksi dengan cara membuat matriks acak saja yang berdistribusi normal dengan standar deviasi \(1/\sqrt{k}\). Fungsi ini memiliki tiga buah parameter yaitu \textit{dimension} yang akan menentukan ukuran atau dimensi matriks translasi yang ingin dibuat, . Kembalian pada fungsi ini tentu saja sebuah matriks translasi yang bertipe data objek kelas \textit{Matrix}.
+\end{itemize}
+
+\subsection{Diagram Kelas pada \textit{Package Preprocessor}}
+\label{sec:diagram-kelas-preprocessor}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{preprocessorclassdiagram}
+	\caption{Diagram kelas pada \textit{package Preprocessor}}
+	\label{fig:preprocessorclassdiagram}
+\end{figure}
+
+\textit{Package Preprocessor} memiliki sebuah kelas yang bertujuan untuk mengolah masukan perangkat lunak agar dapat diaplikasikan randomisasi. Kelas tersebut bernama \textit{CSVPreprocessor} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Preprocessor} dapat dilihat pada Gambar~\ref{fig:preprocessorclassdiagram}.
+
+\subsubsection{Kelas \textit{CSVPreprocessor}}
+\label{subsubsec:kelas-csvpreprocessor}
+
+Kelas CSVPreprocessor berguna untuk 
+
+Berikut adalah deskripsi setiap atribut pada kelas \textit{CSVPreprocessor}.
+\begin{itemize}
+	\item <<TODO>>
+\end{itemize}
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{CSVPreprocessor}.
+\begin{itemize}
+	\item <<TODO>>
 \end{itemize}
