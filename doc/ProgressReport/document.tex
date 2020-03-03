@@ -491,8 +491,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifikasi data dengan metode randomisasi. Perangkat lunak ini akan memiliki fungsi untuk mengubah nilai setiap data yang dimasukan agar privasinya terjaga tetapi masih dapat dilakukan penambangan data. Algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} akan diimplementasikan pada perangkat lunak ini untuk fungsi utama yaitu mengubah nilai pada setiap data. Dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua teknik tersebut, perangkat lunak akan memiliki berbagai pilihan dan parameter yang pengguna harus masukan dan juga ada beberapa persyaratan atau batasan agar perangkat lunak ini berjalan dengan semestinya. Diagram aktivitas untuk perangkat lunak randomisasi dapat dilihat pada Gambar~\ref{fig:activitydiagram}. Detail dari diagram aktivitas tersebut adalah sebagai berikut.
 		\begin{enumerate}
-			\item Pengguna memberikan masukan berupa dataset yang berupa file berjenis \textit{comma-separated values} (CSV). File ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam file tersebut
-			\item Perangkat lunak akan membersihkan file yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
+			\item Pengguna memberikan masukan berupa dataset yang berupa dokumen berjenis \textit{comma-separated values} (CSV). dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam dokumen tersebut
+			\item Perangkat lunak akan membersihkan dokumen yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
 			\item Pengguna memilih teknik randomisasi yang ingin digunakan antara \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Jika \textit{Random Projection Perturbation} yang dipiilih maka akan ada beberapa langkah yang harus dipenuhi yaitu sebagai berikut.
 			\begin{enumerate}
 				\item Pengguna memberi masukan nilai epsilon yang diinginkan
@@ -500,7 +500,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				\item Jika syarat tidak terpenuhi maka pengguna harus memilih untuk mengganti datasetnya atau mengganti nilai epsilon
 			\end{enumerate}
 			\item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks
-			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah file CSV yang berisi dataset yang sudah diaplikasikan teknik randomisasi
+			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah dokumen CSV yang berisi dataset yang sudah diaplikasikan teknik randomisasi
 			\item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
 		\end{enumerate}
 
@@ -522,7 +522,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 			\item Kelas \textit{RandomTranslationMatrix} adalah kelas untuk membuat matriks translasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
 			\item Kelas \textit{RandomRotationMatrix} adalah kelas untuk membuat matriks rotasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
 			\item Kelas \textit{RandomProjectionMatrix} adalah kelas untuk membuat matriks proyeksi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
-			\item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa file CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi file CSV menjadi matriks dan sebaliknya.
+			\item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa dokumen CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi dokumen CSV menjadi matriks dan sebaliknya.
 		\end{itemize}
 		
 		\begin{figure}
