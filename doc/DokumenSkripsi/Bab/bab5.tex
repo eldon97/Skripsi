@@ -55,7 +55,7 @@ Bagian masukan dan pengaturan menyediakan berbagai interaksi untuk pengguna dapa
 \subsubsection{Masukan Dataset}
 \label{sec:masukandataset}
 
-Pertama pengguna perlu memberikan masukan dataset yang ingin dirandomisasi berupa dokumen berjenis \textit{comma-separated values}. Perangkat lunak menyediakan fitur tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang terdapat pada bagian yang dikelilingi kotak berwarna merah dan bernomor satu. Pengguna dapat menekan tombol "Pilih Dokumen CSV" yang terletak pada ujung sebelah kanan. Tombol ini bertujuan untuk memilih dokumen yang ingin dirandomisasi pada direktori pengguna. Ketika tombol ditekan, perangkat lunak akan membuka jendela baru untuk memilih dokumen yang dapat dilihat pada gambar~\ref{fig:pilihdokumen}.
+Pertama pengguna perlu memberikan masukan dataset yang ingin dirandomisasi berupa dokumen berjenis \textit{comma-separated values}. Perangkat lunak menyediakan fitur tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang terdapat pada bagian yang dikelilingi kotak berwarna merah dan bernomor satu. Pengguna dapat menekan tombol \textquotedblleft Pilih Dokumen CSV\textquotedblright~yang terletak pada ujung sebelah kanan. Tombol ini bertujuan untuk memilih dokumen yang ingin dirandomisasi pada direktori pengguna. Ketika tombol ditekan, perangkat lunak akan membuka jendela baru untuk memilih dokumen yang dapat dilihat pada gambar~\ref{fig:pilihdokumen}.
 
 \begin{figure}
 	\centering
@@ -64,7 +64,7 @@ Pertama pengguna perlu memberikan masukan dataset yang ingin dirandomisasi berup
 	\label{fig:pilihdokumen}
 \end{figure}
 
-Setelah pengguna memilih dataset yang diinginkan, perangkat lunak akan otomatis menuliskan lokasi dokumen yang dipilih berada. Perangkat lunak akan menampilkan lokasi dokumen tersebut pada bagian tengah sebelah kanan simbol dokumen dan sebelah kiri tombol "Pilih Dokumen CSV". Jika belum ada dataset yang dipilih maka perangkat lunak akan menampilkan label yang berupa kalimat "Belum ada dokumen CSV yang dipilih untuk dirandomisasi" yang menunjukkan bahwa belum ada dokumen yang dipilih oleh pengguna. Jika pengguna memilih ulang dokumen, maka secara otomatis juga perangkat lunak akan memperbaharui lokasi dokumen sesuai dokumen yang dipilih pengguna.
+Setelah pengguna memilih dataset yang diinginkan, perangkat lunak akan otomatis menuliskan lokasi dokumen yang dipilih berada. Perangkat lunak akan menampilkan lokasi dokumen tersebut pada bagian tengah sebelah kanan simbol dokumen dan sebelah kiri tombol \textquotedblleft Pilih Dokumen CSV\textquotedblright. Jika belum ada dataset yang dipilih maka perangkat lunak akan menampilkan label yang berupa kalimat \textquotedblleft Belum ada dokumen CSV yang dipilih untuk dirandomisasi\textquotedblright~yang menunjukkan bahwa belum ada dokumen yang dipilih oleh pengguna. Jika pengguna memilih ulang dokumen, maka secara otomatis juga perangkat lunak akan memperbaharui lokasi dokumen sesuai dokumen yang dipilih pengguna.
 
 Apabila dokumen yang dipilih berukuran besar, maka perangkat lunak akan memakan sedikit waktu yang lebih lama. Dalam rangka memberitahukan kepada pengguna bahwa perangkat lunak sedang melakukan proses pemilihan dokumen, perangkat lunak akan menampilkan sebuah \textit{popup} yang memberitahukan bahwa proses pemilihan sedang berjalan dan perangkat lunak tidak berhenti bekerja maupun \textit{error} sehingga pengguna tidak bingung apabila perangkat lunak memakan waktu yang lebih lama untuk memproses dokumen yang dipilih. Tampilan antarmuka \textit{popup} tersebut dapat dilihat pada Gambar~\ref{fig:loadingmemilihdokumen}. Setelah dokumen dipilih pengguna dan perangkat lunak berhasil memproses dokumen tersebut, perangkat lunak akan memperbaharui lokasi dokumen dan menampilkan beberapa informasi dataset yang dipilih pada bagian deskripsi dataset yang akan dijelaskan pada subbab berikutnya. Tampilan antarmuka setelah pengguna memilih dokumen dapat dilihat pada Gambar~\ref{fig:dokumendipilih}
 
@@ -82,14 +82,14 @@ Apabila dokumen yang dipilih berukuran besar, maka perangkat lunak akan memakan 
 	\label{fig:dokumendipilih}
 \end{figure}
 
-Selain itu setelah pengguna memilih dokumen CSV, perangkat lunak akan membaca dokumen tersebut dan memproses isi dari dokumen tersebut menjadi dataset yang berupa matriks. Proses ini dilakukan sekali saja tepat setelah pengguna memilih dokumen dengan menekan tombol "Pilih Dokumen CSV". Oleh karena itu, apabila sebuah dokumen CSV diubah isinya setelah dokumen tersebut dipilih oleh pengguna maka perangkat lunak tetap akan menggunakan isi dari dokumen tersebut yang belum diubah. Pengguna harus berhati-hati apabila isi dokumen diubah maka pengguna juga harus memilih kembali dokumen yang sama tersebut walaupun perangkat lunak sudah menunjukkan lokasi dokumen yang digunakan adalah dokumen yang pengguna inginkan.
+Selain itu setelah pengguna memilih dokumen CSV, perangkat lunak akan membaca dokumen tersebut dan memproses isi dari dokumen tersebut menjadi dataset yang berupa matriks. Proses ini dilakukan sekali saja tepat setelah pengguna memilih dokumen dengan menekan tombol \textquotedblleft Pilih Dokumen CSV\textquotedblright. Oleh karena itu, apabila sebuah dokumen CSV diubah isinya setelah dokumen tersebut dipilih oleh pengguna maka perangkat lunak tetap akan menggunakan isi dari dokumen tersebut yang belum diubah. Pengguna harus berhati-hati apabila isi dokumen diubah maka pengguna juga harus memilih kembali dokumen yang sama tersebut walaupun perangkat lunak sudah menunjukkan lokasi dokumen yang digunakan adalah dokumen yang pengguna inginkan.
 
 \subsubsection{Pemilihan Teknik Randomisasi}
 \label{sec:pilihteknik}
 
 Setelah pengguna memilih dataset yang ingin dirandomisasi, pengguna juga harus memilih teknik randomisasi apa yang ingin diterapkan terhadap dataset yang sudah dipilih. Pada awal perangkat lunak dibuka, secara otomatis teknik \textit{Random Rotation Perturbation} yang dipilih. Apabila pengguna ingin mengganti teknik yang ingin diterapkan pada dataset, pengguna dapat menekan tombol \textit{dropdown} yang bertuliskan nama teknik randomisasi. Tombol ini dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi kotak berwarna hijau dan bernomor dua.
 
-Apabila pengguna menekan tombol ini maka perangkat lunak akan menampilkan \textit{dropdown} yang mempunyai dua buah opsi teknik randomisasi yaitu "Random Rotation Perturbation" dan "Random Projection Perturbation". Antarmuka tersebut dapat dilihat pada Gambar~\ref{fig:opsipilihteknik} yang dikelilingi oleh kotak merah. Pemilihan teknik ini juga akan memicu beberapa perubahan pada tampilan antarmuka perangkat lunak menyesuaikan dengan teknik yang dipilih. Beberapa perubahan pada perangkat lunak tersebut melingkupi bagian pembuatan dan pemilihan matriks, parameter teknik randomisasi, dan bagian randomisasi dan simpan yang akan dijelaskan setiap perubahan tersebut pada subbab berikutnya.
+Apabila pengguna menekan tombol ini maka perangkat lunak akan menampilkan \textit{dropdown} yang mempunyai dua buah opsi teknik randomisasi yaitu \textquotedblleft Random Rotation Perturbation\textquotedblright~dan \textquotedblleft Random Projection Perturbation\textquotedblright. Antarmuka tersebut dapat dilihat pada Gambar~\ref{fig:opsipilihteknik} yang dikelilingi oleh kotak merah. Pemilihan teknik ini juga akan memicu beberapa perubahan pada tampilan antarmuka perangkat lunak menyesuaikan dengan teknik yang dipilih. Beberapa perubahan pada perangkat lunak tersebut melingkupi bagian pembuatan dan pemilihan matriks, parameter teknik randomisasi, dan bagian randomisasi dan simpan yang akan dijelaskan setiap perubahan tersebut pada subbab berikutnya.
 
 \begin{figure}
 	\centering
@@ -101,11 +101,11 @@ Apabila pengguna menekan tombol ini maka perangkat lunak akan menampilkan \texti
 \subsubsection{Pembuatan dan Pemilihan Matriks}
 \label{sec:pilihmatriks}
 
-Setelah pengguna memilih teknik yang ingin diterapkan, pengguna harus memilih matriks yang diinginkan atau membuat baru. Matriks yang dimaksudkan adalah matriks rotasi atau matriks proyeksi sesuai teknik randomisasi yang dipilih. Apabila teknik \textit{Random Rotation Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks rotasi. Apabila teknik \textit{Random Projection Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks proyeksi. Perubahan ini dapat terlihat pada label yang berada di sebelah kanan simbol matriks apabila belum memilih atau membuat matriks maka label tersebut akan menampilkan kalimat "Pilih matriks rotasi yang ingin digunakan" atau "Pilih matriks proyeksi yang ingin digunakan". Bagian ini dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi oleh kotak berwarna hijau dan bernomor dua.
+Setelah pengguna memilih teknik yang ingin diterapkan, pengguna harus memilih matriks yang diinginkan atau membuat baru. Matriks yang dimaksudkan adalah matriks rotasi atau matriks proyeksi sesuai teknik randomisasi yang dipilih. Apabila teknik \textit{Random Rotation Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks rotasi. Apabila teknik \textit{Random Projection Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks proyeksi. Perubahan ini dapat terlihat pada label yang berada di sebelah kanan simbol matriks apabila belum memilih atau membuat matriks maka label tersebut akan menampilkan kalimat \textquotedblleft Pilih matriks rotasi yang ingin digunakan\textquotedblright~atau \textquotedblleft Pilih matriks proyeksi yang ingin digunakan\textquotedblright. Bagian ini dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi oleh kotak berwarna hijau dan bernomor dua.
 
-Ada dua buah tombol pada bagian ini yaitu "Buat dan Simpan Matriks" dan "Import Matriks". Tombol "Buat dan Simpan Matriks" mempunyai fungsi untuk membuat matriks rotasi atau proyeksi baru sesuai teknik randomisasi yang dipilih dan menyimpan matriks tersebut pada sebuah dokumen CSV baru yang dibuat oleh perangkat lunak pada direktori tertentu yang akan dipilih oleh pengguna. Pada saat perangkat lunak sedang memproses matriks tersebut, perangkat lunak akan menampilkan \textit{popup} memuat yang dapat dilihat pada Gambar~\ref{fig:buatsimpanmatriks}. \textit{Popup} ini juga akan tampil saat proses impor matriks dilakukan. Pada teknik \textit{Random Projection Perturbation}, pengguna baru bisa membuat matriks proyeksi apabila sudah memenuhi persyaratan yang diminta yaitu mengisi parameter teknik tersebut yang mana adalah variabel Epsilon dan variabel K.
+Ada dua buah tombol pada bagian ini yaitu \textquotedblleft Buat dan Simpan Matriks\textquotedblright~dan \textquotedblleft Import Matriks\textquotedblright. Tombol \textquotedblleft Buat dan Simpan Matriks\textquotedblright~mempunyai fungsi untuk membuat matriks rotasi atau proyeksi baru sesuai teknik randomisasi yang dipilih dan menyimpan matriks tersebut pada sebuah dokumen CSV baru yang dibuat oleh perangkat lunak pada direktori tertentu yang akan dipilih oleh pengguna. Pada saat perangkat lunak sedang memproses matriks tersebut, perangkat lunak akan menampilkan \textit{popup} memuat yang dapat dilihat pada Gambar~\ref{fig:buatsimpanmatriks}. \textit{Popup} ini juga akan tampil saat proses impor matriks dilakukan. Hasil matriks yang dibuat oleh perangkat lunak dapat digunakan kembali untuk lain kali sehingga rotasi atau proyeksi yang diterapkan akan sama dengan yang sebelumnya. 
 
-Hasil matriks yang dibuat oleh perangkat lunak dapat digunakan kembali untuk lain kali sehingga rotasi atau proyeksi yang diterapkan akan sama dengan yang sebelumnya. Pengguna dapat melakukan ini dengan cara menekan tombol "Import Matriks" untuk memilih matriks rotasi atau proyeksi yang diinginkan untuk diterapkan pada dataset. Matriks yang dipilih harus sesuai dengan dataset yang ingin dirandomisasi, misalnya apabila matriks rotasi yang dipilih memiliki dimensi yang berbeda dengan dataset maka perangkat lunak akan melarang impor matriks dilakukan karena randomisasi tidak dapat dilakukan. Perangkat lunak akan menampilkan \textit{popup} peringatan untuk pengguna yang dapat dilihat pada Gambar~\ref{fig:matrikstidaksesuai}. Apabila pengguna memilih teknik \textit{Random Projection Perturbation} dan pengguna mengimpor matriks proyeksi maka parameter variabel K akan terisi secara otomatis sesuai dengan matriks proyeksi yang diimpor.
+Pengguna dapat melakukan impor matriks dengan cara menekan tombol \textquotedblleft Import Matriks\textquotedblright~untuk memilih matriks rotasi atau proyeksi yang diinginkan untuk diterapkan pada dataset. Matriks yang dipilih harus sesuai dengan dataset yang ingin dirandomisasi, misalnya apabila matriks rotasi yang dipilih memiliki dimensi yang berbeda dengan dataset maka perangkat lunak akan melarang impor matriks dilakukan karena randomisasi tidak dapat dilakukan. Perangkat lunak akan menampilkan \textit{popup} peringatan untuk pengguna yang dapat dilihat pada Gambar~\ref{fig:matrikstidaksesuai}. Apabila pengguna memilih teknik \textit{Random Projection Perturbation} dan pengguna mengimpor matriks proyeksi maka parameter variabel K akan terisi secara otomatis sesuai dengan matriks proyeksi yang diimpor.
 
 \begin{figure}
 	\centering
@@ -121,7 +121,7 @@ Hasil matriks yang dibuat oleh perangkat lunak dapat digunakan kembali untuk lai
 	\label{fig:matrikstidaksesuai}
 \end{figure}
 
-Apabila pengguna belum memilih dataset yang ingin dirandomisasi, pengguna tidak dapat membuat maupun impor matriks terlebih dahulu. Hal ini dikarenakan perlu ada proses pengecekan terlebih dahulu yang dilakukan perangkat lunak untuk memastikan dataset yang ingin dirandomisasi sudah sesuai persyaratan dan sesuai dengan matriks yang akan dipilih. Perangkat lunak akan melarang pengguna membuat maupun impor matriks dengan menampilkan sebuah \textit{popup} peringatan yang dapat dilihat pada Gambar~\ref{fig:larangmatriks}
+Apabila pengguna belum memilih dataset yang ingin dirandomisasi, pengguna tidak dapat membuat maupun impor matriks terlebih dahulu. Hal ini dikarenakan perlu ada proses pengecekan terlebih dahulu yang dilakukan perangkat lunak untuk memastikan dataset yang ingin dirandomisasi sudah sesuai persyaratan dan sesuai dengan matriks yang akan dipilih. Perangkat lunak akan melarang pengguna membuat maupun impor matriks dengan menampilkan sebuah \textit{popup} peringatan yang dapat dilihat pada Gambar~\ref{fig:larangmatriks}. Pada teknik \textit{Random Projection Perturbation}, pengguna baru bisa membuat matriks proyeksi apabila sudah memenuhi persyaratan yang diminta yaitu mengisi parameter teknik tersebut yang mana adalah variabel Epsilon dan variabel K.
 
 \begin{figure}
 	\centering
@@ -144,12 +144,12 @@ Perangkat lunak hanya meminta kepada pengguna parameter untuk teknik \textit{Ran
 
 Seperti yang disinggung pada subbab sebelumnya antarmuka perangkat lunak akan menyesuaikan secara otomatis sesuai teknik yang dipilih pengguna. Pada bagian parameter teknik randomisasi, perangkat lunak akan menyembunyikan antarmuka parameter \textit{Random Projection Perturbation} apabila pengguna memilih teknik \textit{Random Rotation Perturbation}. Antarmuka tersebut dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi oleh kotak berwarna merah dan bernomor empat, dapat dilihat tidak ada parameter apapun yang tampil apabila teknik \textit{Random Rotation Perturbation} yang dipilih.
 
-Selain dua buah parameter, pada bagian ini juga ada sebuah tombol yaitu "Hitung Nilai Min K" yang memiliki fungsi untuk menghitung nilai minimal variabel K yang pengguna berikan. Pada teknik \textit{Random Projection Perturbation}, ada beberapa persyaratan yang harus dipenuhi oleh pengguna dan salah satunya adalah variabel K yang diberikan harus melebihi sebuah nilai minimal yang dihitung berdasarkan ukuran dataset dan nilai variabel Epsilon. Oleh karena itu, sebelum tombol ini dapat berfungsi, pengguna harus memilih terlebih dahulu dataset yang ingin dirandomisasi dan memberikan masukan nilai variabel Epsilon. Apabila pengguna belum memenuhi kedua persyaratan tersebut, tombol tidak akan berfungsi dan perangkat lunak akan menampilkan \textit{popup} peringatan yang dapat dilihat pada Gambar~\ref{fig:popuphitungk}. Nilai minimal variabel K akan ditampilkan pada bagian antarmuka deskripsi dataset yang akan dijelaskan pada subbab berikutnya.
+Selain dua buah parameter, pada bagian ini juga ada sebuah tombol yaitu \textquotedblleft Hitung Nilai Min K\textquotedblright~yang memiliki fungsi untuk menghitung nilai minimal variabel K yang pengguna berikan. Pada teknik \textit{Random Projection Perturbation}, ada beberapa persyaratan yang harus dipenuhi oleh pengguna dan salah satunya adalah variabel K yang diberikan harus melebihi sebuah nilai minimal yang dihitung berdasarkan ukuran dataset dan nilai variabel Epsilon. Oleh karena itu, sebelum tombol ini dapat berfungsi, pengguna harus memilih terlebih dahulu dataset yang ingin dirandomisasi dan memberikan masukan nilai variabel Epsilon yang sesuai dengan persyaratan variabel Epsilon yaitu nilainya lebih besar dari 0 dan kurang dari 1. Apabila pengguna belum memenuhi kedua persyaratan tersebut, tombol tidak akan berfungsi dan perangkat lunak akan menampilkan \textit{popup} peringatan yang dapat dilihat pada Gambar~\ref{fig:popuphitungk}. Nilai minimal variabel K akan ditampilkan pada bagian antarmuka deskripsi dataset yang akan dijelaskan pada subbab berikutnya.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.6]{popuphitungk}
-	\caption{Tampilan \textit{popup} peringatan tombol "Hitung Nilai Min K"}
+	\caption{Tampilan \textit{popup} peringatan tombol \textquotedblleft Hitung Nilai Min K\textquotedblleft }
 	\label{fig:popuphitungk}
 \end{figure}
 
@@ -158,7 +158,7 @@ Perangkat lunak juga akan memberikan peringatan apabila nilai minimal K melebihi
 \subsubsection{Randomisasi dan Simpan}
 \label{sec:randomisasisimpan}
 
-Setelah pengguna memberikan masukan yang sesuai dan mengatur pengaturan yang diinginkan maka pengguna telah dapat melakukan randomisasi dengan menekan tombol "Randomisasi dan Simpan". Tombol ini akan menerapkan teknik randomisasi yang dipilih oleh pengguna terhadap dataset yang ingin dirandomisasi menggunakan matriks yang telah dibuat atau dipilih oleh pengguna dan parameter-parameter yang pengguna berikan. Tampilan antarmuka saat proses randomisasi dilakukan perangkat lunak dapat dilihat pada Gambar~\ref{fig:loadingrandomisasi}.
+Setelah pengguna memberikan masukan yang sesuai dan mengatur pengaturan yang diinginkan maka pengguna telah dapat melakukan randomisasi dengan menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright. Tombol ini akan menerapkan teknik randomisasi yang dipilih oleh pengguna terhadap dataset yang ingin dirandomisasi menggunakan matriks yang telah dibuat atau dipilih oleh pengguna dan parameter-parameter yang pengguna berikan. Tampilan antarmuka saat proses randomisasi dilakukan perangkat lunak dapat dilihat pada Gambar~\ref{fig:loadingrandomisasi}.
 
 \begin{figure}
 	\centering
@@ -176,24 +176,42 @@ Setelah perangkat lunak berhasil melakukan randomisasi, perangkat lunak akan mem
 	\label{fig:popupberhasilrandomisasi}
 \end{figure}
 
-Ada beberapa persyaratan yang harus dipenuhi oleh penggun sebelum melakukan randomisasi yaitu memilih dataset yang ingin dirandomisasi, memilih teknik randomisasi yang diinginkan, membuat atau memilih matriks rotasi atau proyeksi, dan memberikan masukan nilai yang sesuai persyaratan yang ada kepada parameter-parameter teknik randomisasi. Apabila ada persyaratan yang tidak dipenuhi oleh pengguna maka perangkat lunak akan menampilkan \textit{popup} untuk memberikan peringatan kepada pengguna dan perangkat lunak tidak akan melanjutkan proses randomisasi. Perangkat lunak akan menampilkan \textit{popup} peringatan terhadap pelanggaran masing-masing persyaratan tersebut yang dapat dilihat pada Gambar~\ref{fig:}
+Ada beberapa persyaratan yang harus dipenuhi oleh pengguna sebelum melakukan randomisasi yaitu memilih dataset yang ingin dirandomisasi, memilih teknik randomisasi yang diinginkan, membuat atau memilih matriks rotasi atau proyeksi, dan memberikan masukan nilai yang sesuai persyaratan yang ada kepada parameter-parameter teknik randomisasi. Apabila ada persyaratan yang tidak dipenuhi oleh pengguna maka perangkat lunak akan menampilkan \textit{popup} untuk memberikan peringatan kepada pengguna dan perangkat lunak tidak akan melanjutkan proses randomisasi. Perangkat lunak akan menampilkan \textit{popup} peringatan terhadap pelanggaran masing-masing persyaratan tersebut, salah satu contoh tampilan antarmuka \textit{popup} tersebut dapat dilihat pada Gambar~\ref{fig:popupdataset}.
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.6]{popupberhasilrandomisasi}
-	\caption{Tampilan \textit{popup} untuk memberitahukan pengguna bahwa randomisasi berhasil dilakukan}
-	\label{fig:popupberhasilrandomisasi}
+	\includegraphics[scale=0.6]{popupdataset}
+	\caption{Tampilan \textit{popup} peringatan apabila pengguna belum memilih dataset yang diinginkan untuk dirandomisasi}
+	\label{fig:popupdataset}
 \end{figure}
-
-
 
 \subsection{Deskripsi Dataset}
 \label{sec:deskripsidataset}
 
+Pengguna dapat melihat berbagai informasi dokumen \textit{comma-separated values} yang dipilih sebagai dataset yang ingin dirandomisasi pada bagian antarmuka deskripsi dataset. Perangkat lunak akan menampilkan berbagai informasi dataset yaitu nama dokumen, jumlah baris dataset, jumlah kolom dataset, dan nilai minimal variabel K. Seperti yang disinggung pada subbab sebelumnya, pada awalnya nilai minimal variabel K belum diketahui karena belum dihitung. Pengguna harus mengisi variabel Epsilon dan menekan tombol \textquotedblleft Hitung Nilai Min K\textquotedblright~agar perangkat lunak menghitung nilai minimal variabel K dan dapat menampilkannya pada deskripsi dataset.
+
+Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui setiap pengguna memilih dataset baru. Tampilan antarmuka bagian deskripsi dataset dapat dilihat pada Gambar~\ref{fig:antarmukautamabernomor} yang dikelilingi oleh kotak berwarna biru dan bernomor dua. Apabila pengguna telah memilih dataset yang diinginkan untuk dirandomisasi maka perangkat lunak secara otomatis akan memperbaharui tampilan antarmuka deskripsi dataset yang dapat dilihat pada Gambar~\ref{fig:antarmukadeskripsidataset}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{antarmukadeskripsidataset}
+	\caption{Tampilan antarmuka deskripsi dataset setelah pengguna memilih dataset yang ingin dirandomisasi}
+	\label{fig:antarmukadeskripsidataset}
+\end{figure}
+
 \subsection{Deskripsi Hasil Randomisasi}
 \label{sec:masukanpengaturan}
 
+Perangkat lunak akan menampilkan isi dari deskripsi hasil randomisasi setelah pengguna menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright~dan perangkat lunak melakukan proses randomisasi. Bagian deskripsi hasil randomisasi ini akan menampilkan informasi-informasi yang berkaitan dengan hasil randomisasi dan deskripsi dataset yang baru. Informasi-informasi tersebut adalah status, lokasi dokumen, lokasi dokumen matriks yang dipakai, jumlah kolom, waktu eksekusi, nilai variabel Epsilon yang digunakan, dan nilai variabel K yang digunakan. Dua informasi terakhir tersebut hanya tampil apabila pengguna memilih teknik randomisasi \textquotedblleft Random Projection Perturbation\textquotedblright.
 
+Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui setiap pengguna memilih dataset baru. Tampilan antarmuka bagian deskripsi dataset dapat dilihat pada Gambar~\ref{fig:antarmukautamabernomor} yang dikelilingi oleh kotak berwarna biru dan bernomor dua. Apabila pengguna telah memilih dataset yang diinginkan untuk dirandomisasi maka perangkat lunak secara otomatis akan memperbaharui tampilan antarmuka deskripsi dataset yang dapat dilihat pada Gambar~\ref{fig:antarmukahasilrandomisasi}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{antarmukahasilrandomisasi}
+	\caption{Tampilan antarmuka deskripsi hasil randomisasi setelah perangkat berhasil melakukan randomisasi}
+	\label{fig:antarmukahasilrandomisasi}
+\end{figure}
 
 \section{Pengujian Perangkat Lunak}
 \label{sec:pengujianpl}
