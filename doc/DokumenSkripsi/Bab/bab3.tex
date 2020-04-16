@@ -254,24 +254,40 @@ Ada beberapa persyaratan yang harus dipenuhi pada implementasi perangkat lunak s
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{activitydiagram}
+    \includegraphics[scale=0.375]{activitydiagram}
     \caption{Diagram aktivitas perangkat lunak randomisasi}
     \label{fig:activitydiagram}
 \end{figure}
 
 Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifikasi data dengan metode randomisasi. Perangkat lunak ini akan memiliki fungsi untuk mengubah nilai setiap data yang dimasukan agar privasinya terjaga tetapi masih dapat dilakukan penambangan data. Algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} akan diimplementasikan pada perangkat lunak ini untuk fungsi utama yaitu mengubah nilai pada setiap data. Dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua teknik tersebut, perangkat lunak akan memiliki berbagai pilihan dan parameter yang pengguna harus masukan dan juga ada beberapa persyaratan atau batasan agar perangkat lunak ini berjalan dengan semestinya. Diagram aktivitas untuk perangkat lunak randomisasi dapat dilihat pada Gambar~\ref{fig:activitydiagram}. Detail dari diagram aktivitas tersebut adalah sebagai berikut.
 \begin{enumerate}
-    \item Pengguna memberikan masukan berupa dataset yang berupa dokumen berjenis \textit{comma-separated values} (CSV). Dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam dokumen tersebut
+    \item Pengguna memberikan masukan berupa dataset yang berupa dokumen berjenis \textit{comma-separated values} (CSV). Dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Selain itu, pada baris pertama dalam dokumen tersebut harus berupa nama setiap fitur pada setiap kolomnya
     \item Perangkat lunak akan membersihkan dokumen yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
     \item Pengguna memilih teknik randomisasi yang ingin digunakan antara \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Jika \textit{Random Projection Perturbation} yang dipiilih maka akan ada beberapa langkah yang harus dipenuhi yaitu sebagai berikut.
     \begin{enumerate}
-        \item Pengguna memberi masukan nilai Epsilon yang diinginkan
-        \item Perangkat lunak memeriksa persyaratan yang harus dipenuhi oleh matriks dataset dengan menghitung menggunakan algoritma tertentu. Pengecekan ini adalah pengecekan jumlah kolom pada matriks dataset apakah cukup untuk matriks tersebut direduksi dimensinya. Jika persyaratan terpenuhi maka langkah selanjutnya adalah perangkat lunak mengaplikasikan teknik yang dipilih
+        \item Pengguna memberi masukan nilai variabel Epsilon yang diinginkan. Variabel ini akan menentukan \textit{error} terburuk yang dapat terjadi pada hasil randomisasi dan menentukan nilai minimal variabel K
+        \item Perangkat lunak memeriksa persyaratan yang harus dipenuhi oleh matriks dataset dengan menghitung menggunakan algoritma tertentu dan menghitung nilai minimal variabel K dan menampilkannya kepada pengguna. Pengecekan yang dilakukan adalah pengecekan jumlah kolom/dimensi pada matriks dataset apakah cukup untuk matriks tersebut direduksi dimensinya. 
         \item Jika persyaratan tidak terpenuhi maka pengguna harus memilih untuk mengganti datasetnya atau mengganti nilai Epsilon
+        \item Jika persyaratan terpenuhi maka berikutnya pengguna memberikan masukan nilai variabel K yang diinginkan. Nilai yang diberikan pengguna harus lebih dari nilai minimal variabel K yang sudah dihitung oleh perangkat lunak pada langkah sebelumnya
+        \item Perangkat lunak memeriksa persyaratan teknik yaitu nilai variabel K yang diberikan harus lebih kecil dari dimensi dataset dan lebih besar dari nilai minimal variabel K.
+        \item Jika persyaratan tidak terpenuhi maka pengguna harus mengganti nilai variabel K kembali.
     \end{enumerate}
-    \item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks
-    \item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah dokumen \textit{comma-separated values} yang berisi dataset yang sudah diaplikasikan teknik randomisasi
-    \item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
+    \item Pengguna memilih untuk membuat matriks rotasi/proyeksi baru sesuai teknik yang dipilih atau pengguna dapat mengimpor matriks yang telah dibuat dan disimpan sebelumnya
+    \item Berikut ini langkah-langkah tambahan yang harus dilakukan pengguna apabila pengguna memilih untuk membuat matriks rotasi/proyeksi baru
+    \begin{enumerate}
+        \item Pengguna memilih lokasi direktori pada komputer pengguna sebagai lokasi untuk menyimpan matriks rotasi/proyeksi yang akan dibuat
+        \item Perangkat lunak membuat matriks rotasi/proyeksi baru dan menyimpan hasilnya pada lokasi yang telah dipiilih pengguna dalam bentuk dokumen berjenis CSV
+    \end{enumerate}
+    \item Berikut ini langkah-langkah tambahan yang harus dilakukan pengguna apabila pengguna memilih untuk mengimpor matriks rotasi/proyeksi yang pernah dibuat sebelumnya
+    \begin{enumerate}
+        \item Pengguna memilih matriks rotasi atau proyeksi sesuai teknik yang dipilih berupa dokumen berjenis CSV pada sebuah direktori komputer pengguna yang dipilih
+        \item Perangkat lunak memeriksa dokumen CSV yang dipilih berisi matriks rotasi/proyeksi yang sesuai dengan dataset dan teknik randomisasi yang dipiilih
+        \item Jika tidak sesuai maka pengguna harus memilih kembali matriks rotasi/proyeksi dengan benar
+        \item Jika sudah sesuai dan memenuhi persyaratan maka perangkat lunak akan memproses dokumen CSV yang dipilih pengguna untuk menjadi matriks rotasi/proyeksi yang dapat dipakai untuk teknik randomisasi yang dipiilih
+    \end{enumerate}
+    \item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks dengan memakai matriks rotasi/proyeksi yang telah dipilih
+    \item Pengguna memilih lokasi direktori pada komputer pengguna untuk menyimpan hasil randomisasi dari teknik yang dipilih. Hasilnya adalah sebuah dokumen \textit{comma-separated values} yang berisi dataset yang sudah diterapkan teknik randomisasi
+    \item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dalam bentuk dokumen berjenis \textit{comma-separated values} dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
 \end{enumerate}
 
 \subsection{Diagram Kelas}
@@ -279,18 +295,20 @@ Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifi
 
 \begin{figure}
     \centering
-    \includegraphics[scale=0.4]{classdiagram}
+    \includegraphics[scale=0.5]{classdiagram}
     \caption{Diagram kelas perangkat lunak randomisasi}
     \label{fig:classdiagram}
 \end{figure}
 
 Perancangan diagram kelas didasarkan pada analisis terhadap algoritma yang ingin diimplementasikan yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}, serta berdasarkan pada diagram aktivitas yang telah dibuat, dan dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua algoritma randomisasi yang ingin diimplementasikan. Detail dari diagram kelas perangkat lunak randomisasi pada Gambar~\ref{fig:classdiagram} adalah sebagai berikut.
 \begin{itemize}
-    \item Kelas \textit{Perturbation} adalah kelas abstrak yang akan di-\textit{extend} oleh kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
-    \item Kelas \textit{RandomRotationPerturbation} adalah kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation}. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation}
-    \item Kelas \textit{RandomProjectionPerturbation} adalah kelas yang mengimplementasikan algoritma \textit{Random Projection Perturbation}. Kelas ini merupakan kelas turunan dari kelas \textit{Perturbation}
-    \item Kelas \textit{Matrix} adalah kelas untuk merepresentasikan matriks dan menyimpan nilai-nilai pada setiap elemen matriks. Kelas ini juga memiliki fungsi perkalian dan transpose yang akan digunakan untuk implementasi algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}
-    \item Kelas \textit{RandomTranslationMatrix} adalah kelas yang mempunyai tujuan utama untuk membuat matriks translasi secara acak. Kelas ini adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja.
-    \item Kelas \textit{RandomRotationMatrix} adalah kelas yang mempunyai tujuan utama untuk membuat matriks rotasi secara acak. Kelas ini adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja.
-    \item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa dokumen \textit{comma-separated values} yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi dokumen berjenis \textit{comma-separated values} menjadi matriks dan sebaliknya.
+    \item Kelas \textit{Perturbation} adalah kelas abstrak yang akan di-\textit{extend} oleh kelas yang mengimplementasikan algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Kelas ini mempunyai sebuah atribut yaitu \textit{dataset} yang berfungsi untuk menyimpan dataset yang ingin dirandomisasi. Ada sebuah fungsi pada kelas ini yaitu \textit{perturbDataset} yang berfungsi untuk menerapkan teknik randomisasi pada dataset yang ingin dirandomisasi dengan kata lain atribut \textit{dataset}
+    \item Kelas \textit{RandomRotationPerturbation} adalah kelas turunan dari kelas \textit{Perturbation} yang bertujuan untuk mengimplementasikan algoritma \textit{Random Rotation Perturbation}. Kelas ini memiliki dua tambahan atribut yaitu \textit{randomTranslationMatrix} dan \textit{randomRotationMatrix} yang masing-masing memiliki fungsi untuk menyimpan matriks translasi dan matriks rotasi. Ada dua buah fungsi tambahan juga pada kelas ini yaitu \textit{generateRandomTranslationMatrix} dan \textit{generateRandomRotationMatrix} yang masing-masing memiliki fungsi untuk membuat matriks translasi dan matriks rotasi baru.
+    \item Kelas \textit{RandomProjectionPerturbation} adalah kelas turunan dari kelas \textit{Perturbation} yang bertujuan untuk mengimplementasikan algoritma \textit{Random Projection Perturbation}. Kelas ini memiliki tiga tambahan atribut yaitu \textit{epsilon}, \textit{minK}, dan \textit{K} yang masing-masing memiliki fungsi untuk menyimpan nilai variabel epsilon, nilai minimal variabel K, dan nilai variabel K yang akan dipakai untuk menerapkan algoritma \textit{Random Projection Perturbation}. Ada dua buah fungsi tambahan juga pada kelas ini yaitu \textit{calculateMinK} dan \textit{checkValueK} yang masing-masing memiliki fungsi untuk menghitung nilai minimal variabel K dan memeriksa persyaratan pada nilai atribut \textit{K}.
+    \item Kelas \textit{Matrix} adalah kelas untuk merepresentasikan matriks dan menyimpan nilai-nilai pada setiap elemen matriks. Kelas ini memiliki sebuah atribut yaitu \textit{matrix} yang berfungsi untuk menyimpan setiap elemen matriks yang ada. Kelas ini juga memiliki dua buah fungsi yaitu \textit{multiply} dan \textit{transpose} yang masing-masing berfungsi untuk melakukan operasi perkalian dan transpose matriks yang akan digunakan untuk implementasi kedua algoritma teknik randomisasi
+    \item Kelas \textit{RandomTranslationMatrix} adalah kelas yang mempunyai tujuan utama untuk membuat matriks translasi secara acak. Kelas ini adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja. Ada tiga buah fungsi statis yaitu \textit{addAColumnOfOnes}, \textit{removeLastColumn}, dan \textit{generate}. Fungsi \textit{addAColumnOfOnes} memiliki fungsi untuk menambahkan sebuah kolom yang pada setiap baris memiliki nilai berupa angka 1 kepada sebuah matriks. Fungsi \textit{removeLastColumn} memiliki fungsi untuk menghapus kolom terakhir pada suatu matriks. Fungsi \textit{generate} adalah fungsi yang bertujuan untuk membuat matriks translasi baru secara acak
+    \item Kelas \textit{RandomRotationMatrix} adalah kelas yang mempunyai tujuan utama untuk membuat matriks rotasi secara acak. Kelas ini adalah kelas statis sehingga tidak bisa diinstansiasi dan hanya memiliki atribut atau fungsi statis saja. Hanya ada sebuah fungsi pada kelas ini yaitu \textit{generate} yang memiliki fungsi untuk membuat matriks rotasi baru secara acak
+    \item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa dokumen \textit{comma-separated values} yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi dokumen berjenis \textit{comma-separated values} menjadi matriks dan sebaliknya. Hanya ada sebuah atribut pada kelas ini yaitu \textit{filePath} yang berfungsi untuk menyimpan lokasi dokumen yang ingin diproses menjadi matriks. Ada tiga buah fungsi pada kelas ini yaitu \textit{readCSV}, \textit{csvToMatrix}, dan \textit{matrixToCSV} yang masing-masing berfungsi untuk membaca dokumen berjenis \textit{comma-separated values}, mengkonversi dokumen \textit{comma-separated values} menjadi matriks, dan mengkonversi matriks menjadi dokumen \textit{comma-separated values}.
+    \item Kelas \textit{RotationMatrixPreprocessor} adalah kelas untuk menangani masukan matriks rotasi yang digabung dengan matriks translasi berupa sebuah dokumen \textit{comma-separated values} yang akan dikonversi menjadi dua buah matriks (rotasi dan translasi) dan sebaliknya. Ada dua buah fungsi pada kelas ini yaitu \textit{readCSV} dan \textit{saveToCSV}. Fungsi \textit{readCSV} berfungsi untuk membaca dokumen berjenis \textit{comma-separated values} untuk dikonversi menjadi matriks rotasi dan matriks translasi. Fungsi \textit{SaveToCSV} berfungsi untuk mengkonversi matriks rotasi dan matriks translasi menjadi sebuah dokumen berjenis \textit{comma-separated values}.
+    \item Kelas \textit{ProjectionMatrixPreprocessor} adalah kelas untuk menangani masukan matriks proyeksi berupa sebuah dokumen \textit{comma-separated values} yang akan dikonversi menjadi sebuah matriks. Ada dua buah fungsi pada kelas ini yaitu \textit{readCSV} dan \textit{saveToCSV}. Fungsi \textit{readCSV} berfungsi untuk membaca dokumen berjenis \textit{comma-separated values} untuk dikonversi menjadi matriks proyeksi. Fungsi \textit{SaveToCSV} berfungsi untuk mengkonversi matriks proyeksi menjadi sebuah dokumen berjenis \textit{comma-separated values}.
 \end{itemize}
