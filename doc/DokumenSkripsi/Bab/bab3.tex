@@ -10,7 +10,7 @@ Dengan banyaknya data yang disebarkan untuk tujuan penambangan data, timbul masa
 
 Teknik \textit{Random Rotation Perturbation} akan mengacak data dengan cara merotasikan seluruh data yang direpresentasikan sebagai titik pada bidang Euclidean sehingga nilainya akan berubah tetapi jarak Euclidean antara setiap titik tidak akan berubah. Teknik \textit{Random Projection Perturbation} akan mengacak data dengan cara memproyeksikan data ke dimensi yang lebih kecil dengan menggunakan matriks acak. Teknik ini berdasarkan pada lemma \textit{Johnson-Lindenstrauss} yang menyatakan bahwa data yang cukup besar dapat direduksi dimensinya sedemikian rupa tanpa merusak jarak Euclidean secara signifikan. Oleh karena itu, dipiilih teknik penambangan data yang hanya bergantung pada jarak Euclidean yaitu \textit{K-nearest neighbors} dan \textit{K-means}. Kedua teknik penambangan data tersebut akan dipakai untuk menguji coba keberhasilan kedua teknik randomisasi dan untuk membandingkan kulitas hasil dari kedua teknik randomisasi tersebut.
 
-Teknik randomisasi dan penambangan data akan diimplementasikan dengan bantuan bahasa pemograman Python beserta berbagai \textit{library} seperti Pandas~\footnote{https://pandas.pydata.org/}, Numpy~\footnote{https://numpy.org/}, dan Scikit-learn~\footnote{https://scikit-learn.org/stable/}. Perangkat lunak randomisasi akan dibangun beserta antarmukanya. Perangkat lunak untuk menerapkan penambangan data akan dijalankan dengan bantuan perangkat lunak Spyder~\footnote{https://www.spyder-ide.org/} dan Anaconda~\footnote{https://www.anaconda.com/} untuk menampilkan visualisasi dan teks yang dihasilkan oleh perangkat lunak penambangan data yang berbahasa pemograman Python. 
+Teknik randomisasi dan penambangan data akan diimplementasikan dengan bantuan bahasa pemograman Python beserta berbagai \textit{library} seperti Pandas\footnote{https://pandas.pydata.org/}, Numpy\footnote{https://numpy.org/}, dan Scikit-learn\footnote{https://scikit-learn.org/stable/}. Perangkat lunak randomisasi akan dibangun beserta antarmukanya. Perangkat lunak untuk menerapkan penambangan data akan dijalankan dengan bantuan perangkat lunak Spyder\footnote{https://www.spyder-ide.org/} dan Anaconda\footnote{https://www.anaconda.com/} untuk menampilkan visualisasi dan teks yang dihasilkan oleh perangkat lunak penambangan data yang berbahasa pemograman Python. 
 
 \section{\textit{Random Rotation Perturbation}}
 \label{sec:rrp}
@@ -175,11 +175,11 @@ Ide dari teknik \textit{Random Projection Perturbation} seperti yang telah dijel
 \subsection{Analisis}
 \label{subsec:analisis-projection}
 
-Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. \textit{Error} terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi diterapkan ditentukan oleh nilai variabel Epsilon dengan pertidaksamaan sebagai berikut.
+Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. \textit{Error} terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi diterapkan ditentukan oleh nilai variabel Epsilon dengan pertidaksamaan sebagai berikut menunjukkan rentang jarak Euclidean data setelah diproyeksi.
 \begin{equation}
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
-Pertidaksamaan di atas menyatakan bahwa kuadrat dari jarak Euclidean antara dua buah titik setelah diproyeksi tidak akan kurang dari kuadrat jarak Euclidean aslinya dikalikan \((1-eps)\) dan tidak akan lebih dari kuadrat jarak Euclidean aslinya dikalikan \((1+eps)\). Lemma \textit{Johnson-Lindenstrauss} menjamin bahwa \textit{error} yang terjadi hanya akan berada pada rentang tersebut dan bisa saja jarak Euclidean setelah diproyeksi sangat dekat dengan jarak Euclidean aslinya karena belum tentu \textit{error} yang terjadi menyentuh batas pertidaksamaan tersebut. Tetapi pertidaksamaan ini juga dapat menyatakan bahwa jarak Euclidean setelah diproyeksi dengan aslinya tidak mungkin sama persis.
+Pertidaksamaan di atas menyatakan bahwa kuadrat dari jarak Euclidean antara dua buah titik setelah diproyeksi tidak akan kurang dari kuadrat jarak Euclidean aslinya dikalikan \((1-eps)\) dan tidak akan lebih dari kuadrat jarak Euclidean aslinya dikalikan \((1+eps)\). Lemma \textit{Johnson-Lindenstrauss} menjamin bahwa jarak Euclidean pada data setelah diproyeksi hanya akan berada pada rentang tersebut dan bisa saja jarak Euclidean setelah diproyeksi sangat dekat dengan jarak Euclidean aslinya karena belum tentu jarak Euclidean data setelah diproyeksi menyentuh batas pertidaksamaan tersebut. Tetapi pertidaksamaan ini juga dapat menyatakan bahwa jarak Euclidean setelah diproyeksi dengan aslinya tidak mungkin sama persis.
 
 Agar pertidaksamaan sebelumnya berlaku ada persyaratan yang harus dipenuhi yaitu nilai minimal variabel \(k\) atau dengan kata lain target dimensi terkecilnya proyeksi dilakukan harus memenuhi persamaan berikut.
 \begin{equation}
@@ -187,7 +187,7 @@ Agar pertidaksamaan sebelumnya berlaku ada persyaratan yang harus dipenuhi yaitu
 \end{equation}
 Variabel \(n\) pada persamaan tersebut adalah jumlah titik pada bidang Euclidean atau dengan kata lain jumlah baris pada dataset yang ingin dirandomisasi. Dengan melihat persamaan tersebut maka bisa disimpulkan bahwa dimensi minimal sebuah dataset diproyeksikan berbanding lurus dengan jumlah baris pada dataset tersebut. Apabila sebuah dataset diproyeksikan ke dimensi paling minimal dan diterapkan teknik penambangan data sehingga menghasilkan sebuah model penambangan data dengan data latihannya adalah dataset tersebut maka model tersebut akan melanggar persamaan di atas jika model tersebut dilatih kembali dengan data yang baru karena artinya bidang Euclidean yang disebutkan tadi akan memiliki titik yang lebih banyak, nilai \(n\) yang lebih besar. 
 
-Oleh karena itu, berdasarkan analisis di atas teknik \textit{Random Projection Perturbation} tidak relevan untuk model penambangan data yang memiliki sangat banyak data tetapi berdimensi relatif kecil dibandingkan dengan jumlah datanya. Tetapi masalah ini dapat dihindari dengan tidak mereduksi dimensi ke dimensi yang sangat kecil atau paling minimal sehingga tidak terlalu cepat nilai minimal variabel \(k\) meningkat sampai menyusul dimensi dataset setelah proyeksi. Selain itu, \textit{error} yang terjadi juga belum tentu pasti menyentuh batas pertidaksamaan yang di atas sehingga belum tentu hasil randomisasi memiliki \textit{error} yang sangat besar apabila besar dimensi melebihi nilai minimal variabel \(k\). Hal ini akan diuji pada bab 5 saat melakukan pengujian eksperimental.
+Oleh karena itu, berdasarkan analisis di atas teknik \textit{Random Projection Perturbation} tidak relevan untuk model penambangan data yang memiliki sangat banyak data tetapi berdimensi relatif kecil dibandingkan dengan jumlah datanya. Tetapi masalah ini dapat dihindari dengan tidak mereduksi dimensi ke dimensi yang sangat kecil atau paling minimal sehingga tidak terlalu cepat nilai minimal variabel \(k\) meningkat sampai menyusul dimensi dataset setelah proyeksi. Selain itu, jarak Euclidean setelah diproyeksi juga belum tentu pasti menyentuh batas pertidaksamaan yang di atas sehingga belum tentu hasil randomisasi memiliki \textit{error} yang sangat besar apabila besar dimensi melebihi nilai minimal variabel \(k\). Hal ini akan diuji pada bab 5 saat melakukan pengujian eksperimental.
 
 Teknik \textit{Random Projection Perturbation} memiliki kompleksitas yang relatif kecil yaitu \(O(dkn)\) ~\cite{bingham:01:projection}. Dengan kompleksitas yang cukup rendah maka teknik ini dapat bekerja secara cepat untuk penambangan data dengan dataset yang besar sekalipun. Oleh karena itu, teknik ini berpotensi dapat berkerja dengan baik dalam lingkungan \textit{big data} karena kompleksitas yang relatif kecil dan dapat bekerja pada dataset yang sangat besar. Hal ini disebabkan oleh metode yang digunakan oleh teknik ini adalah melakukan proyeksi dengan cara mengkalikan dataset yang sudah berbentuk matriks dengan matriks proyeksi yang berupa matriks acak saja, tidak ada sifat spesial pada matriks acak tersebut seperti teknik \textit{Random Rotation Perturbation} sehingga pembuatan matriks proyeksinya dapat dilakukan dengan cepat.
 
@@ -226,7 +226,19 @@ Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diap
         4.4		&		2.9		&		1.4		&		0.2 
         \end{bmatrix}_{9\times 4}
     \]
-    \item Ditentukan nilai \(\epsilon\) (epsilon) yang diinginkan adalah 0.5
+    \item Ditentukan nilai \(\epsilon\) (epsilon) yang diinginkan adalah 0.5. Dengan rumus berikut dapat dihitung untuk melihat seberapa besar distorsi yang terjadi pada jarak Euclidean sebuah titik/baris data dengan menunjukkan rentang jarak Euclidean data setelah diproyeksi. Contoh yang akan diberikan berikut menguji rentang jarak Euclidean antara baris ke-6 dan ke-9 setelah diproyeksi
+    \begin{align*}
+        ||u - v||^{2} &= (5.4-4.4)^2 + (3.9-2.9)^2 + (1.7-1.4)^2 + (0.4-0.2)^2
+        \\
+        &= 2.13
+    \end{align*}
+    \begin{align*}
+        (1-eps)||u - v||^{2}&<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
+        \\
+        (1-0.5)2.13&<||p(u) - p(v)||^{2}<(1+0.5)2.13
+        \\
+        1.065&<||p(u) - p(v)||^{2}<3.195
+    \end{align*}
     \item Nilai minimal variabel \(k\) (dimensi minimal) dihitung dengan rumus berikut
     \begin{align*}
         k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
