@@ -216,8 +216,304 @@ Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui 
 \section{Pengujian Perangkat Lunak}
 \label{sec:pengujianpl}
 
+Pengujian perangkat lunak akan dibagi menjadi dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian ini bertujuan untuk memastikan bahwa perangkat lunak randomisasi dapat bekerja dengan baik sebagaimana fungsinya dan menguji kualitas data yang dihasilkan perangkat lunak.
+
 \subsection{Pengujian Fungsional}
 \label{sec:pengujianfungsional}
+
+Pengujian fungsional bertujuan untuk memastikan perangkat lunak randomisasi dapat menerapkan kedua teknik randomisasi yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dengan baik terhadap dataset yang memenuhi syarat. Proses pengujian akan dilakukan dengan cara menerapkan kedua teknik tersebut dari awal memasukkan dataset sampai menghasilkan dataset yang telah dirandomisasi. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data.
+
+\subsubsection{Teknik \textit{Random Rotation Perturbation} dengan teknik penambangan data \textit{K-Nearest Neighbors}}
+\label{sec:rrp-knn}
+
+Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{diabetes} yang berisi data kesehatan beberapa orang yang memiliki penyakit \textit{diabetes} dan tidak. Dataset ini memiliki 8 buah fitur dan sebuah label. Delapan buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik klasifikasi dengan algoritma \textit{K-nearest Neighbors} untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali.
+
+Label pada dataset \textit{diabetes} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur dataset tersebut saja yang terandomisasi. Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:diabetes_asli} dan Gambar~\ref{fig:rotated_diabetes}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya, bahkan nilai yang sama pada beberapa baris di dataset asli tidak sama dengan dataset yang telah dirandomisasi pada baris yang sama seperti pada kolom \textit{insulin} baris satu sampai tiga memiliki nilai 0 pada dataset asli tetap pada dataset yang telah dirandomisasi ketiga baris tersebut memiliki nilai yang berbeda antara satu dengan yang lainnya.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{diabetes_asli}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\label{fig:diabetes_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.71]{rotated_diabetes}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\label{fig:rotated_diabetes}
+\end{figure}
+
+Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan delapan buah fitur yang ada. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menguji akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Nilai akurasi pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+
+\noindent\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
+Akurasi setiap K pada training set 
+dataset asli: 
+1: 1.0
+2: 0.8543478260869565
+3: 0.8456521739130435
+4: 0.808695652173913
+5: 0.7891304347826087
+6: 0.7847826086956522
+7: 0.7869565217391304
+8: 0.7782608695652173
+9: 0.7869565217391304
+10: 0.7673913043478261
+11: 0.7804347826086957
+12: 0.7673913043478261
+13: 0.7760869565217391
+14: 0.7760869565217391
+15: 0.7673913043478261
+16: 0.7608695652173914
+17: 0.7673913043478261
+18: 0.7739130434782608
+19: 0.7760869565217391
+20: 0.7717391304347826
+
+Akurasi setiap K pada test set 
+dataset asli: 
+1: 0.6785714285714286
+2: 0.6948051948051948
+3: 0.685064935064935
+4: 0.7077922077922078
+5: 0.7012987012987013
+6: 0.724025974025974
+7: 0.7305194805194806
+8: 0.7012987012987013
+9: 0.7142857142857143
+10: 0.7207792207792207
+11: 0.7142857142857143
+12: 0.7077922077922078
+13: 0.7077922077922078
+14: 0.7305194805194806
+15: 0.7305194805194806
+16: 0.7337662337662337
+17: 0.7207792207792207
+18: 0.7337662337662337
+19: 0.724025974025974
+20: 0.7337662337662337
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
+Akurasi setiap K pada training set 
+dataset randomisasi: 
+1: 1.0
+2: 0.8543478260869565
+3: 0.8456521739130435
+4: 0.808695652173913
+5: 0.7891304347826087
+6: 0.7847826086956522
+7: 0.7869565217391304
+8: 0.7782608695652173
+9: 0.7869565217391304
+10: 0.7673913043478261
+11: 0.7804347826086957
+12: 0.7673913043478261
+13: 0.7760869565217391
+14: 0.7760869565217391
+15: 0.7673913043478261
+16: 0.7608695652173914
+17: 0.7673913043478261
+18: 0.7739130434782608
+19: 0.7760869565217391
+20: 0.7717391304347826
+
+Akurasi setiap K pada test set 
+dataset randomisasi: 
+1: 0.6785714285714286
+2: 0.6948051948051948
+3: 0.685064935064935
+4: 0.7077922077922078
+5: 0.7012987012987013
+6: 0.724025974025974
+7: 0.7305194805194806
+8: 0.7012987012987013
+9: 0.7142857142857143
+10: 0.7207792207792207
+11: 0.7142857142857143
+12: 0.7077922077922078
+13: 0.7077922077922078
+14: 0.7305194805194806
+15: 0.7305194805194806
+16: 0.7337662337662337
+17: 0.7207792207792207
+18: 0.7337662337662337
+19: 0.724025974025974
+20: 0.7337662337662337
+\end{lstlisting}
+\end{minipage}
+
+Dapat dilihat pada kedua listing tersebut akurasi \textit{training set} dan \textit{test set} pada kedua dataset sama persis. Hal ini dikarenakan jarak Euclidean kedua buah dataset tidak berubah sama sekali. Oleh karena itu, perangkat lunak berhasil menerapkan dengan baik teknik \textit{Random Rotation Perturbation} untuk teknik penambangan data klasifikasi.
+
+\subsubsection{Teknik \textit{Random Rotation Perturbation} dengan teknik penambangan data \textit{K-means}}
+\label{sec:rrp-kmeans}
+
+Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{mall\_customers} yang berisi informasi pribadi pelanggan sebuah mall. Dataset ini memiliki empat buah fitur yaitu jenis kelamin, umur, penghasilan, dan skor pengeluaran. empat buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik \textit{clustering} dengan algoritma \textit{K-means} untuk menguji apakah dataset menghasilkan kluster dan bentuk yang sama dengan sudut yang berbeda saat divisualisasikan. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali.
+
+Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mall_customers_asli} dan Gambar~\ref{fig:rotated_mall_customers}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{mall_customers_asli}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\label{fig:mall_customers_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.71]{rotated_mall_customers}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\label{fig:rotated_mall_customers}
+\end{figure}
+
+Teknik penambangan data \textit{K-means} diterapkan menggunakan empat buah fitur yang ada. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menguji akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=1]{kmeans_mall_asli}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\label{fig:kmeans_mall_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.7]{kmeans_mall_rotated}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\label{fig:kmeans_mall_rotated}
+\end{figure}
+
+Dapat dilihat pada kedua \textit{scatter plot} tersebut \textit{cluster} yang dihasilkan sama yaitu 6 \textit{cluster} dan bentuk dari \textit{cluster-cluster} tersebut sama walaupun titik-titik yang ada memiliki lokasi yang berbeda. \textit{Adjusted Rand Index} pada kedua model tersebut memiliki nilai 1 yang berarti anggota \textit{cluster} pada setiap cluster antara kedua model tersebut sama persis. Hal ini dikarenakan jarak Euclidean kedua buah dataset tidak berubah sama sekali. Oleh karena itu, perangkat lunak berhasil menerapkan dengan baik teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering}.
+
+\subsubsection{Teknik \textit{Random Projection Perturbation} dengan teknik penambangan data \textit{K-Nearest Neighbors}}
+\label{sec:rpp-knn}
+
+Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu seperti berdiri, duduk, berjalan, berjalan menanjak, berjalan menurun, dan lain-lain. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks proyeksi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik klasifikasi dengan algoritma \textit{K-nearest Neighbors} untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah jauh dengan besar \textit{error} yang ditentukan pengguna.
+
+Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur dataset tersebut saja yang terandomisasi. Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mobile_sensor_asli} dan Gambar~\ref{fig:projected_mobile_sensor}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya. 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{mobile_sensor_asli}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\label{fig:mobile_sensor_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.8]{projected_mobile_sensor}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\label{fig:projected_mobile_sensor}
+\end{figure}
+
+Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan delapan buah fitur yang ada. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menguji akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Nilai akurasi pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+
+\noindent\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
+Akurasi setiap K pada 
+training set dataset asli: 
+1: 1.0
+2: 0.9887105549510338
+3: 0.9919749727965179
+4: 0.9862622415669206
+5: 0.984221980413493
+6: 0.984221980413493
+7: 0.9817736670293797
+8: 0.9790533188248096
+9: 0.9771490750816104
+10: 0.9764689880304679
+11: 0.9741566920565833
+12: 0.9734766050054406
+13: 0.9721164309031556
+14: 0.9713003264417845
+15: 0.9691240478781284
+16: 0.9685799782372143
+17: 0.9674918389553863
+18: 0.9681719260065288
+19: 0.9659956474428727
+20: 0.9665397170837867
+
+Akurasi setiap K pada 
+test set dataset asli: 
+1: 0.8785205293518833
+2: 0.8659653885307091
+3: 0.8907363420427553
+4: 0.8934509670851714
+5: 0.9002375296912114
+6: 0.9019341703427214
+7: 0.9022734984730234
+8: 0.9060061079063454
+9: 0.9053274516457415
+10: 0.9066847641669494
+11: 0.9039701391245334
+12: 0.9029521547336274
+13: 0.9056667797760435
+14: 0.9049881235154394
+15: 0.9046487953851374
+16: 0.9077027485578555
+17: 0.9070240922972514
+18: 0.9077027485578555
+19: 0.9070240922972514
+20: 0.9056667797760435
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
+Akurasi setiap K pada training set 
+dataset randomisasi: 
+1: 1.0
+2: 0.984221980413493
+3: 0.9896626768226333
+4: 0.9835418933623504
+5: 0.9828618063112078
+6: 0.9797334058759521
+7: 0.9782372143634385
+8: 0.9759249183895539
+9: 0.9736126224156693
+10: 0.9737486398258978
+11: 0.9721164309031556
+12: 0.9717083786724701
+13: 0.9691240478781284
+14: 0.9683079434167573
+15: 0.9666757344940152
+16: 0.9658596300326442
+17: 0.9640914036996736
+18: 0.9640914036996736
+19: 0.9623231773667029
+20: 0.9623231773667029
+
+Akurasi setiap K pada test set 
+dataset randomisasi: 
+1: 0.8649474041398032
+2: 0.8578215134034611
+3: 0.8775025449609772
+4: 0.8781812012215813
+5: 0.8812351543942993
+6: 0.8870037326094333
+7: 0.8903970139124533
+8: 0.8897183576518494
+9: 0.8917543264336614
+10: 0.8941296233457754
+11: 0.8907363420427553
+12: 0.8914149983033594
+13: 0.8934509670851714
+14: 0.8951476077366813
+15: 0.8954869358669834
+16: 0.8954869358669834
+17: 0.8982015609093994
+18: 0.8975229046487954
+19: 0.8992195453003053
+20: 0.9002375296912114
+\end{lstlisting}
+\end{minipage}
+
+Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua dataset berbeda. Akurasi \textit{test set} tertinggi pada dataset asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada dataset yang telah dirandomisasi, akurasi \textit{test set} tertingginya adalah sebesar 0.9002375296912114 dengan nilai \textit{k} sebesar 20. Jika dihitung perbedaan akurasinya adalah sebesar 0.0074652188666441 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Perbedaan nilai \textit{k} ini akan diuji lebih lanjut pada pengujian eksperimental. Dengan perbedaan akurasi yang relatif kecil dan dataset yang telah dirandomisasi teracak dengan baik maka dapat disimpulkan perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} untuk teknik penambangan data \textit{clustering}.
+
+
+
+\subsubsection{Teknik \textit{Random Projection Perturbation} dengan teknik penambangan data \textit{K-means}}
+\label{sec:rpp-kmeans}
 
 \subsection{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
