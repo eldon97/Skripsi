@@ -357,30 +357,30 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.9]{mall_customers_asli}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\caption{Dua puluh baris pertama dataset \textit{mall\_customers} asli}
 	\label{fig:mall_customers_asli}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.71]{rotated_mall_customers}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\caption{Dua puluh baris pertama dataset \textit{mall\_customers} setelah dirandomisasi}
 	\label{fig:rotated_mall_customers}
 \end{figure}
 
-Teknik penambangan data \textit{K-means} diterapkan menggunakan empat buah fitur yang ada. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menguji akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+Teknik penambangan data \textit{K-means} diterapkan menggunakan empat buah fitur yang ada. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=1]{kmeans_mall_asli}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\caption{Visualisasi \textit{cluster} pada dataset yang asli}
 	\label{fig:kmeans_mall_asli}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.7]{kmeans_mall_rotated}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\caption{Visualisasi \textit{cluster} pada dataset yang telah dirotasi}
 	\label{fig:kmeans_mall_rotated}
 \end{figure}
 
@@ -396,14 +396,14 @@ Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihila
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.9]{mobile_sensor_asli}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\caption{Dua puluh baris pertama dataset \textit{mobile\_sensor} yang asli}
 	\label{fig:mobile_sensor_asli}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.8]{projected_mobile_sensor}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\caption{Dua puluh baris pertama dataset \textit{mobile\_sensor} setelah dirandomisasi}
 	\label{fig:projected_mobile_sensor}
 \end{figure}
 
@@ -510,10 +510,30 @@ dataset randomisasi:
 
 Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua dataset berbeda. Akurasi \textit{test set} tertinggi pada dataset asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada dataset yang telah dirandomisasi, akurasi \textit{test set} tertingginya adalah sebesar 0.9002375296912114 dengan nilai \textit{k} sebesar 20. Jika dihitung perbedaan akurasinya adalah sebesar 0.0074652188666441 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Perbedaan nilai \textit{k} ini akan diuji lebih lanjut pada pengujian eksperimental. Dengan perbedaan akurasi yang relatif kecil dan dataset yang telah dirandomisasi teracak dengan baik maka dapat disimpulkan perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} untuk teknik penambangan data \textit{clustering}.
 
-
-
 \subsubsection{Teknik \textit{Random Projection Perturbation} dengan teknik penambangan data \textit{K-means}}
 \label{sec:rpp-kmeans}
+
+Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang sama seperti sebelumnya dan dapat dilihat pada Gambar~\ref{fig:mobile_sensor_asli} dan Gambar~\ref{fig:projected_mobile_sensor}. Dataset ini akan diterapkan teknik \textit{clustering} dengan algoritma \textit{K-means} untuk menguji apakah dataset menghasilkan kluster dan bentuk yang sama dengan sudut yang berbeda saat divisualisasikan. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah jauh dengan besar \textit{error} yang ditentukan pengguna.
+
+Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{K-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik.
+
+Teknik penambangan data \textit{K-means} diterapkan menggunakan dua buah fitur yang ada hasil dari teknik \textit{Principal Component Analysis}. Model \textit{K-means} akan dibuat dengan nilai \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai \textit{k} yang memiliki \textit{Sillhoutte Score} tertinggi. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor_asli} dan Gambar~\ref{fig:kmeans_mobile_sensor_randomisasi}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=1]{kmeans_mobile_sensor_asli}
+	\caption{Visualisasi \textit{cluster} pada dataset yang asli}
+	\label{fig:kmeans_mobile_sensor_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=1]{kmeans_mobile_sensor_randomisasi}
+	\caption{Visualisasi \textit{cluster} pada dataset yang telah diproyeksi}
+	\label{fig:kmeans_mobile_sensor_randomisasi}
+\end{figure}
+
+Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak. Dapat dilihat pada kedua \textit{scatter plot} tersebut \textit{cluster} yang dihasilkan sama yaitu 2 \textit{cluster} walaupun ada sedikit perbedaan lokasi titik-titik yang ada pada kedua \textit{scatter plot} tersebut. \textit{Adjusted Rand Index} pada kedua model tersebut memiliki nilai sebesar 0.9994558701020273, mendekati angka 1. Dengan \textit{Adjusted Rand Index} sebesar itu dapat diartikan anggota \textit{cluster} pada setiap cluster antara kedua model tersebut hampir sama persis. Hal ini dikarenakan jarak Euclidean kedua buah dataset tidak rusak secara signifikan dan \textit{error}nya terkendali sesuai yang pengguna inginkan. Oleh karena itu, perangkat lunak berhasil menerapkan dengan baik teknik \textit{Random Projection Perturbation} untuk penambangan data \textit{clustering}.
 
 \subsection{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
