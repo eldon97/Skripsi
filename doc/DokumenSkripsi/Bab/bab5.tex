@@ -865,12 +865,12 @@ Pada Gambar~\ref{fig:heatmap_mall_customers} dapat dilihat korelasi antara satu 
 	\label{fig:heatmap_mall_customers}
 \end{figure}
 
-Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik distorsi untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik distorsinya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.2]{elbow_mall_customers}
-	\caption{Grafik distorsi untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+	\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
 	\label{fig:elbow_mall_customers}
 \end{figure}
 
@@ -915,10 +915,73 @@ pada dataset randomisasi:
 \end{lstlisting}
 \end{minipage}
 
-TODO VISUALISASI CLUSTER DAN WAKTU EKSEKUSI
+Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 6 pada dataset \textit{mall\_customers} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama dan terlihat dari lokasi titik-titik yang ada jika dibandingkan terlihat seperti dirotasi searah jarum jam dan bentuknya masih terlihat sama. Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 1.0 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model persis adanya. Waktu yang dibutuhkan untuk melatih model \textit{clustering} tersebut adalah 0.02995157241821289 detik pada dataset asli dan 0.032910823822021484 detik pada dataset yang telah dirandomisasi, hal ini menunjukkan bahwa teknik \textit{Random Rotation Perturbation} tidak memepengaruhi waktu melatih model \textit{K-means}. Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means}.
 
 \subsubsection{\textit{Random Projection Perturbation}}
 \label{sec:pengujian-clustering-rpp}
+
+Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{K-means} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+
+Sebelum dataset digunakan untuk membuat model \textit{clustering}, diterapkan dahulu suatu metode yang bernama \textit{Principal Component Analysis} untuk mereduksi dimensi dataset agar dapat dengan mudah divisualisasikan. Metode tersebut akan mereduksi dimensi dataset sampai hanya menjadi 2 dimensi saja. Dalam menguji teknik \textit{Random Projection Perturbation}, dataset yang tidak diterapkan teknik tersebut langsung direduksi dimensinya dengan metode \textit{Principal Component Analysis} dan dataset yang akan diterapkan teknik tersebut, akan terlebih dahulu diterapkan teknik \textit{Random Projection Perturbation} baru direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}. Visualisasi hasil metode \textit{Principal Component Analysis} dataset yang asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:scatter_mobile_sensor}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.2]{scatter_mobile_sensor}
+	\caption{\textit{Scatter plot} dataset \textit{mobile\_sensor} yang telah direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}}
+	\label{fig:scatter_mobile_sensor}
+\end{figure}
+
+Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Walaupun seperti itu, pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai \textit{k} yang terbaik untuk dipakai membuat model, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.18]{elbow_mobile_sensor}
+	\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+	\label{fig:elbow_mobile_sensor}
+\end{figure}
+
+Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada dataset asli dan yang telah dirandomisasi sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada dataset asli dan 0.7581796759180272 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.175]{siluet_mobile_sensor}
+	\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
+	\label{fig:siluet_mobile_sensor}
+\end{figure}
+
+
+\noindent\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
+Sillhoutte Score setiap K
+pada dataset asli: 
+2: 0.7568010158989575
+3: 0.6390101777235029
+4: 0.506497255331499
+5: 0.4790910470659918
+6: 0.4497981866661921
+7: 0.4414685328088866
+8: 0.4122363491089296
+9: 0.39158160384319435
+10: 0.3854996654126945
+\end{lstlisting}
+\end{minipage}\hfill
+\begin{minipage}{.48\textwidth}
+\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
+Sillhoutte Score setiap K
+pada dataset randomisasi: 
+2: 0.7581796759180272
+3: 0.6472419899391577
+4: 0.5015650888399312
+5: 0.47862510668209096
+6: 0.45064475921629954
+7: 0.43865532313764366
+8: 0.4186927518384631
+9: 0.3930205669353965
+10: 0.3889412224520463
+\end{lstlisting}
+\end{minipage}
+
+Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 2 pada dataset \textit{mobile\_sensor} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor_asli} dan Gambar~\ref{fig:kmeans_mobile_sensor_randomisasi}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 0.9994558701020273 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model sangat mirip sekali. Waktu yang dibutuhkan untuk melatih model \textit{clustering} tersebut adalah 0.04489636421203613 detik pada dataset asli dan 0.040889739990234375 detik pada dataset yang telah dirandomisasi, hal ini menunjukkan bahwa teknik \textit{Random Projection Perturbation} tidak memepengaruhi secara signifikan waktu melatih model \textit{K-means}, tetapi dataset yang telah dirandomisasi memiliki waktu yang sedikit lebih cepat dikarenakan dimensinya juga lebih kecil sehingga data yang diproses semakin sedikit. Teknik \textit{Random Projection Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means}.
 
 \subsubsection{Perbandingan}
 \label{sec:pengujian-clustering-perbandingan}
