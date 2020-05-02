@@ -218,33 +218,23 @@ Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui 
 
 Pengujian fungsional bertujuan untuk memastikan perangkat lunak randomisasi dapat menerapkan kedua teknik randomisasi yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dengan baik terhadap dataset yang memenuhi syarat. Proses pengujian akan dilakukan dengan cara menerapkan kedua teknik tersebut dari awal memasukkan dataset sampai menghasilkan dataset yang telah dirandomisasi. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data.
 
-\subsection{Teknik \textit{Random Rotation Perturbation} dengan teknik penambangan data \textit{K-Nearest Neighbors}}
-\label{sec:rrp-knn}
+\subsection{Teknik \textit{Random Rotation Perturbation}}
+\label{sec:rrp-fungsional}
 
-Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{diabetes} yang berisi data kesehatan beberapa orang yang memiliki penyakit \textit{diabetes} dan tidak. Dataset ini memiliki 8 buah fitur dan sebuah label. Delapan buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik klasifikasi dengan algoritma \textit{K-nearest Neighbors} untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali.
+Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{mall\_customers} yang berisi informasi pribadi pelanggan sebuah mall. Dataset ini memiliki empat buah fitur yaitu jenis kelamin, umur, penghasilan, dan skor pengeluaran. Empat buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya sama dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
-Label pada dataset \textit{diabetes} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur dataset tersebut saja yang terandomisasi. Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:diabetes_asli} dan Gambar~\ref{fig:rotated_diabetes}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya, bahkan nilai yang sama pada beberapa baris di dataset asli tidak sama dengan dataset yang telah dirandomisasi pada baris yang sama seperti pada kolom \textit{insulin} baris satu sampai tiga memiliki nilai 0 pada dataset asli tetap pada dataset yang telah dirandomisasi ketiga baris tersebut memiliki nilai yang berbeda antara satu dengan yang lainnya.
+Pada teknik \textit{Random Rotation Perturbation} untuk merotasikan sebuah dataset diperlukan sebuah matriks rotasi dan translasi acak. Perangkat lunak diharapkan dapat membuat kedua matriks tersebut dan menyimpannya ke dalam sebuah dokumen \textit{commas-separated values}. Beberapa kolom pada dataset \textit{mall\_customers} harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Dataset \textit{mall\_customers} mempunyai 3 buah fitur yang akan dirandomisasi, oleh karena itu matriks rotasi dan translasi acak yang dibuat perangkat lunak seharusnya berukuran \(3*3\) kecuali matriks translasi yang akan berukuran \(4*4\) karena matriks translasi mempunyai kolom terakhir tambahan yang dibutuhkan untuk melakukan tranformasi translasi. 
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.9]{diabetes_asli}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
-	\label{fig:diabetes_asli}
-\end{figure}
+Pada pengujian yang dilakukan, perangkat lunak berhasil membuat kedua matriks acak tersebut dengan ukuran yang benar dan menyimpannya pada satu dokumen \textit{commas-separated values} yang isinya dapat dilihat pada Gambar~\ref{fig:mall_rotation_matrix}. Matriks rotasi dan translasi ini akan digunakan untuk menerapkan teknik \textit{Random Rotation Perturbation} terhadap dataset \textit{mall\_customers}. Perangkat lunak juga berhasil menggunakan ulang kedua matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Rotation Perturbation} terhadap dataset \textit{mall\_customers} dan hasilnya sama persis seperti hasil yang pertama kali. Kedua matriks tersebut juga dapat digunakan untuk data \textit{mall\_customers} yang lain dengan syarat masih memiliki jumlah fitur yang sama.
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.71]{rotated_diabetes}
-	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
-	\label{fig:rotated_diabetes}
+	\includegraphics[scale=0.35]{mall_rotation_matrix}
+	\caption{Matriks rotasi dan translasi acak yang dibuat perangkat lunak dan disimpan pada satu dokumen  \textit{commas-separated values}}
+	\label{fig:mall_rotation_matrix}
 \end{figure}
 
-\subsection{Teknik \textit{Random Rotation Perturbation} dengan teknik penambangan data \textit{K-means}}
-\label{sec:rrp-kmeans}
-
-Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{mall\_customers} yang berisi informasi pribadi pelanggan sebuah mall. Dataset ini memiliki empat buah fitur yaitu jenis kelamin, umur, penghasilan, dan skor pengeluaran. empat buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik \textit{clustering} dengan algoritma \textit{K-means} untuk menguji apakah dataset menghasilkan kluster dan bentuk yang sama dengan sudut yang berbeda saat divisualisasikan. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali.
-
-Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mall_customers_asli} dan Gambar~\ref{fig:rotated_mall_customers}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya.
+Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mall_customers_asli} dan Gambar~\ref{fig:rotated_mall_customers}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya. Terlebih lagi jika diperhatikan, nilai yang sama pada beberapa baris di dataset asli tidak sama dengan dataset yang telah dirandomisasi pada baris yang sama seperti pada kolom \textit{insulin} baris 10 sampai 12 memiliki nilai 19 pada dataset asli tetapi pada dataset yang telah dirandomisasi ketiga baris tersebut memiliki nilai yang berbeda antara satu dengan yang lainnya. Dalam rangka untuk memastikan perangkat lunak berhasil dengan benar menerapkan teknik \textit{Random Rotation Perturbation} dengan matriks rotasi dan translasi yang sebelumnya sudah dibuat dan disimpan oleh perangkat lunak, perhitungan manual dilakukan terhadap dataset \textit{mall\_customers} dengan menggunakan matriks rotasi dan translasi tersebut. Perhitungan manual dan hasil akhirnya pada 20 baris pertama dapat dilihat masing-masing pada <<TODO>> dan <<TODO>>. Apabila dibandingkan hasil dari perangkat lunak dan perhitungan manual, dapat dilihat hasil dari perangkat lunak sama persis dengan hasil dari perhitungan manual. Oleh karena itu, dapat disimpulkan bahwa perangkat lunak sudah berfungsi dengan baik dan benar dalam menerapkan teknik \textit{Random Rotation Perturbation}.
 
 \begin{figure}
 	\centering
@@ -255,31 +245,60 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.71]{rotated_mall_customers}
+	\includegraphics[scale=0.9]{rotated_mall_customers}
 	\caption{Dua puluh baris pertama dataset \textit{mall\_customers} setelah dirandomisasi}
 	\label{fig:rotated_mall_customers}
 \end{figure}
 
-\subsection{Teknik \textit{Random Projection Perturbation} dengan teknik penambangan data \textit{K-Nearest Neighbors}}
-\label{sec:rpp-knn}
+\subsection{Teknik \textit{Random Projection Perturbation}}
+\label{sec:rpp-fungsional}
 
-Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu seperti berdiri, duduk, berjalan, berjalan menanjak, berjalan menurun, dan lain-lain. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks proyeksi harus dapat disimpan dan digunakan kembali untuk lain kali. Kemudian diterapkan teknik klasifikasi dengan algoritma \textit{K-nearest Neighbors} untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah jauh dengan besar \textit{error} yang ditentukan pengguna.
+Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu seperti berdiri, duduk, berjalan, berjalan menanjak, berjalan menurun, dan lain-lain. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya mirip dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
-Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur dataset tersebut saja yang terandomisasi. Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mobile_sensor_asli} dan Gambar~\ref{fig:projected_mobile_sensor}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang sangat berbeda dengan aslinya. 
+Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Nilai variabel Epsilon yang dipilih pada pengujian ini adalah sebesar 0.5 dan dengan nilai variabel \textit{Epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 427.2954. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 427 dengan dataset \textit{mobile\_sensor} dan nilai variabel Epsilon sebesar 0.5. Berikut ini adalah perhitungan manual nilai minimal variabel \textit{k} dengan nilai variabel Epsilon sebesar 0.5 dan jumlah baris pada dataset sebanyak 7352 baris.
+\begin{align*}
+	k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
+	&= \frac{4\ln{8.9027}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
+	&= \frac{35.6108}{0.125-0.04166} \\
+	&= 427.2954
+\end{align*}
+
+Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah dataset diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{commas-separated values}. Dataset \textit{mobile\_sensor} memiliki 561 buah fitur yang akan dirandomisasi dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 427 maka ditentukan nilai \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427*427\).
+
+Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi acak tersebut dengan ukuran yang benar dan menyimpannya pada sebuah dokumen \textit{commas-separated values} yang 10 kolom pertama pada 20 baris pertamanya dapat dilihat pada Gambar~\ref{fig:mobile_sensor_projection_matrix}. Matriks proyeksi ini akan digunakan untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor}. Perangkat lunak juga berhasil menggunakan ulang matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor} dan hasilnya sama persis seperti hasil yang pertama kali. Matriks proyeksi tersebut juga dapat digunakan untuk data \textit{mobile\_sensor} yang lain dengan syarat masih memiliki jumlah fitur yang sama dan dengan penambahan data tersebut, nilai minimal variabel \textit{k} harus tetap lebih kurang atau sama dengan nilai \textit{k} yang dipilih. Persyaratan tersebut didasarkan oleh sifat pada teknik \textit{Random Projection Perturbation} yaitu nilai minimal variabel \textit{k} berbanding lurus dengan banyaknya data.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{mobile_sensor_projection_matrix}
+	\caption{Matriks proyeksi acak yang dibuat perangkat lunak dan disimpan pada sebuah dokumen  \textit{commas-separated values}}
+	\label{fig:mobile_sensor_projection_matrix}
+\end{figure}
+
+Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama dataset asli dan dataset yang telah dirandomisasi masing-masing pada Gambar~\ref{fig:mobile_sensor_asli} dan Gambar~\ref{fig:projected_mobile_sensor}. Dapat dilihat pada gambar tersebut, dataset setelah dirandomisasi memiliki nilai yang berbeda dengan aslinya. Terlebih lagi setiap fitur pada dataset yang telah dirandomisasi tidak diketahui arti dari setiap fitur tersebut apa karena sudah tereduksi sehingga seluruh fitur pada dataset asli tercampur secara acak dan terproyeksikan ke dalam 427 fitur yang ada pada dataset yang telah dirandomisasi. Dalam rangka untuk memastikan perangkat lunak berhasil dengan benar menerapkan teknik \textit{Random Projection Perturbation} dengan matriks proyeksi acak yang sebelumnya sudah dibuat dan disimpan oleh perangkat lunak, perhitungan manual dilakukan terhadap dataset \textit{mobile\_sensor} dengan menggunakan matriks proyeksi tersebut. Perhitungan manual dan hasil akhirnya (7 kolom terakhir pada 20 baris pertama) dapat dilihat masing-masing pada <<TODO>> dan <<TODO>>. Apabila dibandingkan hasil dari perangkat lunak dan perhitungan manual, dapat dilihat hasil dari perangkat lunak sama persis dengan hasil dari perhitungan manual. Oleh karena itu, dapat disimpulkan bahwa perangkat lunak sudah berfungsi dengan baik dan benar dalam menerapkan teknik \textit{Random Projection Perturbation}.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.9]{mobile_sensor_asli}
-	\caption{Dua puluh baris pertama dataset \textit{mobile\_sensor} yang asli}
+	\caption{Dua puluh baris terakhir dataset \textit{mobile\_sensor} yang asli}
 	\label{fig:mobile_sensor_asli}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.8]{projected_mobile_sensor}
-	\caption{Dua puluh baris pertama dataset \textit{mobile\_sensor} setelah dirandomisasi}
+	\caption{Dua puluh baris terakhir dataset \textit{mobile\_sensor} setelah dirandomisasi}
 	\label{fig:projected_mobile_sensor}
 \end{figure}
+
+Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Projection Perturbation} dengan akurat, perangkat lunak pengujian dibuat untuk menguji jarak Euclidean dari setiap titik pada dataset terhadap setiap titik lainnya. Pengujian dilakukan dengan menggunakan pertidaksamaan rentang jarak Euclidean berikut untuk menguji apakah jarak Euclidean pada dataset yang telah dirandomisasi mempunyai \textit{error} yang lebih besar dari harapan pengguna. Hasil dari perangkat lunak diharapkan (dataset yang telah dirandomisasi) memenuhi pertidaksamaan berikut ini.
+
+\begin{align*}
+	||u - v||^{2} &= (5.4-4.4)^2 + (3.9-2.9)^2 + (1.7-1.4)^2 + (0.4-0.2)^2
+	\\
+	&= 2.13
+\end{align*}
+
+Pada pengujian ini, dengan nilai variabel Epsilon sebesar 0.5 pertidaksamaan tersebut terpenuhi pada seluruh data yang ada pada dataset. Pertidaksamaan tersebut tidak terpenuhi apabila nilai variabel Epsilon ditentukan sebesar 0.4 dan salah satu kasus yang melanggar pertidaksamaan tersebut adalah baris 473 dengan baris 1306 dengan jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas \textit{error} yang ditentukan pengguna.
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
@@ -294,6 +313,20 @@ Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model
 \label{sec:pengujian-klasifikasi-rrp}
 
 Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{K-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{diabetes_asli}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} asli}
+	\label{fig:diabetes_asli}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.71]{rotated_diabetes}
+	\caption{Dua puluh baris pertama dataset \textit{diabetes} setelah dirandomisasi}
+	\label{fig:rotated_diabetes}
+\end{figure}
 
 Pada dataset \textit{diabetes}, jumlah kasus diabetes atau dengan kata lain distribusi label pada dataset ini dapat dilihat pada Gambar~\ref{fig:distribusi_label_diabetes}. Dataset \textit{diabetes} asli dan dataset \textit{diabetes} yang telah dirandomisasi tentunya memiliki distribusi label yang sama karena label tidak dirandomisasi sehingga tidak berubah.
 
