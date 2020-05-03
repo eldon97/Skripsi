@@ -255,15 +255,15 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 
 Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu seperti berdiri, duduk, berjalan, berjalan menanjak, berjalan menurun, dan lain-lain. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya mirip dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
-Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Nilai variabel Epsilon yang dipilih pada pengujian ini adalah sebesar 0.5 dan dengan nilai variabel \textit{Epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 427.2954. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 427 dengan dataset \textit{mobile\_sensor} dan nilai variabel Epsilon sebesar 0.5. Berikut ini adalah perhitungan manual nilai minimal variabel \textit{k} dengan nilai variabel Epsilon sebesar 0.5 dan jumlah baris pada dataset sebanyak 7352 baris.
+Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Nilai variabel Epsilon yang dipilih pada pengujian ini adalah sebesar 0.52 dan dengan nilai variabel \textit{Epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 418.0905. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 418 dengan dataset \textit{mobile\_sensor} dan nilai variabel Epsilon sebesar 0.52. Berikut ini adalah perhitungan manual nilai minimal variabel \textit{k} dengan nilai variabel Epsilon sebesar 0.52 dan jumlah baris pada dataset sebanyak 10299 baris.
 \begin{align*}
 	k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
-	&= \frac{4\ln{8.9027}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
-	&= \frac{35.6108}{0.125-0.04166} \\
-	&= 427.2954
+	&= \frac{4\ln{10299}}{\frac{0.52^{2}}{2}-\frac{0.52^{3}}{3}} \\
+	&= \frac{36.9592}{0.1352-0.0468} \\
+	&= 418.0905
 \end{align*}
 
-Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah dataset diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{commas-separated values}. Dataset \textit{mobile\_sensor} memiliki 561 buah fitur yang akan dirandomisasi dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 427 maka ditentukan nilai \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427*427\).
+Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah dataset diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{commas-separated values}. Dataset \textit{mobile\_sensor} memiliki 561 buah fitur yang akan dirandomisasi dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 418 maka ditentukan nilai \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427*427\).
 
 Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi acak tersebut dengan ukuran yang benar dan menyimpannya pada sebuah dokumen \textit{commas-separated values} yang 10 kolom pertama pada 20 baris pertamanya dapat dilihat pada Gambar~\ref{fig:mobile_sensor_projection_matrix}. Matriks proyeksi ini akan digunakan untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor}. Perangkat lunak juga berhasil menggunakan ulang matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor} dan hasilnya sama persis seperti hasil yang pertama kali. Matriks proyeksi tersebut juga dapat digunakan untuk data \textit{mobile\_sensor} yang lain dengan syarat masih memiliki jumlah fitur yang sama dan dengan penambahan data tersebut, nilai minimal variabel \textit{k} harus tetap lebih kurang atau sama dengan nilai \textit{k} yang dipilih. Persyaratan tersebut didasarkan oleh sifat pada teknik \textit{Random Projection Perturbation} yaitu nilai minimal variabel \textit{k} berbanding lurus dengan banyaknya data.
 
@@ -292,13 +292,11 @@ Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama data
 
 Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Projection Perturbation} dengan akurat, perangkat lunak pengujian dibuat untuk menguji jarak Euclidean dari setiap titik pada dataset terhadap setiap titik lainnya. Pengujian dilakukan dengan menggunakan pertidaksamaan rentang jarak Euclidean berikut untuk menguji apakah jarak Euclidean pada dataset yang telah dirandomisasi mempunyai \textit{error} yang lebih besar dari harapan pengguna. Hasil dari perangkat lunak diharapkan (dataset yang telah dirandomisasi) memenuhi pertidaksamaan berikut ini.
 
-\begin{align*}
-	||u - v||^{2} &= (5.4-4.4)^2 + (3.9-2.9)^2 + (1.7-1.4)^2 + (0.4-0.2)^2
-	\\
-	&= 2.13
-\end{align*}
+\begin{equation}
+	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
+\end{equation}
 
-Pada pengujian ini, dengan nilai variabel Epsilon sebesar 0.5 pertidaksamaan tersebut terpenuhi pada seluruh data yang ada pada dataset. Pertidaksamaan tersebut tidak terpenuhi apabila nilai variabel Epsilon ditentukan sebesar 0.4 dan salah satu kasus yang melanggar pertidaksamaan tersebut adalah baris 473 dengan baris 1306 dengan jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas \textit{error} yang ditentukan pengguna.
+Pada pengujian ini, dengan nilai variabel Epsilon sebesar 0.52 pertidaksamaan tersebut terpenuhi pada seluruh data yang ada pada dataset. Ada salah satu kasus saat pertidaksamaan tersebut tidak terpenuhi yaitu apabila nilai variabel Epsilon ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar pertidaksamaan tersebut adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas \textit{error} yang ditentukan pengguna.
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
@@ -312,7 +310,7 @@ Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model
 \subsubsection{\textit{Random Rotation Perturbation}}
 \label{sec:pengujian-klasifikasi-rrp}
 
-Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{K-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{K-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
 \begin{figure}
 	\centering
@@ -328,133 +326,129 @@ Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data kl
 	\label{fig:rotated_diabetes}
 \end{figure}
 
-Pada dataset \textit{diabetes}, jumlah kasus diabetes atau dengan kata lain distribusi label pada dataset ini dapat dilihat pada Gambar~\ref{fig:distribusi_label_diabetes}. Dataset \textit{diabetes} asli dan dataset \textit{diabetes} yang telah dirandomisasi tentunya memiliki distribusi label yang sama karena label tidak dirandomisasi sehingga tidak berubah.
+\begin{itemize}
+	\item Pada dataset \textit{diabetes}, jumlah kasus diabetes atau dengan kata lain distribusi label pada dataset ini dapat dilihat pada Gambar~\ref{fig:distribusi_label_diabetes}. Dataset \textit{diabetes} asli dan dataset \textit{diabetes} yang telah dirandomisasi tentunya memiliki distribusi label yang sama karena label tidak dirandomisasi sehingga tidak berubah.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{distribusi_label_diabetes}
-	\caption{Histogram distribusi label dataset \textit{diabetes}}
-	\label{fig:distribusi_label_diabetes}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{distribusi_label_diabetes}
+		\caption{Histogram distribusi label dataset \textit{diabetes}}
+		\label{fig:distribusi_label_diabetes}
+	\end{figure}
+	\item Properti-properti pada dataset \textit{diabetes} asli dapat dilihat pada Tabel~\ref{table:properti-diabetes-asli-1} dan Tabel~\ref{table:properti-diabetes-asli-2}. Sementara untuk dataset \textit{diabetes} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-diabetes-randomisasi-1} dan Tabel~\ref{table:properti-diabetes-randomisasi-2}. Jika dilihat pada keempat tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}) dan kolom label (\textit{Outcome}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Rotation Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
 
-Properti-properti pada dataset \textit{diabetes} asli dapat dilihat pada Tabel~\ref{table:properti-diabetes-asli-1} dan Tabel~\ref{table:properti-diabetes-asli-2}. Sementara untuk dataset \textit{diabetes} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-diabetes-randomisasi-1} dan Tabel~\ref{table:properti-diabetes-randomisasi-2}. Jika dilihat pada keempat tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}) dan kolom label (\textit{Outcome}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Rotation Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{diabetes} asli}
+		\begin{tabular}{l|lllll}
+			\hline
+			 & Pregnancies & Glucose & BloodPressure & SkinThickness & Insulin \\ \hline
+			count & 768.000000 & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+			mean & 3.845052 & 120.894531 & 69.105469 & 20.536458 & 79.799479 \\
+			std & 3.369578 & 31.972618 & 19.355807 & 15.952218 & 115.244002 \\
+			min & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
+			25\% & 1.000000 & 99.000000 & 62.000000 & 0.000000 & 0.000000 \\
+			50\% & 3.000000 & 117.000000 & 72.000000 & 23.000000 & 30.500000 \\
+			75\% & 6.000000 & 140.250000 & 80.000000 & 32.000000 & 127.250000 \\
+			max & 17.000000 & 199.000000 & 122.000000 & 99.000000 & 846.000000 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-diabetes-asli-1}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{diabetes} asli}
+		\begin{tabular}{l|llll}
+			\hline
+			 & BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
+			count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+			mean & 31.992578 & 0.471876 & 33.240885 & 0.348958 \\
+			std & 7.884160 & 0.331329 & 11.760232 & 0.476951 \\
+			min & 0.000000 & 0.078000 & 21.000000 & 0.000000 \\
+			25\% & 27.300000 & 0.243750 & 24.000000 & 0.000000\\
+			50\% & 32.000000 & 0.372500 & 29.000000 & 0.000000 \\
+			75\% & 36.600000 & 0.626250 & 41.000000 & 1.000000 \\
+			max & 67.100000 & 2.420000 & 81.000000 & 1.000000 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-diabetes-asli-2}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{diabetes} yang telah dirandomisasi}
+		\begin{tabular}{l|lllll}
+			\hline
+			 & Pregnancies & Glucose & BloodPressure & SkinThickness & Insulin \\ \hline
+			count & 768.000000 & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+			mean & -125.296036 & -46.928128 & 38.476869 & 8.970500 & 149.05599 \\
+			std & 65.385296 & 24.314318 & 48.951102 & 29.325358 & 64.087311 \\
+			min & -521.889105 & -130.730268 & -21.449526 & -40.186125 & 60.899387\\
+			25\% & -156.640887 & -61.988042 & 4.264140 & -9.412375 & 109.984343 \\
+			50\% & -102.169672 & -44.481520 & 21.426488 & 2.512069 & 127.946623 \\
+			75\% & -79.991828 & -30.399185 & 61.569078 & 20.287410 & 171.374079 \\
+			max & -43.084371 & 29.654467 & 349.345437 & 195.959060 & 583.395570 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-diabetes-randomisasi-1}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{diabetes} yang telah dirandomisasi}
+		\begin{tabular}{l|llll}
+			\hline
+			 & BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
+			count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+			mean & -103.101329 & 50.477502 & -23.129061 & 0.348958 \\
+			std & 24.146554 & 35.533157 & 32.695887 & 0.476951  \\
+			min & -176.332307 & -199.209279 & -74.182020 & 0.000000 \\
+			25\% & -116.872237 & 35.049918 & -46.748389 & 0.000000 \\
+			50\% & -101.458852 & 58.320138 & -28.463990 & 0.000000 \\
+			75\% & -86.757613 & 73.320823 & -9.757361 & 1.000000 \\
+			max & -22.156712 & 116.151884 & 183.302024 & 1.000000 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-diabetes-randomisasi-2}
+	\end{table}
+	\item Pada Gambar~\ref{fig:distribusi_kolom_diabetes_asli} terdapat \textit{scatter plot} antara satu fitur dengan fitur lainnya dan pada pada dataset asli. Sementara pada dataset yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:distribusi_kolom_diabetes_randomisasi}. Dapat terlihat pada kedua gambar tersebut, lokasi pada titik-titik pada seluruh scatter plot berbeda. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} berhasil mengacak dengan baik setiap nilai yang ada dengan rotasi sehingga visualisasi seperti ini akan terlihat acak karena dataset dirotasi pada dimensi yang lebih besar.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{diabetes} asli}
-	\begin{tabular}{l|lllll}
-		\hline
-         & Pregnancies & Glucose & BloodPressure & SkinThickness & Insulin \\ \hline
-        count & 768.000000 & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & 3.845052 & 120.894531 & 69.105469 & 20.536458 & 79.799479 \\
-		std & 3.369578 & 31.972618 & 19.355807 & 15.952218 & 115.244002 \\
-		min & 0.000000 & 0.000000 & 0.000000 & 0.000000 & 0.000000 \\
-		25\% & 1.000000 & 99.000000 & 62.000000 & 0.000000 & 0.000000 \\
-		50\% & 3.000000 & 117.000000 & 72.000000 & 23.000000 & 30.500000 \\
-		75\% & 6.000000 & 140.250000 & 80.000000 & 32.000000 & 127.250000 \\
-		max & 17.000000 & 199.000000 & 122.000000 & 99.000000 & 846.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-diabetes-asli-1}
-\end{table}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.3]{distribusi_kolom_diabetes_asli}
+		\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{diabetes} yang asli}
+		\label{fig:distribusi_kolom_diabetes_asli}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.3]{distribusi_kolom_diabetes_randomisasi}
+		\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{diabetes} yang telah dirandomisasi}
+		\label{fig:distribusi_kolom_diabetes_randomisasi}
+	\end{figure}
+	\item Pada Gambar~\ref{fig:heatmap_diabetes} dapat dilihat korelasi antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan korelasi antar fitur pada dataset randomisasi sangat berbeda dengan dataset asli, bahkan tidak terlihat ada indikasi kesamaan atau ada properti pada dataset asli yang sama dengan dataset randomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} mengacak setiap nilai pada data tanpa menjaga properti lain selain jarak Euclidean.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{diabetes} asli}
-	\begin{tabular}{l|llll}
-		\hline
-         & BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
-        count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & 31.992578 & 0.471876 & 33.240885 & 0.348958 \\
-		std & 7.884160 & 0.331329 & 11.760232 & 0.476951 \\
-		min & 0.000000 & 0.078000 & 21.000000 & 0.000000 \\
-		25\% & 27.300000 & 0.243750 & 24.000000 & 0.000000\\
-		50\% & 32.000000 & 0.372500 & 29.000000 & 0.000000 \\
-		75\% & 36.600000 & 0.626250 & 41.000000 & 1.000000 \\
-		max & 67.100000 & 2.420000 & 81.000000 & 1.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-diabetes-asli-2}
-\end{table}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.185]{heatmap_diabetes}
+		\caption{\textit{Heatmap} korelasi antar fitur pada dataset \textit{diabetes}}
+		\label{fig:heatmap_diabetes}
+	\end{figure}
+	\item Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan delapan buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat dari teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung pada setiap jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Pada Gambar~\ref{fig:plot_akurasi_diabetes} dapat dilihat grafik akurasi model \textit{K-nearest Neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut terlihat memiliki nilai akurasi yang sama persis untuk setiap nilai \textit{k}. 
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{diabetes} yang telah dirandomisasi}
-	\begin{tabular}{l|lllll}
-		\hline
-         & Pregnancies & Glucose & BloodPressure & SkinThickness & Insulin \\ \hline
-        count & 768.000000 & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & -125.296036 & -46.928128 & 38.476869 & 8.970500 & 149.05599 \\
-		std & 65.385296 & 24.314318 & 48.951102 & 29.325358 & 64.087311 \\
-		min & -521.889105 & -130.730268 & -21.449526 & -40.186125 & 60.899387\\
-		25\% & -156.640887 & -61.988042 & 4.264140 & -9.412375 & 109.984343 \\
-		50\% & -102.169672 & -44.481520 & 21.426488 & 2.512069 & 127.946623 \\
-		75\% & -79.991828 & -30.399185 & 61.569078 & 20.287410 & 171.374079 \\
-		max & -43.084371 & 29.654467 & 349.345437 & 195.959060 & 583.395570 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-diabetes-randomisasi-1}
-\end{table}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.185]{plot_akurasi_diabetes}
+		\caption{Grafik akurasi model klasifikasi pada \textit{training set} dan \textit{test set} dataset \textit{diabetes}}
+		\label{fig:plot_akurasi_diabetes}
+	\end{figure}
+	\item Akurasi model untuk setiap nilai \textit{k} pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Akurasi tertinggi pada model \textit{K-nearest Neighbors} dengan dataset asli adalah sebesar 0.7337662337662337 dengan nilai \textit{k} sebesar 16. Nilai yang sama juga muncul pada dataset yang telah dirandomisasi. Hal ini dapat menjadi bukti bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna, tidak ada perubahan sama sekali pada jarak Euclidean antara seluruh titik. Oleh karena itu model \textit{K-nearest Neighbors} yang terbuat memiliki hasil yang sama persis.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{diabetes} yang telah dirandomisasi}
-	\begin{tabular}{l|llll}
-		\hline
-         & BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
-        count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & -103.101329 & 50.477502 & -23.129061 & 0.348958 \\
-		std & 24.146554 & 35.533157 & 32.695887 & 0.476951  \\
-		min & -176.332307 & -199.209279 & -74.182020 & 0.000000 \\
-		25\% & -116.872237 & 35.049918 & -46.748389 & 0.000000 \\
-		50\% & -101.458852 & 58.320138 & -28.463990 & 0.000000 \\
-		75\% & -86.757613 & 73.320823 & -9.757361 & 1.000000 \\
-		max & -22.156712 & 116.151884 & 183.302024 & 1.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-diabetes-randomisasi-2}
-\end{table}
-
-Pada Gambar~\ref{fig:distribusi_kolom_diabetes_asli} terdapat \textit{scatter plot} antara satu fitur dengan fitur lainnya dan pada pada dataset asli. Sementara pada dataset yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:distribusi_kolom_diabetes_randomisasi}. Dapat terlihat pada kedua gambar tersebut, lokasi pada titik-titik pada seluruh scatter plot berbeda. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} berhasil mengacak dengan baik setiap nilai yang ada dengan rotasi sehingga visualisasi seperti ini akan terlihat acak karena dataset dirotasi pada dimensi yang lebih besar.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.3]{distribusi_kolom_diabetes_asli}
-	\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{diabetes} yang asli}
-	\label{fig:distribusi_kolom_diabetes_asli}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.3]{distribusi_kolom_diabetes_randomisasi}
-	\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{diabetes} yang telah dirandomisasi}
-	\label{fig:distribusi_kolom_diabetes_randomisasi}
-\end{figure}
-
-Pada Gambar~\ref{fig:heatmap_diabetes} dapat dilihat korelasi antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan korelasi antar fitur pada dataset randomisasi sangat berbeda dengan dataset asli, bahkan tidak terlihat ada indikasi kesamaan atau ada properti pada dataset asli yang sama dengan dataset randomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} mengacak setiap nilai pada data tanpa menjaga properti lain selain jarak Euclidean.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{heatmap_diabetes}
-	\caption{\textit{Heatmap} korelasi antar fitur pada dataset \textit{diabetes}}
-	\label{fig:heatmap_diabetes}
-\end{figure}
-
-Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan delapan buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat dari teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung pada setiap jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Pada Gambar~\ref{fig:plot_akurasi_diabetes} dapat dilihat grafik akurasi model \textit{K-nearest Neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. 
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{plot_akurasi_diabetes}
-	\caption{Grafik akurasi model klasifikasi pada \textit{training set} dan \textit{test set} dataset \textit{diabetes}}
-	\label{fig:plot_akurasi_diabetes}
-\end{figure}
-
-Apabila dibandingkan, kedua grafik tersebut memiliki nilai akurasi yang sama persis untuk setiap nilai \textit{k}. Akurasi model untuk setiap nilai \textit{k} pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Akurasi tertinggi pada model \textit{K-nearest Neighbors} dengan dataset asli adalah sebesar 0.7337662337662337 dengan nilai \textit{k} sebesar 16. Nilai yang sama juga muncul pada dataset yang telah dirandomisasi. Hal ini dapat menjadi bukti bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna, tidak ada perubahan sama sekali pada jarak Euclidean antara seluruh titik. Oleh karena itu model \textit{K-nearest Neighbors} yang terbuat memiliki hasil yang sama persis.
-
-\noindent\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
-Akurasi setiap K pada training set 
-dataset asli: 
+	\noindent\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
+Akurasi setiap K pada 
+training set dataset asli: 
 1: 1.0
 2: 0.8543478260869565
 3: 0.8456521739130435
@@ -476,8 +470,8 @@ dataset asli:
 19: 0.7760869565217391
 20: 0.7717391304347826
 
-Akurasi setiap K pada test set 
-dataset asli: 
+Akurasi setiap K pada 
+test set dataset asli: 
 1: 0.6785714285714286
 2: 0.6948051948051948
 3: 0.685064935064935
@@ -498,12 +492,12 @@ dataset asli:
 18: 0.7337662337662337
 19: 0.724025974025974
 20: 0.7337662337662337
-\end{lstlisting}
-\end{minipage}\hfill
-\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
-Akurasi setiap K pada training set 
-dataset randomisasi: 
+	\end{lstlisting}
+	\end{minipage}\hfill
+	\begin{minipage}{.46\textwidth}
+	\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
+Akurasi setiap K pada training 
+set dataset randomisasi: 
 1: 1.0
 2: 0.8543478260869565
 3: 0.8456521739130435
@@ -525,8 +519,8 @@ dataset randomisasi:
 19: 0.7760869565217391
 20: 0.7717391304347826
 
-Akurasi setiap K pada test set 
-dataset randomisasi: 
+Akurasi setiap K pada test 
+set dataset randomisasi: 
 1: 0.6785714285714286
 2: 0.6948051948051948
 3: 0.685064935064935
@@ -547,101 +541,90 @@ dataset randomisasi:
 18: 0.7337662337662337
 19: 0.724025974025974
 20: 0.7337662337662337
-\end{lstlisting}
-\end{minipage}
+	\end{lstlisting}
+	\end{minipage}
+	\item Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.0009965896606445312 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 0.02593088150024414 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi sebesar 0.0019948482513427734 detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 0.009980201721191406 detik. Hal ini menunjukkan tidak ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
+	\item Pada Gambar~\ref{fig:confusion_diabetes} dapat dilihat \textit{confusion matrix} pada model klasifikasi dengan nilai \textit{k} sebesar 16 memakai \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan antar keduanya, \textit{confusion matrix} yang ada memiliki nilai yang sama persis. Hal ini juga menguatkan kesimpulan bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna.
 
-Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.0009965896606445312 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 0.02593088150024414 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi sebesar 0.0019948482513427734 detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 0.009980201721191406 detik. Hal ini menunjukkan tidak ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.185]{confusion_diabetes}
+		\caption{\textit{Confusion matrix} pada hasil prediksi \textit{test set} dataset \textit{diabetes}}
+		\label{fig:confusion_diabetes}
+	\end{figure}
+\end{itemize}
 
-Pada Gambar~\ref{fig:confusion_diabetes} dapat dilihat \textit{confusion matrix} pada model klasifikasi dengan nilai \textit{k} sebesar 16 memakai \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan antar keduanya, \textit{confusion matrix} yang ada memiliki nilai yang sama persis. Hal ini juga menguatkan kesimpulan bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{confusion_diabetes}
-	\caption{\textit{Confusion matrix} pada hasil prediksi \textit{test set} dataset \textit{diabetes}}
-	\label{fig:confusion_diabetes}
-\end{figure}
+Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model klasifikasi dengan algoritma \textit{K-nearest Neighbors} dengan hasil yang memuaskan. 
 
 \subsubsection{\textit{Random Projection Perturbation}}
 \label{sec:pengujian-klasifikasi-rpp}
 
-Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{K-nearest neighbors} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{K-nearest neighbors} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
-Pada dataset \textit{mobile\_sensor}, jumlah orang yang melakukan aktivitas tertentu atau dengan kata lain distribusi label pada dataset ini dapat dilihat pada Gambar~\ref{fig:distribusi_label_mobile_sensor}. Dataset \textit{mobile\_sensor} asli dan dataset \textit{mobile\_sensor} yang telah dirandomisasi tentunya memiliki distribusi label yang sama karena label tidak dirandomisasi sehingga tidak berubah.
+\begin{itemize}
+	\item Pada dataset \textit{mobile\_sensor}, jumlah orang yang melakukan aktivitas tertentu atau dengan kata lain distribusi label pada dataset ini dapat dilihat pada Gambar~\ref{fig:distribusi_label_mobile_sensor}. Dataset \textit{mobile\_sensor} asli dan dataset \textit{mobile\_sensor} yang telah dirandomisasi tentunya memiliki distribusi label yang sama karena label tidak dirandomisasi sehingga tidak berubah.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{distribusi_label_mobile_sensor}
-	\caption{Histogram distribusi label dataset \textit{mobile\_sensor}}
-	\label{fig:distribusi_label_mobile_sensor}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{distribusi_label_mobile_sensor}
+		\caption{Histogram distribusi label dataset \textit{mobile\_sensor}}
+		\label{fig:distribusi_label_mobile_sensor}
+	\end{figure}
+	\item Properti-properti pada dataset \textit{mobile\_sensor} asli dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Sementara untuk dataset \textit{mobile\_sensor} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Projection Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
 
-Properti-properti pada dataset \textit{mobile\_sensor} asli dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Sementara untuk dataset \textit{mobile\_sensor} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Projection Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{mobile\_sensor} asli}
+		\begin{tabular}{l|llll}
+			\hline
+			 & tBodyAcc-mean()-X & tBodyAcc-mean()-Y & angle(Y,gravityMean) & angle(Z,gravityMean)\\ \hline
+			count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
+			mean & 0.274347 & -0.017743 & 0.063255 & -0.054284 \\
+			std & 0.067628 & 0.037128 & 0.305468 & 0.268898 \\
+			min & -1.000000 & -1.000000 & -1.000000 & -1.000000 \\
+			25\% & 0.262625 & -0.024902 & 0.002151 & -0.131880 \\
+			50\% & 0.277174 & -0.017162 & 0.182028 & -0.003882 \\
+			75\% & 0.288354 & -0.010625 & 0.250790 & 0.102970 \\
+			max & 1.000000 & 1.000000 & 1.000000 & 1.000000 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-mobile-sensor-asli}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{mobile\_sensor} yang telah dirandomisasi}
+		\begin{tabular}{l|llll}
+			\hline
+			& 0 & 1 & 425 & 426 \\ \hline
+			count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
+			mean & 0.136942 & -0.289681 & 0.173610 & 0.353280 \\
+			std & 0.528322 & 0.266849 & 0.214992 & 0.475443 \\
+			min & -1.433025 & -1.206428 & -1.437424 & -0.976616 \\
+			25\% & -0.340174 & -0.482918 & 0.033424 & -0.049233 \\
+			50\% & 0.308314 & -0.270461 & 0.179048 & 0.322172 \\
+			75\% & 0.582374 & -0.097266 & 0.325611 & 0.688616 \\
+			max & 1.283867 & 0.726498 & 0.978304 & 1.786145 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-mobile-sensor-asli}
+	\end{table}
+	\item Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan 561 fitur yang ada untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik terjaga dengan besar \textit{error} yang ditentukan pengguna. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 30. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mobile\_sensor} asli}
-	\begin{tabular}{l|llll}
-		\hline
-		 & tBodyAcc-mean()-X & tBodyAcc-mean()-Y & angle(Y,gravityMean) & angle(Z,gravityMean)\\ \hline
-		count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
-		mean & 0.274347 & -0.017743 & 0.063255 & -0.054284 \\
-		std & 0.067628 & 0.037128 & 0.305468 & 0.268898 \\
-		min & -1.000000 & -1.000000 & -1.000000 & -1.000000 \\
-		25\% & 0.262625 & -0.024902 & 0.002151 & -0.131880 \\
-		50\% & 0.277174 & -0.017162 & 0.182028 & -0.003882 \\
-		75\% & 0.288354 & -0.010625 & 0.250790 & 0.102970 \\
-		max & 1.000000 & 1.000000 & 1.000000 & 1.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mobile-sensor-asli}
-\end{table}
+	Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi model \textit{K-nearest Neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut memiliki nilai akurasi yang mirip. Walaupun begitu, teknik \textit{Random Projection Perturbation} tidak menjamin jarak Euclidean terjaga dengan sempurna maka ada sedikit perbedaan yang lumayan terlihat khususnya pada akurasi \textit{test set} dan nilai \textit{k} yang memiliki akurasi tertinggi. Tetapi perbedaan nilai akurasinya masih mirip dengan dataset asli.
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.17]{plot_akurasi_mobile_sensor}
+		\caption{Grafik akurasi model klasifikasi pada \textit{training set} dan \textit{test set} dataset \textit{mobile\_sensor}}
+		\label{fig:plot_akurasi_mobile_sensor}
+	\end{figure}
+	\item Akurasi model untuk setiap nilai \textit{k} dari 11 sampai 30 pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua dataset berbeda. Akurasi \textit{test set} tertinggi pada dataset asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada dataset yang telah dirandomisasi, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Dengan perbedaan akurasi yang relatif kecil dan dataset yang telah dirandomisasi teracak dengan baik maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan \textit{error}-nya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{K-nearest Neighbors} yang terbuat memiliki hasil yang sangat mirip.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mobile\_sensor} yang telah dirandomisasi}
-	\begin{tabular}{l|llll}
-		\hline
-		& 0 & 1 & 425 & 426 \\ \hline
-		count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
-		mean & 0.136942 & -0.289681 & 0.173610 & 0.353280 \\
-		std & 0.528322 & 0.266849 & 0.214992 & 0.475443 \\
-		min & -1.433025 & -1.206428 & -1.437424 & -0.976616 \\
-		25\% & -0.340174 & -0.482918 & 0.033424 & -0.049233 \\
-		50\% & 0.308314 & -0.270461 & 0.179048 & 0.322172 \\
-		75\% & 0.582374 & -0.097266 & 0.325611 & 0.688616 \\
-		max & 1.283867 & 0.726498 & 0.978304 & 1.786145 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mobile-sensor-asli}
-\end{table}
-
-Teknik penambangan data \textit{K-nearest Neighbors} diterapkan menggunakan 561 fitur yang ada untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik terjaga dengan besar \textit{error} yang ditentukan pengguna. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 30. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn.
-
-Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi model \textit{K-nearest Neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut memiliki nilai akurasi yang mirip. Walaupun begitu, teknik \textit{Random Projection Perturbation} tidak menjamin jarak Euclidean terjaga dengan sempurna maka ada sedikit perbedaan yang lumayan terlihat khususnya pada akurasi \textit{test set} dan nilai \textit{k} yang memiliki akurasi tertinggi. Tetapi perbedaan nilai akurasinya masih mirip dengan dataset asli.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.17]{plot_akurasi_mobile_sensor}
-	\caption{Grafik akurasi model klasifikasi pada \textit{training set} dan \textit{test set} dataset \textit{mobile\_sensor}}
-	\label{fig:plot_akurasi_mobile_sensor}
-\end{figure}
-
-Akurasi model untuk setiap nilai \textit{k} pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua dataset berbeda. Akurasi \textit{test set} tertinggi pada dataset asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada dataset yang telah dirandomisasi, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Dengan perbedaan akurasi yang relatif kecil dan dataset yang telah dirandomisasi teracak dengan baik maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan \textit{error}-nya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{K-nearest Neighbors} yang terbuat memiliki hasil yang sangat mirip. 
-
-\noindent\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
-Akurasi setiap K pada training set 
-dataset asli: 
-1: 1.0
-2: 0.9887105549510338
-3: 0.9919749727965179
-4: 0.9862622415669206
-5: 0.984221980413493
-6: 0.984221980413493
-7: 0.9817736670293797
-8: 0.9790533188248096
-9: 0.9771490750816104
-10: 0.9764689880304679
+	\noindent\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
+Akurasi setiap K pada 
+training set dataset asli: 
 11: 0.9741566920565833
 12: 0.9734766050054406
 13: 0.9721164309031556
@@ -663,18 +646,8 @@ dataset asli:
 29: 0.9593307943416758
 30: 0.9594668117519043
 
-Akurasi setiap K pada test set 
-dataset asli: 
-1: 0.8785205293518833
-2: 0.8659653885307091
-3: 0.8907363420427553
-4: 0.8934509670851714
-5: 0.9002375296912114
-6: 0.9019341703427214
-7: 0.9022734984730234
-8: 0.9060061079063454
-9: 0.9053274516457415
-10: 0.9066847641669494
+Akurasi setiap K pada 
+test set dataset asli: 
 11: 0.9039701391245334
 12: 0.9029521547336274
 13: 0.9056667797760435
@@ -695,22 +668,12 @@ dataset asli:
 28: 0.8988802171700034
 29: 0.8971835765184933
 30: 0.9002375296912114
-\end{lstlisting}
-\end{minipage}\hfill
-\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
-Akurasi setiap K pada training set 
-dataset randomisasi: 
-1: 1.0
-2: 0.984221980413493
-3: 0.9896626768226333
-4: 0.9835418933623504
-5: 0.9828618063112078
-6: 0.9797334058759521
-7: 0.9782372143634385
-8: 0.9759249183895539
-9: 0.9736126224156693
-10: 0.9737486398258978
+	\end{lstlisting}
+	\end{minipage}\hfill
+	\begin{minipage}{.46\textwidth}
+	\begin{lstlisting}[caption=Akurasi Dataset Randomisasi,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
+Akurasi setiap K pada training 
+set dataset randomisasi: 
 11: 0.9721164309031556
 12: 0.9717083786724701
 13: 0.9691240478781284
@@ -732,18 +695,8 @@ dataset randomisasi:
 29: 0.9547062023939065
 30: 0.9549782372143635
 
-Akurasi setiap K pada test set 
-dataset randomisasi: 
-1: 0.8649474041398032
-2: 0.8578215134034611
-3: 0.8775025449609772
-4: 0.8781812012215813
-5: 0.8812351543942993
-6: 0.8870037326094333
-7: 0.8903970139124533
-8: 0.8897183576518494
-9: 0.8917543264336614
-10: 0.8941296233457754
+Akurasi setiap K pada test 
+set dataset randomisasi: 
 11: 0.8907363420427553
 12: 0.8914149983033594
 13: 0.8934509670851714
@@ -764,26 +717,20 @@ dataset randomisasi:
 28: 0.8934509670851714
 29: 0.8924329826942654
 30: 0.8907363420427553
-\end{lstlisting}
-\end{minipage}
+	\end{lstlisting}
+	\end{minipage}
+	\item Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.2872335910797119 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 17.754546642303467 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 21 adalah 0.5630350112915039 detik detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 12.86760687828064 detik. Pada dataset yang telah dirandomisasi waktu prediksi lebih cepat dikarenakan fitur-fitur yang ada pun lebih sedikit daripada dataset asli. Hal ini menunjukkan ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
+	\item Pada Gambar~\ref{fig:confusion_matrix_mobile_sensor} dapat dilihat \textit{confusion matrix} pada model klasifikasi dengan nilai \textit{k} sebesar 16 memakai \textit{test set} pada dataset asli dan nilai \textit{k} sebesar 21 memakai dataset yang telah dirandomisasi. Apabila dibandingkan antar keduanya, \textit{confusion matrix} yang ada memiliki nilai yang sangat mirip. Oleh karena itu, akurasi modelnya juga mempunyai nilai yang sangat mirip. Hal ini juga menguatkan kesimpulan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan \textit{error}-nya terkontrol sesuai yang pengguna inginkan.
 
-Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.2872335910797119 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 17.754546642303467 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 21 adalah 0.5630350112915039 detik detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 12.86760687828064 detik. Pada dataset yang telah dirandomisasi waktu prediksi lebih cepat dikarenakan fitur-fitur yang ada pun lebih sedikit daripada dataset asli. Hal ini menunjukkan ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.185]{confusion_matrix_mobile_sensor}
+		\caption{\textit{Confusion matrix} pada hasil prediksi \textit{test set} dataset \textit{mobile\_sensor}}
+		\label{fig:confusion_matrix_mobile_sensor}
+	\end{figure}
+\end{itemize}
 
-Pada Gambar~\ref{fig:confusion_matrix_mobile_sensor} dapat dilihat \textit{confusion matrix} pada model klasifikasi dengan nilai \textit{k} sebesar 16 memakai \textit{test set} pada dataset asli dan nilai \textit{k} sebesar 21 memakai dataset yang telah dirandomisasi. Apabila dibandingkan antar keduanya, \textit{confusion matrix} yang ada memiliki nilai yang sangat mirip. Oleh karena itu, akurasi modelnya juga mempunyai nilai yang sangat mirip. Hal ini juga menguatkan kesimpulan bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan baik dan \textit{error}-nya terkontrol sesuai yang pengguna inginkan.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{confusion_matrix_mobile_sensor}
-	\caption{\textit{Confusion matrix} pada hasil prediksi \textit{test set} dataset \textit{mobile\_sensor}}
-	\label{fig:confusion_matrix_mobile_sensor}
-\end{figure}
-
-\subsubsection{Perbandingan}
-\label{sec:pengujian-klasifikasi-perbandingan}
-
-Berdasarkan pengujian sebelumnya, dapat disimpulkan bahwa teknik \textit{Random Rotation Perturbation} mengacak data dengan baik dan menjamin jarak Euclidean pada dataset terjaga dengan sempurna. Teknik \textit{Random Projection Perturbation} juga mengacak data dengan baik tetapi hanya menjamin jarak Euclidean dapat terjaga dengan \textit{error} yang ditentukan oleh pengguna dan teknik ini hanya dapat diterapkan terhadap dataset yang relatif besar, mempunyai dimensi yang cukup besar untuk diproyeksi ke dimensi yang lebih kecil. Oleh karena itu, teknik \textit{Random Rotation Perturbation} memiliki keunggulan yaitu dataset apapun dapat dirandomisasi dengan teknik ini, sementara teknik \textit{Random Projection Perturbation} hanya bisa menerapkan dataset yang relatif cukup besar.
-
-Pengujian untuk membandingkan juga akan dilakukan dengan memakai dataset \textit{mobile\_sensor}. Dataset akan dirandomisasi dengan kedua teknik tersebut dan dibandingkan model klasifikasi yang dilatih oleh kedua dataset yang telah dirandomisasi. Pengujian ini bertujuan untuk melihat 
+Teknik \textit{Random Projection Perturbation} terbukti bekerja dengan baik untuk mengacak data yang ukurannya cukup besar sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model klasifikasi dengan algoritma \textit{K-nearest Neighbors} dengan hasil yang memuaskan.
 
 \subsection{Penambangan Data \textit{Clustering}}
 \label{sec:pengujian-clustering}
@@ -793,86 +740,87 @@ Pengujian dengan penambangan data \textit{clustering} akan berpusat pada pembuat
 \subsubsection{\textit{Random Rotation Perturbation}}
 \label{sec:pengujian-clustering-rrp}
 
-Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{K-means} akan dilakukan dengan dataset \textit{mall\_customers} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mall_customers_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_mall_customers}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{K-means} akan dilakukan dengan dataset \textit{mall\_customers} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mall_customers_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_mall_customers}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
-Properti-properti pada dataset \textit{mall\_customers} asli dapat dilihat pada Tabel~\ref{table:properti-mall-customers-asli}. Sementara untuk dataset \textit{diabetes} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mall-customers-randomisasi}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Rotation Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
+\begin{itemize}
+	\item Properti-properti pada dataset \textit{mall\_customers} asli dapat dilihat pada Tabel~\ref{table:properti-mall-customers-asli}. Sementara untuk dataset \textit{diabetes} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mall-customers-randomisasi}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Rotation Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, batas bawah dan batas atas nilai pada data.
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mall\_customers} asli}
-	\begin{tabular}{l|lll}
-		\hline
-		& Age & Annual Income (k\$) & Spending Score (1-100) \\ 
- count& 200.000000 & 200.000000 & 200.000000 \\
- mean & 38.850000 & 60.560000 & 50.200000 \\
- std & 13.969007 & 26.264721 & 25.823522 \\
- min & 18.000000 & 15.000000 & 1.000000 \\
- 25\% & 28.750000 & 41.500000 & 34.750000 \\
- 50\% & 36.000000 & 61.500000 & 50.000000 \\
- 75\% & 49.000000 & 78.000000 & 73.000000 \\
- max & 70.000000 & 137.000000 & 99.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mall-customers-asli}
-\end{table}
 
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mall\_customers} yang telah dirandomisasi}
-	\begin{tabular}{l|lll}
-		\hline
-		& Age & Annual Income (k\$) & Spending Score (1-100) \\ 
- count& 200.000000 & 200.000000 & 200.000000 \\
- mean & 59.295607 & -72.113582 & -192.830387 \\
- std & 24.832342 & 22.891719 & 20.276760 \\
- min & 3.246983 & -113.632925 & -246.309601 \\
- 25\% & 43.595492 & -92.541715 & -206.989917 \\
- 50\% & 56.497882 & -68.628508 & -190.676923 \\
- 75\% & 73.795114 & -53.968669 & -180.098255 \\
- max & 140.690958 & -17.887145 & -131.806548 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mall-customers-randomisasi}
-\end{table}
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{mall\_customers} asli}
+		\begin{tabular}{l|lll}
+			\hline
+			& Age & Annual Income (k\$) & Spending Score (1-100) \\ 
+	 count& 200.000000 & 200.000000 & 200.000000 \\
+	 mean & 38.850000 & 60.560000 & 50.200000 \\
+	 std & 13.969007 & 26.264721 & 25.823522 \\
+	 min & 18.000000 & 15.000000 & 1.000000 \\
+	 25\% & 28.750000 & 41.500000 & 34.750000 \\
+	 50\% & 36.000000 & 61.500000 & 50.000000 \\
+	 75\% & 49.000000 & 78.000000 & 73.000000 \\
+	 max & 70.000000 & 137.000000 & 99.000000 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-mall-customers-asli}
+	\end{table}
+	
+	\begin{table}
+		\centering
+		\caption{Properti-properti pada dataset \textit{mall\_customers} yang telah dirandomisasi}
+		\begin{tabular}{l|lll}
+			\hline
+			& Age & Annual Income (k\$) & Spending Score (1-100) \\ 
+	 count& 200.000000 & 200.000000 & 200.000000 \\
+	 mean & 59.295607 & -72.113582 & -192.830387 \\
+	 std & 24.832342 & 22.891719 & 20.276760 \\
+	 min & 3.246983 & -113.632925 & -246.309601 \\
+	 25\% & 43.595492 & -92.541715 & -206.989917 \\
+	 50\% & 56.497882 & -68.628508 & -190.676923 \\
+	 75\% & 73.795114 & -53.968669 & -180.098255 \\
+	 max & 140.690958 & -17.887145 & -131.806548 \\
+			\hline
+		\end{tabular}
+		\label{table:properti-mall-customers-randomisasi}
+	\end{table}
+	\item Pada Gambar~\ref{fig:pairplot_mall_customers} terdapat \textit{scatter plot} antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Dapat terlihat pada kedua \textit{scatter plot} tersebut, lokasi pada titik-titik pada seluruh scatter plot berbeda. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} berhasil mengacak dengan baik setiap nilai yang ada dengan rotasi sehingga visualisasi seperti ini akan terlihat acak karena dataset dirotasi pada dimensi yang lebih besar.
 
-Pada Gambar~\ref{fig:pairplot_mall_customers} terdapat \textit{scatter plot} antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Dapat terlihat pada kedua \textit{scatter plot} tersebut, lokasi pada titik-titik pada seluruh scatter plot berbeda. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} berhasil mengacak dengan baik setiap nilai yang ada dengan rotasi sehingga visualisasi seperti ini akan terlihat acak karena dataset dirotasi pada dimensi yang lebih besar.
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.13]{pairplot_mall_customers}
+		\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{mall\_customers} yang asli}
+		\label{fig:pairplot_mall_customers}
+	\end{figure}
+	
+	\item Pada Gambar~\ref{fig:heatmap_mall_customers} dapat dilihat korelasi antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan korelasi antar fitur pada dataset randomisasi sangat berbeda dengan dataset asli, bahkan tidak terlihat ada indikasi kesamaan atau ada properti pada dataset asli yang sama dengan dataset randomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} mengacak setiap nilai pada data tanpa menjaga properti lain selain jarak Euclidean.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.13]{pairplot_mall_customers}
-	\caption{\textit{Scatter plot} antara seluruh fitur pada dataset \textit{mall\_customers} yang asli}
-	\label{fig:pairplot_mall_customers}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.18]{heatmap_mall_customers}
+		\caption{\textit{Heatmap} korelasi antar fitur pada dataset \textit{mall\_customers}}
+		\label{fig:heatmap_mall_customers}
+	\end{figure}
 
-Pada Gambar~\ref{fig:heatmap_mall_customers} dapat dilihat korelasi antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan korelasi antar fitur pada dataset randomisasi sangat berbeda dengan dataset asli, bahkan tidak terlihat ada indikasi kesamaan atau ada properti pada dataset asli yang sama dengan dataset randomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} mengacak setiap nilai pada data tanpa menjaga properti lain selain jarak Euclidean.
+	\item Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} sebesar 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.18]{heatmap_mall_customers}
-	\caption{\textit{Heatmap} korelasi antar fitur pada dataset \textit{mall\_customers}}
-	\label{fig:heatmap_mall_customers}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.17]{elbow_mall_customers}
+		\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+		\label{fig:elbow_mall_customers}
+	\end{figure}
 
-Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+	\item Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sama persis dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini mungkin dikarenakan oleh nilai pada setiap data yang berbeda dan mempengaruhi sedikit algoritma pada \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} 6 adalah nilai paling besar yaitu 0.4523443947724053 pada dataset asli dan 0.4523443947780976 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.17]{elbow_mall_customers}
-	\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
-	\label{fig:elbow_mall_customers}
-\end{figure}
-
-Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sama persis dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini mungkin dikarenakan oleh nilai pada setiap data yang berbeda dan mempengaruhi sedikit algoritma pada \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} 6 adalah nilai paling besar yaitu 0.4523443947724053 pada dataset asli dan 0.4523443947780976 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{siluet_mall_customers}
-	\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mall\_customers}}
-	\label{fig:siluet_mall_customers}
-\end{figure}
-
-\noindent\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.185]{siluet_mall_customers}
+		\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mall\_customers}}
+		\label{fig:siluet_mall_customers}
+	\end{figure}
+	
+	\noindent\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
 Sillhoutte Score setiap K
 pada dataset asli: 
 2: 0.293166070535953
@@ -884,10 +832,10 @@ pada dataset asli:
 8: 0.42790288922594905
 9: 0.4137641526186506
 10: 0.3750147687842441
-\end{lstlisting}
-\end{minipage}\hfill
-\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
+	\end{lstlisting}
+	\end{minipage}\hfill
+	\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
 Sillhoutte Score setiap K
 pada dataset randomisasi: 
 2: 0.29316607053507854
@@ -899,61 +847,67 @@ pada dataset randomisasi:
 8: 0.42815090435529995
 9: 0.3861502477348431
 10: 0.3897532214988177
-\end{lstlisting}
-\end{minipage}
+	\end{lstlisting}
+	\end{minipage}
 
-Teknik penambangan data \textit{K-means} diterapkan menggunakan empat buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan kluster dan bentuk yang sama dengan sudut yang berbeda saat divisualisasikan. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali tetapi merotasi seluruh titik yang ada pada bidang Euclidean. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 6 pada dataset \textit{mall\_customers} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. 
+	\item Teknik penambangan data \textit{K-means} diterapkan menggunakan empat buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan kluster dan bentuk yang sama dengan sudut yang berbeda saat divisualisasikan. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali tetapi merotasi seluruh titik yang ada pada bidang Euclidean. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Visualisasi \textit{cluster} pada dataset asli dan dataset yang telah dirandomisasi masing-masing dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 6 pada dataset \textit{mall\_customers} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mall_asli} dan Gambar~\ref{fig:kmeans_mall_rotated}. 
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{kmeans_mall_asli}
-	\caption{Visualisasi \textit{cluster} pada dataset yang asli}
-	\label{fig:kmeans_mall_asli}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{kmeans_mall_asli}
+		\caption{Visualisasi \textit{cluster} pada dataset yang asli}
+		\label{fig:kmeans_mall_asli}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.7]{kmeans_mall_rotated}
+		\caption{Visualisasi \textit{cluster} pada dataset yang telah dirotasi}
+		\label{fig:kmeans_mall_rotated}
+	\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.7]{kmeans_mall_rotated}
-	\caption{Visualisasi \textit{cluster} pada dataset yang telah dirotasi}
-	\label{fig:kmeans_mall_rotated}
-\end{figure}
+	Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama dan terlihat dari lokasi titik-titik yang ada jika dibandingkan terlihat seperti dirotasi searah jarum jam dan bentuknya masih terlihat sama. Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 1.0 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model persis adanya.
+	
+	\item Waktu eksekusi yang dibutuhkan untuk melatih model \textit{clustering} dengan algoritma \textit{K-means} adalah 0.02995157241821289 detik pada dataset yang asli dan 0.032910823822021484 detik pada dataset yang telah dirandomisasi, hal ini menunjukkan bahwa teknik \textit{Random Rotation Perturbation} tidak memepengaruhi secara signifikan waktu eksekusi untuk melatih model \textit{K-means}.
+\end{itemize}
 
-Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama dan terlihat dari lokasi titik-titik yang ada jika dibandingkan terlihat seperti dirotasi searah jarum jam dan bentuknya masih terlihat sama. Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 1.0 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model persis adanya. Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means}. Waktu eksekusi yang dibutuhkan untuk melatih model \textit{clustering} tersebut adalah 0.02995157241821289 detik pada dataset asli dan 0.032910823822021484 detik pada dataset yang telah dirandomisasi, hal ini menunjukkan bahwa teknik \textit{Random Rotation Perturbation} tidak memepengaruhi secara signifikan waktu eksekusi untuk melatih model \textit{K-means}.
+Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means} dengan hasil yang memuaskan. 
 
 \subsubsection{\textit{Random Projection Perturbation}}
 \label{sec:pengujian-clustering-rpp}
 
-Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{K-means} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan.
+Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{K-means} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
-Sebelum dataset digunakan untuk membuat model \textit{clustering}, diterapkan dahulu suatu metode yang bernama \textit{Principal Component Analysis} untuk mereduksi dimensi dataset agar dapat dengan mudah divisualisasikan. Metode tersebut akan mereduksi dimensi dataset sampai hanya menjadi 2 dimensi saja. Dalam menguji teknik \textit{Random Projection Perturbation}, dataset yang tidak diterapkan teknik tersebut langsung direduksi dimensinya dengan metode \textit{Principal Component Analysis} dan dataset yang akan diterapkan teknik tersebut, akan terlebih dahulu diterapkan teknik \textit{Random Projection Perturbation} baru direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}. Visualisasi hasil metode \textit{Principal Component Analysis} dataset yang asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:scatter_mobile_sensor}.
+\begin{itemize}
+	\item Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{K-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik. Walaupun teknik \textit{Principal Component Analysis} membuat visualisasi mudah untuk dilakukan tetapi ada kekurangannya yaitu sebagian informasi pada dataset akan hilang dan hal ini mempengaruhi hasil \textit{clustering} sehingga \textit{cluster} yang ada akan bersifat lebih umum, tidak spesifik. 
+	
+	Dalam menguji teknik \textit{Random Projection Perturbation}, dataset yang tidak diterapkan teknik tersebut langsung direduksi dimensinya dengan metode \textit{Principal Component Analysis} dan dataset yang akan dirandomisasi, akan terlebih dahulu diterapkan teknik \textit{Random Projection Perturbation} baru direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}. Visualisasi hasil metode \textit{Principal Component Analysis} dataset yang asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:scatter_mobile_sensor}.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.2]{scatter_mobile_sensor}
-	\caption{\textit{Scatter plot} dataset \textit{mobile\_sensor} yang telah direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}}
-	\label{fig:scatter_mobile_sensor}
-\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.2]{scatter_mobile_sensor}
+		\caption{\textit{Scatter plot} dataset \textit{mobile\_sensor} yang telah direduksi dimensinya menjadi 2 dimensi dengan metode \textit{Principal Component Analysis}}
+		\label{fig:scatter_mobile_sensor}
+	\end{figure}
+	\item Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Walaupun seperti itu, pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai \textit{k} yang terbaik untuk dipakai membuat model, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
 
-Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{SSE} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Walaupun seperti itu, pada kedua dataset tersebut grafik \textit{SSE}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai \textit{k} yang terbaik untuk dipakai membuat model, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.18]{elbow_mobile_sensor}
+		\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+		\label{fig:elbow_mobile_sensor}
+	\end{figure}
+	\item Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mobile\_sensor} yang asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mobile_sensor_siluet_asli} dan Listing~\ref{mobile_sensor_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada dataset asli dan yang telah dirandomisasi sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada dataset asli dan 0.7581796759180272 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.18]{elbow_mobile_sensor}
-	\caption{Grafik \textit{SSE} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
-	\label{fig:elbow_mobile_sensor}
-\end{figure}
-
-Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada dataset asli dan yang telah dirandomisasi sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada dataset asli dan 0.7581796759180272 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.175]{siluet_mobile_sensor}
-	\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
-	\label{fig:siluet_mobile_sensor}
-\end{figure}
-
-\noindent\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.175]{siluet_mobile_sensor}
+		\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
+		\label{fig:siluet_mobile_sensor}
+	\end{figure}
+	
+	\noindent\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
 Sillhoutte Score setiap K
 pada dataset asli: 
 2: 0.7568010158989575
@@ -965,10 +919,10 @@ pada dataset asli:
 8: 0.4122363491089296
 9: 0.39158160384319435
 10: 0.3854996654126945
-\end{lstlisting}
-\end{minipage}\hfill
-\begin{minipage}{.48\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
+	\end{lstlisting}
+	\end{minipage}\hfill
+	\begin{minipage}{.44\textwidth}
+	\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
 Sillhoutte Score setiap K
 pada dataset randomisasi: 
 2: 0.7581796759180272
@@ -980,32 +934,28 @@ pada dataset randomisasi:
 8: 0.4186927518384631
 9: 0.3930205669353965
 10: 0.3889412224520463
-\end{lstlisting}
-\end{minipage}
+	\end{lstlisting}
+	\end{minipage}
+	\item Teknik penambangan data \textit{K-means} diterapkan menggunakan dua buah fitur yang ada hasil dari teknik \textit{Principal Component Analysis} untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan \textit{cluster} yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean terjaga dengan besar \textit{error} yang ditentukan pengguna. Model \textit{K-means} akan dibuat dengan nilai \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai \textit{k} yang memiliki \textit{Sillhoutte Score} tertinggi. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
 
-Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{K-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik. Walaupun teknik \textit{Principal Component Analysis} membuat visualisasi mudah untuk dilakukan tetapi ada kekurangannya yaitu sebagian informasi pada dataset akan hilang dan hal ini mempengaruhi hasil \textit{clustering} sehingga \textit{cluster} yang ada akan bersifat lebih umum, tidak spesifik. 
+	Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 2 pada dataset \textit{mobile\_sensor} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor_asli} dan Gambar~\ref{fig:kmeans_mobile_sensor_randomisasi}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama yaitu 2 \textit{cluster} dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak, hasil \textit{clustering} ini tidak secara spesifik menentukan aktivitas setiap orang karena informasi tersebut sudah hilang oleh teknik yang digunakan sebelumnya, \textit{Principal Component Analysis}. 
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{kmeans_mobile_sensor_asli}
+		\caption{Visualisasi \textit{cluster} pada dataset yang asli}
+		\label{fig:kmeans_mobile_sensor_asli}
+	\end{figure}
+	
+	\begin{figure}
+		\centering
+		\includegraphics[scale=1]{kmeans_mobile_sensor_randomisasi}
+		\caption{Visualisasi \textit{cluster} pada dataset yang telah diproyeksi}
+		\label{fig:kmeans_mobile_sensor_randomisasi}
+	\end{figure}
+	
+	\item Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 0.9994558701020273 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model sangat mirip sekali. Hal ini dikarenakan jarak Euclidean kedua buah dataset tidak rusak secara signifikan dan \textit{error}nya terkendali sesuai yang pengguna inginkan.
+	\item Waktu eksekusi yang dibutuhkan untuk melatih model \textit{K-means} dengan nilai \textit{k} sebesar 2 adalah sebesar 0.031239032745361328 detik pada dataset asli dan 0.031217575073242188 detik pada dataset yang telah dirandomisasi. Jika dibandingkan, kedua dataset memiliki waktu eksekusi yang hampir sama, hal ini dikarenakan kedua dataset tersebut diterapkan terlebih dahulu teknik \textit{Principal Component Analysis} sehingga kedua dataset memiliki ukuran yang sama. Perbedaan pada kedua dataset dapat terlihat pada waktu eksekusi teknik  \textit{Principal Component Analysis} pada kedua dataset yang mana masing-masing sebesar 0.1405951976776123 detik dan 0.1093449592590332 detik. Oleh karena itu, teknik \textit{Random Projection Perturbation} mempengaruhi waktu eksekusi karena ukuran dataset berkurang sehingga waktu eksekusinya juga berkurang.
+\end{itemize}
 
-Teknik penambangan data \textit{K-means} diterapkan menggunakan dua buah fitur yang ada hasil dari teknik \textit{Principal Component Analysis} untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan \textit{cluster} yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean terjaga dengan besar \textit{error} yang ditentukan pengguna. Model \textit{K-means} akan dibuat dengan nilai \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai \textit{k} yang memiliki \textit{Sillhoutte Score} tertinggi. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
-
-Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 2 pada dataset \textit{mobile\_sensor} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor_asli} dan Gambar~\ref{fig:kmeans_mobile_sensor_randomisasi}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama yaitu 2 \textit{cluster} dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak, hasil \textit{clustering} ini tidak secara spesifik menentukan aktivitas setiap orang karena informasi tersebut sudah hilang oleh teknik yang digunakan sebelumnya, \textit{Principal Component Analysis}. 
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{kmeans_mobile_sensor_asli}
-	\caption{Visualisasi \textit{cluster} pada dataset yang asli}
-	\label{fig:kmeans_mobile_sensor_asli}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=1]{kmeans_mobile_sensor_randomisasi}
-	\caption{Visualisasi \textit{cluster} pada dataset yang telah diproyeksi}
-	\label{fig:kmeans_mobile_sensor_randomisasi}
-\end{figure}
-
-Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 0.9994558701020273 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model sangat mirip sekali. Hal ini dikarenakan jarak Euclidean kedua buah dataset tidak rusak secara signifikan dan \textit{error}nya terkendali sesuai yang pengguna inginkan. Teknik \textit{Random Projection Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means}.
-
-Waktu eksekusi yang dibutuhkan untuk melatih model \textit{K-means} dengan nilai \textit{k} sebesar 2 adalah sebesar 0.031239032745361328 detik pada dataset asli dan 0.031217575073242188 detik pada dataset yang telah dirandomisasi. Jika dibandingkan, kedua dataset memiliki waktu eksekusi yang hampir sama, hal ini dikarenakan kedua dataset tersebut diterapkan terlebih dahulu teknik \textit{Principal Component Analysis} sehingga kedua dataset memiliki ukuran yang sama. Perbedaan pada kedua dataset dapat terlihat pada waktu eksekusi teknik  \textit{Principal Component Analysis} pada kedua dataset yang mana masing-masing sebesar 0.1405951976776123 detik dan 0.1093449592590332 detik. Oleh karena itu, teknik \textit{Random Projection Perturbation} mempengaruhi waktu eksekusi karena ukuran dataset berkurang sehingga waktu eksekusinya juga berkurang.
-
-\subsubsection{Perbandingan}
-\label{sec:pengujian-clustering-perbandingan}
+Teknik \textit{Random Projection Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{K-means} dan menggunakan teknik \textit{Principal Component Analysis} dengan hasil yang memuaskan.
