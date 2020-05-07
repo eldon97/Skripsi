@@ -27,7 +27,7 @@ Antarmuka perangkat lunak mempunyai tiga buah bagian yang mempunyai fungsinya ma
 Perangkat lunak randomisasi ini mengimplementasikan dua buah teknik randomisasi yang berbeda yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Oleh karena itu, antarmuka perangkat lunak akan menyesuaikan dengan teknik yang dipilih oleh pengguna. Ketiga bagian antarmuka yang telah disebutkan tadi dengan otomatis akan berubah sesuai dengan teknik yang dipilih. Pada setiap subbab akan dijelaskan juga sekaligus perbedaan antarmuka teknik randomisasi satu dengan yang lainnya.
 
 \subsection{Masukan dan Pengaturan}
-\label{sec:masukanpengaturan}
+\label{subsec:masukanpengaturan}
 
 Bagian masukan dan pengaturan menyediakan berbagai interaksi untuk pengguna dapat mengatur masukan yang perlu diberikan kepada perangkat lunak dan menerapkan teknik randomisasi yang diinginkan. Ada beberapa fungsi inti pada bagian ini yaitu masukan dataset berupa file \textit{comma-separated values} yang ingin dirandomisasi, memilih teknik randomisasi yang ingin digunakan, membuat baru dan memilih matriks rotasi atau proyeksi yang ingin digunakan, masukan nilai variabel \textit{epsilon} dan nilai variabel \textit{k} untuk teknik \textit{Random Projection Perturbation}, dan sebuah tombol untuk menerapkan teknik randomisasi dan menyimpan hasilnya. Berikut akan dijelaskan secara rinci dengan gambar setiap fungsi tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} dan cara pemakaiannya yang benar secara berturut. 
 
@@ -39,7 +39,7 @@ Bagian masukan dan pengaturan menyediakan berbagai interaksi untuk pengguna dapa
 \end{figure}
 
 \subsubsection{Masukan Dataset}
-\label{sec:masukandataset}
+\label{subsubsec:masukandataset}
 
 Pertama pengguna perlu memberikan masukan dataset yang ingin dirandomisasi berupa dokumen berjenis \textit{comma-separated values}. Perangkat lunak menyediakan fitur tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang terdapat pada bagian yang dikelilingi kotak berwarna merah dan bernomor satu. Pengguna dapat menekan tombol \textquotedblleft Pilih Dokumen CSV\textquotedblright~yang terletak pada ujung sebelah kanan. Tombol ini bertujuan untuk memilih dokumen yang ingin dirandomisasi pada direktori pengguna. Ketika tombol ditekan, perangkat lunak akan membuka jendela baru untuk memilih dokumen yang dapat dilihat pada gambar~\ref{fig:pilihdokumen}.
 
@@ -71,7 +71,7 @@ Apabila dokumen yang dipilih berukuran besar, maka perangkat lunak akan memakan 
 Selain itu setelah pengguna memilih dokumen CSV, perangkat lunak akan membaca dokumen tersebut dan memproses isi dari dokumen tersebut menjadi dataset yang berupa matriks. Proses ini dilakukan sekali saja tepat setelah pengguna memilih dokumen dengan menekan tombol \textquotedblleft Pilih Dokumen CSV\textquotedblright. Oleh karena itu, apabila sebuah dokumen CSV diubah isinya setelah dokumen tersebut dipilih oleh pengguna maka perangkat lunak tetap akan menggunakan isi dari dokumen tersebut yang belum diubah. Pengguna harus berhati-hati apabila isi dokumen diubah maka pengguna juga harus memilih kembali dokumen yang sama tersebut walaupun perangkat lunak sudah menunjukkan lokasi dokumen yang digunakan adalah dokumen yang pengguna inginkan.
 
 \subsubsection{Pemilihan Teknik Randomisasi}
-\label{sec:pilihteknik}
+\label{subsubsec:pilihteknik}
 
 Setelah pengguna memilih dataset yang ingin dirandomisasi, pengguna juga harus memilih teknik randomisasi apa yang ingin diterapkan terhadap dataset yang sudah dipilih. Pada awal perangkat lunak dibuka, secara otomatis teknik \textit{Random Rotation Perturbation} yang dipilih. Apabila pengguna ingin mengganti teknik yang ingin diterapkan pada dataset, pengguna dapat menekan tombol \textit{dropdown} yang bertuliskan nama teknik randomisasi. Tombol ini dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi kotak berwarna hijau dan bernomor dua.
 
@@ -85,7 +85,7 @@ Apabila pengguna menekan tombol ini maka perangkat lunak akan menampilkan \texti
 \end{figure}
 
 \subsubsection{Pembuatan dan Pemilihan Matriks}
-\label{sec:pilihmatriks}
+\label{subsubsec:pilihmatriks}
 
 Setelah pengguna memilih teknik yang ingin diterapkan, pengguna harus memilih matriks yang diinginkan atau membuat baru. Matriks yang dimaksudkan adalah matriks rotasi atau matriks proyeksi sesuai teknik randomisasi yang dipilih. Apabila teknik \textit{Random Rotation Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks rotasi. Apabila teknik \textit{Random Projection Perturbation} yang dipilih maka perangkat lunak akan mengubah fungsi pembuatan dan pemilihan matriks ini menjadi matriks proyeksi. Perubahan ini dapat terlihat pada label yang berada di sebelah kanan simbol matriks apabila belum memilih atau membuat matriks maka label tersebut akan menampilkan kalimat \textquotedblleft Pilih matriks rotasi yang ingin digunakan\textquotedblright~atau \textquotedblleft Pilih matriks proyeksi yang ingin digunakan\textquotedblright. Bagian ini dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} yang dikelilingi oleh kotak berwarna hijau dan bernomor dua.
 
@@ -117,7 +117,7 @@ Apabila pengguna belum memilih dataset yang ingin dirandomisasi, pengguna tidak 
 \end{figure}
 
 \subsubsection{Parameter Teknik Randomisasi}
-\label{sec:parameterteknik}
+\label{subsubsec:parameterteknik}
 
 Perangkat lunak hanya meminta kepada pengguna parameter untuk teknik \textit{Random Projection Perturbation} saja apabila pengguna memilih teknik tersebut. Pada teknik \textit{Random Rotation Perturbation} tidak ada parameter yang perlu pengguna berikan. Ada dua buah parameter yang perlu pengguna berikan yaitu variabel \textit{epsilon} dan variabel \textit{k}. Pengguna dapat memasukkan nilai kedua variabel tersebut dengan menekan kolom variabel tersebut masing-masing. Kedua buah parameter tersebut dapat dilihat antarmukanya pada Gambar~\ref{fig:parameterprojection}
 
@@ -142,7 +142,7 @@ Selain dua buah parameter, pada bagian ini juga ada sebuah tombol yaitu \textquo
 Perangkat lunak juga akan memberikan peringatan apabila nilai minimal \textit{k} melebihi dimensi dari dataset yang ingin dirandomisasi karena salah satu persyaratan dari teknik \textit{Random Projection Perturbation} adalah nilai variabel \textit{k} harus lebih kecil daripada jumlah dimensi pada dataset yang ingin dirandomisasi. Apabila pengguna melakukan impor matriks maka variabel \textit{k} akan terisi secara otomatis dan pengguna harus menyesuaikan nilai variabel \textit{epsilon} dengan variabel \textit{k} yang tidak boleh diubah oleh pengguna. 
 
 \subsubsection{Randomisasi dan Simpan}
-\label{sec:randomisasisimpan}
+\label{subsubsec:randomisasisimpan}
 
 Setelah pengguna memberikan masukan yang sesuai dan mengatur pengaturan yang diinginkan maka pengguna telah dapat melakukan randomisasi dengan menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright. Tombol ini akan menerapkan teknik randomisasi yang dipilih oleh pengguna terhadap dataset yang ingin dirandomisasi menggunakan matriks yang telah dibuat atau dipilih oleh pengguna dan parameter-parameter yang pengguna berikan. Tampilan antarmuka saat proses randomisasi dilakukan perangkat lunak dapat dilihat pada Gambar~\ref{fig:loadingrandomisasi}.
 
@@ -172,7 +172,7 @@ Ada beberapa persyaratan yang harus dipenuhi oleh pengguna sebelum melakukan ran
 \end{figure}
 
 \subsection{Deskripsi Dataset}
-\label{sec:deskripsidataset}
+\label{subsec:deskripsidataset}
 
 Pengguna dapat melihat berbagai informasi dokumen \textit{comma-separated values} yang dipilih sebagai dataset yang ingin dirandomisasi pada bagian antarmuka deskripsi dataset. Perangkat lunak akan menampilkan berbagai informasi dataset yaitu nama dokumen, jumlah baris dataset, jumlah kolom dataset, dan nilai minimal variabel \textit{k}. Seperti yang disinggung pada subbab sebelumnya, pada awalnya nilai minimal variabel \textit{k} belum diketahui karena belum dihitung. Pengguna harus mengisi variabel \textit{epsilon} dan menekan tombol \textquotedblleft Hitung Nilai Min K\textquotedblright~agar perangkat lunak menghitung nilai minimal variabel \textit{k} dan dapat menampilkannya pada deskripsi dataset.
 
@@ -186,7 +186,7 @@ Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui 
 \end{figure}
 
 \subsection{Deskripsi Hasil Randomisasi}
-\label{sec:masukanpengaturan}
+\label{subsec:masukanpengaturan}
 
 Perangkat lunak akan menampilkan isi dari deskripsi hasil randomisasi setelah pengguna menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright~dan perangkat lunak melakukan proses randomisasi. Bagian deskripsi hasil randomisasi ini akan menampilkan informasi-informasi yang berkaitan dengan hasil randomisasi dan deskripsi dataset yang baru. Informasi-informasi tersebut adalah status, lokasi dokumen, lokasi dokumen matriks yang dipakai, jumlah kolom, waktu eksekusi, nilai variabel \textit{epsilon} yang digunakan, dan nilai variabel \textit{k} yang digunakan. Dua informasi terakhir tersebut hanya tampil apabila pengguna memilih teknik randomisasi \textquotedblleft Random Projection Perturbation\textquotedblright.
 
@@ -205,7 +205,7 @@ Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui 
 Pengujian fungsional bertujuan untuk memastikan perangkat lunak randomisasi dapat menerapkan kedua teknik randomisasi yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dengan baik terhadap dataset yang memenuhi syarat. Proses pengujian akan dilakukan dengan cara menerapkan kedua teknik tersebut dari awal memasukkan dataset sampai menghasilkan dataset yang telah dirandomisasi. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data. Berikut pengujian pada setiap teknik randomisasi dengan menerapkan teknik penambangan data.
 
 \subsection{Teknik \textit{Random Rotation Perturbation}}
-\label{sec:rrp-fungsional}
+\label{subsec:rrp-fungsional}
 
 Pengujian teknik \textit{Random Rotation Perturbation} akan menggunakan dataset \textit{mall\_customers} yang berisi informasi pribadi pelanggan sebuah mall. Dataset ini memiliki 4 buah fitur yaitu jenis kelamin, umur, penghasilan, dan skor pengeluaran. Empat buah fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Selain itu, matriks rotasi harus dapat disimpan dan digunakan kembali untuk lain kali. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya sama dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
@@ -237,7 +237,7 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 \end{figure}
 
 \subsection{Teknik \textit{Random Projection Perturbation}}
-\label{sec:rpp-fungsional}
+\label{subsec:rpp-fungsional}
 
 Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu seperti berdiri, duduk, berjalan, berjalan menanjak, berjalan menurun, dan lain-lain. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya mirip dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
@@ -290,11 +290,11 @@ Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 pertidak
 Pengujian eksperimental bertujuan untuk menguji kualitas hasil dari perangkat lunak randomisasi pada kedua teknik randomisasi dan membandingkan kualitas hasil randomisasi dari kedua teknik tersebut pada penambangan data. Pengujian akan dilakukan dalam dua bagian yaitu pengujian kualitas teknik randomisasi untuk penambangan data klasifikasi dan pengujian kualitas teknik randomisasi untuk penambangan data \textit{clustering}. Pada setiap bagian tersebut akan dibagi lagi menjadi dua bagian yaitu pengujian teknik \textit{Random Rotation Perturbation} dan pengujian teknik \textit{Random Projection Perturbation} untuk membandingkan kedua teknik randomisasi tersebut. Pengujian akan dilakukan dengan menggunakan program pengujian yang menerapkan teknik penambangan data yang telah dibuat pada bahasa pemograman Python dan didukung oleh perangkat lunak \textit{Spyder} untuk menampilkan visualisasi hasil penambangan data.
 
 \subsection{Penambangan Data Klasifikasi}
-\label{sec:pengujian-klasifikasi}
+\label{subsec:pengujian-klasifikasi}
 Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kualitas model tersebut. Teknik penambangan data klasifikasi yang digunakan adalah \textit{k-nearest neighbors}. Berikut hasil pengujian eksperimental yang telah dilakukan.
 
 \subsubsection{\textit{Random Rotation Perturbation}}
-\label{sec:pengujian-klasifikasi-rrp}
+\label{subsubsec:pengujian-klasifikasi-rrp}
 
 Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
@@ -544,7 +544,7 @@ set dataset randomisasi:
 Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model klasifikasi dengan algoritma \textit{k-nearest neighbors} dengan hasil yang memuaskan. 
 
 \subsubsection{\textit{Random Projection Perturbation}}
-\label{sec:pengujian-klasifikasi-rpp}
+\label{subsubsec:pengujian-klasifikasi-rpp}
 
 Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
@@ -722,12 +722,12 @@ set dataset randomisasi:
 Teknik \textit{Random Projection Perturbation} terbukti bekerja dengan baik untuk mengacak data yang ukurannya cukup besar sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model klasifikasi dengan algoritma \textit{k-nearest neighbors} dengan hasil yang memuaskan.
 
 \subsection{Penambangan Data \textit{Clustering}}
-\label{sec:pengujian-clustering}
+\label{subsec:pengujian-clustering}
 
 Pengujian dengan penambangan data \textit{clustering} akan berpusat pada pembuatan model \textit{clustering} dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kualitas model tersebut. Teknik penambangan data \textit{clustering} yang digunakan adalah \textit{k-means}. Berikut hasil pengujian eksperimental yang telah dilakukan.
 
 \subsubsection{\textit{Random Rotation Perturbation}}
-\label{sec:pengujian-clustering-rrp}
+\label{subsubsec:pengujian-clustering-rrp}
 
 Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{k-means} akan dilakukan dengan dataset \textit{mall\_customers} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mall_customers_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_mall_customers}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
@@ -863,12 +863,12 @@ pada dataset randomisasi:
 Teknik \textit{Random Rotation Perturbation} terbukti bekerja dengan baik untuk mengacak data sehingga privasi pada data tersebut hilang tetapi data masih dapat digunakan untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} dengan hasil yang memuaskan. 
 
 \subsubsection{\textit{Random Projection Perturbation}}
-\label{sec:pengujian-clustering-rpp}
+\label{subsubsec:pengujian-clustering-rpp}
 
 Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{k-means} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
 \begin{itemize}
-	\item Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{k-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di-\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik. Walaupun teknik \textit{Principal Component Analysis} membuat visualisasi mudah untuk dilakukan tetapi ada kekurangannya yaitu sebagian informasi pada dataset akan hilang dan hal ini mempengaruhi hasil \textit{clustering} sehingga \textit{cluster} yang ada akan bersifat lebih umum, tidak spesifik. 
+	\item Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{k-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di-\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik.
 	
 	Dalam menguji teknik \textit{Random Projection Perturbation}, dataset yang tidak diterapkan teknik tersebut langsung direduksi dimensinya dengan teknik \textit{Principal Component Analysis}. Dataset yang akan dirandomisasi akan terlebih dahulu diterapkan teknik \textit{Random Projection Perturbation} baru direduksi dimensinya menjadi 2 dimensi dengan teknik \textit{Principal Component Analysis}. Visualisasi hasil teknik \textit{Principal Component Analysis} dataset yang asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:scatter_mobile_sensor}.
 

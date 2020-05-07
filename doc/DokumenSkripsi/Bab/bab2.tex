@@ -134,6 +134,21 @@ Teknik ini menjaga beberapa properti pada data antara lain yaitu jarak Euclidean
 
 Transformasi translasi juga perlu dilakukan agar rotasi yang dilakukan merusak data secara menyeluruh. Apabila tidak dilakukan translasi, nilai pada data yang mendekati nilai nol akan menghasilkan nilai yang mendekati nol juga setelah dirotasi. Implikasi dari hal tersebut adalah lemahnya dalam menjaga privasi. Translasi dapat dilakukan dengan cara membuat matriks translasi yang acak lalu kalikan dengan matriks data asli. Translasi dapat dilakukan karena translasi tidak mengubah properti geometris dari matriks yang ditranslasi sehingga jarak Euclidean dan properti lainnya pun terjaga dan hasil penambangan data pun tetap sama.
 
+\subsubsection{Algoritma}
+\label{subsubsec:algo-rotation}
+
+Algoritma \textit{Random Rotation Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
+\begin{enumerate}
+    \item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+    \item Buatlah matriks translasi acak yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0, 100] berdimensi \((d+1)\times(d+1)\)
+    \item Untuk keperluan transformasi translasi, matriks dataset perlu ditambahkan sebuah kolom dengan nilai 1 pada seluruh barisnya.
+    \item Lakukan transformasi translasi dengan cara mengkalikan matriks dataset dengan matriks translasi yang telah dibuat pada langkah kedua
+    \item Oleh karena keperluan transformasi translasi, hasil translasi akan berupa matriks berdimensi \(n\times(d+1)\) dengan kolom terakhir berisi nilai 1 pada setiap barisnya. Oleh karena itu, kolom tersebut perlu dibuang agar dimensi matriks dataset kembali sesuai aslinya \(n \times d\)
+    \item Buatlah \textit{random rotation matrix} berukuran \(d \times d\) dengan membuat matriks \textit{orthogonal} acak. Matriks \textit{orthogonal} memiliki sifat yaitu determinannya sebesar 1 dan hasil perkalian matriks tersebut dengan transposenya adalah matriks identitas
+    \item Lakukan transformasi rotasi dengan cara mengkalikan matriks dataset dengan \textit{random rotation matrix} yang telah dibuat pada langkah keenam
+    \item Hasil matriks yang telah dirotasi sudah dapat langsung digunakan untuk penambangan data
+\end{enumerate}
+
 \subsection{\textit{Random Projection Perturbation}}
 \label{subsec:rpp}
 
@@ -163,3 +178,17 @@ Persamaan berikut menyatakan rentang error yang terjadi pada \textit{Random Proj
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 Pada hasil proyeksi, jarak Euclidean antara suatu titik dengan suatu titik lainnya dapat dipastikan berada pada rentang tersebut dan tidak akan melebihi \textit{error} yang ditentukan.
+
+\subsubsection{Algoritma}
+\label{subsubsec:algo-projection}
+
+Algoritma \textit{Random Projection Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
+\begin{enumerate}
+    \item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+    \item Tentukan nilai variabel \(\epsilon\) (epsilon) yang diinginkan dan berada pada rentang (0, 1)
+    \item Hitung nilai minimal variabel \(k\) (dimensi minimal) dengan rumus berikut \(k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\)
+    \item Tentukan nilai variabel \(k\) yang diinginkan dengan memenuhi persyaratan pada langkah ketiga dan nilai variabel \(k\) yang dipiilih harus lebih kecil dari \(d\) (dimensi dataset aslinya)
+    \item Buatlah matriks proyeksi berukuran \(d \times k\) dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\)
+    \item Lakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah kelima
+    \item Hasil matriks yang telah diproyeksi sudah dapat langsung digunakan untuk penambangan data
+\end{enumerate}
