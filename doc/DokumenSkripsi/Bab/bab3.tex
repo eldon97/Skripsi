@@ -52,8 +52,8 @@ Pengujian fungsional dan eksperimental akan dilakukan masing-masing untuk menguj
 
 Teknik penambangan data akan diimplementasikan dengan bantuan bahasa pemograman Python beserta berbagai \textit{library} seperti Pandas\footnote{https://pandas.pydata.org/}, Numpy\footnote{https://numpy.org/}, dan Scikit-learn\footnote{https://scikit-learn.org/stable/}. Perangkat lunak untuk menerapkan penambangan data akan dijalankan dengan bantuan perangkat lunak Spyder\footnote{https://www.spyder-ide.org/} dan Anaconda\footnote{https://www.anaconda.com/} untuk menampilkan visualisasi dan teks yang dihasilkan oleh perangkat lunak penambangan data yang berbahasa pemograman Python. 
 
-\subsection{Pengujian Dengan Teknik Penambangan Data Klasifikasi \textit{K-nearest Neighbors}}
-\label{subsec:analisis-knn}
+\subsubsection{Pengujian Dengan Teknik Penambangan Data Klasifikasi \textit{K-nearest Neighbors}}
+\label{subsubsec:analisis-knn}
 
 Teknik penambangan data klasifikasi yang digunakan untuk menguji kualitas hasil dari metode \textit{Randomization} adalah teknik \textit{k-nearest neighbors}. Hasil dari metode \textit{Randomization} diharapkan masih dapat digunakan untuk penambangan data klasifikasi dengan kualitas yang sama seperti memakai dataset (asli) yang tidak dirandomisasi. Pada pengujian yang akan dilakukan, perbandingan antara dataset asli dengan dataset yang telah dirandomisasi akan dilakukan dengan melakukan proses dari awal sampai akhir pembuatan model klasifikasi hingga evaluasi model tersebut. Tujuan utama pengujian adalah membandingkan akurasi (dalam memprediksi \textit{test set}) terbaik model yang dibuat dengan dataset asli dan dataset yang telah dirandomisasi. Apabila akurasi tersebut sama atau mirip, maka teknik randomisasi yang digunakan dapat dinyatakan berhasil dan efektif digunakan untuk \textit{privacy preserving data mining} dengan teknik penambangan data klasifikasi menggunakan algoritma \textit{k-nearest neighbors}.
 
@@ -71,8 +71,8 @@ Dataset asli dan dataset yang telah dirandomisasi masing-masing akan digunakan u
 \end{enumerate}
 Proses penambangan data tersebut dilakukan dua kali masing-masing menggunakan dataset asli dan dataset yang telah dirandomisasi agar dapat dibandingkan nilai akurasi tertinggi, nilai variabel \textit{k} yang memiliki akurasi tertinggi, dan waktu eksekusi pelatihan model dan prediksi dengan model tersebut. Dengan membandingkan akurasi model dapat diketahui apakah metode \textit{Randomization} yang digunakan mempunyai kualitas yang baik atau tidak untuk digunakan dalam penambangan data klasifikasi dengan teknik \textit{k-nearest neighbors}. Kedua model klasifikasi yang dibandingkan dapat dinyatakan sama atau mirip apabila akurasi masing-masing pada kedua model tersebut mempunyai nilai yang sama atau tidak jauh perbedaannya.
 
-\subsection{Pengujian Dengan Teknik Penambangan Data \textit{Clustering} \textit{K-means}}
-\label{subsec:analisis-kmeans}
+\subsubsection{Pengujian Dengan Teknik Penambangan Data \textit{Clustering} \textit{K-means}}
+\label{subsubsec:analisis-kmeans}
 
 Teknik penambangan data \textit{clustering} yang digunakan untuk menguji kualitas hasil dari metode \textit{Randomization} adalah teknik \textit{k-means}. Hasil dari metode \textit{Randomization} diharapkan masih dapat digunakan untuk penambangan data \textit{clustering} dengan kualitas yang sama seperti memakai dataset (asli) yang tidak dirandomisasi. Pada pengujian yang akan dilakukan, perbandingan antara dataset asli dengan dataset yang telah dirandomisasi akan dilakukan dengan melakukan proses dari awal sampai akhir pembuatan model \textit{clustering} hingga evaluasi model tersebut. Tujuan utama pengujian adalah membandingkan jumlah \textit{cluster} yang ada dan anggota pada tiap \textit{cluster} apakah sama atau mirip pada dataset asli dan dataset yang telah dirandomisasi. Apabila jumlah \textit{cluster}-nya sama dan anggota-anggota tiap \textit{cluster} sama atau mirip, maka teknik randomisasi yang digunakan dapat dinyatakan berhasil dan efektif digunakan untuk \textit{privacy preserving data mining} dengan teknik penambangan data \textit{clustering} menggunakan algoritma \textit{k-means}.
 
