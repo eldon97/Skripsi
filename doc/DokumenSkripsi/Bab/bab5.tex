@@ -29,7 +29,15 @@ Perangkat lunak randomisasi ini mengimplementasikan dua buah teknik randomisasi 
 \subsection{Masukan dan Pengaturan}
 \label{subsec:masukanpengaturan}
 
-Bagian masukan dan pengaturan menyediakan berbagai interaksi untuk pengguna dapat mengatur masukan yang perlu diberikan kepada perangkat lunak dan menerapkan teknik randomisasi yang diinginkan. Ada beberapa fungsi inti pada bagian ini yaitu masukan dataset berupa file \textit{comma-separated values} yang ingin dirandomisasi, memilih teknik randomisasi yang ingin digunakan, membuat baru dan memilih matriks rotasi atau proyeksi yang ingin digunakan, masukan nilai variabel \textit{epsilon} dan nilai variabel \textit{k} untuk teknik \textit{Random Projection Perturbation}, dan sebuah tombol untuk menerapkan teknik randomisasi dan menyimpan hasilnya. Berikut akan dijelaskan secara rinci dengan gambar setiap fungsi tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} dan cara pemakaiannya yang benar secara berturut. 
+Bagian masukan dan pengaturan menyediakan berbagai interaksi untuk pengguna dapat mengatur masukan yang perlu diberikan kepada perangkat lunak dan menerapkan teknik randomisasi yang diinginkan. Ada beberapa fungsi inti pada bagian ini yaitu sebagai berikut.
+\begin{itemize}
+	\item masukan dataset berupa file \textit{comma-separated values} yang ingin dirandomisasi
+	\item memilih teknik randomisasi yang ingin digunakan
+	\item membuat baru dan memilih matriks rotasi atau proyeksi yang ingin digunakan
+	\item masukan nilai variabel \textit{epsilon} dan nilai variabel \textit{k} untuk teknik \textit{Random Projection Perturbation}
+	\item sebuah tombol untuk menerapkan teknik randomisasi dan menyimpan hasilnya
+\end{itemize}
+Berikut akan dijelaskan secara rinci dengan gambar setiap fungsi tersebut yang dapat dilihat pada Gambar~\ref{fig:antarmukamasukanpengaturan} dan cara pemakaiannya yang benar secara berturut. 
 
 \begin{figure}
 	\centering
@@ -162,7 +170,14 @@ Setelah perangkat lunak berhasil melakukan randomisasi, perangkat lunak akan mem
 	\label{fig:popupberhasilrandomisasi}
 \end{figure}
 
-Ada beberapa persyaratan yang harus dipenuhi oleh pengguna sebelum melakukan randomisasi yaitu memilih dataset yang ingin dirandomisasi, memilih teknik randomisasi yang diinginkan, membuat atau memilih matriks rotasi atau proyeksi, dan memberikan masukan nilai yang sesuai persyaratan yang ada kepada parameter-parameter teknik randomisasi. Apabila ada persyaratan yang tidak dipenuhi oleh pengguna maka perangkat lunak akan menampilkan \textit{popup} untuk memberikan peringatan kepada pengguna dan perangkat lunak tidak akan melanjutkan proses randomisasi. Perangkat lunak akan menampilkan \textit{popup} peringatan terhadap pelanggaran masing-masing persyaratan tersebut, salah satu contoh tampilan antarmuka \textit{popup} tersebut dapat dilihat pada Gambar~\ref{fig:popupdataset}.
+Ada beberapa persyaratan yang harus dipenuhi oleh pengguna sebelum melakukan randomisasi yaitu sebagai berikut.
+\begin{itemize}
+	\item Memilih dataset yang ingin dirandomisasi
+	\item Memilih teknik randomisasi yang diinginkan
+	\item Membuat atau memilih matriks rotasi atau proyeksi
+	\item Memberikan masukan nilai variabel \textit{epsilon} dan nilai variabel \textit{k}
+\end{itemize}
+Persyaratan terakhir hanya berlaku apabila pengguna memilih teknik \textit{Random Projection Perturbation}. Apabila ada persyaratan yang tidak dipenuhi oleh pengguna maka perangkat lunak akan menampilkan \textit{popup} untuk memberikan peringatan kepada pengguna dan perangkat lunak tidak akan melanjutkan proses randomisasi. Perangkat lunak akan menampilkan \textit{popup} peringatan terhadap pelanggaran masing-masing persyaratan tersebut, salah satu contoh tampilan antarmuka \textit{popup} tersebut dapat dilihat pada Gambar~\ref{fig:popupdataset}.
 
 \begin{figure}
 	\centering
@@ -174,7 +189,14 @@ Ada beberapa persyaratan yang harus dipenuhi oleh pengguna sebelum melakukan ran
 \subsection{Deskripsi Dataset}
 \label{subsec:deskripsidataset}
 
-Pengguna dapat melihat berbagai informasi dokumen \textit{comma-separated values} yang dipilih sebagai dataset yang ingin dirandomisasi pada bagian antarmuka deskripsi dataset. Perangkat lunak akan menampilkan berbagai informasi dataset yaitu nama dokumen, jumlah baris dataset, jumlah kolom dataset, dan nilai minimal variabel \textit{k}. Seperti yang disinggung pada subbab sebelumnya, pada awalnya nilai minimal variabel \textit{k} belum diketahui karena belum dihitung. Pengguna harus mengisi variabel \textit{epsilon} dan menekan tombol \textquotedblleft Hitung Nilai Min K\textquotedblright~agar perangkat lunak menghitung nilai minimal variabel \textit{k} dan dapat menampilkannya pada deskripsi dataset.
+Pengguna dapat melihat berbagai informasi dokumen \textit{comma-separated values} yang dipilih sebagai dataset yang ingin dirandomisasi pada bagian antarmuka deskripsi dataset yaitu sebagai berikut. 
+\begin{itemize}
+	\item Nama dokumen
+	\item Jumlah baris dataset
+	\item Jumlah kolom dataset
+	\item Nilai minimal variabel \textit{k}
+\end{itemize}
+Seperti yang disinggung pada subbab sebelumnya, pada awalnya nilai minimal variabel \textit{k} belum diketahui karena belum dihitung. Pengguna harus mengisi variabel \textit{epsilon} dan menekan tombol \textquotedblleft Hitung Nilai Min K\textquotedblright~agar perangkat lunak menghitung nilai minimal variabel \textit{k} dan dapat menampilkannya pada deskripsi dataset. Nilai minimal variabel \textit{k} hanya ditampilkan apabila pengguna memilih teknik \textit{Random Projection Perturbation}.
 
 Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui setiap pengguna memilih dataset baru. Tampilan antarmuka bagian deskripsi dataset dapat dilihat pada Gambar~\ref{fig:antarmukautamabernomor} yang dikelilingi oleh kotak berwarna biru dan bernomor dua. Apabila pengguna telah memilih dataset yang diinginkan untuk dirandomisasi maka perangkat lunak secara otomatis akan memperbaharui tampilan antarmuka deskripsi dataset yang dapat dilihat pada Gambar~\ref{fig:antarmukadeskripsidataset}
 
@@ -188,7 +210,17 @@ Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui 
 \subsection{Deskripsi Hasil Randomisasi}
 \label{subsec:masukanpengaturan}
 
-Perangkat lunak akan menampilkan isi dari deskripsi hasil randomisasi setelah pengguna menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright~dan perangkat lunak melakukan proses randomisasi. Bagian deskripsi hasil randomisasi ini akan menampilkan informasi-informasi yang berkaitan dengan hasil randomisasi dan deskripsi dataset yang baru. Informasi-informasi tersebut adalah status, lokasi dokumen, lokasi dokumen matriks yang dipakai, jumlah kolom, waktu eksekusi, nilai variabel \textit{epsilon} yang digunakan, dan nilai variabel \textit{k} yang digunakan. Dua informasi terakhir tersebut hanya tampil apabila pengguna memilih teknik randomisasi \textquotedblleft Random Projection Perturbation\textquotedblright.
+Perangkat lunak akan menampilkan isi dari deskripsi hasil randomisasi setelah pengguna menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright~dan perangkat lunak melakukan proses randomisasi. Bagian deskripsi hasil randomisasi ini akan menampilkan informasi sebagai berikut. 
+\begin{itemize}
+	\item Status
+	\item Lokasi dokumen
+	\item Lokasi dokumen matriks yang dipakai
+	\item Jumlah kolom
+	\item Waktu eksekusi
+	\item Nilai variabel \textit{epsilon} yang digunakan
+	\item Nilai variabel \textit{k} yang digunakan
+\end{itemize}
+Nilai variabel \textit{epsilon} dan nilai variabel \textit{k} hanya ditampilkan apabila pengguna memilih teknik randomisasi \textit{Random Projection Perturbation}.
 
 Bagian antarmuka deskripsi dataset ini akan selalu secara otomatis diperbaharui setiap pengguna memilih dataset baru. Tampilan antarmuka bagian deskripsi dataset dapat dilihat pada Gambar~\ref{fig:antarmukautamabernomor} yang dikelilingi oleh kotak berwarna biru dan bernomor dua. Apabila pengguna telah memilih dataset yang diinginkan untuk dirandomisasi maka perangkat lunak secara otomatis akan memperbaharui tampilan antarmuka deskripsi dataset yang dapat dilihat pada Gambar~\ref{fig:antarmukahasilrandomisasi}
 
@@ -236,20 +268,20 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 	\label{fig:rotated_mall_customers}
 \end{figure}
 
+Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Rotation Perturbation} dengan akurat, perhitungan manual pada baris pertama dataset dapat dilihat sebagai berikut <<TODO>>
+
 \subsection{Teknik \textit{Random Projection Perturbation}}
 \label{subsec:rpp-fungsional}
 
 Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan dataset \textit{mobile\_sensor} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu yaitu berdiri, duduk, berbaring, berjalan, berjalan menanjak, berjalan menurun. Dataset ini memiliki 561 buah fitur dan sebuah label. Seluruh fitur tersebut akan dirandomisasi dan diharapkan hasilnya akan mengacak dataset sehingga nilai tiap fitur tersebut berbeda dari aslinya. Dataset yang telah dirandomisasi juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang kualitasnya mirip dengan dataset asli, pengujian untuk hal ini akan dilakukan pada bagian berikutnya yaitu pada pengujian eksperimental.
 
-Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Nilai variabel \textit{epsilon} yang dipilih pada pengujian ini adalah sebesar 0.52 dan dengan nilai variabel \textit{epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 418.0905. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 418 dengan dataset \textit{mobile\_sensor} dan nilai variabel \textit{epsilon} sebesar 0.52. Dapat dilihat Persamaan adalah contoh perhitungan manual rumus nilai minimal variabel \textit{k} dengan nilai variabel \textit{epsilon} sebesar 0.52 dan jumlah baris pada dataset sebanyak 10299 baris.
-
-\begin{align*}
-	k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
-	&= \frac{4\ln{10299}}{\frac{0.52^{2}}{2}-\frac{0.52^{3}}{3}} \\
-	&= \frac{36.9592}{0.1352-0.0468} \\
-	&= 418.0905
-\end{align*}
-
+Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada dataset tersebut saja yang terandomisasi. Nilai variabel \textit{epsilon} yang dipilih pada pengujian ini adalah sebesar 0.52 dan dengan nilai variabel \textit{epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 418.0905. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 418 dengan dataset \textit{mobile\_sensor} dan nilai variabel \textit{epsilon} sebesar 0.52. Dapat dilihat Persamaan~\ref{eq:mink} adalah contoh perhitungan manual rumus nilai minimal variabel \textit{k} dengan nilai variabel \textit{epsilon} sebesar 0.52 dan jumlah baris pada dataset sebanyak 10299 baris.
+\begin{align}
+	k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \label{eq:mink} \\
+	&= \frac{4\ln{10299}}{\frac{0.52^{2}}{2}-\frac{0.52^{3}}{3}} \nonumber \\
+	&= \frac{36.9592}{0.1352-0.0468} \nonumber \\
+	&= 418.0905 \nonumber
+\end{align}
 Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah dataset diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{comma-separated values}. Dataset \textit{mobile\_sensor} memiliki 561 buah fitur yang akan dirandomisasi dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 418 maka ditentukan nilai \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427\times427\).
 
 Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi acak tersebut dengan ukuran yang benar dan menyimpannya pada sebuah dokumen \textit{comma-separated values} yang 10 kolom pertama pada 20 baris pertamanya dapat dilihat pada Gambar~\ref{fig:mobile_sensor_projection_matrix}. Matriks proyeksi ini akan digunakan untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor}. Perangkat lunak juga berhasil menggunakan ulang matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor} dan hasilnya sama persis seperti hasil yang pertama kali. Matriks proyeksi tersebut juga dapat digunakan untuk data \textit{mobile\_sensor} yang lain dengan syarat masih memiliki jumlah fitur yang sama dan dengan penambahan data tersebut, nilai minimal variabel \textit{k} harus tetap lebih kurang atau sama dengan nilai \textit{k} yang dipilih. Persyaratan tersebut didasarkan oleh sifat pada teknik \textit{Random Projection Perturbation} yaitu nilai minimal variabel \textit{k} berbanding lurus dengan banyaknya data.
@@ -277,13 +309,13 @@ Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama data
 	\label{fig:projected_mobile_sensor}
 \end{figure}
 
-Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Projection Perturbation} dengan akurat, perangkat lunak pengujian dibuat untuk menguji jarak Euclidean dari setiap titik pada dataset terhadap setiap titik lainnya. Pengujian dilakukan dengan menggunakan pertidaksamaan rentang jarak Euclidean berikut untuk menguji apakah jarak Euclidean pada dataset yang telah dirandomisasi mempunyai distorsi yang lebih besar dari harapan pengguna. Hasil dari perangkat lunak diharapkan (dataset yang telah dirandomisasi) memenuhi pertidaksamaan berikut ini.
+Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Projection Perturbation} dengan akurat, perangkat lunak pengujian dibuat untuk menguji jarak Euclidean dari setiap titik pada dataset terhadap setiap titik lainnya. Pengujian dilakukan dengan menggunakan pertidaksamaan rentang jarak Euclidean berikut untuk menguji apakah jarak Euclidean pada dataset yang telah dirandomisasi mempunyai distorsi yang lebih besar dari harapan pengguna. Hasil dari perangkat lunak diharapkan (dataset yang telah dirandomisasi) memenuhi Pertidaksamaan~\ref{eq:epsilon}.
 
-\begin{equation}
+\begin{equation}\label{eq:epsilon}
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 
-Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 pertidaksamaan terpenuhi pada seluruh data yang ada pada dataset. Ada salah satu kasus saat pertidaksamaan tersebut tidak terpenuhi yaitu apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar pertidaksamaan tersebut adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
+Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidaksamaan~\ref{eq:epsilon} terpenuhi pada seluruh data yang ada pada dataset. Ada salah satu kasus saat Pertidaksamaan~\ref{eq:epsilon} tidak terpenuhi yaitu apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar Pertidaksamaan~\ref{eq:epsilon} adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
@@ -396,7 +428,7 @@ Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 8 bu
 
 Akurasi model untuk setiap nilai \textit{k} dari 14 sampai 18 pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Akurasi tertinggi pada model \textit{k-nearest neighbors} dengan dataset asli adalah sebesar 0.7337662337662337 dengan nilai \textit{k} sebesar 16. Nilai yang sama juga muncul pada dataset yang telah dirandomisasi. Hal ini dapat menjadi bukti bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna, tidak ada perubahan sama sekali pada jarak Euclidean antara seluruh titik. Oleh karena itu model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sama persis.
 
-\noindent\begin{minipage}{.44\textwidth}
+\noindent\begin{minipage}{.46\textwidth}
 	\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
 Akurasi setiap K pada 
 training set dataset asli:
@@ -494,7 +526,7 @@ Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi mo
 
 Akurasi model untuk setiap nilai \textit{k} dari 19 sampai 23 pada dataset asli dan dataset yang telah dirandomisasi dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua dataset berbeda. Akurasi \textit{test set} tertinggi pada dataset asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada dataset yang telah dirandomisasi, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Dengan perbedaan akurasi yang relatif kecil dan dataset yang telah dirandomisasi teracak dengan baik maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan distorsinya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sangat mirip.
 	
-\noindent\begin{minipage}{.44\textwidth}
+\noindent\begin{minipage}{.46\textwidth}
 	\begin{lstlisting}[caption=Akurasi Dataset Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
 Akurasi setiap K pada 
 training set dataset asli: 
@@ -542,7 +574,7 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 
 \begin{table}
 	\centering
-	\caption{Perbandingan Antara Model \textit{k-nearest neighbors}}
+	\caption{Perbandingan Antara Model \textit{k-nearest neighbors}, Properti Data, dan Korelasi Fitur}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
@@ -556,9 +588,7 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 	\label{table:perbandingan-klasifikasi}
 \end{table}
 
-Metode \textit{Randomization} tidak menjaga properti data dan korelasi fitur. Oleh karena itu, informasi tersebut yang biasanya digunakan untuk pemilihan fitur untuk digunakan dalam membuat model penambangan data tidak bisa digunakan setelah data dirandomisasi. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat yang dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
-
-Berdasarkan hasil pengujian tersebut dapat disimpulkan bahwa teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dapat digunakan untuk menghilangkan privasi pada data dengan mengacak data tersebut tetapi masih dapat digunakan untuk penambangan data klasifikasi dengan teknik \textit{k-nearest neighbors} dengan hasil yang sama persis dengan dataset asli untuk teknik \textit{Random Rotation Perturbation} dan hasil yang sangat mirip dengan dataset asli untuk teknik \textit{Random Projection Perturbation}. Tetapi ada persyaratan yang harus dipenuhi untuk teknik \textit{Random Projection Perturbation} yaitu data yang dipakai harus cukup besar. Teknik \textit{Random Projection Perturbation} juga memiliki waktu eksekusi melakukan randomisasi dan pembuatan model yang lebih cepat daripada teknik \textit{Random Rotation Perturbation}. Oleh karena itu, teknik \textit{Random Projection Perturbation} lebih cocok dipakai untuk dataset yang sangat besar. Sedangkan teknik \textit{Random Rotation Perturbation} masih dapat dipakai untuk dataset yang besar juga walaupun tidak mendapatkan keuntungan waktu eksekusi yang lebih cepat seperti teknik \textit{Random Projection Perturbation}. Teknik \textit{Random Rotation Perturbation} lebih cocok digunakan apabila penambangan data klasifikasi yang dilakukan diharapkan memiliki hasil yang tidak memiliki perbedaan sama sekali dengan penambangan data klasifikasi yang menggunakan dataset asli. 
+Metode \textit{Randomization} tidak menjaga properti data dan korelasi fitur. Oleh karena itu, informasi tersebut yang biasanya digunakan untuk pemilihan fitur untuk digunakan dalam membuat model penambangan data tidak bisa digunakan setelah data dirandomisasi. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
 
 \subsection{Penambangan Data \textit{Clustering}}
 \label{subsec:pengujian-clustering}
@@ -566,7 +596,7 @@ Berdasarkan hasil pengujian tersebut dapat disimpulkan bahwa teknik \textit{Rand
 Pengujian dengan penambangan data \textit{clustering} akan berpusat pada pembuatan model \textit{clustering} dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kedua model tersebut. Teknik penambangan data \textit{clustering} yang digunakan adalah \textit{k-means}. Pengujian akan membandingkan beberapa informasi pada dataset asli dan dataset yang telah dirandomisasi. Beberapa informasi tersebut dijabarkan sebagai berikut.
 \begin{enumerate}
 	\item \textit{Sum of Squared Error}
-	\item \textit{Sillhoute Score}
+	\item \textit{Silhoutte Score}
 	\item Nilai variabel \textit{k} (jumlah \textit{cluster}) yang modelnya memiliki kualitas \textit{clustering} terbaik
 	\item Visualisasi \textit{cluster}
 	\item Waktu eksekusi pelatihan model dan prediksi dengan model yang telah dibuat
@@ -576,9 +606,9 @@ Tujuan dari pengujian ini adalah mencari informasi yang masih terjaga (mempunyai
 \subsubsection{\textit{Random Rotation Perturbation}}
 \label{subsubsec:pengujian-clustering-rrp}
 
-Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering} dengan algoritma \textit{k-means} akan dilakukan dengan dataset \textit{mall\_customers} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mall_customers_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_mall_customers}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
+Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data \textit{clustering} dengan menggunakan algoritma \textit{k-means} akan dilakukan dengan dataset \textit{mall\_customers} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mall_customers_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_mall_customers}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
-Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk  menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} sebesar 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik \textit{Sum of Squared Error}-nya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untuk membuat model \textit{clustering} dengan algoritma \textit{k-means} perlu ada metode untuk menentukan nilai tersebut. Metode Elbow menjadi salah satu metode yang digunakan untuk  menentukan nilai \textit{k} yang terbaik untuk dipakai. Pada Gambar~\ref{fig:elbow_mall_customers} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Terlihat nilai \textit{k} sebesar 5, 6, dan 7 adalah kandidat yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Pada kedua dataset tersebut grafik \textit{Sum of Squared Error}-nya terlihat sama persis dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna. Dalam menentukan nilai \textit{k} yang terbaik antara ketiga nilai tersebut, \textit{Silhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
 
 \begin{figure}
 	\centering
@@ -587,18 +617,18 @@ Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untu
 	\label{fig:elbow_mall_customers}
 \end{figure}
 
-Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sama persis dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini mungkin dikarenakan oleh nilai pada setiap data yang berbeda dan mempengaruhi sedikit algoritma pada \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} 6 adalah nilai paling besar yaitu 0.4523443947724053 pada dataset asli dan 0.4523443947780976 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
+Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Silhoutte Score} dari dataset \textit{mall\_customers} asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Silhoutte Score} terlihat sama persis dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mall_customers_siluet_asli} dan Listing~\ref{mall_customers_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini mungkin dikarenakan oleh nilai pada setiap data yang berbeda dan mempengaruhi sedikit algoritma pada \textit{Silhoutte Score}. Dapat terlihat \textit{Silhoutte Score} pada nilai \textit{k} 6 adalah nilai paling besar yaitu 0.4523443947724053 pada dataset asli dan 0.4523443947780976 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Silhoutte Score} pada setiap \textit{k}.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.185]{siluet_mall_customers}
-	\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mall\_customers}}
+	\caption{Grafik \textit{Silhoutte Score} model \textit{clustering} pada dataset \textit{mall\_customers}}
 	\label{fig:siluet_mall_customers}
 \end{figure}
 	
-\noindent\begin{minipage}{.44\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset (Asli),frame=tlrb, label=mall_customers_siluet_asli]{Name}
-Sillhoutte Score setiap K
+\noindent\begin{minipage}{.46\textwidth}
+\begin{lstlisting}[caption=Silhoutte Score Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
+Silhoutte Score setiap K
 pada dataset asli: 
 2: 0.293166070535953
 3: 0.3839349967742105
@@ -611,9 +641,9 @@ pada dataset asli:
 10: 0.3750147687842441
 \end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}{.44\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score (Randomisasi),frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
-Sillhoutte Score setiap K
+\begin{minipage}{.46\textwidth}
+\begin{lstlisting}[caption=Silhoutte Score Randomisasi,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
+Silhoutte Score setiap K
 pada dataset randomisasi: 
 2: 0.29316607053507854
 3: 0.383934996807901
@@ -654,7 +684,7 @@ Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data 
 
 Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{k-means}, dataset yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Dataset yang akan di-\textit{cluster} akan direduksi dimensinya sampai hanya memiliki 2 dimensi. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan saat penambangan data dan hasilnya relatif baik. Dalam menguji teknik \textit{Random Projection Perturbation}, dataset yang tidak diterapkan teknik tersebut langsung direduksi dimensinya dengan teknik \textit{Principal Component Analysis}. Dataset yang akan dirandomisasi akan terlebih dahulu diterapkan teknik \textit{Random Projection Perturbation} baru direduksi dimensinya menjadi 2 dimensi dengan teknik \textit{Principal Component Analysis}.
 
-Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Walaupun seperti itu, pada kedua dataset tersebut grafik \textit{Sum of Squared Error}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai \textit{k} yang terbaik untuk dipakai membuat model, \textit{Sillhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
+Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada dataset asli dan dataset yang telah dirandomisasi. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai \textit{k} yang dipakai pada dataset asli maupun dataset randomisasi. Walaupun seperti itu, pada kedua dataset tersebut grafik \textit{Sum of Squared Error}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai \textit{k} yang terbaik untuk dipakai membuat model, \textit{Silhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai \textit{k} yang terbaik.
 
 \begin{figure}
 	\centering
@@ -663,18 +693,18 @@ Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared
 	\label{fig:elbow_mobile_sensor}
 \end{figure}
 
-Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Sillhoutte Score} dari dataset \textit{mobile\_sensor} yang asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Sillhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mobile_sensor_siluet_asli} dan Listing~\ref{mobile_sensor_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada dataset asli dan yang telah dirandomisasi sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Sillhoutte Score}. Dapat terlihat \textit{Sillhoutte Score} pada nilai \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada dataset asli dan 0.7581796759180272 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Sillhoutte Score} pada setiap \textit{k}.
+Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Silhoutte Score} dari dataset \textit{mobile\_sensor} yang asli dan yang telah dirandomisasi. Dapat terlihat kedua grafik \textit{Silhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mobile_sensor_siluet_asli} dan Listing~\ref{mobile_sensor_siluet_randomisasi} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada dataset asli dan yang telah dirandomisasi sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Silhoutte Score}. Dapat terlihat \textit{Silhoutte Score} pada nilai \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada dataset asli dan 0.7581796759180272 pada dataset yang telah dirandomisasi. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Silhoutte Score} pada setiap \textit{k}.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.175]{siluet_mobile_sensor}
-	\caption{Grafik \textit{Sillhoutte Score} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
+	\caption{Grafik \textit{Silhoutte Score} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
 	\label{fig:siluet_mobile_sensor}
 \end{figure}
 	
-\noindent\begin{minipage}{.44\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
-Sillhoutte Score setiap K
+\noindent\begin{minipage}{.46\textwidth}
+\begin{lstlisting}[caption=Silhoutte Score Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
+Silhoutte Score setiap K
 pada dataset asli: 
 2: 0.7568010158989575
 3: 0.6390101777235029
@@ -687,9 +717,9 @@ pada dataset asli:
 10: 0.3854996654126945
 \end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}{.44\textwidth}
-\begin{lstlisting}[caption=Sillhoutte Score Dataset Randomisasi,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
-Sillhoutte Score setiap K
+\begin{minipage}{.46\textwidth}
+\begin{lstlisting}[caption=Silhoutte Score Randomisasi,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
+Silhoutte Score setiap K
 pada dataset randomisasi: 
 2: 0.7581796759180272
 3: 0.6472419899391577
@@ -703,7 +733,7 @@ pada dataset randomisasi:
 \end{lstlisting}
 \end{minipage}
 
-Teknik penambangan data \textit{k-means} diterapkan menggunakan dua buah fitur yang ada hasil dari teknik \textit{Principal Component Analysis} untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan \textit{cluster} yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean terjaga dengan besar distorsi yang ditentukan pengguna. Model \textit{k-means} akan dibuat dengan nilai \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai \textit{k} yang memiliki \textit{Sillhoutte Score} tertinggi. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
+Teknik penambangan data \textit{k-means} diterapkan menggunakan dua buah fitur yang ada hasil dari teknik \textit{Principal Component Analysis} untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi menghasilkan \textit{cluster} yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean terjaga dengan besar distorsi yang ditentukan pengguna. Model \textit{k-means} akan dibuat dengan nilai \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai \textit{k} yang memiliki \textit{Silhoutte Score} tertinggi. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
 
 Visualisasi model \textit{clustering} dengan nilai \textit{k} sebesar 2 pada dataset \textit{mobile\_sensor} asli dan yang telah dirandomisasi dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor_asli} dan Gambar~\ref{fig:kmeans_mobile_sensor_randomisasi}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama yaitu 2 \textit{cluster} dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak, hasil \textit{clustering} ini tidak secara spesifik menentukan aktivitas setiap orang karena informasi tersebut sudah hilang oleh teknik yang digunakan sebelumnya, \textit{Principal Component Analysis}. 
 	
@@ -737,7 +767,7 @@ Berdasarkan pengujian dengan teknik penambangan data \textit{clustering} menggun
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
 		\textbf{\textit{Sum of Squared Error}} & Sangat Mirip & Sangat Mirip \\
-		\textbf{\textit{Sillhoutte Score}} & Sangat Mirip & Sangat Mirip \\
+		\textbf{\textit{Silhoutte Score}} & Sangat Mirip & Sangat Mirip \\
 		\textbf{Jumlah \textit{cluster}} & Sama & Sama \\
 		\textbf{Visualisasi \textit{cluster}} & Sedikit Berbeda & Sedikit Berbeda \\
 		\textbf{Nilai \textit{Adjusted Rand Index}} & 1.0 & Sangat Mendekati 1.0 \\
@@ -747,6 +777,11 @@ Berdasarkan pengujian dengan teknik penambangan data \textit{clustering} menggun
 	\label{table:perbandingan-clustering}
 \end{table}
 
-Metode \textit{Randomization} tidak menjaga properti data dan korelasi fitur. Oleh karena itu, informasi tersebut yang biasanya digunakan untuk pemilihan fitur untuk digunakan dalam membuat model penambangan data tidak bisa digunakan setelah data dirandomisasi. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat yang dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
+Model \textit{clustering} yang dilatih oleh dataset yang dirandomisasi sangat mirip dengan dataset asli. \textit{Sum of Squared Error} dan \textit{Silhoutte Score} pada kedua teknik randomisasi memiliki hasil yang sangat mirip dengan aslinya sehingga metode Elbow dan pemilihan fitur dengan \textit{Silhoutte Score} dapat dilakukan setelah dataset dirandomisasi. Jumlah \textit{cluster} (nilai variabel \textit{k}) sama pada kedua teknik dengan sebelum dirandomisasi. Visualisasi \textit{cluster} pada kedua teknik sedikit berbeda karena teknik \textit{Random Rotation Perturbation} merotasi seluruh data sehingga visualisasinya akan terotasi dan teknik \textit{Random Projection Perturbation} tidak menjaga jarak Euclidean secara sempurna. \textit{Adjusted Rand Index} pada kedua teknik memiliki nilai yang baik yaitu bernilai 1 atau mendekati 1. Hal ini menunjukkan bahwa model \textit{clustering} antara yang dilatih dengan dataset yang telah dirandomisasi dan dataset aslinya sama persis atau sangat mirip. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
 
-Berdasarkan hasil pengujian tersebut dapat disimpulkan bahwa teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dapat digunakan untuk menghilangkan privasi pada data dengan mengacak data tersebut tetapi masih dapat digunakan untuk penambangan data klasifikasi dengan teknik \textit{k-nearest neighbors} dengan hasil yang sama persis dengan dataset asli untuk teknik \textit{Random Rotation Perturbation} dan hasil yang sangat mirip dengan dataset asli untuk teknik \textit{Random Projection Perturbation}. Tetapi ada persyaratan yang harus dipenuhi untuk teknik \textit{Random Projection Perturbation} yaitu data yang dipakai harus cukup besar. Teknik \textit{Random Projection Perturbation} juga memiliki waktu eksekusi melakukan randomisasi dan pembuatan model yang lebih cepat daripada teknik \textit{Random Rotation Perturbation}. Oleh karena itu, teknik \textit{Random Projection Perturbation} lebih cocok dipakai untuk dataset yang sangat besar. Sedangkan teknik \textit{Random Rotation Perturbation} masih dapat dipakai untuk dataset yang besar juga walaupun tidak mendapatkan keuntungan waktu eksekusi yang lebih cepat seperti teknik \textit{Random Projection Perturbation}. Teknik \textit{Random Rotation Perturbation} lebih cocok digunakan apabila penambangan data klasifikasi yang dilakukan diharapkan memiliki hasil yang tidak memiliki perbedaan sama sekali dengan penambangan data klasifikasi yang menggunakan dataset asli. 
+\subsection{Kesimpulan Akhir}
+\label{subsec:kesimpulan-eksperimental}
+
+Berdasarkan hasil pengujian eksperimental dapat disimpulkan bahwa teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dapat digunakan untuk menghilangkan privasi pada data dengan mengacak data tersebut tetapi masih dapat digunakan untuk penambangan data klasifikasi dan \textit{clustering} masing-masing dengan teknik \textit{k-nearest neighbors} dan \textit{k-means} dengan hasil yang sama dengan dataset asli untuk teknik \textit{Random Rotation Perturbation} dan hasil yang sangat mirip dengan dataset asli untuk teknik \textit{Random Projection Perturbation}. Hal tersebut dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean secara sempurna sementara teknik \textit{Random Projection Perturbation} tidak menjaga secara sempurna karena ada distorsi yang terkontrol pada jarak Euclidean setiap titik pada dataset yang dirandomisasi. 
+
+Ada persyaratan yang harus dipenuhi untuk teknik \textit{Random Projection Perturbation} bekerja dengan baik yaitu data yang dipakai harus cukup besar. Teknik \textit{Random Projection Perturbation} juga memiliki waktu eksekusi melakukan randomisasi dan pembuatan model yang lebih cepat daripada teknik \textit{Random Rotation Perturbation}. Oleh karena itu, teknik \textit{Random Projection Perturbation} lebih cocok dipakai untuk dataset yang sangat besar. Sedangkan teknik \textit{Random Rotation Perturbation} masih dapat dipakai untuk dataset yang besar juga tetapi tidak mendapatkan keuntungan waktu eksekusi yang lebih cepat seperti teknik \textit{Random Projection Perturbation}. Teknik \textit{Random Rotation Perturbation} lebih cocok digunakan apabila penambangan data klasifikasi atau \textit{clustering} yang dilakukan diharapkan memiliki hasil yang tidak memiliki perbedaan sama sekali dengan penambangan data klasifikasi atau \textit{clustering} yang menggunakan dataset asli. 
