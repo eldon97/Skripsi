@@ -6,19 +6,25 @@ Pada bab ini akan dijabarkan perancangan perangkat lunak untuk penelitian ini. P
 \section{Perancangan Antarmuka}
 \label{sec:antarmuka}
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.56]{hal-awal}
-	\caption{Halaman utama yang berisi petunjuk cara penggunaan perangkat lunak}
-	\label{fig:hal-awal}
-\end{figure}
+Perancangan antarmuka yang dibuat disesuaikan dengan diagram kelas dan diagram aktivitas yang dibuat sesuai analisis perangkat lunak dilakukan. Rancangan antarmuka dapat dilihat pada Gambar~\ref{fig:tab-rrp}. Pada bagian atas antarmuka terdapat sebuah kolom untuk memasukkan dokumen berjenis \textit{comma-separated values} yang ingin dirandomisasi. Pertama-tama pengguna wajib untuk mengisi kolom tersebut apapun teknik randomisasi yang akan digunakan nanti. Setelah pengguna memasukkan dokumen yang diinginkan, perangkat lunak akan menampilkan berbagai informasi mengenai dataset yang ada di dokumen tersebut seperti ukuran dokumen, nama dokumen, dan jumlah kolom. Deskripsi ini bertujuan untuk memberitahukan pengguna bahwa dokumen yang dimasukkan telah benar dan bagaimana sifat dari dataset yang dimasukkan. Pengguna juga sekarang harus memilih teknik mana yang ingin digunakan. Tampilan antarmuka akan menyesuaikan secara otomatis sesuai teknik yang dipilih dan dapat dilihat perubahannya pada Gambar~\ref{fig:tab-rpp} apabila teknik \textit{Random Projection Perturbation} yang dipilih.
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.56]{tab-rrp}
-	\caption{Halaman untuk melakukan teknik \textit{Random Rotation Perturbation}}
+	\caption{Halaman saat memilih teknik \textit{Random Rotation Perturbation}}
 	\label{fig:tab-rrp}
 \end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.56]{tab-rpp}
+	\caption{Halaman saat memilih teknik \textit{Random Projection Perturbation}}
+	\label{fig:tab-rpp}
+\end{figure}
+
+Sebelum melakukan randomisasi, pengguna perlu memilih untuk membuat matriks rotasi/proyeksi baru atau mengiimpor matriks rotasi/proyeksi yang sudah pernah dibuat masing-masing dengan menekan tombol "Buat dan Simpan" dan "Impor Matriks". Pada teknik \textit{Random Projection Perturbation}, ada persyaratan yang harus dipenuhi mengenai dimensi akhir yang diinginkan dan nilai Epsilon. Kedua nilai tersebut perlu sesuai dengan dataset yang ada sehingga pengguna tidak bisa sembarangan menentukan dimensi dan nilai Epsilon. Perangkat lunak akan membuat aturan mengenai minimal dimensi yang bisa digunakan sehingga pengguna tidak bisa memasukan dimensi yang lebih kecil dari minimal yang telah ditentukan.
+
+Setelah pengguna melakukan berbagai pengaturan, pengguna dapat melakukan randomisasi dengan menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright. Apabila randomisasi berhasil dilakukan, perangkat lunak akan menampilkan \textit{popup} yang memberitahukan bahwa randomisasi berhasil dilakukan. \textit{Popup} tersebut dapat dilihat pada Gambar~\ref{fig:popup-sukses}. Selain itu, perangkat lunak juga akan menampilkan berbagai informasi beserta deskripsi tentang hasil randomisasi yang berhasil dilakukan.
 
 \begin{figure}
 	\centering
@@ -27,22 +33,9 @@ Pada bab ini akan dijabarkan perancangan perangkat lunak untuk penelitian ini. P
 	\label{fig:popup-sukses}
 \end{figure}
 
-Perancangan antarmuka yang dibuat disesuaikan dengan diagram kelas dan diagram aktivitas yang dibuat sesuai analisis perangkat lunak dilakukan. Perangkat lunak randomisasi akan memiliki 3 halaman antarmuka yang diimplementasikan dengan desain antarmuka tabs. Rancangan antarmuka halaman utama dapat dilihat pada Gambar~\ref{fig:hal-awal}, halaman ini akan berisi pesan selamat datang berupa deskripsi singkat perangkat lunak beserta cara kerjanya dan petunjuk singkat cara penggunaan perangkat lunak. Pada bagian atas antarmuka terdapat sebuah kolom untuk memasukkan dokumen berjenis \textit{comma-separated values} yang ingin dirandomisasi. Pertama-tama pengguna wajib untuk mengisi kolom tersebut apapun teknik randomisasi yang akan digunakan nanti.
+Perangkat lunak akan menampilkan deskripsi hasil dari randomisasi yang dilakukan. Informasi yang ditampilkan oleh perangkat lunak antara lain nama dokumen, ukuran dokumen, jumlah fitur, nilai Epsilon yang dipakai, jumlah dimensi pada hasil randomisasi, dan kolom yang diabaikan. Informasi ini ditampilkan oleh perangkat lunak bertujuan untuk memberitahukan pengguna properti-properti dataset yang telah dirandomisasi dan pengguna dapat memeriksa hasil yang dihasilkan oleh perangkat lunak apakah sesuai dengan keinginan pengguna.
 
-Setelah pengguna memasukkan dokumen yang diinginkan, perangkat lunak akan menampilkan berbagai informasi mengenai dataset yang ada di dokumen tersebut seperti ukuran dokumen, nama dokumen, dan jumlah kolom. Deskripsi ini bertujuan untuk memberitahukan pengguna bahwa dokumen yang dimasukkan telah benar dan bagaimana sifat dari dataset yang dimasukkan. 
-
-\subsection{Halaman \textit{Random Rotation Perturbation}}
-\label{subsec:tabrrp}
-
-Halaman ini memiliki fungsi untuk melakukan teknik \textit{Random Rotation Perturbation}. Setelah user memasukkan dokumen yang diinginkan pada kolom yang berada pada bagian atas antarmuka, pengguna baru bisa mengakses halaman ini. Pada halaman ini terdapat berbagai informasi dataset yang dimasukkan dan hasil dari randomisasi jika berhasil dilakukan, serta pengaturan apa saja fitur yang akan dirandomisasi pada dataset yang pengguna masukkan. Rancangan dari halaman ini dapat dilihat pada Gambar~\ref{fig:tab-rrp}.
-
-Sebelum melakukan randomisasi, pengguna perlu memeriksa fitur mana saja yang ingin dirandomisasi karena bisa saja pada dataset tersebut ada kolom yang berupa label. Perangkat lunak akan menyimpan hasil randomisasi pada dokumen dataset pengguna yang telah diubah nilainya dan perangkat lunak akan menyimpan dokumen tersebut di suatu lokasi yang pengguna harus tentukan. Pengguna bisa menentukan lokasi dokumen hasil randomisasi pada kolom yang terdapat di sebelah kanan ikon simpan dan sebelah kiri tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright.
-
-Setelah pengguna melakukan berbagai pengaturan, pengguna dapat melakukan randomisasi dengan menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright. Apabila randomisasi berhasil dilakukan, perangkat lunak akan menampilkan \textit{popup} yang memberitahukan bahwa randomisasi dengan teknik \textit{Random Rotation Perturbation} pada dataset yang dimasukkan berhasil dilakukan. \textit{Popup} tersebut dapat dilihat pada Gambar~\ref{fig:popup-sukses}. Selain itu, perangkat lunak juga akan menampilkan berbagai informasi beserta deskripsi tentang hasil randomisasi yang berhasil dilakukan.
-
-Perangkat lunak akan menampilkan deskripsi hasil dari randomisasi yang dilakukan. Informasi yang ditampilkan oleh perangkat lunak antara lain nama dokumen, ukuran dokumen, jumlah fitur, dan kolom yang diabaikan. Informasi ini ditampilkan oleh perangkat lunak bertujuan untuk memberitahukan pengguna properti-properti dataset yang telah dirandomisasi dan pengguna dapat memeriksa hasil yang dihasilkan oleh perangkat lunak apakah sesuai dengan keinginan pengguna.
-
-Apabila ada masalah-masalah tertentu dan randomisasi gagal dilakukan, maka perangkat lunak akan memberitahukan bahwa randomisasi telah gagal dilakukan dengan menampilkan \textit{popup} yang berisi peringatan bahwa randomisasi gagal dilakukan. Hasil randomisasi tidak akan terbuat dan perangkat lunak tidak akan menampilkan informasi apapun tentang hasil randomisasi. \textit{Popup} tersebut dapat dilihat pada Gambar~\ref{fig:popup-gagal}.
+Apabila ada masalah-masalah tertentu dan randomisasi gagal dilakukan, maka perangkat lunak akan memberitahukan bahwa randomisasi telah gagal dilakukan dengan menampilkan \textit{popup} yang berisi peringatan bahwa randomisasi gagal dilakukan. Hasil randomisasi tidak akan terbuat dan perangkat lunak akan menampilkan informasi bahwa randomisasi gagal dilakukan. \textit{Popup} tersebut dapat dilihat pada Gambar~\ref{fig:popup-gagal}. Oleh karena adanya persyaratan yang harus dipenuhi oleh pengguna untuk melakukan randomisasi dengan teknik \textit{Random Projection Perturbation}, maka randomisasi bisa saja gagal dilakukan karena persyaratan yang ada tidak dipenuhi oleh pengguna. Persyaratan yang disebutkan adalah persyaratan jumlah dimensi dan nilai Epsilon yang telah dijelaskan di atas. Perangkat lunak akan menampilkan \textit{popup} yang memberitahukan bahwa persyaratan tidak dipenuhi dan pengguna harus mengatur kembali pengaturan atau mengganti dataset. Rancangan ini dapat dilihat pada Gambar~\ref{fig:popup-syarat}.
 
 \begin{figure}
 	\centering
@@ -53,30 +46,10 @@ Apabila ada masalah-masalah tertentu dan randomisasi gagal dilakukan, maka peran
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.56]{tab-rpp}
-	\caption{Halaman untuk melakukan teknik \textit{Random Projection Perturbation}}
-	\label{fig:tab-rpp}
-\end{figure}
-
-\begin{figure}
-	\centering
 	\includegraphics[scale=0.56]{popup-syarat}
 	\caption{\textit{Popup} yang akan ditampilkan apabila persyaratan pada dataset tidak terpenuhi}
 	\label{fig:popup-syarat}
 \end{figure}
-
-\subsection{Halaman \textit{Random Projection Perturbation}}
-\label{subsec:tabrpp}
-
-Halaman ini memiliki fungsi untuk melakukan teknik \textit{Random Projection Perturbation}. Rancangan dari halaman ini dapat dilihat pada Gambar~\ref{fig:tab-rpp}. Sebelum pengguna melakukan randomisasi, pengguna harus mengatur beberapa pengaturan yang ada. Sama seperti halnya pada halaman \textit{Random Rotation Perturbation}, pengguna perlu menentukan lokasi penyimpanan hasil randomisasi yang akan dilakukan dan kolom apa saja pada dataset yang menjadi fitur. Pada bagian pemilihan fitur pada dataset, perangkat lunak mempunyai fitur kolom pencarian untuk mencari fitur pada dataset secara mudah dengan mengetikkan nama fitur yang diinginkan.
-
-Selain itu, pada halaman ini yang khusus untuk teknik \textit{Random Projection Perturbation} pengguna harus menentukan dimensi yang diinginkan dan nilai Epsilon. Setelah pengaturan-pengaturan tersebut diatur, pengguna dapat melakukan randomisasi menggunakan teknik \textit{Random Projection Perturbation} dengan menekan tombol \textquotedblleft Randomisasi dan Simpan\textquotedblright, perangkat lunak akan melakukan randomisasi dan menyimpan hasil randomisasi di lokasi yang telah pengguna tentukan. 
-
-Pada teknik \textit{Random Projection Perturbation}, ada persyaratan yang harus dipenuhi mengenai dimensi akhir yang diinginkan dan nilai Epsilon. Kedua nilai tersebut perlu sesuai dengan dataset yang ada sehingga pengguna tidak bisa sembarangan menentukan dimensi dan nilai Epsilon. Perangkat lunak akan membuat aturan mengenai minimal dimensi yang bisa digunakan sehingga pengguna tidak bisa memasukan dimensi yang lebih kecil dari minimal yang telah ditentukan. Minimal dimensi ini bergantung pada banyaknya baris pada dataset dan nilai Epsilon seperti yang telah dijelaskan pada bagian analisis bab~\ref{chap:analisis}.
-
-Apabila randomisasi berhasil dilakukan, maka perangkat lunak akan menampilkan beberapa deskripsi tentang hasil randomisasi yang berhasil dilakukan seperti nama dokumen hasil randomisasi, ukuran dokumen, nilai Epsilon yang dipakai, jumlah dimensi pada hasil randomisasi, dan kolom-kolom apa saja yang diabaikan. Perangkat lunak juga akan menyimpan hasil randomisasi yang telah dilakukan dalam bentuk dokumen berjenis \textit{comma-separated values} di lokasi yang telah ditentukan sebelumnya oleh pengguna.
-
-Oleh karena adanya persyaratan yang harus dipenuhi oleh pengguna untuk melakukan randomisasi dengan teknik \textit{Random Projection Perturbation}, maka randomisasi bisa saja gagal dilakukan karena persyaratan yang ada tidak dipenuhi oleh pengguna. Persyaratan yang disebutkan adalah persyaratan jumlah dimensi dan nilai Epsilon yang telah dijelaskan di atas. Perangkat lunak akan menampilkan \textit{popup} yang memberitahukan bahwa persyaratan tidak dipenuhi dan pengguna harus mengatur kembali pengaturan atau mengganti dataset. Rancangan ini dapat dilihat pada Gambar~\ref{fig:popup-syarat}.
 
 \section{Perancangan Kelas}
 \label{sec:kelas}
@@ -110,9 +83,9 @@ Dalam penerapan algoritma teknik yang dipakai, \textit{package} ini membutuhkan 
 \subsubsection{\textit{Package Preprocessor}}
 \label{subsubsec:package-preprocessor}
 
-\textit{Package Preprocessor} merupakan \textit{package} yang berfungsi sebagai \textit{preprocessor} untuk masukan perangkat lunak. Tentunya masukan yang diberikan pengguna kepada perangkat lunak tidak bisa langsung diolah begitu saja. Perlu adanya pengolahan terlebih dahulu sebelum masukan yang diterima dipakai pada perangkat lunak. Oleh karena itu, \textit{package} ini mempunyai fungsi untuk menyelesaikan masalah tersebut yaitu mengolah masukan yang diterima menjadi struktur data yang sesuai untuk digunakan pada perangkat lunak
+\textit{Package Preprocessor} merupakan \textit{package} yang berfungsi sebagai \textit{preprocessor} untuk masukan dan keluaran perangkat lunak. Tentunya masukan yang diberikan pengguna kepada perangkat lunak tidak bisa langsung diolah begitu saja. Perlu adanya pengolahan terlebih dahulu sebelum masukan yang diterima dipakai pada perangkat lunak. Oleh karena itu, \textit{package} ini mempunyai fungsi untuk menyelesaikan masalah tersebut yaitu mengolah masukan yang diterima menjadi struktur data yang sesuai untuk digunakan pada perangkat lunak.
 
-Pada penelitian ini, masukan perangkat lunak yang dimaksud adalah dataset yang akan dirandomisasi. Pengguna perlu mengikuti persyaratan masukan seperti apa yang dapat menjadi masukan perangkat lunak pada penelitian ini. Pada penelitian ini, perangkat lunak dirancang untuk hanya menerima dokumen berjenis \textit{comma-separated values}. Oleh karena itu, \textit{package preprocessor} ini memiliki sebuah fungsi untuk mengolah masukan berupa dokumen berjenis \textit{comma-separated values} menjadi struktur data matriks dengan menggunakan \textit{package Matrix}.
+Pada penelitian ini, masukan perangkat lunak yang dimaksud adalah dataset yang akan dirandomisasi. Pengguna perlu mengikuti persyaratan masukan seperti apa yang dapat menjadi masukan perangkat lunak pada penelitian ini. Pada penelitian ini, perangkat lunak dirancang untuk hanya menerima dokumen berjenis \textit{comma-separated values}. Oleh karena itu, \textit{package preprocessor} ini memiliki sebuah fungsi untuk mengolah masukan berupa dokumen berjenis \textit{comma-separated values} menjadi struktur data matriks atau sebaliknya dengan menggunakan \textit{package Matrix}.
 
 \subsubsection{\textit{Package View}}
 \label{subsubsec:package-view}
@@ -158,8 +131,8 @@ Kelas \textit{RandomRotationPerturbation} adalah kelas yang mempunyai tujuan uta
 
 Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomRotationPerturbation}.
 \begin{itemize}
-	\item \textit{randomTranslationMatrix} adalah atribut untuk menampung matriks translasi yang akan dipergunakan untuk implementasi algoritma \textit{Random Rotation Perturbation}. Fungsi \textit{generateRandomTranslationMatrix} akan mendefinisikan atribut ini dengan membuat matriks translasi acak, yang akan dijelaskan kemudian. Atribut ini mempunyai tipe data \textit{Matrix}.
-	\item \textit{randomRotationMatrix} adalah atribut untuk menampung matriks rotasi yang akan dipergunakan untuk implementasi algoritma \textit{Random Rotation Perturbation}. Fungsi \textit{generateRandomRotationMatrix} akan mendefinisikan atribut ini dengan membuat matriks translasi acak, yang akan dijelaskan kemudian. Atribut ini mempunyai tipe data \textit{Matrix}.
+	\item \textit{randomTranslationMatrix} adalah atribut untuk menampung matriks translasi yang akan dipergunakan untuk implementasi algoritma \textit{Random Rotation Perturbation}. Atribut ini mempunyai tipe data \textit{Matrix}.
+	\item \textit{randomRotationMatrix} adalah atribut untuk menampung matriks rotasi yang akan dipergunakan untuk implementasi algoritma \textit{Random Rotation Perturbation}. Atribut ini mempunyai tipe data \textit{Matrix}.
 \end{itemize}
 
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationPerturbation}.
@@ -167,9 +140,7 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationPerturba
 	\item \textit{RandomRotationPerturbation} adalah \textit{constructor} untuk mendefinisikan atribut-atribut yang ada dan memanggil \textit{constructor} dari kelas \textit{super} milik kelas \textit{RandomRotationPerturbation} yaitu \textit{Perturbation}. Tujuan utama fungsi ini adalah memanggil \textit{constructor} dari kelas \textit{super} yaitu \textit{Perturbation} sehingga fungsi ini berguna untuk mendefinisikan atribut \textit{dataset}. Selain itu, fungsi ini juga akan mendefinisikan atribut \textit{randomTranslationMatrix} dan \textit{randomRotationMatrix}.
 	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomRotationPerturbation} diimplementasikan algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Rotation Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada masukan pada fungsi ini tetapi memiliki kembalian berupa \textit{boolean} yang menyatakan apakah randomisasi berhasil dilakukan.
 	\item \textit{getRandomTranslationMatrix} adalah fungsi untuk mendapatkan matriks translasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomTranslationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks translasi yang bertipe data \textit{Matrix}.
-	\item \textit{generateRandomTranslationMatrix} adalah fungsi untuk membuat matriks translasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks translasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomTranslationMatrix}. Tidak ada masukan ataupun kembalian pada fungsi ini.
 	\item \textit{getRandomRotationMatrix} adalah fungsi untuk mendapatkan matriks rotasi yang digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation} atau dengan kata lain mendapatkan atribut \textit{randomRotationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks rotasi yang bertipe data \textit{Matrix}.
-	\item \textit{generateRandomRotationMatrix} adalah fungsi untuk membuat matriks rotasi secara acak yang akan digunakan untuk implementasi algoritma teknik \textit{Random Rotation Perturbation}. Fungsi ini akan membuat matriks rotasi acak tersebut dan menyimpan hasilnya pada atribut \textit{randomRotationMatrix}. Tidak ada masukan ataupun kembalian pada fungsi ini.
 \end{itemize}
 
 \subsubsection{Kelas \textit{RandomProjectionPerturbation}}
@@ -179,22 +150,20 @@ Kelas \textit{RandomProjectionPerturbation} adalah kelas yang mempunyai tujuan u
 
 Berikut adalah deskripsi setiap atribut pada kelas \textit{RandomProjectionPerturbation}.
 \begin{itemize}
-	\item \textit{epsilon} adalah atribut yang berguna untuk menentukan seberapa besar batas maksimal distorsi yang dapat terjadi pada hasil randomisasi. Atribut \textit{epsilon} ini akan digunakan untuk menghitung nilai dari atribut \textit{k} yang akan dijelaskan nanti. Tipe data atribut ini adalah \textit{float}, bilangan riil yang nantinya hanya akan diisi dengan rentang nilai (0, 1). Pengguna akan menentukan seberapa besar batas maksimal distorsi yang dapat terjadi pada hasil randomisasi dengan cara mendefinisikan atribut \textit{epsilon} ini.
-	\item \textit{k} adalah atribut yang berguna untuk menentukan dimensi terkecil untuk sebuah dataset yang ingin dirandomisasi dapat direduksi dengan distorsi yang terkontrol sesuai atribut \textit{epsilon}. Atribut ini juga menentukan apakah dataset memenuhi persyaratan untuk direduksi yaitu memiliki jumlah kolom yang lebih besar dari nilai \textit{k}. Tipe data atribut ini adalah \textit{double}, bilangan riil. Atribut ini akan dihitung oleh perangkat lunak sesuai nilai \textit{epsilon} yang telah ditentukan pengguna.
-	\item \textit{dimensionTarget} adalah atribut untuk menyimpan besar dimensi akhir yang diinginkan pengguna dimiliki oleh hasil dataset yang telah dirandomisasi. Pengguna harus mendefinisikan atribut ini dengan nilai yang lebih besar dari atau sama dengan nilai \textit{k}, jika tidak maka distorsi yang terjadi pada hasil randomisasi akan lebih besar dari nilai \textit{epsilon} yang diinginkan. Tipe data atribut ini adalah \textit{integer}, bilangan bulat.
+	\item \textit{epsilon} adalah atribut yang berguna untuk menentukan seberapa besar batas maksimal distorsi yang dapat terjadi pada hasil randomisasi. Atribut \textit{epsilon} ini akan digunakan untuk menghitung nilai dari atribut \textit{minK} yang akan dijelaskan nanti. Tipe data atribut ini adalah \textit{float}, bilangan riil yang nantinya hanya akan diisi dengan rentang nilai (0, 1). Pengguna akan menentukan seberapa besar batas maksimal distorsi yang dapat terjadi pada hasil randomisasi dengan cara mendefinisikan atribut \textit{epsilon} ini.
+	\item \textit{minK} adalah atribut yang berguna untuk menentukan dimensi terkecil untuk sebuah dataset yang ingin dirandomisasi dapat direduksi dengan distorsi yang terkontrol sesuai atribut \textit{epsilon}. Atribut ini juga menentukan apakah dataset memenuhi persyaratan untuk direduksi yaitu memiliki jumlah kolom yang lebih besar dari nilai \textit{minK}. Tipe data atribut ini adalah \textit{double}, bilangan riil. Atribut ini akan dihitung oleh perangkat lunak sesuai nilai \textit{epsilon} yang telah ditentukan pengguna.
+	\item \textit{k} adalah atribut untuk menyimpan besar dimensi akhir yang diinginkan pengguna dimiliki oleh hasil dataset yang telah dirandomisasi. Pengguna harus mendefinisikan atribut ini dengan nilai yang lebih besar dari atau sama dengan nilai \textit{minK}, jika tidak maka distorsi yang terjadi pada hasil randomisasi akan lebih besar dari nilai \textit{epsilon} yang diinginkan. Tipe data atribut ini adalah \textit{integer}, bilangan bulat.
 \end{itemize}
 
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomProjectionPerturbation}.
 \begin{itemize}
-	\item \textit{RandomProjectionPerturbation} adalah \textit{constructor} untuk mendefinisikan atribut-atribut yang ada dan memanggil \textit{constructor} dari kelas \textit{super} milik kelas \textit{RandomProjectionPerturbation} yaitu \textit{Perturbation}. Tujuan utama fungsi ini adalah memanggil \textit{constructor} dari kelas \textit{super} yaitu \textit{Perturbation} sehingga fungsi ini berguna untuk mendefinisikan atribut \textit{dataset}. Selain itu, fungsi ini juga akan mendefinisikan atribut \textit{epsilon}, \textit{k}, dan \textit{dimensionTarget}.
+	\item \textit{RandomProjectionPerturbation} adalah \textit{constructor} untuk mendefinisikan atribut-atribut yang ada dan memanggil \textit{constructor} dari kelas \textit{super} milik kelas \textit{RandomProjectionPerturbation} yaitu \textit{Perturbation}. Tujuan utama fungsi ini adalah memanggil \textit{constructor} dari kelas \textit{super} yaitu \textit{Perturbation} sehingga fungsi ini berguna untuk mendefinisikan atribut \textit{dataset}. Selain itu, fungsi ini juga akan mendefinisikan atribut \textit{epsilon}, \textit{minK}, dan \textit{k}.
 	\item \textit{perturbDataset} adalah fungsi turunan dari kelas \textit{Perturbation} yang pada kelas \textit{RandomProjectionPerturbation} diimplementasikan algoritma teknik \textit{Random Projection Perturbation}. Fungsi ini akan mengimplementasikan algoritma teknik \textit{Random Projection Perturbation} kepada atribut \textit{dataset} dan menyimpan hasilnya kepada atribut \textit{perturbedDataset}. Tidak ada masukan pada fungsi ini tetapi memiliki kembalian berupa \textit{boolean} yang menyatakan apakah randomisasi berhasil dilakukan.
 	\item \textit{getEpsilon} adalah fungsi untuk mendapatkan nilai batas maksimal distorsi yang dapat terjadi pada hasil randomisasi atau dengan kata lain mendapatkan atribut \textit{epsilon}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{epsilon} yang bertipe data \textit{float}, bilangan riil.
-	\item \textit{setEpsilon} adalah fungsi untuk mengubah nilai dari atribut \textit{epsilon} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setEpsilon} memiliki sebuah masukan \textit{epsilon} yang bertipe data \textit{float}, bilangan riil dan berfungsi untuk mendefinisikan atribut \textit{epsilon}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{epsilon}. Tidak ada kembalian pada fungsi ini.
-	\item \textit{getK} adalah fungsi untuk mendapatkan besar dimensi minimal hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{k}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{k} yang bertipe data \textit{double}, bilangan riil.
-	\item \textit{calculateK} adalah fungsi untuk menghitung nilai \textit{k} sesuai dengan atribut \textit{epsilon} dan jumlah baris pada dataset yang ingin dirandomisasi. Fungsi ini akan menghitung nilai \textit{k} tersebut dan menyimpan hasilnya pada atribut \textit{k}. Tidak ada masukan ataupun kembalian pada fungsi ini.
-	\item \textit{checkMinDim} adalah fungsi untuk memeriksa apakah dimensi dari \textit{dataset} yang ingin dirandomisasi lebih besar dari nilai \textit{k}, besar dimensi minimal. Selain itu, fungsi ini memeriksa apakah nilai \textit{dimensionTarget} lebih besar dari atau sama dengan nilai \textit{k}. Intinya fungsi ini menguji apakah dataset dan keinginan pengguna memenuhi persyaratan untuk mengaplikasikan teknik \textit{Random Projection Perturbation}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa sebuah \textit{boolean} yang menandakan apakah \textit{dataset} dan \textit{dimensionTarget} yang diberikan oleh pengguna memenuhi persyaratan untuk mengaplikasikan teknik \textit{Random Projection Perturbation} dengan \textit{dataset} dan \textit{dimensionTarget} tersebut.
-	\item \textit{setDimensionTarget} adalah fungsi untuk mengubah nilai dari atribut \textit{dimensionTarget} dengan nilai baru yang menjadi masukan fungsi ini. Fungsi \textit{setDimensionTarget} memiliki sebuah masukan \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat dan berfungsi untuk mendefinisikan atribut \textit{dimensionTarget}. \textit{Parameter} ini akan menjadi nilai baru dari atribut \textit{dimensionTarget}. Tidak ada kembalian pada fungsi ini.
-	\item \textit{getDimensionTarget} adalah fungsi untuk mendapatkan besar dimensi akhir yang diinginkan pengguna dimiliki oleh hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{dimensionTarget}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{dimensionTarget} yang bertipe data \textit{integer}, bilangan bulat.
+	\item \textit{getMinK} adalah fungsi untuk mendapatkan besar dimensi minimal hasil dataset yang telah dirandomisasi atau dengan kata lain mendapatkan atribut \textit{minK}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nilai dari atribut \textit{minK} yang bertipe data \textit{double}, bilangan riil.
+	\item \textit{calculateMinK} adalah fungsi untuk menghitung nilai \textit{minK} sesuai dengan atribut \textit{epsilon} dan jumlah baris pada dataset yang ingin dirandomisasi. Fungsi ini akan menghitung nilai \textit{minK} tersebut dan menyimpan hasilnya pada atribut \textit{minK}. Tidak ada masukan ataupun kembalian pada fungsi ini.
+	\item \textit{checkMinK} adalah fungsi untuk memeriksa apakah dimensi dari \textit{dataset} yang ingin dirandomisasi lebih besar dari nilai \textit{minK}, besar dimensi minimal. Selain itu, fungsi ini memeriksa apakah nilai \textit{k} lebih besar dari atau sama dengan nilai \textit{minK}. Intinya fungsi ini menguji apakah dataset dan keinginan pengguna memenuhi persyaratan untuk mengaplikasikan teknik \textit{Random Projection Perturbation}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa sebuah \textit{boolean} yang menandakan apakah \textit{dataset} dan \textit{k} yang diberikan oleh pengguna memenuhi persyaratan untuk mengaplikasikan teknik \textit{Random Projection Perturbation} dengan \textit{dataset} dan \textit{k} tersebut.
+	\item \textit{checkVariableK} adalah fungsi untuk memeriksa apakah nilai \textit{k} lebih besar dari atau sama dengan nilai \textit{minK}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa sebuah \textit{boolean} yang menandakan apakah nilai variabel \textit{k} yang diberikan oleh pengguna memenuhi persyaratan untuk mengaplikasikan teknik \textit{Random Projection Perturbation} dengan nilai variabel \textit{k} tersebut.
 \end{itemize}
 
 \subsection{Diagram Kelas pada \textit{Package Matrix}}
@@ -202,7 +171,7 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomProjectionPertur
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.425]{matrixclassdiagram}
+	\includegraphics[scale=0.45]{matrixclassdiagram}
 	\caption{Diagram kelas pada \textit{package Matrix}}
 	\label{fig:matrixclassdiagram}
 \end{figure}
@@ -228,7 +197,7 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{Matrix}.
 	\item \textit{get} adalah fungsi untuk mendapatkan sebuah elemen pada matriks atau dengan kata lain sebuah nilai pada atribut \textit{matrix}. Fungsi ini memiliki dua buah masukan yaitu \textit{row} dan \textit{col} yang masing-masing berguna sebagai penunjuk baris dan kolom mana yang ingin didapatkan. Kembalian pada fungsi ini adalah elemen matriks pada baris dan kolom yang diinginkan dan bertipe data \textit{double}, bilangan riil.
 	\item \textit{transpose} adalah fungsi untuk mendapatkan transpose dari matriks kelas ini atau dengan kata lain transpose dari atribut \textit{matrix}. Fungsi ini memiliki kembalian berupa matriks yang merupakan hasil transpose dan bertipe data objek kelas \textit{Matrix}. Tidak ada masukan apapun pada fungsi ini.
 	\item \textit{determinant} adalah fungsi untuk mendapatkan determinan dari matriks kelas ini. Fungsi ini memiliki kembalian berupa determinan matriks yang bertipe data \textit{double}, bilangan riil. Tidak ada masukan apapun pada fungsi ini.
-	\item \textit{getMatrix} adalah fungsi untuk mendapatkan matriks pada kelas ini atau dengan kata lain mendapatkan atribut \textit{matrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa \textit{array} yang bertipe data \textit{double}, bilangan riil.
+	\item \textit{getRawMatrix} adalah fungsi untuk mendapatkan matriks pada kelas ini atau dengan kata lain mendapatkan atribut \textit{matrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa \textit{array} yang bertipe data \textit{double}, bilangan riil.
 \end{itemize}
 
 \subsubsection{Kelas \textit{RandomTranslationMatrix}}
@@ -258,17 +227,17 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationMatrix}.
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.7]{preprocessorclassdiagram}
+	\includegraphics[scale=0.4]{preprocessorclassdiagram}
 	\caption{Diagram kelas pada \textit{package Preprocessor}}
 	\label{fig:preprocessorclassdiagram}
 \end{figure}
 
-\textit{Package Preprocessor} memiliki sebuah kelas yang bertujuan untuk mengolah masukan perangkat lunak agar dapat diterapkan teknik randomisasi. Kelas tersebut bernama \textit{CSVPreprocessor} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Preprocessor} dapat dilihat pada Gambar~\ref{fig:preprocessorclassdiagram}.
+\textit{Package Preprocessor} memiliki 3 buah kelas yang bertujuan untuk mengolah masukan perangkat lunak agar dapat diterapkan teknik randomisasi. Kelas tersebut yaitu \textit{CSVPreprocessor}, \textit{RotationMatrixPreprocessor}, dan \textit{ProjectionMatrixPreprocessor} yang akan dijelaskan secara detail pada subbab ini. Diagram kelas pada \textit{package Preprocessor} dapat dilihat pada Gambar~\ref{fig:preprocessorclassdiagram}.
 
 \subsubsection{Kelas \textit{CSVPreprocessor}}
 \label{subsubsec:kelas-csvpreprocessor}
 
-Kelas CSVPreprocessor berguna untuk mengolah masukan perangkat lunak yang berjenis \textit{comma-separated values} sebelum diterapkan teknik randomisasi agar masukan tersebut sesuai dengan persyaratan teknik randomisasi. Tujuan utama dari kelas ini adalah mengubah masukan berjenis \textit{comma-separated values} menjadi sebuah objek kelas \textit{Matrix} dan sebaliknya. Kelas ini memiliki tiga buah atribut dan enam buah fungsi yang selanjutnya akan dijelaskan secara rinci.
+Kelas \textit{CSVPreprocessor} berguna untuk mengolah masukan perangkat lunak yang berjenis \textit{comma-separated values} sebelum diterapkan teknik randomisasi agar masukan tersebut sesuai dengan persyaratan teknik randomisasi. Tujuan utama dari kelas ini adalah mengubah masukan berjenis \textit{comma-separated values} menjadi sebuah objek kelas \textit{Matrix} dan sebaliknya. Kelas ini memiliki tiga buah atribut dan enam buah fungsi yang selanjutnya akan dijelaskan secara rinci.
 
 Berikut adalah deskripsi setiap atribut pada kelas \textit{CSVPreprocessor}.
 \begin{itemize}
@@ -286,6 +255,43 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{CSVPreprocessor}.
 	\item \textit{getFilePath} adalah fungsi untuk mendapatkan lokasi dokumen \textit{comma-separated values} yang telah dibaca atau dengan kata lain mendapatkan atribut \textit{filePath}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa lokasi dokumen yang bertipe data \textit{string}.
 	\item \textit{getNameOfColumns} adalah fungsi untuk mendapatkan nama semua kolom yang ada pada dokumen \textit{comma-separated values} yang telah dibaca atau dengan kata lain mendapatkan atribut \textit{nameOfColumns}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa \textit{array} yang bertipe data \textit{string}.
 	\item \textit{matrixToCSV} adalah fungsi untuk mengolah sebuah objek kelas \textit{Matrix} menjadi sebuah dokumen \textit{comma-separated values} atau dengan kata lain mengkonversi sebuah matriks menjadi dokumen berjenis \textit{comma-separated values}. Fungsi ini bisa dikatakan kebalikan dari fungsi \textit{csvToMatrix}. Ada dua buah masukan pada fungsi ini yaitu sebuah matriks dan lokasi penyimpanan dokumen yang baru. Kembalian pada fungsi ini adalah sebuah \textit{boolean} yang menyatakan apakah konversi berhasil dilakukan.
+	\item \textit{getFileName} adalah fungsi untuk mendapatkan nama dokumen \textit{comma-separated values} yang telah dibaca. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa nama dokumen yang bertipe data \textit{string}.
+\end{itemize}
+
+\subsubsection{Kelas \textit{ProjectionMatrixPreprocessor}}
+\label{subsubsec:kelas-projectionpre}
+
+Kelas \textit{ProjectionMatrixPreprocessor} berguna untuk mengolah masukan perangkat lunak berupa matriks proyeksi yang berjenis \textit{comma-separated values} sebelum diterapkan teknik randomisasi agar masukan tersebut sesuai dengan persyaratan teknik randomisasi. Tujuan utama dari kelas ini adalah mengubah masukan matriks proyeksi berjenis \textit{comma-separated values} menjadi sebuah objek kelas \textit{Matrix} dan sebaliknya. Kelas ini memiliki sebuah atribut dan tiga buah fungsi yang selanjutnya akan dijelaskan secara rinci.
+
+Berikut adalah deskripsi setiap atribut pada kelas \textit{ProjectionMatrixPreprocessor}.
+\begin{itemize}
+	\item \textit{projectionMatrix} adalah atribut untuk menyimpan matriks proyeksi yang berbentuk objek kelas \textit{Matrix} yang didapatkan dari hasil pengolahan masukan yang berjenis \textit{comma-separated values}. Atribut ini memiliki tipe data objek kelas \textit{Matrix}.
+\end{itemize}
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{ProjectionMatrixPreprocessor}.
+\begin{itemize}
+	\item \textit{readFromCSV} adalah fungsi untuk membaca dokumen berjenis \textit{comma-separated values} menjadi matriks proyeksi yang dapat dipakai perangkat lunak. Fungsi ini memiliki sebuah masukan bernama \textit{filePath} yang berguna untuk menentukan lokasi dokumen yang ingin diolah. Kembalian pada fungsi ini adalah sebuah \textit{boolean} yang menyatakan apakah pembacaan dokumen berhasil dilakukan.
+	\item \textit{saveToCSV} adalah fungsi statis untuk mengolah sebuah matriks proyeksi berbentuk objek kelas \textit{Matrix} menjadi sebuah dokumen \textit{comma-separated values} dan menyimpannya pada sebuah direktori pengguna. Fungsi ini bisa dikatakan kebalikan dari fungsi \textit{readFromCSV}. Ada dua buah masukan pada fungsi ini yaitu sebuah matriks proyeksi dan lokasi penyimpanan dokumen yang baru. Kembalian pada fungsi ini adalah sebuah \textit{boolean} yang menyatakan apakah penyimpanan berhasil dilakukan.
+	\item \textit{getProjectionMatrix} adalah fungsi untuk mendapatkan matriks proyeksi berbentuk objek kelas \textit{Matrix} yang didapatkan dari fungsi \textit{readFromCSV} atau dengan kata lain mendapatkan variabel \textit{projectionMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks proyeksi yang bertipe data \textit{Matrix}.
+\end{itemize}
+
+\subsubsection{Kelas \textit{RotationMatrixPreprocessor}}
+\label{subsubsec:kelas-rotationpre}
+
+Kelas \textit{RotationMatrixPreprocessor} berguna untuk mengolah masukan perangkat lunak berupa matriks rotasi dan translasi yang berjenis \textit{comma-separated values} sebelum diterapkan teknik randomisasi agar masukan tersebut sesuai dengan persyaratan teknik randomisasi. Tujuan utama dari kelas ini adalah mengubah masukan matriks rotasi dan translasi berjenis \textit{comma-separated values} menjadi dua buah objek kelas \textit{Matrix} dan sebaliknya. Kelas ini memiliki dua buah atribut dan empat buah fungsi yang selanjutnya akan dijelaskan secara rinci.
+
+Berikut adalah deskripsi setiap atribut pada kelas \textit{RotationMatrixPreprocessor}.
+\begin{itemize}
+	\item \textit{rotationMatrix} adalah atribut untuk menyimpan matriks rotasi yang berbentuk objek kelas \textit{Matrix} yang didapatkan dari hasil pengolahan masukan yang berjenis \textit{comma-separated values}. Atribut ini memiliki tipe data objek kelas \textit{Matrix}.
+	\item \textit{translationMatrix} adalah atribut untuk menyimpan matriks translasi yang berbentuk objek kelas \textit{Matrix} yang didapatkan dari hasil pengolahan masukan yang berjenis \textit{comma-separated values}. Atribut ini memiliki tipe data objek kelas \textit{Matrix}.
+\end{itemize}
+
+Berikut adalah deskripsi setiap fungsi pada kelas \textit{RotationMatrixPreprocessor}.
+\begin{itemize}
+	\item \textit{readFromCSV} adalah fungsi untuk membaca dokumen berjenis \textit{comma-separated values} menjadi matriks rotasi dan translasi yang dapat dipakai perangkat lunak. Fungsi ini memiliki sebuah masukan bernama \textit{filePath} yang berguna untuk menentukan lokasi dokumen yang ingin diolah. Kembalian pada fungsi ini adalah sebuah \textit{boolean} yang menyatakan apakah pembacaan dokumen berhasil dilakukan.
+	\item \textit{saveToCSV} adalah fungsi statis untuk mengolah sebuah matriks rotasi dan translasi berbentuk objek kelas \textit{Matrix} menjadi sebuah dokumen \textit{comma-separated values} dan menyimpannya pada sebuah direktori pengguna. Fungsi ini bisa dikatakan kebalikan dari fungsi \textit{readFromCSV}. Ada tiga buah masukan pada fungsi ini yaitu sebuah matriks rotasi, matriks translasi dan lokasi penyimpanan dokumen yang baru. Kembalian pada fungsi ini adalah sebuah \textit{boolean} yang menyatakan apakah penyimpanan berhasil dilakukan.
+	\item \textit{getRotationMatrix} adalah fungsi untuk mendapatkan matriks rotasi berbentuk objek kelas \textit{Matrix} yang didapatkan dari fungsi \textit{readFromCSV} atau dengan kata lain mendapatkan variabel \textit{rotationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks rotasi yang bertipe data \textit{Matrix}.
+	\item \textit{getTranslationMatrix} adalah fungsi untuk mendapatkan matriks translasi berbentuk objek kelas \textit{Matrix} yang didapatkan dari fungsi \textit{readFromCSV} atau dengan kata lain mendapatkan variabel \textit{translationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks translasi yang bertipe data \textit{Matrix}.
 \end{itemize}
 
 \section{Masukan Perangkat Lunak}
