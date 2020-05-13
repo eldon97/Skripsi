@@ -219,6 +219,57 @@
 	year      	= {1984},
 }
 
+@ARTICLE{2020SciPy-NMeth,
+       author = {{Virtanen}, Pauli and {Gommers}, Ralf and {Oliphant},
+         Travis E. and {Haberland}, Matt and {Reddy}, Tyler and
+         {Cournapeau}, David and {Burovski}, Evgeni and {Peterson}, Pearu
+         and {Weckesser}, Warren and {Bright}, Jonathan and {van der Walt},
+         St{\'e}fan J.  and {Brett}, Matthew and {Wilson}, Joshua and
+         {Jarrod Millman}, K.  and {Mayorov}, Nikolay and {Nelson}, Andrew
+         R.~J. and {Jones}, Eric and {Kern}, Robert and {Larson}, Eric and
+         {Carey}, CJ and {Polat}, {\.I}lhan and {Feng}, Yu and {Moore},
+         Eric W. and {Vand erPlas}, Jake and {Laxalde}, Denis and
+         {Perktold}, Josef and {Cimrman}, Robert and {Henriksen}, Ian and
+         {Quintero}, E.~A. and {Harris}, Charles R and {Archibald}, Anne M.
+         and {Ribeiro}, Ant{\^o}nio H. and {Pedregosa}, Fabian and
+         {van Mulbregt}, Paul and {Contributors}, SciPy 1. 0},
+        title = "{SciPy 1.0: Fundamental Algorithms for Scientific
+                  Computing in Python}",
+      journal = {Nature Methods},
+      year = "2020",
+      volume={17},
+      pages={261--272},
+      adsurl = {https://rdcu.be/b08Wh},
+      doi = {https://doi.org/10.1038/s41592-019-0686-2},
+}
+
+@article{scikit-learn,
+ title={Scikit-learn: Machine Learning in {P}ython},
+ author={Pedregosa, F. and Varoquaux, G. and Gramfort, A. and Michel, V.
+         and Thirion, B. and Grisel, O. and Blondel, M. and Prettenhofer, P.
+         and Weiss, R. and Dubourg, V. and Vanderplas, J. and Passos, A. and
+         Cournapeau, D. and Brucher, M. and Perrot, M. and Duchesnay, E.},
+ journal={Journal of Machine Learning Research},
+ volume={12},
+ pages={2825--2830},
+ year={2011}
+}
+
+@Article{Hunter:2007,
+  Author    = {Hunter, J. D.},
+  Title     = {Matplotlib: A 2D graphics environment},
+  Journal   = {Computing in Science \& Engineering},
+  Volume    = {9},
+  Number    = {3},
+  Pages     = {90--95},
+  abstract  = {Matplotlib is a 2D graphics package used for Python for
+  application development, interactive scripting, and publication-quality
+  image generation across user interfaces and operating systems.},
+  publisher = {IEEE COMPUTER SOC},
+  doi       = {10.1109/MCSE.2007.55},
+  year      = 2007
+}
+
 %	4. Artikel dari prosiding seminar/konferensi
 %	Artikel (atau paper) yang berasal dari prosiding seminar/konferensi ilmiah. 
 %
@@ -250,6 +301,16 @@
 	publisher	= {ACM, New York}
 }
 
+@InProceedings{ mckinney-proc-scipy-2010,
+  author    = { {W}es {M}c{K}inney },
+  title     = { {D}ata {S}tructures for {S}tatistical {C}omputing in {P}ython },
+  booktitle = { {P}roceedings of the 9th {P}ython in {S}cience {C}onference },
+  pages     = { 56 - 61 },
+  year      = { 2010 },
+  editor    = { {S}t\'efan van der {W}alt and {J}arrod {M}illman },
+  doi       = { 10.25080/Majora-92bf1922-00a }
+}
+
 %	5. Skripsi/Thesis/Disertasi
 %	Skripsi S1, Thesis S2 atau Disertasi S3. 
 %
@@ -271,30 +332,6 @@
 %	- Wiratma, L. (2022) Coming Not Too Soon, Later, Delay, Someday, Hopefully. Disertasi. Utrecht University, The Netherlands.
 %
 %	Contoh penulisan di file bib:
-
-@undergraduatethesis{lionov:02:animasi, 
-	author		= {Lionov},
-	title     	= {Animasi Algoritma Sweepline Untuk Membangun Diagram Voronoi},
-	year      	= {2002},
-	school     	= {Universitas Katolik Parahyangan},
-	address		= {Indonesia},
-}
-
-@masterthesis{wiratma:10:following, 
-	author		= {Lionov Wiratma},
-	title     	= {Following The Majority: a New Algorithm For Computing a Median Trajectory},
-	year      	= {2010},
-	school     	= {Utrecht University},
-	address		= {The Netherlands},
-}
-
-@phdthesis{wiratma:22:later, 
-	author		= {Lionov Wiratma},
-	title     	= {Coming Not Too Soon, Later, Delay, Someday, Hopefully},
-	year      	= {2022},
-	school     	= {Utrecht University},
-	address		= {The Netherlands},
-}
 
 %	6. Technical/Scientific Report
 %	Pada umumnya, Technicalreport adalah laporan hasil penelitian ilmiah yang tidak diterbitkan ke dalam prosiding ataupun jurnal. 
@@ -323,6 +360,16 @@
 	address 	= {Georgia},	
 }
 
+@techreport{python:95:guido,
+	author 		= {Guido Van Rossum},
+	title 		= {Python tutorial},
+	number		= {CS-R9526},
+	year 		= {1995},
+	institution = {Centrum voor Wiskunde en Informatica (CWI)},
+	address 	= {Amsterdam},	
+}
+
+
 %	7. RFC (Request For Comments)
 %
 %	RFC (Request for Comments) adalah publikasi dari Internet Engineering Task Force (IETF) and the Internet Society (ISOC), organisasi(?)
@@ -340,13 +387,6 @@
 %	 Rekhter, Y. dan Li, T. (1994) A border gateway protocol 4 (bgp-4). RFC 1654. RFC Editor, http://www.rfc-editor.org.
 %
 %	Contoh penulisan di file bib:
-
-@rfc{RFC1654, 
-	author 		= {Yakov Rekhter and Tony Li},
-	title 		= {A Border Gateway Protocol 4 (BGP-4)},
-	number 		= {1654},
-	year 		= {1994}, 
-}
  	
 
 %	8. Technical Documentation/Technical Manual
@@ -393,15 +433,6 @@
 %
 %	Contoh penulisan di file bib:
 
-@patent{webb:12:comm,
-	author		= {Ronaldo Webb and Olga Daruca and Pascal Alfadian},
-	title 		= {Method of optimizing a text massage communication between a server and a secure element},
-	number		= {EP2479956 (A1)},
-	year 		= {2012},
-	organization= {European Patent Organisation},	
-	address 	= {Munich, Germany},
-}
-
 %	10. Unpublished
 %
 %	TIDAK DIANJURKAN UNTUK DIGUNAKAN, KONSULTASIKAN DENGAN PEMBIMBING MASING-MASING
@@ -425,22 +456,6 @@
 %
 %	Contoh penulisan di file bib:
 
-@unpublished{wiratma:09:median,
-	author		= {Lionov Wiratma},
-	title		= {Median Trajectory},
-	year		= {2009},
-	note		= {Report for GMT Experimentation Project at Utrecht University},
-}
-
-@unpublished{lionov:11:cpoly,
-	author		= {Lionov},
-	title		= {Polymorphism pada {C++}},
-	year		= {2011},
-	note		= {Catatan kuliah AKS341 Pemrograman Sistem di Universitas Katolik Parahyangan, Bandung},
-	url			= {http://tinyurl.com/lionov},
-	access 		= {30 September 2016},	
-}
-
 %	11. Halaman Web 
 %
 %	TIDAK DIANJURKAN UNTUK DIGUNAKAN, KONSULTASIKAN DENGAN PEMBIMBING MASING-MASING
@@ -462,14 +477,6 @@ $
 %
 %	Contoh penulisan di file bib:
 
-@web{erickson:03:cgmodel,
-	author 		= {Jeff Erickson},
-	title 		= {{CG} models of computation?},
-	year 		= {2003},
-	url 		= {http://www.computational-geometry.org/mailing-lists/compgeom-announce/2003-December/000852.html},
-	access 		= {30 September 2016},
-}
-
 %	12. Lain-lain
 %
 %	TIDAK DIANJURKAN UNTUK DIGUNAKAN, KONSULTASIKAN DENGAN PEMBIMBING MASING-MASING
@@ -490,13 +497,5 @@ $
 %
 %
 %	Contoh penulisan di file bib:
-
-@misc{agung:12:tango,
-	author 			= {AGUNG},
-	title 			= {Menjajal Tango 12},
-	year 			= {2012},
-	howpublished	= {Majalah HAI no 02, Januari 2012},
-	note			= {},
-}
 %_____________________________________________________________________________
 %=============================================================================

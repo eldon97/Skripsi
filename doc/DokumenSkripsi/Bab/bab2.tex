@@ -41,13 +41,11 @@ Model tersebut biasanya dibuat dengan menggunakan teknik \textit{machine learnin
 \subsection{\textit{Classification}}
 \label{subsec:classification}
 
-Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data~\cite{mendes:17:ppdmieee}. Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas. Ada dua tahap dalam proses klasifikasi yaitu tahap latihan dan tahap klasifikasi.
+Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data~\cite{mendes:17:ppdmieee}. Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas.
 
-Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
+Ada dua tahap dalam proses klasifikasi yaitu tahap latihan dan tahap klasifikasi. Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
 
-Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{K-nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{K-nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{K-nearest Neighbors} saja.
-
-Teknik \textit{K-nearest Neighbors} adalah teknik penambangan data klasifikasi yang mencari label terbanyak pada sejumlah tetangga terdekatnya. Teknik ini bergantung pada jarak Euclidean antara titik yang mana adalah data yang akan diprediksi dengan tetangga-tetangganya. Setiap rekord pada data dipetakan ke bidang Euclidean dengan beberapa atribut yang menentukan letaknya pada bidang Euclidean~\cite{jiawei:12:datmin}.
+Teknik \textit{machine learning} yang paling dikenal untuk klasifikasi antara lain \textit{K-nearest Neighbors}, \textit{Decision Tree}, dan \textit{Naive Bayes}. Dalam penelitian ini, hanya teknik \textit{K-nearest Neighbors} yang digunakan untuk pengujian sehingga berikutnya hanya akan dijelaskan teknik \textit{K-nearest Neighbors} saja. Teknik \textit{K-nearest Neighbors} adalah teknik penambangan data klasifikasi yang mencari label terbanyak pada sejumlah tetangga terdekatnya. Teknik ini bergantung pada jarak Euclidean antara titik yang mana adalah data yang akan diprediksi dengan tetangga-tetangganya. Setiap rekord pada data dipetakan ke bidang Euclidean dengan beberapa atribut yang menentukan letaknya pada bidang Euclidean~\cite{jiawei:12:datmin}.
 
 Berikut langkah kerja dari teknik \textit{K-nearest Neighbors}.
 \begin{enumerate}
@@ -62,6 +60,8 @@ Berikut langkah kerja dari teknik \textit{K-nearest Neighbors}.
 	\item Ambil label dari semua rekord yang terpilih pada langkah sebelumnya. Label terbanyak adalah hasil prediksi label pada rekord yang ingin diprediksi
 \end{enumerate}
 
+Dalam mengevaluasi model klasifikasi dapat dihitung akurasi model dalam memprediksi suata data. Akurasi pada model klasifikasi berupa persentase jumlah prediksi yang benar dengan jumlah data yang diprediksi~\cite{jiawei:12:datmin}. Misalkan apabila model klasifikasi menebak dengan benar 8 buah data dari total data berjumlah 10 data, berarti model tersebut memiliki akurasi sebesar 80\%.
+
 \subsection{\textit{Clustering}}
 \label{subsec:clustering}
 
@@ -71,15 +71,36 @@ Salah satu contoh teknik \textit{clustering} adalah \textit{K-means}. Teknik \te
 
 Berikut langkah kerja dari teknik \textit{K-means}.~\cite{jiawei:12:datmin}
 \begin{enumerate}
-	\item Tentukan nilai \(k\) yang menentukan seberapa banyak kluster yang diinginkan dan sebuah \textit{treshold} untuk menentukan batas perubahan nilai centroid
-	\item Tentukan secara acak sebuah centroid sebanyak \(k\)  untuk setiap kluster
-	\item Lakukan perulangan sampai nilai fitur-fitur semua centroid (titik tengah kluster) relatif tidak berubah atau dengan kata lain perubahannya kurang dari \textit{treshold}
+	\item Tentukan nilai variabel \(k\) yang menentukan seberapa banyak kluster yang diinginkan dan sebuah \textit{treshold} untuk menentukan batas perubahan nilai \textit{centroid}
+	\item Tentukan secara acak sebuah \textit{centroid} sebanyak \(k\)  untuk setiap kluster
+	\item Lakukan perulangan sampai nilai fitur-fitur semua \textit{centroid} (titik tengah kluster) relatif tidak berubah atau dengan kata lain perubahannya kurang dari \textit{treshold}
 	\begin{enumerate}
-		\item Menghitung jarak Euclidean tiap titik dari centroid ke titik tersebut dengan menggunakan beberapa fitur yang dipilih
+		\item Menghitung jarak Euclidean tiap titik dari \textit{centroid} ke titik tersebut dengan menggunakan beberapa fitur yang dipilih
 		\item Kluster yang memiliki jarak Euclidean paling kecil dengan sebuah titik adalah kluster titik tersebut
-		\item Tentukan kembali centroid setiap kluster dengan cara menghitung rata-rata tiap fitur seluruh data pada kluster tersebut
+		\item Tentukan kembali \textit{centroid} setiap kluster dengan cara menghitung rata-rata tiap fitur seluruh data pada kluster tersebut
 	\end{enumerate}
 \end{enumerate}
+
+Dalam menentukan nilai variabel \textit{k} (jumlah \textit{cluster}) terbaik ada 2 metode yang dapat dipakai yaitu menghitung nilai \textit{Silhoutte Score} tertinggi dan metode Elbow. Metode Elbow bekerja dengan menggunakan  \textit{Sum of Squared Error} untuk membuat sebuah grafik hubungan antara nilai variabel \textit{k} dengan nilai \textit{Sum of Squared Error}. Penentuan nilai variabel \textit{k} dapat dilihat pada grafik tersebut nilai variabel \textit{k} mana yang perbedaan nilai \textit{Sum of Squared Error}-nya dengan nilai variabel \textit{k} sebelumnya memiliki perbedaan yang paling besar atau apabila dilihat pada grafiknya akan berbentuk seperti siku atau bengkokan.
+
+\textit{Sum of Squared Error} adalah jumlah dari kuadrat jarak Euclidean setiap objek data terhadap \textit{centroid} pada masing-masing \textit{clusternya}~\cite{jiawei:12:datmin}. Rumus untuk menghitung \textit{Sum of Squared Error} dapat dilihat pada Persamaan~\ref{eq:sse}.
+\begin{equation}\label{eq:sse}
+	E = \sum^{k}_{i=1} \sum^{}_{p \in C_{i}} dist(\boldsymbol{p,c_{i}})^2
+\end{equation}
+Variabel \(\boldsymbol{p}\) adalah titik pada bidang Euclidean yang merepresentasikan sebuah objek data. Variabel \(\boldsymbol{c_{i}}\) adalah \textit{centroid} pada \textit{cluster} \(\boldsymbol{C_{i}}\).
+
+\textit{Silhoutte Score} adalah rata-rata dari koefisien \textit{Silhoutte} setiap objek data yang ada. Sementara koefisien \textit{Silhoutte} adalah ukuran seberapa mirip suatu objek data dengan \textit{cluster}-nya sendiri dibandingkan dengan \textit{cluster} lain. Nilai dari koefisien \textit{Silhoutte} berada di antara -1 dan 1. Rumus untuk menghitung koefisien \textit{Silhoutte} dapat dilihat pada Persamaan~\ref{eq:silhoutte}.~\cite{jiawei:12:datmin}
+\begin{equation}\label{eq:silhoutte}
+	s(\mathbf{o}) = \frac{b(\mathbf{o})-a(\mathbf{o})}{\max{\{a(\mathbf{o}),b(\mathbf{o})}\}}
+\end{equation}
+Variabel \(\mathbf{o}\) adalah sebuah objek data. Fungsi \(a(\mathbf{o})\) adalah rata-rata jarak Euclidean antara sebuah objek data dan seluruh objek data pada \textit{cluster}-nya sendiri. Rumus dari fungsi ini dapat dilihat pada Persamaan~\ref{eq:ao}.
+\begin{equation}\label{eq:ao}
+	a(\mathbf{o}) = \frac{\sum^{}_{\mathbf{o'} \in C_{i},\mathbf{o}\neq\mathbf{o'}}dist(\mathbf{o},\mathbf{o'})}{|C_{i}|-1}
+\end{equation}
+Sementara fungsi \(b(\mathbf{o})\) adalah rata-rata jarak Euclidean paling kecil antara sebuah objek data dan seluruh objek data pada \textit{cluster} lain yang bukan \textit{cluster}-nya sendiri. Rumus dari fungsi ini dapat dilihat pada Persamaan~\ref{eq:bo}.
+\begin{equation}\label{eq:bo}
+	b(\mathbf{o}) = \min_{C_{j}:1\leq j \leq k,j\neq i}\left\{\frac{\sum^{}_{\mathbf{o'} \in C_{j}}dist(\mathbf{o},\mathbf{o'})}{|C_{j}|}\right\}
+\end{equation}
 
 \section{\textit{Privacy Preserving Data Mining}}
 \label{sec:ppdm}
@@ -157,27 +178,27 @@ Ide utama dari teknik \textit{Random Projection Perturbation} adalah mereduksi d
 \begin{theorem}[\textit{JOHNSON-LINDENSTRAUSS LEMMA}]
 	For any \(0 < \epsilon < 1\) and any integer \(s\), let \(k\) be a positive integer such that \(k\) \(\geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\). Then, for any set \(S\) of \(s = |S|\) data points in \({\rm I\!R}^{m}\), there is a map \(f : {\rm I\!R}^{m} \rightarrow {\rm I\!R}^{k}\) such that, for all \(x, y \in S\), \((1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}\), where \(||.||\) denotes the vector 2-norm.
 \end{theorem}
-Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\), sedemikian rupa sehingga jarak antara dua titik tetap konsisten dengan \textit{error} yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya \textit{error} yang muncul, properti-properti pada data pun relatif sedikit berubah dan hal ini menyebabkan akurasi pada model yang dibuat dengan data tersebut berkurang dibandingkan data aslinya.~\cite{kargupta:06:projection}
+Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\) tetapi jarak Euclidean antara dua titik tetap terjaga dengan distorsi yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya distorsi yang muncul, properti-properti pada data pun relatif sedikit berubah dan hal ini menyebabkan akurasi pada model yang dibuat dengan data tersebut berkurang dibandingkan data aslinya.~\cite{kargupta:06:projection}
 
-\textit{Projection perturbation} dari dataset X didefinisikan sebagai berikut.~\cite{kargupta:06:projection}
+\textit{Projection perturbation} dari dataset X didefinisikan sebagai berikut.
 \begin{equation}
 	G(X) = X_{n \times d} R_{d \times k}
 \end{equation}
-Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah atribut \(d\), yang mana \(d\) akan menjadi dimensi matriks. Oleh karena yang ingin dilakukan adalah reduksi dimensi maka \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
+Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah atribut \(d\), yang mana \(d\) adalah jumlah fitur pada dataset atau dimensi matriks tersebut. Tentunya dalam mereduksi dimensi nilai \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
 
-Jika \textit{random projection matrix} yang digunakan dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi memiliki kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
+Jika \textit{random projection matrix} yang digunakan dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi memiliki kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”~\cite{bingham:01:projection}. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
 
 Menurut \textit{Johnson-Lindenstrauss Lemma}, reduksi dimensi pada matriks berdimensi tinggi minimal berdimensi \(k\), yang mana \(k\) didefinisikan sebagai berikut.
 \begin{equation}
 	k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}
 \end{equation}
-Sebuah matriks yang akan diproyeksikan ke dimensi yang lebih kecil akan memiliki nilai \textit{error} pada jarak Euclidean yang dimiliki oleh titik-titik (setiap elemen dari matriks) pada bidang Euclidean tersebut. Nilai \textit{error} tersebut ditentukan oleh variabel \(\epsilon\), yang mana \(\epsilon\) menjadi ukuran seberapa baik proyeksi dilakukan. Semakin kecil nilai \(\epsilon\) maka semakin besar \(k\), yang mana \(k\) adalah dimensi minimal matriks yang dihasilkan. Semakin titik-titik pada bidang Euclidean diproyeksikan ke dimensi lebih kecil, semakin besar kerusakan yang timbul pada jarak Euclidean titik-titik tersebut.
+Sebuah matriks yang akan diproyeksikan ke dimensi yang lebih kecil akan memiliki distorsi pada jarak Euclidean yang dimiliki oleh titik-titik (setiap elemen dari matriks) pada bidang Euclidean tersebut. Distorsi tersebut ditentukan oleh variabel \(\epsilon\), yang mana \(\epsilon\) menjadi ukuran seberapa baik proyeksi dilakukan. Semakin kecil nilai \(\epsilon\) maka semakin besar \(k\), yang mana \(k\) adalah dimensi minimal matriks yang dihasilkan. Semakin titik-titik pada bidang Euclidean diproyeksikan ke dimensi lebih kecil, semakin besar kerusakan yang timbul pada jarak Euclidean titik-titik tersebut.
 
 Persamaan berikut menyatakan rentang error yang terjadi pada \textit{Random Projection Perturbation} dengan \(\epsilon\) (eps) yang ditentukan berada pada rentang (0, 1). 
 \begin{equation}
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
-Pada hasil proyeksi, jarak Euclidean antara suatu titik dengan suatu titik lainnya dapat dipastikan berada pada rentang tersebut dan tidak akan melebihi \textit{error} yang ditentukan.
+Pada hasil proyeksi, jarak Euclidean antara suatu titik dengan suatu titik lainnya dapat dipastikan berada pada rentang tersebut dan tidak akan melebihi distorsi yang ditentukan.
 
 \subsubsection{Algoritma}
 \label{subsubsec:algo-projection}
@@ -192,3 +213,18 @@ Algoritma \textit{Random Projection Perturbation} memiliki beberapa langkah yait
     \item Lakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah kelima
     \item Hasil matriks yang telah diproyeksi sudah dapat langsung digunakan untuk penambangan data
 \end{enumerate}
+
+\section{Bahasa Pemograman Python Beserta \textit{Library}-nya}
+\label{sec:metoderandomization}
+
+Bahasa pemograman Python~\cite{python:95:guido} adalah bahasa pemograman yang sudah umum digunakan untuk melakukan penambangan data. Oleh karena itu, komunitas pada bahasa pemograman Python sudah sangat besar dan banyak pihak yang membuat \textit{library} dan \textit{tools} yang mendukung dalam melakukan penambangan data pada bahasa pemograman ini. Tetapi bahasa pemograman Python tidak semata-mata hanya dapat digunakan untuk penambangan data, Python merupakan bahasa pemograman yang multifungsi dan banyak juga digunakan pada bidang lain selain penambangan data. Bahasa pemograman Python dapat juga digunakan untuk membuat antarmuka dengan dukungan \textit{framework} tertentu. Selain itu, Python juga merupakan bahasa pemograman yang berorientasi objek. Berikut akan dijelaskan beberapa \textit{library}, \textit{framework}, dan \textit{tools} yang berguna untuk membuat antarmuka perangkat lunak, mendukung implementasi metode \textit{Randomization}, dan mendukung proses penambangan data.
+
+\begin{itemize}
+	\item Kivy\footnote{https://kivy.org/} adalah \textit{framework} yang berfungsi untuk membuat antarmuka perangkat lunak. Kivy dapat membuat antarmuka perangkat lunak pada berbagai \textit{platform} seperti Windows, OS X, Android, iOS, dan Raspberry Pi.
+	\item Numpy dan Scipy~\cite{2020SciPy-NMeth} adalah \textit{library} yang berfungsi untuk memanipulasi struktur data matriks atau melakukan operasi matematis yang berkaitan struktur data \textit{array} atau matriks. Contohnya yang dipakai pada penelitian ini adalah membuat matriks \textit{orthogonal} secara acak.
+	\item Pandas~\cite{mckinney-proc-scipy-2010} adalah \textit{library} yang berfungsi untuk menganalisis dan memanipulasi data berbentuk struktur data yang lebih kompleks seperti \textit{dataframe}. Pandas juga menyediakan fungsi untuk membaca dokumen dan mengkonversinya ke struktur data \textit{dataframe} dan sebaliknya.
+	\item Scikit-learn~\cite{scikit-learn} adalah \textit{library} yang berfungsi untuk melakukan proses pembelajaran mesin dan memiliki berbagai macam fungsi pembelajaran mesin yang dapat digunakan untuk penambangan data seperti teknik \textit{k-nearest neighbors} dan \textit{k-means}.
+	\item Matplotlib~\cite{Hunter:2007}, Plotly\footnote{https://plotly.com/}, dan Seaborn\footnote{https://seaborn.pydata.org/} adalah \textit{library} yang berfungsi untuk melakukan berbagai macam visualisasi dengan mudah. Contohnya yang dipakai pada penelitian ini adalah visualisasi dengan \textit{scatter plot} dan \textit{line plot}.
+	\item Spyder\footnote{https://www.spyder-ide.org/} adalah sebuah perangkat lunak \textit{integrated development environment} (IDE) yang berfungsi sebagai editor dan \textit{compiler} bahasa pemograman Python serta berfungsi untuk menampilkan berbagai macam visualisasi. Perangkat lunak ini sudah umum digunakan untuk penambangan data karena kemudahannya.
+	\item Anaconda\footnote{https://www.anaconda.com/} adalah \textit{tools} yang berfungsi sebagai \textit{platform data science} dengan bahasa pemograman Python yang memudahkan pengguna dalam manajemen \textit{package}, \textit{setup} seluruh perangkat lunak, \textit{library}, IDE, dan berbagai macam keperluan lainnya yang berkaitan dengan bahasa pemograman Python serta berbagai hal yang mendukung proses penambangan data.
+\end{itemize}

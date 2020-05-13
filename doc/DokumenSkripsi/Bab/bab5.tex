@@ -6,7 +6,7 @@ Pada bab ini akan ditunjukkan tampilan dari implementasi perangkat lunak dan jug
 \section{Implementasi Antarmuka}
 \label{sec:implementasi-antarmuka}
 
-Antarmuka perangkat lunak diimplementasikan dengan memakai \textit{framework} antarmuka grafis berbasis bahasa pemograman Python yang bernama Kivy\footnote{https://kivy.org/\#home}. Implementasi antarmuka disesuaikan dengan rancangan antarmuka perangkat lunak yang telah dibuat pada bab~\ref{chap:perancangan}. Gambar~\ref{fig:antarmukautama} adalah tampilan antarmuka dari implementasi perangkat lunak.
+Antarmuka perangkat lunak diimplementasikan dengan memakai \textit{framework} antarmuka grafis berbasis bahasa pemograman Python yang bernama Kivy. Implementasi antarmuka disesuaikan dengan rancangan antarmuka perangkat lunak yang telah dibuat pada bab~\ref{chap:perancangan}. Gambar~\ref{fig:antarmukautama} adalah tampilan antarmuka dari implementasi perangkat lunak.
 
 \begin{figure}
 	\centering
@@ -342,7 +342,6 @@ Pengujian akan dilakukan dengan menggunakan program pengujian yang menerapkan te
 Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kedua model tersebut. Teknik penambangan data klasifikasi yang digunakan adalah \textit{k-nearest neighbors}. Pengujian dengan penambangan data klasifikasi akan dibagi menjadi 2 bagian yaitu dataset yang dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan dataset yang dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Pengujian akan membandingkan beberapa informasi pada dataset asli dan dataset yang telah dirandomisasi. Beberapa informasi tersebut dijabarkan sebagai berikut.
 \begin{enumerate}
 	\item Properti-properti pada dataset yaitu rata-rata, standar deviasi, nilai terkecil dan terbesar pada sebuah kolom, kuartil bawah, kuartil tengah dan kuartil atas.
-	\item Korelasi antar fitur yang divisualisasikan dengan \textit{heatmap}
 	\item Akurasi model \textit{k-nearest neighbors}
 	\item Nilai variabel \textit{k} yang modelnya memiliki akurasi tertinggi
 	\item Waktu eksekusi pelatihan model dan prediksi dengan model yang telah dibuat
@@ -407,15 +406,6 @@ Properti-properti 4 kolom terakhir pada dataset \textit{diabetes} asli dapat dil
 	\end{tabular}
 	\label{table:properti-diabetes-randomisasi}
 \end{table}
-
-Pada Gambar~\ref{fig:heatmap_diabetes} dapat dilihat korelasi antara satu fitur dengan fitur lainnya pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan korelasi antar fitur pada dataset randomisasi sangat berbeda dengan dataset asli, bahkan tidak terlihat ada indikasi kesamaan atau ada properti pada dataset asli yang sama dengan dataset randomisasi. Hal ini menunjukkan teknik \textit{Random Rotation Perturbation} mengacak setiap nilai pada data tanpa menjaga properti lain selain jarak Euclidean sehingga visualisasi korelasi seperti ini yang biasanya digunakan untuk pemilihan fitur untuk digunakan dalam membuat model penambangan data tidak bisa digunakan setelah data dirandomisasi.
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.185]{heatmap_diabetes}
-	\caption{\textit{Heatmap} korelasi antar fitur pada dataset \textit{diabetes}}
-	\label{fig:heatmap_diabetes}
-\end{figure}
 
 Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 8 buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat dari teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung pada setiap jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Pada Gambar~\ref{fig:plot_akurasi_diabetes} dapat dilihat grafik akurasi model \textit{k-nearest neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut terlihat memiliki nilai akurasi yang sama persis untuk setiap nilai \textit{k}. 
 
@@ -574,12 +564,11 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 
 \begin{table}
 	\centering
-	\caption{Perbandingan Antara Model \textit{k-nearest neighbors}, Properti Data, dan Korelasi Fitur}
+	\caption{Perbandingan Model \textit{k-nearest neighbors} dan Properti Data}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
 		\textbf{Properti Data} & Berbeda & Berbeda \\
-		\textbf{Korelasi Fitur} & Berbeda & Berbeda \\
 		\textbf{Akurasi Model} & Sama & Sangat Mirip \\
 		\textbf{\textit{k} terbaik} & Sama & Dapat Berbeda \\
 		\textbf{Waktu Eksekusi} & Sama & Lebih Cepat \\
@@ -588,7 +577,7 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 	\label{table:perbandingan-klasifikasi}
 \end{table}
 
-Metode \textit{Randomization} tidak menjaga properti data dan korelasi fitur. Oleh karena itu, informasi tersebut yang biasanya digunakan untuk pemilihan fitur untuk digunakan dalam membuat model penambangan data tidak bisa digunakan setelah data dirandomisasi. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
+Metode \textit{Randomization} tidak menjaga properti-properti pada data selain jarak Euclidean. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
 
 \subsection{Penambangan Data \textit{Clustering}}
 \label{subsec:pengujian-clustering}
@@ -762,7 +751,7 @@ Berdasarkan pengujian dengan teknik penambangan data \textit{clustering} menggun
 
 \begin{table}
 	\centering
-	\caption{Perbandingan Antara Model \textit{k-means}}
+	\caption{Perbandingan Model \textit{k-means}}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
