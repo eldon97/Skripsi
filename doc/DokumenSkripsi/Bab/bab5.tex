@@ -268,8 +268,6 @@ Berikut akan ditampilkan 20 baris pertama dataset asli dan dataset yang telah di
 	\label{fig:rotated_mall_customers}
 \end{figure}
 
-Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \textit{Random Rotation Perturbation} dengan akurat, perhitungan manual pada baris pertama dataset dapat dilihat sebagai berikut <<TODO>>
-
 \subsection{Teknik \textit{Random Projection Perturbation}}
 \label{subsec:rpp-fungsional}
 
@@ -284,7 +282,7 @@ Label pada dataset \textit{mobile\_sensor} yang ingin dirandomisasi harus dihila
 \end{align}
 Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah dataset diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{comma-separated values}. Dataset \textit{mobile\_sensor} memiliki 561 buah fitur yang akan dirandomisasi dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 418 maka ditentukan nilai \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427\times427\).
 
-Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi acak tersebut dengan ukuran yang benar dan menyimpannya pada sebuah dokumen \textit{comma-separated values} yang 10 kolom pertama pada 20 baris pertamanya dapat dilihat pada Gambar~\ref{fig:mobile_sensor_projection_matrix}. Matriks proyeksi ini akan digunakan untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor}. Perangkat lunak juga berhasil menggunakan ulang matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor} dan hasilnya sama persis seperti hasil yang pertama kali. Matriks proyeksi tersebut juga dapat digunakan untuk data \textit{mobile\_sensor} yang lain dengan syarat masih memiliki jumlah fitur yang sama dan dengan penambahan data tersebut, nilai minimal variabel \textit{k} harus tetap lebih kurang atau sama dengan nilai \textit{k} yang dipilih. Persyaratan tersebut didasarkan oleh sifat pada teknik \textit{Random Projection Perturbation} yaitu nilai minimal variabel \textit{k} berbanding lurus dengan banyaknya data.
+Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi acak tersebut dengan ukuran yang benar dan menyimpannya pada sebuah dokumen \textit{comma-separated values} yang 10 kolom pertama pada 20 baris pertamanya dapat dilihat pada Gambar~\ref{fig:mobile_sensor_projection_matrix}. Matriks proyeksi ini akan digunakan untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor}. Perangkat lunak juga berhasil menggunakan ulang matriks yang telah disimpan tersebut untuk menerapkan teknik \textit{Random Projection Perturbation} terhadap dataset \textit{mobile\_sensor} dan hasilnya sama persis seperti hasil yang pertama kali. Matriks proyeksi tersebut juga dapat digunakan untuk data \textit{mobile\_sensor} yang lain dengan syarat masih memiliki jumlah fitur yang sama dan dengan penambahan data tersebut, nilai minimal variabel \textit{k} harus tetap lebih kurang atau sama dengan nilai \textit{k} yang dipilih. Persyaratan tersebut didasarkan oleh sifat pada teknik \textit{Random Projection Perturbation} yaitu nilai minimal variabel \textit{k} berbanding lurus dengan banyaknya objek data pada dataset yang ingin dirandomisasi.
 
 \begin{figure}
 	\centering
@@ -315,7 +313,7 @@ Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \tex
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 
-Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidaksamaan~\ref{eq:epsilon} terpenuhi pada seluruh data yang ada pada dataset. Ada salah satu kasus saat Pertidaksamaan~\ref{eq:epsilon} tidak terpenuhi yaitu apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar Pertidaksamaan~\ref{eq:epsilon} adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
+Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidaksamaan~\ref{eq:epsilon} terpenuhi pada seluruh objek data yang ada pada dataset. Ada salah satu kasus saat Pertidaksamaan~\ref{eq:epsilon} tidak terpenuhi yaitu apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar Pertidaksamaan~\ref{eq:epsilon} adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada dataset asli dan 9.723888530285468 pada dataset yang telah dirandomisasi. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
@@ -323,6 +321,11 @@ Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidak
 Pengujian eksperimental bertujuan untuk menguji kualitas hasil dari perangkat lunak randomisasi pada kedua teknik randomisasi dan membandingkan kualitas hasil randomisasi dari kedua teknik tersebut pada penambangan data. Pengujian dibagi menjadi beberapa bagian seperti berikut.
 
 \begin{enumerate}
+	\item Properti Data
+	\begin{enumerate}
+		\item \textit{Random Rotation Perturbation} dengan dataset \textit{diabetes}
+		\item \textit{Random Projection Perturbation} dengan dataset \textit{mobile\_sensor}
+	\end{enumerate}
 	\item Penambangan Data Klasifikasi
 	\begin{enumerate}
 		\item \textit{Random Rotation Perturbation} dengan dataset \textit{diabetes}
@@ -337,21 +340,15 @@ Pengujian eksperimental bertujuan untuk menguji kualitas hasil dari perangkat lu
 
 Pengujian akan dilakukan dengan menggunakan program pengujian yang menerapkan teknik penambangan data yang telah dibuat pada bahasa pemograman Python dan didukung oleh perangkat lunak \textit{Spyder} untuk menampilkan visualisasi hasil penambangan data.
 
-\subsection{Penambangan Data Klasifikasi}
-\label{subsec:pengujian-klasifikasi}
-Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kedua model tersebut. Teknik penambangan data klasifikasi yang digunakan adalah \textit{k-nearest neighbors}. Pengujian dengan penambangan data klasifikasi akan dibagi menjadi 2 bagian yaitu dataset yang dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan dataset yang dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Pengujian akan membandingkan beberapa informasi pada dataset asli dan dataset yang telah dirandomisasi. Beberapa informasi tersebut dijabarkan sebagai berikut.
-\begin{enumerate}
-	\item Properti-properti pada dataset yaitu rata-rata, standar deviasi, nilai terkecil dan terbesar pada sebuah kolom, kuartil bawah, kuartil tengah dan kuartil atas.
-	\item Akurasi model \textit{k-nearest neighbors}
-	\item Nilai variabel \textit{k} yang modelnya memiliki akurasi tertinggi
-	\item Waktu eksekusi pelatihan model dan prediksi dengan model yang telah dibuat
-\end{enumerate}
-Tujuan dari pengujian ini adalah mencari informasi yang masih terjaga (mempunyai hasil yang sama atau mirip) antara model yang dilatih dengan dataset asli dan dataset yang telah dirandomisasi.
+\subsection{Properti Data}
+\label{subsec:pengujian-properti}
+
+Pengujian properti data bertujuan untuk membandingkan beberapa properti pada data yaitu rata-rata, standar deviasi, nilai terkecil dan terbesar pada sebuah kolom, kuartil bawah, kuartil tengah dan kuartil atas. Pengujian ini akan membandingkan properti data pada dataset asli dan dataset yang telah dirandomisasi. Pengujian akan dibagi menjadi 2 bagian yaitu dataset yang dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan dataset yang dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Berikut pengujian yang telah dilakukan.
 
 \subsubsection{\textit{Random Rotation Perturbation}}
-\label{subsubsec:pengujian-klasifikasi-rrp}
+\label{subsubsec:pengujian-properti-rrp}
 
-Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
+Pengujian teknik \textit{Random Rotation Perturbation} untuk membandingkan properti data akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}.
 
 \begin{figure}
 	\centering
@@ -374,15 +371,15 @@ Properti-properti 4 kolom terakhir pada dataset \textit{diabetes} asli dapat dil
 	\caption{Properti-properti pada dataset \textit{diabetes} asli}
 	\begin{tabular}{l|llll}
 		\hline
-			& BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
-		count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & 31.992578 & 0.471876 & 33.240885 & 0.348958 \\
-		std & 7.884160 & 0.331329 & 11.760232 & 0.476951 \\
-		min & 0.000000 & 0.078000 & 21.000000 & 0.000000 \\
-		25\% & 27.300000 & 0.243750 & 24.000000 & 0.000000\\
-		50\% & 32.000000 & 0.372500 & 29.000000 & 0.000000 \\
-		75\% & 36.600000 & 0.626250 & 41.000000 & 1.000000 \\
-		max & 67.100000 & 2.420000 & 81.000000 & 1.000000 \\
+			& \textbf{BMI} & \textbf{DiabetesPedigreeFunction} & \textbf{Age} & \textbf{Outcome} \\ \hline
+		\textbf{count} & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+		\textbf{mean} & 31.992578 & 0.471876 & 33.240885 & 0.348958 \\
+		\textbf{std} & 7.884160 & 0.331329 & 11.760232 & 0.476951 \\
+		\textbf{min} & 0.000000 & 0.078000 & 21.000000 & 0.000000 \\
+		\textbf{25\%} & 27.300000 & 0.243750 & 24.000000 & 0.000000\\
+		\textbf{50\%} & 32.000000 & 0.372500 & 29.000000 & 0.000000 \\
+		\textbf{75\%} & 36.600000 & 0.626250 & 41.000000 & 1.000000 \\
+		\textbf{max} & 67.100000 & 2.420000 & 81.000000 & 1.000000 \\
 		\hline
 	\end{tabular}
 	\label{table:properti-diabetes-asli}
@@ -393,19 +390,104 @@ Properti-properti 4 kolom terakhir pada dataset \textit{diabetes} asli dapat dil
 	\caption{Properti-properti pada dataset \textit{diabetes} yang telah dirandomisasi}
 	\begin{tabular}{l|llll}
 		\hline
-			& BMI & DiabetesPedigreeFunction & Age & Outcome \\ \hline
-		count & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
-		mean & -103.101329 & 50.477502 & -23.129061 & 0.348958 \\
-		std & 24.146554 & 35.533157 & 32.695887 & 0.476951  \\
-		min & -176.332307 & -199.209279 & -74.182020 & 0.000000 \\
-		25\% & -116.872237 & 35.049918 & -46.748389 & 0.000000 \\
-		50\% & -101.458852 & 58.320138 & -28.463990 & 0.000000 \\
-		75\% & -86.757613 & 73.320823 & -9.757361 & 1.000000 \\
-		max & -22.156712 & 116.151884 & 183.302024 & 1.000000 \\
+		& \textbf{BMI} & \textbf{DiabetesPedigreeFunction} & \textbf{Age} & \textbf{Outcome} \\ \hline
+		\textbf{count} & 768.000000 & 768.000000 & 768.000000 & 768.000000 \\
+		\textbf{mean} & -103.101329 & 50.477502 & -23.129061 & 0.348958 \\
+		\textbf{std} & 24.146554 & 35.533157 & 32.695887 & 0.476951  \\
+		\textbf{min} & -176.332307 & -199.209279 & -74.182020 & 0.000000 \\
+		\textbf{25\%} & -116.872237 & 35.049918 & -46.748389 & 0.000000 \\
+		\textbf{50\%} & -101.458852 & 58.320138 & -28.463990 & 0.000000 \\
+		\textbf{75\%} & -86.757613 & 73.320823 & -9.757361 & 1.000000 \\
+		\textbf{max} & -22.156712 & 116.151884 & 183.302024 & 1.000000 \\
 		\hline
 	\end{tabular}
 	\label{table:properti-diabetes-randomisasi}
 \end{table}
+
+\subsubsection{\textit{Random Projection Perturbation}}
+\label{subsubsec:pengujian-properti-rpp}
+
+Pengujian teknik \textit{Random Projection Perturbation} untuk membandingkan properti data akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}.
+
+Properti-properti 4 buah kolom pada dataset \textit{mobile\_sensor} asli dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Sementara untuk dataset \textit{mobile\_sensor} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Projection Perturbation} juga mengacak bermacam properti dataset seperti rata-rata, standar deviasi, nilai terkecil dan terbesar pada sebuah kolom, kuartil bawah, kuartil tengah dan kuartil atas.
+
+\begin{table}
+	\centering
+	\caption{Properti-properti pada dataset \textit{mobile\_sensor} asli}
+	\begin{tabular}{l|llll}
+		\hline
+			& tBodyAcc-mean()-X & tBodyAcc-mean()-Y & angle(Y,gravityMean) & angle(Z,gravityMean)\\ \hline
+		\textbf{count} & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
+		\textbf{mean} & 0.274347 & -0.017743 & 0.063255 & -0.054284 \\
+		\textbf{std} & 0.067628 & 0.037128 & 0.305468 & 0.268898 \\
+		\textbf{min} & -1.000000 & -1.000000 & -1.000000 & -1.000000 \\
+		\textbf{25\%} & 0.262625 & -0.024902 & 0.002151 & -0.131880 \\
+		\textbf{50\%} & 0.277174 & -0.017162 & 0.182028 & -0.003882 \\
+		\textbf{75\%} & 0.288354 & -0.010625 & 0.250790 & 0.102970 \\
+		\textbf{max} & 1.000000 & 1.000000 & 1.000000 & 1.000000 \\
+		\hline
+	\end{tabular}
+	\label{table:properti-mobile-sensor-asli}
+\end{table}
+
+\begin{table}
+	\centering
+	\caption{Properti-properti pada dataset \textit{mobile\_sensor} yang telah dirandomisasi}
+	\begin{tabular}{l|llll}
+		\hline
+		& 0 & 1 & 425 & 426 \\ \hline
+		\textbf{count} & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
+		\textbf{mean} & 0.136942 & -0.289681 & 0.173610 & 0.353280 \\
+		\textbf{std} & 0.528322 & 0.266849 & 0.214992 & 0.475443 \\
+		\textbf{min} & -1.433025 & -1.206428 & -1.437424 & -0.976616 \\
+		\textbf{25\%} & -0.340174 & -0.482918 & 0.033424 & -0.049233 \\
+		\textbf{50\%} & 0.308314 & -0.270461 & 0.179048 & 0.322172 \\
+		\textbf{75\%} & 0.582374 & -0.097266 & 0.325611 & 0.688616 \\
+		\textbf{max} & 1.283867 & 0.726498 & 0.978304 & 1.786145 \\
+		\hline
+	\end{tabular}
+	\label{table:properti-mobile-sensor-asli}
+\end{table}
+
+\subsubsection{Kesimpulan}
+\label{subsubsec:pengujian-properti-kesimpulan}
+
+Berdasarkan pengujian properti data pada dataset asli, dataset yang telah dirandomisasi menggunakan teknik \textit{Random Rotation Perturbation}, dan dataset yang telah dirandomisasi menggunakan teknik \textit{Random Projection Perturbation} dibuat kesimpulan sekaligus membandingkan antara kedua teknik randomisasi. Pada Tabel~\ref{table:perbandingan-properti} dapat dilihat hasil akhir pengujian antara properti data pada dataset asli dan dataset yang telah dirandomisasi dengan \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
+
+\begin{table}
+	\centering
+	\caption{Perbandingan Model \textit{k-nearest neighbors} dan Properti Data}
+	\begin{tabular}{|l|l|l|}
+		\hline
+		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
+		\textbf{Rata-rata} & Berbeda & Berbeda \\
+		\textbf{Standar Deviasi} & Sama & Sangat Mirip \\
+		\textbf{Nilai Terkecil} & Sama & Dapat Berbeda \\
+		\textbf{Nilai Terbesar} & Sama & Lebih Cepat \\
+		\textbf{Kuartil Bawah} & Sama & Lebih Cepat \\
+		\textbf{Kuartil Tengah} & Sama & Lebih Cepat \\
+		\textbf{Kuartil Atas} & Sama & Lebih Cepat \\
+		\hline
+	\end{tabular}
+	\label{table:perbandingan-properti}
+\end{table}
+
+Metode \textit{Randomization} tidak menjaga properti-properti pada data selain jarak Euclidean. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
+
+\subsection{Penambangan Data Klasifikasi}
+\label{subsec:pengujian-klasifikasi}
+Pengujian dengan penambangan data klasifikasi akan berpusat pada pembuatan model dengan dataset asli dan dataset yang telah dirandomisasi dan membandingkan kedua model tersebut. Teknik penambangan data klasifikasi yang digunakan adalah \textit{k-nearest neighbors}. Pengujian dengan penambangan data klasifikasi akan dibagi menjadi 2 bagian yaitu dataset yang dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan dataset yang dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Pengujian akan membandingkan beberapa informasi pada dataset asli dan dataset yang telah dirandomisasi. Beberapa informasi tersebut dijabarkan sebagai berikut.
+\begin{enumerate}
+	\item Akurasi model \textit{k-nearest neighbors}
+	\item Nilai variabel \textit{k} yang modelnya memiliki akurasi tertinggi
+	\item Waktu eksekusi pelatihan model dan prediksi dengan model yang telah dibuat
+\end{enumerate}
+Tujuan dari pengujian ini adalah mencari informasi yang masih terjaga (mempunyai hasil yang sama atau mirip) antara model yang dilatih dengan dataset asli dan dataset yang telah dirandomisasi.
+
+\subsubsection{\textit{Random Rotation Perturbation}}
+\label{subsubsec:pengujian-klasifikasi-rrp}
+
+Pengujian teknik \textit{Random Rotation Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} akan dilakukan dengan dataset \textit{diabetes} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Rotation Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
 Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 8 buah fitur yang ada untuk menguji apakah dataset asli dan dataset yang telah dirandomisasi mempunyai akurasi model klasifikasi yang sama persis. Pengujian tersebut didasarkan pada sifat dari teknik \textit{Random Rotation Perturbation} yang menjamin jarak Euclidean setiap titik tidak berubah sama sekali. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung pada setiap jumlah tetangga (nilai \textit{k}) dari 1 sampai 20. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. Pada Gambar~\ref{fig:plot_akurasi_diabetes} dapat dilihat grafik akurasi model \textit{k-nearest neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut terlihat memiliki nilai akurasi yang sama persis untuk setiap nilai \textit{k}. 
 
@@ -464,45 +546,6 @@ Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \tex
 
 Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} akan dilakukan dengan dataset \textit{mobile\_sensor} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:mobile_sensor_asli}. Dataset ini dirandomisasi dengan teknik \textit{Random Projection Perturbation} dan hasil randomisasi dapat dilihat pada Gambar~\ref{fig:projected_mobile_sensor}. Dengan kedua dataset tersebut, dilakukan penambangan data terhadap kedua dataset tersebut dan dihasilkan berbagai macam informasi yang dapat dibandingkan. Berikut adalah hasil pengujian dan penjelasannya.
 
-Properti-properti 4 buah kolom pada dataset \textit{mobile\_sensor} asli dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Sementara untuk dataset \textit{mobile\_sensor} yang telah dirandomisasi dapat dilihat pada Tabel~\ref{table:properti-mobile-sensor-asli}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada dataset yang telah dirandomisasi mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Projection Perturbation} juga mengacak bermacam properti dataset seperti rata-rata, standar deviasi, nilai terkecil dan terbesar pada sebuah kolom, kuartil bawah, kuartil tengah dan kuartil atas.
-
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mobile\_sensor} asli}
-	\begin{tabular}{l|llll}
-		\hline
-			& tBodyAcc-mean()-X & tBodyAcc-mean()-Y & angle(Y,gravityMean) & angle(Z,gravityMean)\\ \hline
-		count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
-		mean & 0.274347 & -0.017743 & 0.063255 & -0.054284 \\
-		std & 0.067628 & 0.037128 & 0.305468 & 0.268898 \\
-		min & -1.000000 & -1.000000 & -1.000000 & -1.000000 \\
-		25\% & 0.262625 & -0.024902 & 0.002151 & -0.131880 \\
-		50\% & 0.277174 & -0.017162 & 0.182028 & -0.003882 \\
-		75\% & 0.288354 & -0.010625 & 0.250790 & 0.102970 \\
-		max & 1.000000 & 1.000000 & 1.000000 & 1.000000 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mobile-sensor-asli}
-\end{table}
-
-\begin{table}
-	\centering
-	\caption{Properti-properti pada dataset \textit{mobile\_sensor} yang telah dirandomisasi}
-	\begin{tabular}{l|llll}
-		\hline
-		& 0 & 1 & 425 & 426 \\ \hline
-		count & 10299.000000 & 10299.000000 & 10299.000000 & 10299.000000 \\
-		mean & 0.136942 & -0.289681 & 0.173610 & 0.353280 \\
-		std & 0.528322 & 0.266849 & 0.214992 & 0.475443 \\
-		min & -1.433025 & -1.206428 & -1.437424 & -0.976616 \\
-		25\% & -0.340174 & -0.482918 & 0.033424 & -0.049233 \\
-		50\% & 0.308314 & -0.270461 & 0.179048 & 0.322172 \\
-		75\% & 0.582374 & -0.097266 & 0.325611 & 0.688616 \\
-		max & 1.283867 & 0.726498 & 0.978304 & 1.786145 \\
-		\hline
-	\end{tabular}
-	\label{table:properti-mobile-sensor-asli}
-\end{table}
 Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 561 fitur yang ada untuk menguji apakah dataset mempunyai akurasi model klasifikasi yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean setiap titik terjaga dengan besar distorsi yang ditentukan pengguna. Dataset akan dibagi dua menjadi \textit{train set} dan \textit{test set} yang masing-masing berguna untuk melatih model dan menghitung akurasi model. Akurasi akan dihitung dengan jumlah tetangga (nilai \textit{k}) dari 1 sampai 30. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn.
 
 Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi model \textit{k-nearest neighbors} dalam memprediksi label \textit{training set} dan \textit{test set} pada dataset asli dan dataset yang telah dirandomisasi. Apabila dibandingkan, kedua grafik tersebut memiliki nilai akurasi yang mirip. Walaupun begitu, teknik \textit{Random Projection Perturbation} tidak menjamin jarak Euclidean terjaga dengan sempurna maka ada sedikit perbedaan yang lumayan terlihat khususnya pada akurasi \textit{test set} dan nilai \textit{k} yang memiliki akurasi tertinggi. Tetapi perbedaan nilai akurasinya masih mirip dengan dataset asli. 
@@ -555,7 +598,7 @@ set dataset randomisasi:
 	\end{lstlisting}
 \end{minipage}
 
-Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.2872335910797119 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 17.754546642303467 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 21 adalah 0.5630350112915039 detik detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 12.86760687828064 detik. Pada dataset yang telah dirandomisasi waktu prediksi lebih cepat dikarenakan fitur-fitur yang ada pun lebih sedikit daripada dataset asli. Hal ini menunjukkan ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
+Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 16 memakai dataset asli adalah sebesar 0.2872335910797119 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} sebesar 17.754546642303467 detik. Sementara untuk dataset yang telah dirandomisasi membutuhkan waktu eksekusi untuk melatih model klasifikasi dengan nilai \textit{k} sebesar 21 adalah 0.5630350112915039 detik detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 12.86760687828064 detik. Pada dataset yang telah dirandomisasi waktu prediksi lebih cepat dikarenakan fitur-fitur yang ada lebih sedikit daripada dataset asli. Hal ini menunjukkan ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan dataset asli dan dataset yang telah dirandomisasi.
 
 \subsubsection{Kesimpulan}
 \label{subsubsec:pengujian-klasifikasi-kesimpulan}
@@ -568,7 +611,6 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
-		\textbf{Properti Data} & Berbeda & Berbeda \\
 		\textbf{Akurasi Model} & Sama & Sangat Mirip \\
 		\textbf{\textit{k} terbaik} & Sama & Dapat Berbeda \\
 		\textbf{Waktu Eksekusi} & Sama & Lebih Cepat \\
@@ -577,7 +619,7 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 	\label{table:perbandingan-klasifikasi}
 \end{table}
 
-Metode \textit{Randomization} tidak menjaga properti-properti pada data selain jarak Euclidean. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
+Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
 
 \subsection{Penambangan Data \textit{Clustering}}
 \label{subsec:pengujian-clustering}
