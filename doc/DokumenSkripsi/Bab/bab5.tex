@@ -336,6 +336,7 @@ Pengujian eksperimental bertujuan untuk menguji kualitas hasil dari perangkat lu
 		\item \textit{Random Rotation Perturbation} dengan dataset \textit{mall\_customers}
 		\item \textit{Random Projection Perturbation} dengan dataset \textit{mobile\_sensor}
 	\end{enumerate}
+	\item Kesimpulan Akhir Pengujian Eksperimental
 \end{enumerate}
 
 Pengujian akan dilakukan dengan menggunakan program pengujian yang menerapkan teknik penambangan data yang telah dibuat pada bahasa pemograman Python dan didukung oleh perangkat lunak \textit{Spyder} untuk menampilkan visualisasi hasil penambangan data.
@@ -452,27 +453,25 @@ Properti-properti 4 buah kolom pada dataset \textit{mobile\_sensor} asli dapat d
 \subsubsection{Kesimpulan}
 \label{subsubsec:pengujian-properti-kesimpulan}
 
-Berdasarkan pengujian properti data pada dataset asli, dataset yang telah dirandomisasi menggunakan teknik \textit{Random Rotation Perturbation}, dan dataset yang telah dirandomisasi menggunakan teknik \textit{Random Projection Perturbation} dibuat kesimpulan sekaligus membandingkan antara kedua teknik randomisasi. Pada Tabel~\ref{table:perbandingan-properti} dapat dilihat hasil akhir pengujian antara properti data pada dataset asli dan dataset yang telah dirandomisasi dengan \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
+Berdasarkan pengujian properti data pada dataset asli, dataset yang telah dirandomisasi menggunakan teknik \textit{Random Rotation Perturbation}, dan dataset yang telah dirandomisasi menggunakan teknik \textit{Random Projection Perturbation} dibuat kesimpulan sekaligus membandingkan antara kedua teknik randomisasi. Pada Tabel~\ref{table:perbandingan-properti} dapat dilihat hasil akhir pengujian antara properti data pada dataset asli dan dataset yang telah dirandomisasi dengan \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Dapat dilihat pada tabel tersebut metode \textit{Randomization} mengacak data dengan baik dan tidak menjaga properti-properti lain pada data selain jarak Euclidean.
 
 \begin{table}
 	\centering
-	\caption{Perbandingan Model \textit{k-nearest neighbors} dan Properti Data}
+	\caption{Perbandingan Properti Data}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
 		\textbf{Rata-rata} & Berbeda & Berbeda \\
-		\textbf{Standar Deviasi} & Sama & Sangat Mirip \\
-		\textbf{Nilai Terkecil} & Sama & Dapat Berbeda \\
-		\textbf{Nilai Terbesar} & Sama & Lebih Cepat \\
-		\textbf{Kuartil Bawah} & Sama & Lebih Cepat \\
-		\textbf{Kuartil Tengah} & Sama & Lebih Cepat \\
-		\textbf{Kuartil Atas} & Sama & Lebih Cepat \\
+		\textbf{Standar Deviasi} & Berbeda & Berbeda \\
+		\textbf{Nilai Terkecil} & Berbeda & Berbeda \\
+		\textbf{Nilai Terbesar} & Berbeda & Berbeda \\
+		\textbf{Kuartil Bawah} & Berbeda & Berbeda \\
+		\textbf{Kuartil Tengah} & Berbeda & Berbeda \\
+		\textbf{Kuartil Atas} & Berbeda & Berbeda \\
 		\hline
 	\end{tabular}
 	\label{table:perbandingan-properti}
 \end{table}
-
-Metode \textit{Randomization} tidak menjaga properti-properti pada data selain jarak Euclidean. Akurasi model \textit{k-nearest neighbors} terjaga dengan baik pada kedua teknik randomisasi yang dikarenakan oleh jarak Euclideannya tetap terjaga setelah dataset dirandomisasi. Tetapi untuk teknik \textit{Random Projection Perturbation} ada persyaratan yang harus dipenuhi agar jarak Euclidean dapat terjaga dengan baik dan tidak bisa sama persis dengan aslinya seperti teknik \textit{Random Rotation Perturbation}. Nilai variabel \textit{k} terbaik (memiliki akurasi tertingi) dalam pembuatan model \textit{k-nearest neighbors} sama persis pada teknik \textit{Random Rotation Perturbation}. Tetapi pada teknik \textit{Random Projection Perturbation} dapat berubah. Hal ini menyebabkan perlunya perhitungan kembali untuk menentukan nilai variabel \textit{k} yang baik untuk dipakai. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh data pada dataset lebih sedikit karenda dimensinya direduksi.
 
 \subsection{Penambangan Data Klasifikasi}
 \label{subsec:pengujian-klasifikasi}
@@ -607,7 +606,7 @@ Berdasarkan pengujian dengan teknik penambangan data klasifikasi menggunakan tek
 
 \begin{table}
 	\centering
-	\caption{Perbandingan Model \textit{k-nearest neighbors} dan Properti Data}
+	\caption{Perbandingan Model \textit{k-nearest neighbors}}
 	\begin{tabular}{|l|l|l|}
 		\hline
 		& \textbf{\textit{Rotation}} & \textbf{\textit{Projection}} \\ \hline
@@ -644,7 +643,7 @@ Dalam menentukan jumlah \textit{cluster} atau nilai \textit{k} yang terbaik untu
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.17]{elbow_mall_customers}
-	\caption{Grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+	\caption{Grafik \textit{Sum of Squared Error} model \textit{clustering} pada dataset \textit{mall\_customers}}
 	\label{fig:elbow_mall_customers}
 \end{figure}
 
@@ -720,7 +719,7 @@ Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.18]{elbow_mobile_sensor}
-	\caption{Grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow untuk mencari nilai \textit{k} terbaik}
+	\caption{Grafik \textit{Sum of Squared Error} model \textit{clustering} pada dataset \textit{mobile\_sensor}}
 	\label{fig:elbow_mobile_sensor}
 \end{figure}
 
@@ -810,7 +809,7 @@ Berdasarkan pengujian dengan teknik penambangan data \textit{clustering} menggun
 
 Model \textit{clustering} yang dilatih oleh dataset yang dirandomisasi sangat mirip dengan dataset asli. \textit{Sum of Squared Error} dan \textit{Silhoutte Score} pada kedua teknik randomisasi memiliki hasil yang sangat mirip dengan aslinya sehingga metode Elbow dan pemilihan fitur dengan \textit{Silhoutte Score} dapat dilakukan setelah dataset dirandomisasi. Jumlah \textit{cluster} (nilai variabel \textit{k}) sama pada kedua teknik dengan sebelum dirandomisasi. Visualisasi \textit{cluster} pada kedua teknik sedikit berbeda karena teknik \textit{Random Rotation Perturbation} merotasi seluruh data sehingga visualisasinya akan terotasi dan teknik \textit{Random Projection Perturbation} tidak menjaga jarak Euclidean secara sempurna. \textit{Adjusted Rand Index} pada kedua teknik memiliki nilai yang baik yaitu bernilai 1 atau mendekati 1. Hal ini menunjukkan bahwa model \textit{clustering} antara yang dilatih dengan dataset yang telah dirandomisasi dan dataset aslinya sama persis atau sangat mirip. Waktu eksekusi pembuatan model dan prediksi hanya memiliki perbedaan pada model yang menggunakan dataset yang telah dirandomisasi dengan teknik \textit{Random Projection Perturbation}. Waktu eksekusinya lebih cepat dikarenakan oleh dataset setelah dirandomisasi memiliki fitur yang lebih sedikit karena dimensinya direduksi.
 
-\subsection{Kesimpulan Akhir}
+\subsection{Kesimpulan Akhir Pengujian Eksperimental}
 \label{subsec:kesimpulan-eksperimental}
 
 Berdasarkan hasil pengujian eksperimental dapat disimpulkan bahwa teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dapat digunakan untuk menghilangkan privasi pada data dengan mengacak data tersebut tetapi masih dapat digunakan untuk penambangan data klasifikasi dan \textit{clustering} masing-masing dengan teknik \textit{k-nearest neighbors} dan \textit{k-means} dengan hasil yang sama dengan dataset asli untuk teknik \textit{Random Rotation Perturbation} dan hasil yang sangat mirip dengan dataset asli untuk teknik \textit{Random Projection Perturbation}. Hal tersebut dikarenakan teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean secara sempurna sementara teknik \textit{Random Projection Perturbation} tidak menjaga secara sempurna karena ada distorsi yang terkontrol pada jarak Euclidean setiap titik pada dataset yang dirandomisasi. 
