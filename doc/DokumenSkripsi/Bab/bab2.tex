@@ -102,7 +102,19 @@ Sementara fungsi \(b(\mathbf{o})\) adalah rata-rata jarak Euclidean paling kecil
 	b(\mathbf{o}) = \min_{C_{j}:1\leq j \leq k,j\neq i}\left\{\frac{\sum^{}_{\mathbf{o'} \in C_{j}}dist(\mathbf{o},\mathbf{o'})}{|C_{j}|}\right\}
 \end{equation}
 
-\textit{Adjusted Rand Index} adalah metode untuk menghitung kemiripan dari sebuah model \textit{clustering} dengan model \textit{clustering} lainnya. Nilai dari \textit{Adjusted Rand Index} menunjukkan kemiripan anggota \textit{cluster-cluster} yang ada pada dua model \textit{clustering} yang ingin dibandingkan. Rumus untuk menghitung nilai \textit{Adjusted Rand Index} dapat dilihat pada Persamaan.
+\textit{Adjusted Rand Index}~\cite{torra:12:privacy} adalah metode untuk menghitung kemiripan dari sebuah model \textit{clustering} dengan model \textit{clustering} lainnya. Nilai dari \textit{Adjusted Rand Index} menunjukkan kemiripan anggota \textit{cluster-cluster} yang ada pada dua model \textit{clustering} yang ingin dibandingkan. Rumus untuk menghitung nilai \textit{Adjusted Rand Index} dapat dilihat pada Persamaan~\ref{eq:ari}.
+\begin{equation}\label{eq:ari}
+	ARI(\Pi, \Pi')=\frac{r-exp}{max-exp}
+\end{equation}
+Dimana \(\Pi\) dan \(\Pi'\) masing-masing merepresentasikan sebuah model \textit{clustering} yang berbeda dari dataset yang sama. \(r\) merepresentasikan banyaknya dua buah objek data yang berbeda berada di \textit{cluster} yang sama pada \(\Pi\) maupun \(\Pi'\). Rumus untuk menghitung variabel \(exp\) dapat dilihat pada Persamaan~\ref{eq:exp}. Rumus untuk menghitung variabel \(max\) dapat dilihat pada Persamaan~\ref{eq:max}.
+\begin{equation}\label{eq:exp}
+	exp=(np(\Pi)np(\Pi'))/(n(n-1)/2)
+\end{equation}
+Dimana \(n\) adalah adalah jumlah objek data pada dataset. \(np(\Pi)\) adalah \(r+s\) dimana \(s\) merepresentasikan banyaknya dua buah objek data yang berbeda berada di \textit{cluster} yang sama pada \(\Pi\) tetapi tidak pada \(\Pi'\). \(np(\Pi')\) adalah \(r+t\) dimana \(t\) merepresentasikan banyaknya dua buah objek data yang berbeda berada di \textit{cluster} yang sama pada \(\Pi'\) tetapi tidak pada \(\Pi\).
+\begin{equation}\label{eq:max}
+	max=0.5(np(\Pi)+np(\Pi'))
+\end{equation}
+
 
 \section{\textit{Privacy Preserving Data Mining}}
 \label{sec:ppdm}
