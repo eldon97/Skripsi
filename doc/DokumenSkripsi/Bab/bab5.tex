@@ -500,7 +500,7 @@ Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 8 bu
 Akurasi model untuk setiap nilai \textit{k} dari 14 sampai 18 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Akurasi tertinggi pada model \textit{k-nearest neighbors} dengan \textit{dataset} asli adalah sebesar 0.7337662337662337 dengan nilai \textit{k} sebesar 16. Nilai yang sama juga muncul pada \textit{dataset} yang telah diacak. Hal ini dapat menjadi bukti bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna, tidak ada perubahan sama sekali pada jarak Euclidean antara seluruh titik. Oleh karena itu model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sama persis.
 
 \noindent\begin{minipage}{.46\textwidth}
-	\begin{lstlisting}[caption=Akurasi \textit{Dataset} Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
+	\begin{lstlisting}[caption=\textit{Dataset diabetes} Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
 Akurasi setiap K pada 
 training set dataset asli:
 14: 0.7760869565217391
@@ -519,7 +519,7 @@ test set dataset asli:
 	\end{lstlisting}
 \end{minipage}\hfill
 \begin{minipage}{.46\textwidth}
-	\begin{lstlisting}[caption=Akurasi \textit{Dataset} Teracak,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
+	\begin{lstlisting}[caption=\textit{Dataset diabetes} Teracak,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
 Akurasi setiap K pada training 
 set dataset teracak: 
 14: 0.7760869565217391
@@ -559,7 +559,7 @@ Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi mo
 Akurasi model untuk setiap nilai \textit{k} dari 19 sampai 23 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua \textit{dataset} berbeda. Akurasi \textit{test set} tertinggi pada \textit{dataset} asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada \textit{dataset} yang telah diacak, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Dengan perbedaan akurasi yang relatif kecil dan \textit{dataset} yang telah diacak teracak dengan baik maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan distorsinya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sangat mirip.
 	
 \noindent\begin{minipage}{.46\textwidth}
-	\begin{lstlisting}[caption=Akurasi \textit{Dataset} Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
+	\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
 Akurasi setiap K pada 
 training set dataset asli: 
 19: 0.9659956474428727
@@ -578,7 +578,7 @@ test set dataset asli:
 	\end{lstlisting}
 	\end{minipage}\hfill
 	\begin{minipage}{.46\textwidth}
-	\begin{lstlisting}[caption=Akurasi \textit{Dataset} Teracak,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
+	\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Teracak,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
 Akurasi setiap K pada training 
 set dataset teracak: 
 19: 0.9623231773667029
@@ -657,7 +657,7 @@ Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Silhoutte Sc
 \end{figure}
 	
 \noindent\begin{minipage}{.46\textwidth}
-\begin{lstlisting}[caption=Silhoutte Score Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
+\begin{lstlisting}[caption=\textit{Dataset mall\_customers} Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
 Silhoutte Score setiap K
 pada dataset asli: 
 2: 0.293166070535953
@@ -672,7 +672,7 @@ pada dataset asli:
 \end{lstlisting}
 \end{minipage}\hfill
 \begin{minipage}{.46\textwidth}
-\begin{lstlisting}[caption=Silhoutte Score Teracak,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
+\begin{lstlisting}[caption=\textit{Dataset mall\_customers} Teracak,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
 Silhoutte Score setiap K
 pada dataset teracak: 
 2: 0.29316607053507854
@@ -733,7 +733,7 @@ Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Silhoutte Sco
 \end{figure}
 	
 \noindent\begin{minipage}{.46\textwidth}
-\begin{lstlisting}[caption=Silhoutte Score Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
+\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
 Silhoutte Score setiap K
 pada dataset asli: 
 2: 0.7568010158989575
@@ -748,7 +748,7 @@ pada dataset asli:
 \end{lstlisting}
 \end{minipage}\hfill
 \begin{minipage}{.46\textwidth}
-\begin{lstlisting}[caption=Silhoutte Score Teracak,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
+\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Teracak,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
 Silhoutte Score setiap K
 pada dataset teracak: 
 2: 0.7581796759180272
