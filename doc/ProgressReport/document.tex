@@ -184,7 +184,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		
 		Konsep privasi sering kali lebih kompleks dari pada yang dibayangkan. Dalam kasus penambangan data, definisi dari menjaga privasi masih tidak jelas. Ada sebuah paper yang mendefinisikan \textit{privacy preserving data mining} sebagai “getting valid data mining results without learning the underlying data values”, mendapatkan hasil penambangan data yang valid tanpa  nilai pada data. Tetapi pada saat ini setiap teknik \textit{privacy preserving data mining} yang ada memiliki definisi privasinya masing-masing. 
 		
-		Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Berbagai macam pendekatan modifikasi data untuk \textit{privacy preserving data mining} telah dikembangkan antara lain \textit{Perturbation Approach} dan \textit{Anonymization Approach}, selengkapnya dapat dilihat pada Gambar~\ref{fig:ppdm}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap dapat ditambang. Sedangkan pada \textit{Anonymization Approach}, data diterapkan de-identifikasi di mana dataset mentah disebarluaskan setelah menghapus inti dari identitas setiap rekord.
+		Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Berbagai macam pendekatan modifikasi data untuk \textit{privacy preserving data mining} telah dikembangkan antara lain \textit{Perturbation Approach} dan \textit{Anonymization Approach}, selengkapnya dapat dilihat pada Gambar~\ref{fig:ppdm}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap dapat ditambang. Sedangkan pada \textit{Anonymization Approach}, data diterapkan de-identifikasi di mana \textit{dataset} mentah disebarluaskan setelah menghapus inti dari identitas setiap rekord.
 		
 		\textit{Perturbation Approach} dapat dibagi menjadi dua jenis lagi yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}. \textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu. Sedangkan \textit{Dimension Reduction-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sekaligus mengurangi dimensi dari data asli.
 		
@@ -217,7 +217,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 
 		\item \textbf{Melakukan studi literatur dan mempelajari teknik \textit{Random Rotation Perturbation}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari dataset X didefinisikan sebagai berikut.
+		{\bf Hasil :} Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matrix \(X_{n \times d}\) , \textit{rotation perturbation} dari \textit{dataset} X didefinisikan sebagai berikut.
 		\begin{equation}
 			G(X) = X_{n \times d} R_{d \times d}
 		\end{equation}
@@ -236,11 +236,11 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		\end{theorem}
 		Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\), sedemikian rupa sehingga jarak antara dua titik tetap konsisten dengan \textit{error} yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya \textit{error} yang muncul, properti-properti pada data pun relatif sedikit berubah dan hal ini menyebabkan akurasi pada model yang dibuat dengan data tersebut berkurang dibandingkan data aslinya.
 		
-		\textit{Projection perturbation} dari dataset X didefinisikan sebagai berikut.
+		\textit{Projection perturbation} dari \textit{dataset} X didefinisikan sebagai berikut.
 		\begin{equation}
 			G(X) = X_{n \times d} R_{d \times k}
 		\end{equation}
-		Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana dataset asli dengan jumlah rekord \(n\) dan jumlah atribut \(d\), yang mana \(d\) akan menjadi dimensi matriks. Oleh karena yang ingin dilakukan adalah reduksi dimensi maka \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
+		Dimana \(R_{d \times k}\) adalah \textit{random projection matrix} yang dihasilkan mengikuti distribusi normal, dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Ukuran matriks \(R_{d \times k}\) disesuaikan dengan matriks \(X_{n \times d}\) yang mana \textit{dataset} asli dengan jumlah rekord \(n\) dan jumlah atribut \(d\), yang mana \(d\) akan menjadi dimensi matriks. Oleh karena yang ingin dilakukan adalah reduksi dimensi maka \(k\) harus lebih kecil dari pada \(d\), yang mana \(k\) adalah dimensi dari matriks baru yang dihasilkan dari \textit{Random Projection Perturbation} ini.
 		
 		Jika \textit{random projection matrix} yang digunakan dihasilkan secara acak saja, hasil dari \textit{random projection perturbation} akan terlalu merusak nilai pada data sehingga akurasi pada model yang akan dibuat kemungkinan berkurang drastis. Cara menanggulangi hal tersebut adalah menggunakan matriks \textit{orthogonal} sebagai \textit{random projection matrix}. Tetapi membuat matriks \textit{orthogonal} yang berdimensi tinggi memiliki kompleksitas yang tinggi sehingga memerlukan \textit{cost} yang besar. Pada observasi yang dilakukan Hecht-Neilsen menunjukkan bahwa “\textit{that in a high-dimensional space, vectors with random directions are almost orthogonal}”. Dapat disimpulkan bahwa dalam kasus matriks berdimensi tinggi apabila sebuah matriks dihasilkan secara acak mengikuti suatu distribusi, matriks tersebut akan kurang lebih hampir \textit{orthogonal}. Oleh karena itu, matriks yang dibuat untuk \textit{Random Projection Perturbation} cukup matriks acak yang mengikuti suatu distribusi saja.
 		
@@ -264,13 +264,13 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Algoritma \textit{Random Rotation Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
 		\begin{enumerate}
-			\item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+			\item \textit{Dataset} yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
 			\item Buatlah matriks translasi acak yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0, 100] berdimensi \((d+1)\times(d+1)\)
-			\item Untuk keperluan transformasi translasi, matriks dataset perlu ditambahkan sebuah kolom dengan nilai 1 pada seluruh barisnya.
-			\item Lakukan transformasi translasi dengan cara mengkalikan matriks dataset dengan matriks translasi yang telah dibuat pada langkah kedua
-			\item Oleh karena keperluan transformasi translasi, hasil translasi akan berupa matriks berdimensi \(n\times(d+1)\) dengan kolom terakhir berisi nilai 1 pada setiap barisnya. Oleh karena itu, kolom tersebut perlu dibuang agar dimensi matriks dataset kembali sesuai aslinya
+			\item Untuk keperluan transformasi translasi, matriks \textit{dataset} perlu ditambahkan sebuah kolom dengan nilai 1 pada seluruh barisnya.
+			\item Lakukan transformasi translasi dengan cara mengkalikan matriks \textit{dataset} dengan matriks translasi yang telah dibuat pada langkah kedua
+			\item Oleh karena keperluan transformasi translasi, hasil translasi akan berupa matriks berdimensi \(n\times(d+1)\) dengan kolom terakhir berisi nilai 1 pada setiap barisnya. Oleh karena itu, kolom tersebut perlu dibuang agar dimensi matriks \textit{dataset} kembali sesuai aslinya
 			\item Buatlah \textit{random rotation matrix} dengan membuat matriks \textit{orthogonal} acak. Matriks \textit{orthogonal} memiliki sifat yaitu determinannya sebesar 1 dan hasil perkalian matriks tersebut dengan transposenya adalah matriks identitas
-			\item Lakukan transformasi rotasi dengan cara mengkalikan matriks dataset dengan random rotation matrix yang telah dibuat pada langkah keenam
+			\item Lakukan transformasi rotasi dengan cara mengkalikan matriks \textit{dataset} dengan random rotation matrix yang telah dibuat pada langkah keenam
 			\item Hasil matriks yang telah dirotasi sudah dapat langsung digunakan untuk penambangan data
 		\end{enumerate}
 
@@ -278,22 +278,22 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Algoritma \textit{Random Projection Perturbation} memiliki beberapa langkah yaitu sebagai berikut.
 		\begin{enumerate}
-			\item Dataset yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
+			\item \textit{Dataset} yang memiliki atribut sebanyak \(d\) dan rekord sebanyak \(n\) direpresentasikan dalam bentuk matriks berukuran \(n \times d\)
 			\item Tentukan nilai \(\epsilon\) (epsilon) yang diinginkan dan berada pada rentang (0, 1)
 			\item Hitung nilai \(k\) (dimensi minimal) dengan rumus berikut \(k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\)
 			\item Tentukan nilai \(k\) yang diinginkan atau tentukan secara acak dengan persyaratan pada langkah ketiga terpenuhi dan \(k\) harus lebih kecil dari \(d\)
 			\item Buatlah matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\)
-			\item Lakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah kelima
+			\item Lakukan proyeksi dengan cara mengkalikan matriks \textit{dataset} dengan matriks proyeksi yang telah dibuat pada langkah kelima
 			\item Hasil matriks yang telah diproyeksi sudah dapat langsung digunakan untuk penambangan data
 		\end{enumerate}
 
 		\item \textbf{Melakukan studi kasus terhadap teknik \textit{Random Rotation Perturbation}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Rotation Perturbation}, studi kasus dilakukan pada dataset \textit{iris}, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai hanya sebagian kecil saja dari seluruh data pada dataset \textit{iris}. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. Dataset \textit{iris} adalah dataset yang berisi data tentang korelasi antara ukuran bunga dengan spesiesnya. Dataset ini memiliki empat buah fitur dan satu buah label. Fitur-fitur pada dataset \textit{iris} adalah kolom \textit{sepal\textunderscore length}, \textit{sepal\textunderscore width}, \textit{petal\textunderscore length}, dan \textit{petal\textunderscore width}. Label pada dataset \textit{iris} adalah kolom \textit{species}
+		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Rotation Perturbation}, studi kasus dilakukan pada \textit{dataset} \textit{iris}, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai hanya sebagian kecil saja dari seluruh data pada \textit{dataset} \textit{iris}. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. \textit{Dataset} \textit{iris} adalah \textit{dataset} yang berisi data tentang korelasi antara ukuran bunga dengan spesiesnya. \textit{Dataset} ini memiliki empat buah fitur dan satu buah label. Fitur-fitur pada \textit{dataset} \textit{iris} adalah kolom \textit{sepal\textunderscore length}, \textit{sepal\textunderscore width}, \textit{petal\textunderscore length}, dan \textit{petal\textunderscore width}. Label pada \textit{dataset} \textit{iris} adalah kolom \textit{species}
 
 		\begin{table}
 			\centering
-			\caption{Tabel dataset \textit{iris} yang digunakan sebagai contoh kasus}
+			\caption{Tabel \textit{dataset} \textit{iris} yang digunakan sebagai contoh kasus}
 			\begin{tabular}{lllll}
 				\hline
 				\multicolumn{1}{c}{\textbf{sepal\textunderscore length}} & \multicolumn{1}{c}{\textbf{sepal\textunderscore width}} & \multicolumn{1}{c}{\textbf{petal\textunderscore length}} & \multicolumn{1}{c}{\textbf{petal\textunderscore width}} & \multicolumn{1}{c}{\textbf{species}} \\ \hline
@@ -310,9 +310,9 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 			\label{table:iris_table}
 		\end{table}
 
-		Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diaplikasikan pada dataset \textit{iris} pada Tabel~\ref{table:iris_table}.
+		Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diaplikasikan pada \textit{dataset} \textit{iris} pada Tabel~\ref{table:iris_table}.
 		\begin{enumerate}
-			\item Fitur-fitur pada dataset tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
+			\item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
 			\[
 				\begin{bmatrix}
 				5.1		&		3.5		&		1.4		&		0.2	\\
@@ -326,7 +326,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				4.4		&		2.9		&		1.4		&		0.2 
 				\end{bmatrix}_{9\times 4}
 			\]
-			\item Membuat matriks translasi yang diambil mengikuti distribusi uniform dengan rentang [0,100] dengan dimensi sesuai dimensi matriks dataset
+			\item Membuat matriks translasi yang diambil mengikuti distribusi uniform dengan rentang [0,100] dengan dimensi sesuai dimensi matriks \textit{dataset}
 			\[
 				\begin{bmatrix}
 					1				&		0				&		0				&		0			&		0 \\
@@ -336,7 +336,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					71.35281261		&		93.96479736		&		77.16763568		&		27.88189356 &		1 \\
 				\end{bmatrix}_{5\times 5}
 			\]
-			\item Untuk keperluan translasi, matriks dataset ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya
+			\item Untuk keperluan translasi, matriks \textit{dataset} ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya
 			\[
 				\begin{bmatrix}
 					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
@@ -350,7 +350,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					4.4		&		2.9		&		1.4		&		0.2		&		1
 				\end{bmatrix}_{9\times 5}
 			\]
-			\item Dilakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks translasi
+			\item Dilakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} dengan matriks translasi
 			\[
 				\begin{bmatrix}
 					5.1		&		3.5		&		1.4		&		0.2		&		1 \\
@@ -372,7 +372,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					71.35281261		&		93.96479736		&		77.16763568		&		27.88189356		&		1 \\
 				\end{bmatrix} 
 			\]
-			\item Berikut adalah hasil translasi pada matriks dataset
+			\item Berikut adalah hasil translasi pada matriks \textit{dataset}
 			\[
 				\begin{bmatrix}
 					76.45281261  & 97.46479736 &  78.56763568 &  28.08189356 & 1 \\
@@ -386,7 +386,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					75.75281261  & 96.86479736 &  78.56763568 &  28.08189356 & 1 \\
 				\end{bmatrix}_{9\times 5}
 			\]
-			\item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial orthogonal yang berdimensi sesuai dimensi matriks dataset. Matriks rotasi berikut dibuat dengan \textit{library} Scipy pada bahasa pemograman Python
+			\item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial orthogonal yang berdimensi sesuai dimensi matriks \textit{dataset}. Matriks rotasi berikut dibuat dengan \textit{library} Scipy pada bahasa pemograman Python
 			\[
 				\begin{bmatrix}
 					-0.45126938		&		-0.70425922		&		 0.32389616		&		0.44211556 \\
@@ -395,8 +395,8 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 					 0.75576092		&		 0.00555185		&		 0.22626167		&		0.61449187 \\
 				\end{bmatrix}_{4\times 4}
 			\]
-			\item Dilakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks dataset dengan matriks rotasi
-			\item Berikut adalah hasil rotasi pada matriks dataset. Hasil teknik \textit{Random Rotation Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
+			\item Dilakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} dengan matriks rotasi
+			\item Berikut adalah hasil rotasi pada matriks \textit{dataset}. Hasil teknik \textit{Random Rotation Perturbation} pada \textit{dataset} \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
 			\[
 				\begin{bmatrix}
 				-70.13483265  &  20.05005561  &   4.11528068  & 130.26146931 \\
@@ -414,11 +414,11 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 
 		\item \textbf{Melakukan studi kasus terhadap teknik \textit{Random Projection Perturbation}}\\
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
-		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Projection Perturbation}, studi kasus dilakukan pada dataset \textit{iris}. Teknik \textit{Random Projection Perturbation} memiliki persyaratan pada dataset agar teknik ini menghasilkan hasil yang baik yaitu dataset tersebut harus memiliki dimensi yang cukup besar. Sebetulnya dataset \textit{iris} tersebut tidak memenuhi persyaratan untuk mendapatkan hasil yang baik, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai adalah dataset \textit{iris} yang memiliki dimensi yang kecil dan hanya sebagian kecil saja data yang dipakai. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. Dalam menghitung nilai \(k\) juga, pada studi kasus ini menggunakan jumlah rekord dan atribut yang tidak sesuai dengan dataset \textit{iris} untuk keperluan kemudahan dalam melakukan studi kasus dan juga agar memenuhi persyaratan teknik \textit{Random Projection Perturbation}. Jumlah rekordnya adalah 1000 dan jumlah atributnya adalah 500.
+		{\bf Hasil :} Untuk lebih memahami bagaimana cara kerja teknik \textit{Random Projection Perturbation}, studi kasus dilakukan pada \textit{dataset} \textit{iris}. Teknik \textit{Random Projection Perturbation} memiliki persyaratan pada \textit{dataset} agar teknik ini menghasilkan hasil yang baik yaitu \textit{dataset} tersebut harus memiliki dimensi yang cukup besar. Sebetulnya \textit{dataset} \textit{iris} tersebut tidak memenuhi persyaratan untuk mendapatkan hasil yang baik, tetapi untuk memudahkan perhitungan pada studi kasus ini data yang dipakai adalah \textit{dataset} \textit{iris} yang memiliki dimensi yang kecil dan hanya sebagian kecil saja data yang dipakai. Data tersebut dapat dilihat pada Tabel~\ref{table:iris_table}. Dalam menghitung nilai \(k\) juga, pada studi kasus ini menggunakan jumlah rekord dan atribut yang tidak sesuai dengan \textit{dataset} \textit{iris} untuk keperluan kemudahan dalam melakukan studi kasus dan juga agar memenuhi persyaratan teknik \textit{Random Projection Perturbation}. Jumlah rekordnya adalah 1000 dan jumlah atributnya adalah 500.
 
-		Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diaplikasikan pada dataset \textit{iris} pada Tabel~\ref{table:iris_table}.
+		Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diaplikasikan pada \textit{dataset} \textit{iris} pada Tabel~\ref{table:iris_table}.
 		\begin{enumerate}
-			\item Fitur-fitur pada dataset tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
+			\item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan
 			\[
 				\begin{bmatrix}
 				5.1		&		3.5		&		1.4		&		0.2	\\
@@ -441,7 +441,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				&= 331.57
 			\end{align*}
 			\item Nilai \(k\) dipilih sesuai keinginan, dalam kasus ini dipilih nilai \(k\) sebesar 332
-			\item Membuat matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\). Untuk keperluan kemudahan dalam melakukan studi kasus, dataset \textit{iris} akan direduksi dimensinya menjadi 3 dimensi
+			\item Membuat matriks proyeksi dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\) berdimensi \(d \times k\). Untuk keperluan kemudahan dalam melakukan studi kasus, \textit{dataset} \textit{iris} akan direduksi dimensinya menjadi 3 dimensi
 			\[
 				\begin{bmatrix}
 				0.11483014 &  -0.10167359  &  0.06652355 \\
@@ -450,7 +450,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				-0.0315941  &  -0.06905021  & -0.17782438 \\
 				\end{bmatrix}_{4\times 3}
 			\]
-			\item Dilakukan proyeksi dengan cara mengkalikan matriks dataset dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya
+			\item Dilakukan proyeksi dengan cara mengkalikan matriks \textit{dataset} dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya
 			\[
 				\begin{bmatrix}
 				5.1		&		3.5		&		1.4		&		0.2	\\
@@ -471,7 +471,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 				-0.0315941  &  -0.06905021  & -0.17782438 \\
 				\end{bmatrix}
 			\]
-			\item Berikut adalah hasil matriks yang telah diproyeksi. Hasil dari teknik \textit{Random Projection Perturbation} pada dataset \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
+			\item Berikut adalah hasil matriks yang telah diproyeksi. Hasil dari teknik \textit{Random Projection Perturbation} pada \textit{dataset} \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data
 			\[
 				\begin{bmatrix}
 				0.65684027 &  -1.0035495   &  0.72820632 \\
@@ -491,16 +491,16 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 		{\bf Status :} Ada sejak rencana kerja skripsi.\\
 		{\bf Hasil :} Perangkat lunak randomisasi adalah perangkat lunak yang digunakan untuk memodifikasi data dengan metode randomisasi. Perangkat lunak ini akan memiliki fungsi untuk mengubah nilai setiap data yang dimasukan agar privasinya terjaga tetapi masih dapat dilakukan penambangan data. Algoritma \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} akan diimplementasikan pada perangkat lunak ini untuk fungsi utama yaitu mengubah nilai pada setiap data. Dengan mempertimbangkan studi literatur, analisis masalah, dan studi kasus yang telah dilakukan pada kedua teknik tersebut, perangkat lunak akan memiliki berbagai pilihan dan parameter yang pengguna harus masukan dan juga ada beberapa persyaratan atau batasan agar perangkat lunak ini berjalan dengan semestinya. Diagram aktivitas untuk perangkat lunak randomisasi dapat dilihat pada Gambar~\ref{fig:activitydiagram}. Detail dari diagram aktivitas tersebut adalah sebagai berikut.
 		\begin{enumerate}
-			\item Pengguna memberikan masukan berupa dataset yang berupa dokumen berjenis \textit{comma-separated values} (CSV). dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam dokumen tersebut
-			\item Perangkat lunak akan membersihkan dokumen yang berisi dataset tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada dataset saja tanpa nama kolom
+			\item Pengguna memberikan masukan berupa \textit{dataset} yang berupa dokumen berjenis \textit{comma-separated values} (CSV). dokumen ini harus berisi tiap rekord pada barisnya dan tiap fitur pada kolomnya. Adanya nama kolom diperbolehkan pada baris pertama dalam dokumen tersebut
+			\item Perangkat lunak akan membersihkan dokumen yang berisi \textit{dataset} tersebut dan mentransformasi datasetnya menjadi sebuah matriks. Matriks tersebut akan berisi nilai-nilai pada \textit{dataset} saja tanpa nama kolom
 			\item Pengguna memilih teknik \textit{Randomization} yang ingin digunakan antara \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Jika \textit{Random Projection Perturbation} yang dipiilih maka akan ada beberapa langkah yang harus dipenuhi yaitu sebagai berikut.
 			\begin{enumerate}
 				\item Pengguna memberi masukan nilai Epsilon yang diinginkan
-				\item Perangkat lunak memeriksa persyaratan yang harus dipenuhi oleh matriks dataset dengan menghitung menggunakan algoritma tertentu. Pengecekan ini adalah pengecekan jumlah kolom pada matriks dataset apakah cukup untuk matriks tersebut direduksi dimensinya. Jika persyaratan terpenuhi maka langkah selanjutnya adalah perangkat lunak mengaplikasikan teknik yang dipilih
+				\item Perangkat lunak memeriksa persyaratan yang harus dipenuhi oleh matriks \textit{dataset} dengan menghitung menggunakan algoritma tertentu. Pengecekan ini adalah pengecekan jumlah kolom pada matriks \textit{dataset} apakah cukup untuk matriks tersebut direduksi dimensinya. Jika persyaratan terpenuhi maka langkah selanjutnya adalah perangkat lunak mengaplikasikan teknik yang dipilih
 				\item Jika persyaratan tidak terpenuhi maka pengguna harus memilih untuk mengganti datasetnya atau mengganti nilai Epsilon
 			\end{enumerate}
-			\item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada dataset yang sudah berbentuk matriks
-			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah dokumen CSV yang berisi dataset yang sudah diaplikasikan teknik \textit{Randomization}
+			\item Perangkat lunak mengaplikasikan teknik yang telah dipilih pada \textit{dataset} yang sudah berbentuk matriks
+			\item Pengguna memilih lokasi pada komputer pengguna untuk menyimpan hasil dari teknik yang dipilih. Hasilnya adalah sebuah dokumen CSV yang berisi \textit{dataset} yang sudah diaplikasikan teknik \textit{Randomization}
 			\item Perangkat lunak menyimpan hasilnya pada lokasi yang telah ditentukan pengguna dan menampilkan beberapa informasi tentang hasil yang sukses dibuat
 		\end{enumerate}
 
@@ -522,7 +522,7 @@ Detail bagian pekerjaan skripsi sesuai dengan rencana kerja/laporan perkembangan
 			\item Kelas \textit{RandomTranslationMatrix} adalah kelas untuk membuat matriks translasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
 			\item Kelas \textit{RandomRotationMatrix} adalah kelas untuk membuat matriks rotasi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
 			\item Kelas \textit{RandomProjectionMatrix} adalah kelas untuk membuat matriks proyeksi acak. Kelas ini adalah \textit{subclass} dari kelas \textit{Matrix}
-			\item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan dataset berupa dokumen CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi dokumen CSV menjadi matriks dan sebaliknya.
+			\item Kelas \textit{CSVPreprocessor} adalah kelas untuk menangani masukan \textit{dataset} berupa dokumen CSV yang akan direpresentasikan menjadi matriks. Kelas ini berguna untuk mengkonversi dokumen CSV menjadi matriks dan sebaliknya.
 		\end{itemize}
 		
 		\begin{figure}
