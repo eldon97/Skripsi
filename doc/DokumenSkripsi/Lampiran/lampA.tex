@@ -1,46 +1,85 @@
-%versi 3 (18-12-2016)
-\chapter{Kode Program}
+\chapter{Kode Perangkat Lunak \textit{Randomization}}
 \label{lamp:A}
 
-%terdapat 2 cara untuk memasukkan kode program
-% 1. menggunakan perintah \lstinputlisting (kode program ditempatkan di folder yang sama dengan file ini)
-% 2. menggunakan environment lstlisting (kode program dituliskan di dalam file ini)
-% Perhatikan contoh yang diberikan!!
-%
-% untuk keduanya, ada parameter yang harus diisi:
-% - language: bahasa dari kode program (pilihan: Java, C, C++, PHP, Matlab, C#, HTML, R, Python, SQL, dll)
-% - caption: nama file dari kode program yang akan ditampilkan di dokumen akhir
-%
-% Perhatian: Abaikan warning tentang textasteriskcentered!!
-%
+\newcommand{\package}[2]{
+	\section{\textit{Package #1}}
+	\label{sec:p-#1}
 
-
-\begin{lstlisting}[language=Java, caption=MyCode.c]
-
-// This does not make algorithmic sense, 
-// but it shows off significant programming characters.
-
-#include<stdio.h>
-
-void myFunction( int input, float* output ) {
-	switch ( array[i] ) {
-		case 1: // This is silly code
-			if ( a >= 0 || b <= 3 && c != x )
-				*output += 0.005 + 20050;
-			char = 'g';
-			b = 2^n + ~right_size - leftSize * MAX_SIZE;
-			c = (--aaa + &daa) / (bbb++ - ccc % 2 );
-			strcpy(a,"hello $@?"); 
-	}
-	count = ~mask | 0x00FF00AA;
+	Dalam \textit{package #1} terdapat #2 buah kelas. Kode program untuk masing-masing kelas dalam \textit{package} ini adalah sebagai berikut.
 }
 
-// Fonts for Displaying Program Code in LATEX
-// Adrian P. Robson, nepsweb.co.uk
-// 8 October 2012
-// http://nepsweb.co.uk/docs/progfonts.pdf
+\package{Perturbation}{3}
 
-\end{lstlisting}
+\subsection{Kelas \textit{Perturbation}}
+\label{subsec:c-perturbation}
+Kode program untuk kelas \textit{Perturbation} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=perturbation.py]{./Lampiran/src/randomization/perturbation/perturbation.py}
 
-\lstinputlisting[language=Java, caption=MyCode.java]{./Lampiran/MyCode.java} 
+\subsection{Kelas \textit{RandomRotationPerturbation}}
+\label{subsec:c-rotation}
+Kode program untuk kelas \textit{RandomRotationPerturbation} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=random\_rotation\_perturbation.py]{./Lampiran/src/randomization/perturbation/random_rotation_perturbation.py}
 
+\subsection{Kelas \textit{RandomProjectionPerturbation}}
+\label{subsec:c-projection}
+Kode program untuk kelas \textit{RandomProjectionPerturbation} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=random\_projection\_perturbation.py]{./Lampiran/src/randomization/perturbation/random_projection_perturbation.py}
+
+\package{Matrix}{4}
+
+\subsection{Kelas \textit{Matrix}}
+\label{subsec:c-matrix}
+Kode program untuk kelas \textit{Matrix} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=matrix.py]{./Lampiran/src/randomization/matrix/matrix.py}
+
+\subsection{Kelas \textit{RandomRotationMatrix}}
+\label{subsec:c-rotation-matrix}
+Kode program untuk kelas \textit{RandomRotationMatrix} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=random\_rotation\_matrix.py]{./Lampiran/src/randomization/matrix/random_rotation_matrix.py}
+
+\subsection{Kelas \textit{RandomTranslationMatrix}}
+\label{subsec:c-translation-matrix}
+Kode program untuk kelas \textit{RandomTranslationMatrix} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=random\_translation\_matrix.py]{./Lampiran/src/randomization/matrix/random_translation_matrix.py}
+
+\subsection{Kelas \textit{RandomProjectionMatrix}}
+\label{subsec:c-projection-matrix}
+Kode program untuk kelas \textit{RandomProjectionMatrix} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=random\_projection\_matrix.py]{./Lampiran/src/randomization/matrix/random_projection_matrix.py}
+
+\package{Preprocessor}{3}
+
+\subsection{Kelas \textit{CSVPreprocessor}}
+\label{subsec:c-csv-pre}
+Kode program untuk kelas \textit{CSVPreprocessor} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=csv\_preprocessor.py]{./Lampiran/src/randomization/preprocessor/csv_preprocessor.py}
+
+\subsection{Kelas \textit{ProjectionMatrixPreprocessor}}
+\label{subsec:c-projection-pre}
+Kode program untuk kelas \textit{ProjectionMatrixPreprocessor} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=projection\_matrix\_preprocessor.py]{./Lampiran/src/randomization/preprocessor/projection_matrix_preprocessor.py}
+
+\subsection{Kelas \textit{RotationMatrixPreprocessor}}
+\label{subsec:c-rotation-pre}
+Kode program untuk kelas \textit{ProjectionMatrixPreprocessor} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=rotation\_matrix\_preprocessor.py]{./Lampiran/src/randomization/preprocessor/rotation_matrix_preprocessor.py}
+
+\section{\textit{Package View}}
+\label{sec:p-view}
+
+Dalam \textit{package View} terdapat beberapa buah kelas yang berfungsi untuk menangani antarmuka perangkat lunak yang dibuat dengan \textit{framework} Kivy. Kode program untuk masing-masing dokumen dalam \textit{package} ini adalah sebagai berikut.
+
+\subsection{Dokumen \textit{main\_menu.py}}
+\label{subsec:c-main}
+Kode program untuk dokumen \textit{main\_menu.py} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=main\_menu.py]{./Lampiran/src/randomization/view/main_menu.py}
+
+\subsection{Dokumen \textit{randomization\_app.py}}
+\label{subsec:c-randomization-app}
+Kode program untuk dokumen \textit{randomization\_app.py} adalah sebagai berikut.
+\lstinputlisting[language=Python, caption=randomization\_app.py]{./Lampiran/src/randomization/view/randomization_app.py}
+
+\subsection{Dokumen \textit{randomization.kv}}
+\label{subsec:c-randomization}
+Kode program untuk dokumen \textit{randomization.kv} adalah sebagai berikut.
+\lstinputlisting[language={}, caption=randomization.kv]{./Lampiran/src/randomization/view/randomization.kv}

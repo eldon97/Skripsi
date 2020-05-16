@@ -1,0 +1,234 @@
+#:kivy 2.0.0
+#:import Window kivy.core.window.Window
+
+<MainMenu>
+    cols: 1
+    size: root.width, root.height
+    spacing: 10
+
+    load_file_path: load_file_path
+
+    dimension_label: dimension_label
+    epsilon_label: epsilon_label
+    dimension_value: dimension_value
+    epsilon_value: epsilon_value
+    calculate_k_button: calculate_k_button
+
+    technique_spinner: technique_spinner
+
+    dataset_description_layout: dataset_description_layout
+    randomization_result_description_layout: randomization_result_description_layout
+
+    load_matrix_path: load_matrix_path
+
+
+    GridLayout:
+        cols: 3
+        size_hint: (root.width, 0.09)
+        spacing: 5
+        Image:
+            source: 'view/assets/browse.jpg'
+            size_hint: (0.1, root.height)
+        Label:
+            id: load_file_path
+            text: "Belum ada dokumen CSV yang dipilih untuk diacak"
+            size: self.texture_size
+            text_size: self.size
+            halign: 'left'
+        HoverButton:
+            text: "Pilih Dokumen CSV"
+            size_hint: (0.25, root.height)
+            on_release: root.browse_load_button_action()
+
+
+    GridLayout:
+        cols: 1
+        size_hint: (root.width, 0.09)
+        HoverSpinner:
+            color: 1,1,1,1
+            id: technique_spinner
+            size_hint: (root.width, root.height)
+            text: 'Random Rotation Perturbation'
+            values: 'Random Rotation Perturbation', 'Random Projection Perturbation'
+            on_text: root.on_technique_spinner_select(self.text)
+
+
+    GridLayout:
+        cols: 4
+        size_hint: (root.width, 0.09)
+        spacing: 5
+        Image:
+            source: 'view/assets/matrix.png'
+            size_hint: (0.1, root.height)
+        Label:
+            id: load_matrix_path
+            text: "Pilih matriks rotasi yang ingin digunakan"
+            size: self.texture_size
+            text_size: self.size
+            halign: 'left'
+        HoverButton:
+            text: "Buat dan Simpan Matriks"
+            size_hint: (0.3, root.height)
+            on_release: root.create_save_matrix_button_action()
+        HoverButton:
+            text: "Impor Matriks"
+            size_hint: (0.2, root.height)
+            on_release: root.import_matrix_button_action()
+
+
+    GridLayout:
+        cols: 6
+        size_hint: (root.width, 0.09)
+        spacing: 10
+        Label:
+            id: epsilon_label
+            size_hint: (0.07, root.height)
+            text: "Epsilon"
+        HoverTextInput:
+            id: epsilon_value
+            size_hint: (0.05, root.height)
+            input_filter: 'float'
+            write_tab: False
+            multiline: False
+            on_text_validate: root.calculate_k_button_action()
+        HoverButton:
+            id: calculate_k_button
+            text: "Hitung Nilai Min K"
+            size_hint: (0.12, root.height)
+            on_release: root.calculate_k_button_action()
+        Label:
+            id: dimension_label
+            size_hint: (0.07, root.height)
+            text: "Variabel K"
+        HoverTextInput:
+            id: dimension_value
+            size_hint: (0.05, root.height)
+            input_filter: 'int'
+            write_tab: False
+            multiline: False
+        HoverButton:
+            text: "Acak dan Simpan"
+            size_hint: (0.4, root.height)
+            on_release: root.randomize_button_action()
+
+
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            BoxLayout:
+                orientation: "vertical"
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                Label:
+                    text: "Deskripsi Dataset"
+                    size_hint: (1, 0.2)
+                    text_size: self.size
+                    halign: "center"
+                    valign: "top"
+                    padding: (20, 20)
+
+                BoxLayout:
+                    id: dataset_description_layout
+                    orientation: "vertical"
+
+
+            BoxLayout:
+                orientation: "vertical"
+                canvas.before:
+                    Color:
+                        rgba: .5, .5, .5, 1
+                    Line:
+                        width: 2
+                        rectangle: self.x, self.y, self.width, self.height
+                Label:
+                    text: "Deskripsi Hasil Pengacakan"
+                    size_hint: (1, 0.2)
+                    text_size: self.size
+                    halign: "center"
+                    valign: "top"
+                    padding: (20, 20)
+
+                BoxLayout:
+                    id: randomization_result_description_layout
+                    orientation: "vertical"
+
+
+
+<WarningPopup>
+    title: 'PERHATIAN!'
+    size_hint: (None, None)
+    size: (400, 200)
+    auto_dismiss: False
+
+    text_label: text_label
+    close_button: close_button
+
+    GridLayout:
+        cols: 1
+        Label:
+            markup: True
+            color: 1,1,1,1
+            id: text_label
+            text_size: self.width, None
+            size_hint: 1, None
+            halign: "center"
+        PopupCloseButton:
+            id: close_button
+            size_hint: (root.width, 0.5)
+            text: "Ok"
+            on_release: root.dismiss(); Window.set_system_cursor("arrow")
+
+
+<LoadingPopup>
+    title: 'Random Projection Perturbation'
+    size_hint: (None, None)
+    size: (400, 200)
+    auto_dismiss: False
+
+    progress_bar: progress_bar
+    progress_label: progress_label
+    GridLayout:
+        cols: 1
+        Image:
+            source: 'view/assets/loading.gif'
+            anim_delay: 0.025
+            mipmap: True
+            allow_stretch: True
+        Label:
+            id: progress_label
+            color: 1,1,1,1
+            text: "0%"
+        ProgressBar:
+            id: progress_bar
+            max: 100
+
+<DescriptionLabel>
+    size_hint: (1, 0.5)
+    text_size: self.size
+    halign: "left"
+    valign: "top"
+    padding: (20, 0)
+
+<Label>:
+    markup: True
+    color: 0,0,0,1
+
+<HoverButton>:
+    color: 1,1,1,1
+    background_color: 0,0,0,0  # the last zero is the critical on, make invisible
+    canvas.before:
+        Color:
+            rgba: (.4,.4,.4,1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [5,]
+
+<SpinnerOption>
+    color: 1,1,1,1
