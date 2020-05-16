@@ -252,7 +252,7 @@ Pada pengujian yang dilakukan, perangkat lunak berhasil membuat kedua matriks ac
 	\label{fig:mall_rotation_matrix}
 \end{figure}
 
-Berikut akan ditampilkan 20 baris pertama \textit{dataset} asli dan \textit{dataset} yang telah diacak masing-masing pada Gambar~\ref{fig:mall_customers_asli} dan Gambar~\ref{fig:rotated_mall_customers}. Dapat dilihat pada gambar tersebut, \textit{dataset} setelah diacak memiliki nilai yang sangat berbeda dengan aslinya. Terlebih lagi jika diperhatikan, nilai yang sama pada beberapa baris di \textit{dataset} asli tidak sama dengan \textit{dataset} yang telah diacak pada baris yang sama seperti pada kolom \textit{insulin} baris 10 sampai 12 memiliki nilai 19 pada \textit{dataset} asli tetapi pada \textit{dataset} yang telah diacak ketiga baris tersebut memiliki nilai yang berbeda antara satu dengan yang lainnya. Dalam rangka untuk memastikan perangkat lunak berhasil dengan benar menerapkan teknik \textit{Random Rotation Perturbation} dengan matriks rotasi dan translasi yang sebelumnya sudah dibuat dan disimpan oleh perangkat lunak, perhitungan manual dilakukan terhadap \textit{dataset} \textit{mall\_customers} dengan menggunakan matriks rotasi dan translasi tersebut. Hasil akhir dari perangkat lunak sama persis dengan hasil dari perhitungan manual. Oleh karena itu, dapat disimpulkan bahwa perangkat lunak sudah berfungsi dengan baik dan benar dalam menerapkan teknik \textit{Random Rotation Perturbation}.
+Berikut akan ditampilkan 20 baris pertama \textit{dataset} asli dan \textit{dataset} yang telah diacak masing-masing pada Gambar~\ref{fig:mall_customers_asli} dan Gambar~\ref{fig:rotated_mall_customers}. Dapat dilihat pada gambar tersebut, \textit{dataset} setelah diacak memiliki nilai yang sangat berbeda dengan aslinya. Terlebih lagi jika diperhatikan, nilai yang sama pada beberapa baris di \textit{dataset} asli tidak sama dengan \textit{dataset} yang telah diacak pada baris yang sama seperti pada kolom \textit{insulin} baris 10 sampai 12 memiliki nilai 19 pada \textit{dataset} asli tetapi pada \textit{dataset} yang telah diacak ketiga baris tersebut memiliki nilai yang berbeda antara satu dengan yang lainnya.
 
 \begin{figure}
 	\centering
@@ -267,6 +267,40 @@ Berikut akan ditampilkan 20 baris pertama \textit{dataset} asli dan \textit{data
 	\caption{Dua puluh baris pertama \textit{dataset} \textit{mall\_customers} setelah diacak}
 	\label{fig:rotated_mall_customers}
 \end{figure}
+
+Dalam rangka untuk memastikan perangkat lunak berhasil dengan benar menerapkan teknik \textit{Random Rotation Perturbation} dengan matriks rotasi dan translasi yang sebelumnya sudah dibuat dan disimpan oleh perangkat lunak, perhitungan manual dilakukan terhadap \textit{dataset} \textit{mall\_customers} dengan menggunakan matriks rotasi dan translasi tersebut yang dapat dilihat pada Gambar~\ref{fig:mall_rotation_matrix}. Hasil akhir dari perangkat lunak sama persis dengan hasil dari perhitungan manual, berikut akan ditunjukkan contoh perhitungan manual untuk baris pertama kolom \textit{Age}. Hasil translasi dapat dilihat pada Persamaan~\ref{eq:translation-manual} dengan variabel \(x\) adalah baris pertama kolom \textit{Age}, \(y\) adalah baris pertama kolom \textit{Annual Income}, dan \(z\) adalah baris pertama kolom \textit{Spending Score}. 
+\begin{align}
+	x &= 19\times1+15\times0+39\times0+1\times9 \label{eq:translation-manual}\\
+	&= 28 \nonumber\\
+	y &= 19\times0+15\times1+39\times0+1\times96 \nonumber\\
+	&= 111 \nonumber\\
+	z &= 19\times0+15\times0+39\times1+1\times88 \nonumber\\
+	&= 127 \nonumber
+\end{align}
+Setelah ditranslasi, tranformasi rotasi dilakukan dan hasil akhir dapat dilihat pada Persamaan~\ref{eq:rotation-manual}. 
+\begin{align}
+	result &= 28\times-0.27377 + 111\times0.853611 + 127\times-0.44317 \label{eq:rotation-manual} \\
+	&= 30.802671 \nonumber
+\end{align}
+Dapat dibandingkan hasil akhir perhitungan manual dengan hasil akhir perangkat lunak pada Gambar~\ref{fig:rotated_mall_customers}, baris pertama pada kolom \textit{Age} memiliki nilai yang sama persis sampai 3 angka di belakang koma (dikarenakan pembulatan pada matriks rotasi untuk visualisasi di dokumen skripsi ini yang dapat dilihat pada Gambar~\ref{fig:mall_rotation_matrix}).
+
+Pengujian terhadap jarak Euclidean antara seluruh objek data pada \textit{dataset} asli dan yang telah diacak juga dilakukan. Pada Tabel~\ref{table:uji-rotation} dapat dilihat sebagian kecil keluaran dari perangkat lunak pengujian yang merupakan contoh perbedaan jarak Euclidean antara sebuah baris yang merepresentasikan sebuah objek data pada \textit{dataset} dengan objek data lainnya. Seluruh objek data pada \textit{dataset} terbukti memiliki jarak Euclidean yang sama pada \textit{dataset} asli dan \textit{dataset} yang telah diacak. Oleh karena itu, dapat disimpulkan bahwa perangkat lunak sudah berfungsi dengan baik dan benar dalam menerapkan teknik \textit{Random Rotation Perturbation}.
+
+\begin{table}
+	\centering
+	\caption{Contoh perbedaan jarak Euclidean antara \textit{dataset diabetes} asli dan yang telah diacak dengan \textit{Random Rotation Perturbation}}
+	\begin{tabular}{ll|ll}
+		\hline
+		Baris&Baris&Asli&Diacak \\ \hline
+		194&199&77.08&77.08 \\
+		194&200&26.53&26.53 \\
+		195&195&0.0&0.0 \\
+		195&196&64.13&64.13 \\
+		195&197&13.56&13.56 \\
+		\hline
+	\end{tabular}
+	\label{table:uji-rotation}
+\end{table}
 
 \subsection{Teknik \textit{Random Projection Perturbation}}
 \label{subsec:rpp-fungsional}
@@ -286,8 +320,8 @@ Pada pengujian yang dilakukan, perangkat lunak berhasil membuat matriks proyeksi
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.45]{mobile_sensor_projection_matrix}
-	\caption{Matriks proyeksi acak yang dibuat perangkat lunak dan disimpan pada sebuah dokumen  \textit{comma-separated values}}
+	\includegraphics[scale=0.495]{mobile_sensor_projection_matrix}
+	\caption{Matriks proyeksi acak yang dibuat perangkat lunak dan disimpan pada sebuah dokumen \textit{comma-separated values}}
 	\label{fig:mobile_sensor_projection_matrix}
 \end{figure}
 
@@ -302,7 +336,7 @@ Berikut akan ditampilkan 7 fitur terakhir serta label pada 20 baris pertama \tex
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.8]{projected_mobile_sensor}
+	\includegraphics[scale=0.85]{projected_mobile_sensor}
 	\caption{Dua puluh baris terakhir \textit{dataset} \textit{mobile\_sensor} setelah diacak}
 	\label{fig:projected_mobile_sensor}
 \end{figure}
@@ -313,7 +347,29 @@ Dalam rangka memastikan lebih lagi apakah perangkat lunak menerapkan teknik \tex
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 
-Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidaksamaan~\ref{eq:epsilon} terpenuhi pada seluruh objek data yang ada pada \textit{dataset}. Ada salah satu kasus saat Pertidaksamaan~\ref{eq:epsilon} tidak terpenuhi yaitu apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar Pertidaksamaan~\ref{eq:epsilon} adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada \textit{dataset} asli dan 9.723888530285468 pada \textit{dataset} yang telah diacak. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
+Pada pengujian ini, dengan nilai variabel \textit{epsilon} sebesar 0.52 Pertidaksamaan~\ref{eq:epsilon} terpenuhi pada seluruh objek data yang ada pada \textit{dataset}. Pada Tabel~\ref{table:uji-projection} dapat dilihat sebagian kecil keluaran dari perangkat lunak pengujian yang merupakan contoh perbedaan jarak Euclidean antara sebuah baris yang merepresentasikan sebuah objek data pada \textit{dataset} dengan objek data lainnya. Salah satu contoh saat Pertidaksamaan~\ref{eq:epsilon} tidak terpenuhi adalah apabila nilai variabel \textit{epsilon} ditentukan sebesar 0.4. Salah satu jarak Euclidean yang melanggar Pertidaksamaan~\ref{eq:epsilon} adalah baris 473 dengan baris 1306 yang memiliki jarak Euclidean sebesar 8.167734238223167 pada \textit{dataset} asli dan 9.723888530285468 pada \textit{dataset} yang telah diacak, perhitungan manual pengujiannya dapat dilihat pada Pertidaksamaan~\ref{eq:uji-rentang}. Pengujian ini membuktikan bahwa perangkat lunak berhasil menerapkan teknik \textit{Random Projection Perturbation} dengan akurat sesuai batas distorsi yang ditentukan pengguna.
+
+\begin{table}
+	\centering
+	\caption{Contoh perbedaan jarak Euclidean antara \textit{dataset mobile\_sensor} asli dan yang telah diacak dengan \textit{Random Projection Perturbation}}
+	\begin{tabular}{ll|ll}
+		\hline
+		Baris&Baris&Asli&Diacak \\ \hline
+		3&3833&5.640583825006142&5.635041851653843\\
+		3&3834&5.493672289123771&5.415793154989641\\
+		3&3835&5.639131752043805&5.6762986347602675\\
+		3&3836&5.474539329815776&5.369571735368663\\
+		3&3837&5.59495589624516&5.518812707950394\\
+		\hline
+	\end{tabular}
+	\label{table:uji-projection}
+\end{table}
+
+\begin{align}
+	(1-eps)||u - v||^{2}&<||p(u) - p(v)||^{2}\nless(1+eps)||u - v||^{2} \label{eq:uji-rentang} \\
+	(1-0.4)8.167734238223167^{2}&<9.723888530285468^{2}\nless(1+0.4)8.167734238223167^{2} \nonumber \\
+	40.02712955174579 &< 94.55400814941728 \nless 93.39663562074017 \nonumber
+\end{align}
 
 \section{Pengujian Eksperimental}
 \label{sec:pengujianeksperimental}
@@ -499,18 +555,18 @@ Teknik penambangan data \textit{k-nearest neighbors} diterapkan menggunakan 8 bu
 
 Akurasi model untuk setiap nilai \textit{k} dari 14 sampai 18 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{diabetes_akurasi_asli} dan Listing~\ref{diabetes_akurasi_randomisasi}. Akurasi tertinggi pada model \textit{k-nearest neighbors} dengan \textit{dataset} asli adalah sebesar 0.7337662337662337 dengan nilai \textit{k} sebesar 16. Nilai yang sama juga muncul pada \textit{dataset} yang telah diacak. Hal ini dapat menjadi bukti bahwa teknik \textit{Random Rotation Perturbation} menjaga jarak Euclidean dengan sempurna, tidak ada perubahan sama sekali pada jarak Euclidean antara seluruh titik. Oleh karena itu model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sama persis.
 
-\noindent\begin{minipage}{.46\textwidth}
+\noindent\begin{minipage}{.48\textwidth}
 	\begin{lstlisting}[caption=\textit{Dataset diabetes} Asli,frame=tlrb, label=diabetes_akurasi_asli]{Name}
-Akurasi setiap K pada 
-training set dataset asli:
+Akurasi setiap K pada training 
+set dataset asli:
 14: 0.7760869565217391
 15: 0.7673913043478261
 16: 0.7608695652173914
 17: 0.7673913043478261
 18: 0.7739130434782608
 
-Akurasi setiap K pada 
-test set dataset asli: 
+Akurasi setiap K pada test 
+set dataset asli: 
 14: 0.7305194805194806
 15: 0.7305194805194806
 16: 0.7337662337662337
@@ -518,7 +574,7 @@ test set dataset asli:
 18: 0.7337662337662337
 	\end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}{.46\textwidth}
+\begin{minipage}{.48\textwidth}
 	\begin{lstlisting}[caption=\textit{Dataset diabetes} Teracak,frame=tlrb, label=diabetes_akurasi_randomisasi]{Name}
 Akurasi setiap K pada training 
 set dataset teracak: 
@@ -558,18 +614,18 @@ Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi mo
 
 Akurasi model untuk setiap nilai \textit{k} dari 19 sampai 23 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_randomisasi}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua \textit{dataset} berbeda. Akurasi \textit{test set} tertinggi pada \textit{dataset} asli adalah sebesar 0.9077027485578555 dengan nilai \textit{k} sebesar 16. Sementara pada \textit{dataset} yang telah diacak, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan pada nilai \textit{k} yang memiliki akurasi tertinggi. Dengan perbedaan akurasi yang relatif kecil dan \textit{dataset} yang telah diacak teracak dengan baik maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan distorsinya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sangat mirip.
 	
-\noindent\begin{minipage}{.46\textwidth}
+\noindent\begin{minipage}{.48\textwidth}
 	\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
-Akurasi setiap K pada 
-training set dataset asli: 
+Akurasi setiap K pada training 
+set dataset asli: 
 19: 0.9659956474428727
 20: 0.9665397170837867
 21: 0.9635473340587595
 22: 0.9642274211099021
 23: 0.9624591947769314
 
-Akurasi setiap K pada 
-test set dataset asli: 
+Akurasi setiap K pada test 
+set dataset asli: 
 19: 0.9070240922972514
 20: 0.9056667797760435
 21: 0.9056667797760435
@@ -577,7 +633,7 @@ test set dataset asli:
 23: 0.9046487953851374
 	\end{lstlisting}
 	\end{minipage}\hfill
-	\begin{minipage}{.46\textwidth}
+	\begin{minipage}{.48\textwidth}
 	\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Teracak,frame=tlrb, label=mobile_sensor_akurasi_randomisasi]{Name}
 Akurasi setiap K pada training 
 set dataset teracak: 
@@ -656,7 +712,7 @@ Pada Gambar~\ref{fig:siluet_mall_customers} terdapat grafik \textit{Silhoutte Sc
 	\label{fig:siluet_mall_customers}
 \end{figure}
 	
-\noindent\begin{minipage}{.46\textwidth}
+\noindent\begin{minipage}{.48\textwidth}
 \begin{lstlisting}[caption=\textit{Dataset mall\_customers} Asli,frame=tlrb, label=mall_customers_siluet_asli]{Name}
 Silhoutte Score setiap K
 pada dataset asli: 
@@ -671,7 +727,7 @@ pada dataset asli:
 10: 0.3750147687842441
 \end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}{.46\textwidth}
+\begin{minipage}{.48\textwidth}
 \begin{lstlisting}[caption=\textit{Dataset mall\_customers} Teracak,frame=tlrb, label=mall_customers_siluet_randomisasi]{Name}
 Silhoutte Score setiap K
 pada dataset teracak: 
@@ -732,7 +788,7 @@ Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Silhoutte Sco
 	\label{fig:siluet_mobile_sensor}
 \end{figure}
 	
-\noindent\begin{minipage}{.46\textwidth}
+\noindent\begin{minipage}{.48\textwidth}
 \begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Asli,frame=tlrb, label=mobile_sensor_siluet_asli]{Name}
 Silhoutte Score setiap K
 pada dataset asli: 
@@ -747,7 +803,7 @@ pada dataset asli:
 10: 0.3854996654126945
 \end{lstlisting}
 \end{minipage}\hfill
-\begin{minipage}{.46\textwidth}
+\begin{minipage}{.48\textwidth}
 \begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Teracak,frame=tlrb, label=mobile_sensor_siluet_randomisasi]{Name}
 Silhoutte Score setiap K
 pada dataset teracak: 
