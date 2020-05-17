@@ -57,7 +57,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_
 
 # ----------------------------------------------------------------------------
 
-neighbors = np.arange(1, 21)
+neighbors = np.arange(1, 11)
 train_accuracy = np.empty(len(neighbors))
 test_accuracy = np.empty(len(neighbors))
 
@@ -107,7 +107,7 @@ print()
 
 start_time = time()
 
-knn = KNeighborsClassifier(n_neighbors = 16)
+knn = KNeighborsClassifier(n_neighbors = k_highest_test_accuracy)
 knn.fit(X_train, y_train)
 
 print("--- Waktu yang dibutuhkan untuk melatih model adalah %s detik ---" % (time() - start_time))
