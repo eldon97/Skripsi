@@ -219,7 +219,7 @@ Kelas \textit{RandomRotationMatrix} adalah kelas statis sehingga tidak bisa diin
 
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomRotationMatrix}.
 \begin{itemize}
-	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks rotasi. Pembuatan matriks rotasi dilakukan dengan mengikuti distribusi Haar~\cite{stewart:80:orthogonal}. Fungsi ini memiliki sebuah parameter yaitu \textit{dimension} yang akan menentukan ukuran atau dimensi matriks rotasi yang ingin dibuat. Kembalian pada fungsi ini adalah sebuah matriks rotasi yang bertipe data objek kelas \textit{Matrix}.
+	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks rotasi. Pembuatan matriks rotasi dilakukan dengan mengikuti distribusi Haar~\cite{stewart:80:orthogonal} dan akan dibantu oleh \textit{library} Scipy\footnote{http://scipy.github.io/devdocs/generated/scipy.stats.special\_ortho\_group.html}. Fungsi ini memiliki sebuah parameter yaitu \textit{dimension} yang akan menentukan ukuran atau dimensi matriks rotasi yang ingin dibuat. Kembalian pada fungsi ini adalah sebuah matriks rotasi yang bertipe data objek kelas \textit{Matrix}.
 \end{itemize}
 
 \subsubsection{Kelas \textit{RandomProjectionMatrix}}
@@ -229,7 +229,7 @@ Kelas \textit{RandomProjectionMatrix} adalah kelas statis sehingga tidak bisa di
 
 Berikut adalah deskripsi setiap fungsi pada kelas \textit{RandomProjectionMatrix}.
 \begin{itemize}
-	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks proyeksi. Pembuatan matriks proyeksi akan dibantu oleh library Scikit-learn\footnote{https://scikit-learn.org/stable/modules/random\_projection.html}. Fungsi ini memiliki 3 buah parameter yaitu epsilon, \textit{k}, dan \textit{originalDimension} yang akan menentukan ukuran matriks proyeksi yang ingin dibuat. Kembalian pada fungsi ini adalah sebuah matriks proyeksi yang bertipe data objek kelas \textit{Matrix}.
+	\item \textit{generate} adalah fungsi statis yang berguna untuk membuat matriks proyeksi. Pembuatan matriks proyeksi akan dibantu oleh \textit{library} Scikit-learn\footnote{https://scikit-learn.org/stable/modules/random\_projection.html}. Fungsi ini memiliki 3 buah parameter yaitu epsilon, \textit{k}, dan \textit{originalDimension} yang akan menentukan ukuran matriks proyeksi yang ingin dibuat. Kembalian pada fungsi ini adalah sebuah matriks proyeksi yang bertipe data objek kelas \textit{Matrix}.
 \end{itemize}
 
 \subsection{Diagram Kelas pada \textit{Package Preprocessor}}

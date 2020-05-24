@@ -280,6 +280,7 @@ Dalam rangka untuk memastikan perangkat lunak berhasil dengan benar menerapkan t
 Setelah ditranslasi, tranformasi rotasi dilakukan dan hasil akhir dapat dilihat pada Persamaan~\ref{eq:rotation-manual}. 
 \begin{align}
 	result &= 28\times-0.27377 + 111\times0.853611 + 127\times-0.44317 \label{eq:rotation-manual}\\
+	&= -7.66556 + 94.750821 - 56.28259 \nonumber \\
 	&= 30.802671 \nonumber
 \end{align}
 Dapat dibandingkan hasil akhir perhitungan manual dengan hasil akhir perangkat lunak pada Gambar~\ref{fig:rotated_mall_customers}, baris pertama pada kolom \textit{Age} memiliki nilai yang sama persis sampai 3 angka di belakang koma (dikarenakan pembulatan pada matriks rotasi untuk visualisasi di dokumen skripsi ini yang dapat dilihat pada Gambar~\ref{fig:mall_rotation_matrix}).
@@ -307,12 +308,12 @@ Pengujian terhadap jarak Euclidean antara seluruh objek data pada \textit{datase
 
 Pengujian teknik \textit{Random Projection Perturbation} akan menggunakan \textit{dataset} \textit{mobile\_sensor}\footnote{https://www.kaggle.com/uciml/human-activity-recognition-with-smartphones} yang berisi data sensor \textit{smartphone} banyak orang yang sedang melakukan aktivitas tertentu yaitu berdiri, duduk, berbaring, berjalan, berjalan menanjak, berjalan menurun. \textit{Dataset} ini memiliki 561 buah fitur (bersifat numerik) dan sebuah label. Seluruh fitur tersebut akan diacak dan diharapkan hasilnya akan mengacak \textit{dataset} sehingga nilai tiap fitur tersebut berbeda dari aslinya. \textit{Dataset} yang telah diacak juga diharapkan masih dapat diterapkan teknik penambangan data dengan hasil yang mirip dengan \textit{dataset} asli.
 
-Beberapa kolom seperti label pada \textit{dataset} \textit{mobile\_sensor} yang ingin diacak harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada \textit{dataset} tersebut saja yang teracak. Nilai variabel \textit{epsilon} yang dipilih pada pengujian ini adalah sebesar 0.52 dan dengan nilai variabel \textit{epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 418.0905. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 418 dengan \textit{dataset} \textit{mobile\_sensor} dan nilai variabel \textit{epsilon} sebesar 0.52. Dapat dilihat Persamaan~\ref{eq:mink} adalah contoh perhitungan manual rumus nilai minimal variabel \textit{k} dengan nilai variabel \textit{epsilon} sebesar 0.52 dan jumlah baris pada \textit{dataset} sebanyak 10299 baris.
+Beberapa kolom seperti label pada \textit{dataset} \textit{mobile\_sensor} yang ingin diacak harus dihilangkan terlebih dahulu agar hanya fitur (bersifat numerik) pada \textit{dataset} tersebut saja yang teracak. Nilai variabel \textit{epsilon} yang dipilih pada pengujian ini adalah sebesar 0.52 dan dengan nilai variabel \textit{epsilon} tersebut nilai minimal variabel \textit{k} adalah sebesar 418.0905. Pada pengujian ini perangkat lunak berhasil menghitung dengan benar nilai minimal variabel \textit{k} yaitu sebesar 418 dengan \textit{dataset} \textit{mobile\_sensor} dan nilai variabel \textit{epsilon} sebesar 0.52. Dapat dilihat Persamaan~\ref{eq:mink} adalah contoh perhitungan manual nilai minimal variabel \textit{k} dengan nilai variabel \textit{epsilon} sebesar 0.52 dan jumlah baris pada \textit{dataset} sebanyak 10299 baris.
 \begin{align}
-	k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \label{eq:mink}\\
-	&= \frac{4\ln{10299}}{\frac{0.52^{2}}{2}-\frac{0.52^{3}}{3}} \nonumber\\
-	&= \frac{36.9592}{0.1352-0.0468} \nonumber\\
-	&= 418.0905 \nonumber
+	k &\geq \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \label{eq:mink}\\
+	&\geq \frac{4\ln{10299}}{\frac{0.52^{2}}{2}-\frac{0.52^{3}}{3}} \nonumber\\
+	&\geq \frac{36.9592}{0.1352-0.0468} \nonumber\\
+	&\geq 418.0905 \nonumber
 \end{align}
 Pada teknik \textit{Random Projection Perturbation} untuk memproyeksikan sebuah \textit{dataset} diperlukan sebuah matriks proyeksi acak. Perangkat lunak diharapkan dapat membuat sebuah matriks proyeksi acak dan menyimpannya ke dalam sebuah dokumen \textit{comma-separated values}. \textit{Dataset} \textit{mobile\_sensor} memiliki 561 buah fitur yang akan diacak dan sesuai dengan nilai minimal vaiabel \textit{k} yang sudah dihitung sebelumnya yaitu sebesar 418 maka ditentukan nilai variabel \textit{k} yang dipakai pada pengujian ini adalah sebesar 427. Oleh karena itu, matriks proyeksi acak yang dibuat perangkat lunak seharusnya berukuran \(427\times427\).
 
