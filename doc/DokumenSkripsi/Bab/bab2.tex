@@ -36,12 +36,12 @@ Pada era teknologi informasi, sangat banyak data terkumpul pada basis data. Data
 
 Penambangan data adalah proses mengekstrak sebuah pola atau sebuah pengetahuan dari kumpulan data yang besar, yang mana dapat direpresentasikan dan diinterpretasikan~\cite{mendes:17:ppdmieee}. Pada penambangan data, teknik \textit{machine learning} dan \textit{pattern recognition} intensif digunakan untuk mendapatkan pola maupun pengetahuan baru dari data. Tujuan utama dari penambangan data adalah untuk membentuk model deskriptif dan prediktif dari suatu data. Model deskriptif berusaha untuk mengubah pola-pola yang ada pada data menjadi deskripsi yang dapat dimengerti oleh orang awam. Sedangkan model prediktif digunakan untuk memprediksi data yang tidak diketahui atau data yang berpotensi muncul di kemudian hari.
 
-Model tersebut biasanya dibuat dengan menggunakan teknik \textit{machine learning}, yang mana terdapat dua teknik \textit{machine learning} yang paling sering digunakan yaitu \textit{classification} dan \textit{clustering}. Subbab berikutnya akan menjelaskan secara singkat kedua teknik tersebut dan contoh algoritmanya.
+Model tersebut biasanya dibuat dengan menggunakan teknik \textit{machine learning}, yang mana terdapat dua teknik \textit{machine learning} yang paling sering digunakan yaitu klasifikasi dan \textit{clustering}. Subbab berikutnya akan menjelaskan secara singkat kedua teknik tersebut dan contoh algoritmanya.
 
-\subsection{\textit{Classification}}
-\label{subsec:classification}
+\subsection{Klasifikasi}
+\label{subsec:klasifikasi}
 
-Tujuan utama \textit{Classification} (klasifikasi) adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data~\cite{mendes:17:ppdmieee}. Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas.
+Tujuan utama klasifikasi adalah membuat model yang dalam kasus ini disebut \textit{classifier} yang mana dapat mengidentifikasi nilai kelas dari suatu data~\cite{mendes:17:ppdmieee}. Dalam kata lain, sebuah \textit{classifier} dibuat dari sebuah \textit{training set} dan model ini digunakan untuk mengklasifikasi data tidak diketahui ke dalam salah satu kelas.
 
 Ada dua tahap dalam proses klasifikasi yaitu tahap latihan dan tahap klasifikasi. Pada tahap latihan, model akan dibuat dengan menggunakan \textit{training set}. \textit{Training set} yang dimaksud adalah data yang sudah diketahui kelasnya sehingga model yang ada melatih dirinya. Setelah \textit{classifier} terbentuk, barulah tahap klasifikasi dapat dilakukan dengan menggunakan \textit{classifier} yang tadi sudah dibuat. \textit{Classifier} akan memprediksi data yang kelasnya tidak diketahui. \textit{Classifier} akan semakin baik performanya seiring dengan banyaknya tahap latihan yang dilakukan.
 
@@ -60,7 +60,19 @@ Berikut langkah kerja dari teknik \textit{K-nearest Neighbors}.
 	\item Ambil label dari semua rekord yang terpilih pada langkah sebelumnya. Label terbanyak adalah hasil prediksi label pada rekord yang ingin diprediksi.
 \end{enumerate}
 
-Dalam mengevaluasi model klasifikasi dapat dihitung akurasi model dalam memprediksi suata data. Akurasi pada model klasifikasi berupa persentase jumlah prediksi yang benar dengan jumlah data yang diprediksi~\cite{jiawei:12:datmin}. Misalkan apabila model klasifikasi menebak dengan benar 8 buah objek data dari total berjumlah 10 objek data, berarti model tersebut memiliki akurasi sebesar 80\%.
+Dalam mengevaluasi model klasifikasi dapat dihitung akurasi model dalam memprediksi label suatu data. Akurasi pada model klasifikasi berupa persentase jumlah prediksi yang benar dengan jumlah data yang diprediksi~\cite{jiawei:12:datmin}. Misalkan apabila model klasifikasi menebak dengan benar 8 buah objek data dari total berjumlah 10 objek data, berarti model tersebut memiliki akurasi sebesar 80\%. Berikut akan dijelaskan rumus untuk menghitung akurasi model klasifikasi.
+
+Misalkan sebuah \textit{dataset} yang sudah berlabel dan hanya memiliki 2 buah kelas label yang masing-masing akan disebut dengan \textit{positive tuples} dan \textit{negative tuples}. \textit{Dataset} tersebut dibagi menjadi 2 bagian masing-masing yaitu \textit{training set} dan \textit{test set}. Model klasifikasi akan dilatih dengan \textit{training set}. Kemudian model tersebut akan dipakai untuk memprediksi label pada \textit{test set}. Rumus untuk menghitung akurasi model tersebut memprediksi \textit{test set} dapat dilihat pada Persamaan~\ref{eq:akurasi}.
+\begin{equation}\label{eq:akurasi}
+	akurasi=\frac{TP+TN}{P+N}
+\end{equation}
+Berikut akan dijelaskan variabel-variabel yang ada pada Persamaan~\ref{eq:akurasi}.
+\begin{itemize}
+	\item \(P\) adalah jumlah objek data yang memiliki label \textit{positive tuples}.
+	\item \(N\) adalah jumlah objek data yang memiliki label \textit{negative tuples}.
+	\item \(TP\) (\textit{true positives}) adalah jumlah objek data yang diprediksi dengan benar oleh model klasifikasi bahwa labelnya adalah \textit{positive tuples}.
+	\item \(TN\) (\textit{true negatives}) adalah jumlah objek data yang diprediksi dengan benar oleh model klasifikasi bahwa labelnya adalah \textit{negative tuples}.
+\end{itemize}
 
 \subsection{\textit{Clustering}}
 \label{subsec:clustering}
@@ -150,16 +162,34 @@ Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik l
 
 Ide utama dari teknik \textit{Random Noise Addition}~\cite{agrawalsrikant:00:randomnoise} adalah mendistorsi nilai pada data dengan cara menambahkan \textit{random noise} yang diambil dari distribusi \textit{Uniform} atau \textit{Gaussian} dan memiliki rata-rata bernilai 0. Tetapi menurut penelitian yang telah dilakukan, distribusi \textit{Gaussian} lebih baik digunakan untuk teknik ini. \textit{Random noise} yang digunakan memiliki nilai yang berbeda untuk setiap nilai pada data.
 
-Dengan teknik \textit{Random Noise Addition}, dari data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Gambar~\ref{fig:rnaalgorithm}.
+Dengan teknik \textit{Random Noise Addition}, dari data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Algoritma~\ref{alg:rekonstruksi}. Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena teknik \textit{Random Noise Addition} hanya menjaga distribusi pada data maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
 
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.4]{rnaalgorithm}
-	\caption{Algoritma rekonstruksi}
-	\label{fig:rnaalgorithm}
-\end{figure}
+\begin{algorithm}
+	\DontPrintSemicolon\SetAlgoNoLine\LinesNumbered
+	\SetKwInOut{Input}{Masukan}
+	\SetKwInOut{Output}{Keluaran}
+	\SetKwInOut{Assume}{Asumsi}
+	\SetKwProg{Fn}{Function}{:}{}
+	\SetKwFunction{rekonstruksi}{rekonstruksiDistribusi}
+	
+	\setcounter{AlgoLine}{0}
+	\Fn{\rekonstruksi{$data$}}{
+		\Input{Data yang telah diacak}
+		\Output{Distribusi data yang asli hasil rekonstruksi}
+		\BlankLine
+		\Begin{
+			$f_{X}^{0}:=$Uniform distribusion\;
+			$j:=0$\;
+			\Repeat{stopping criterion met}{
+				$f_{X}^{j+1}(a):=\frac{1}{n}\sum_{i=1}^{n}\frac{f_{Y}(w_{i}-a)f_{X}^{j}(a)}{\int^{\infty}_{-\infty}f_{Y}(w_{i}-z)f_{X}^{j}(z)dz}$\;
+				$j:=j+1$\;
+			}
+		}
+	}
 
-Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena teknik \textit{Random Noise Addition} hanya menjaga distribusi pada data maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
+	\caption{Merekonstruksi distribusi data yang asli dari data yang telah diacak}
+	\label{alg:rekonstruksi}
+\end{algorithm}
 
 Modifikasi pada algoritma penambangan data yang digunakan juga perlu dilakukan. Contohnya apabila algoritma pohon keputusan digunakan, maka perlu modifikasi pada algoritma pohon keputusan tersebut. Hal ini menimbulkan masalah pada aplikasi pada dunia nyata karena tidak efisien dan memakan waktu untuk memodifikasi setiap algoritma yang ingin digunakan untuk menyesuaikan dengan teknik \textit{Random Noise Addition}. Masalah mengenai algoritma yang dapat digunakan juga menjadi perhatian karena teknik \textit{Random Noise Addition} hanya dapat digunakan untuk algoritma yang bergantung pada distribusi saja sedangkan teknik lain tidak menjaga distribusi pada data sehigga sulit untuk membandigkan dengan teknik lain pada penelitian ini. Ada juga penelitian yang mengatakan bahwa teknik \textit{Random Noise Addition} ini memiliki kualitas yang kurang baik dalam menjaga privasi data karena banyaknya celah yang dapat diserang pada teknik ini. Oleh karena masalah-masalah tersebut, akhirnya teknik ini juga tidak akan digunakan untuk penelitian ini. Teknik \textit{Random Projection Perturbation} akan digunakan untuk menggantikan teknik \textit{Random Noise Addition}.
 
@@ -199,7 +229,7 @@ Ide utama dari teknik \textit{Random Projection Perturbation} adalah mereduksi d
 \begin{theorem}[\textit{JOHNSON-LINDENSTRAUSS LEMMA}]
 	For any \(0 < \epsilon < 1\) and any integer \(s\), let \(k\) be a positive integer such that \(k\) \(\geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}\). Then, for any set \(S\) of \(s = |S|\) data points in \({\rm I\!R}^{m}\), there is a map \(f : {\rm I\!R}^{m} \rightarrow {\rm I\!R}^{k}\) such that, for all \(x, y \in S\), \((1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}\), where \(||.||\) denotes the vector 2-norm.
 \end{theorem}
-Inti dari Lemma ini menunjukkan bahwa titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean berdimensi lebih kecil dari \(d\) tetapi jarak Euclidean antara dua titik tetap terjaga dengan distorsi yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya distorsi yang muncul, akurasi pada model yang dibuat dengan data tersebut akan berkurang dibandingkan data aslinya.~\cite{kargupta:06:projection}
+Inti dari Lemma ini menunjukkan bahwa titik-titik pada bidang Euclidean \(d\)-dimensi dapat diproyeksikan ke bidang Euclidean yang berdimensi lebih kecil dari \(d\) tetapi jarak Euclidean antara setiap titik tetap terjaga dengan distorsi yang terkontrol tetapi dengan syarat \(d\) harus cukup besar. Oleh karena adanya distorsi yang muncul, akurasi pada model yang dibuat dengan data tersebut akan berkurang dibandingkan data aslinya.~\cite{kargupta:06:projection}
 
 \textit{Projection perturbation} dari \textit{dataset} X didefinisikan sebagai berikut.
 \begin{equation}

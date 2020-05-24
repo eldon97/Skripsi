@@ -29,14 +29,14 @@ Transformasi rotasi mempunyai kelemahan yaitu apabila ada titik pada bidang Eucl
 \subsubsection{Teknik \textit{Random Projection Perturbation}}
 \label{subsubsec:analisis-projection}
 
-Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. \textit{Error} terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi diterapkan ditentukan oleh nilai variabel \textit{epsilon} dengan pertidaksamaan sebagai berikut menunjukkan rentang jarak Euclidean sebuah objek data setelah diproyeksi.
-\begin{equation}
+Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. Distorsi terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi dilakukan ditentukan oleh nilai variabel \textit{epsilon} dengan Pertidaksamaan~\ref{eq:epsilon} yang menunjukkan rentang jarak Euclidean sebuah objek data dengan sebuah objek data yang lain setelah diproyeksi.
+\begin{equation}\label{eq:epsilon}
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 Pertidaksamaan di atas menyatakan bahwa kuadrat dari jarak Euclidean antara dua buah titik setelah diproyeksi tidak akan kurang dari kuadrat jarak Euclidean aslinya dikalikan \((1-eps)\) dan tidak akan lebih dari kuadrat jarak Euclidean aslinya dikalikan \((1+eps)\). Lemma \textit{Johnson-Lindenstrauss} menjamin bahwa jarak Euclidean pada data setelah diproyeksi hanya akan berada pada rentang tersebut dan bisa saja jarak Euclidean setelah diproyeksi sangat dekat dengan jarak Euclidean aslinya karena belum tentu jarak Euclidean data setelah diproyeksi menyentuh batas pertidaksamaan tersebut. Tetapi pertidaksamaan ini juga dapat menyatakan bahwa jarak Euclidean setelah diproyeksi dengan aslinya tidak mungkin sama persis.
 
-Agar pertidaksamaan sebelumnya berlaku ada persyaratan yang harus dipenuhi yaitu nilai minimal variabel \(k\) atau dengan kata lain target dimensi terkecilnya proyeksi dilakukan harus memenuhi persamaan berikut.
-\begin{equation}
+Agar pertidaksamaan sebelumnya berlaku ada persyaratan yang harus dipenuhi yaitu nilai minimal variabel \(k\) atau dengan kata lain target dimensi terkecilnya proyeksi dilakukan harus memenuhi Pertidaksamaan~\ref{eq:nilaik}.
+\begin{equation}\label{eq:nilaik}
 	k \geq 4(\epsilon^{2}/2-\epsilon^{3}/3)^{-1}\ln{n}
 \end{equation}
 Variabel \(n\) pada persamaan tersebut adalah jumlah titik pada bidang Euclidean atau dengan kata lain jumlah baris pada \textit{dataset} yang ingin diacak. Dengan melihat persamaan tersebut maka bisa disimpulkan bahwa dimensi minimal sebuah \textit{dataset} diproyeksikan berbanding lurus dengan jumlah baris pada \textit{dataset} tersebut. Apabila sebuah \textit{dataset} diproyeksikan ke dimensi paling minimal dan diterapkan teknik penambangan data sehingga menghasilkan sebuah model penambangan data dengan data latihannya adalah \textit{dataset} tersebut maka model tersebut akan melanggar persamaan di atas jika model tersebut dilatih kembali dengan data yang baru karena artinya bidang Euclidean yang disebutkan tadi akan memiliki titik yang lebih banyak, nilai \(n\) yang lebih besar. 
@@ -122,8 +122,8 @@ Dalam rangka untuk lebih memahami bagaimana cara kerja teknik \textit{Random Rot
 
 Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diaplikasikan pada \textit{dataset} \textit{iris} pada Tabel~\ref{table:iris_table}.
 \begin{enumerate}
-    \item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan.
-    \[
+    \item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan. Matriks tersebut dapat dilihat pada Matriks~\ref{eq:matriks-dataset} dan selanjutnya akan disebut sebagai matriks \textit{dataset}.
+    \begin{equation}\label{eq:matriks-dataset}
         \begin{bmatrix}
         5.1		&		3.5		&		1.4		&		0.2	\\
         4.9		&		3		&		1.4		&		0.2	\\
@@ -135,9 +135,9 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
         5		&		3.4		&		1.5		&		0.2	\\
         4.4		&		2.9		&		1.4		&		0.2 
         \end{bmatrix}_{9\times 4}
-    \]
-    \item Membuat matriks translasi yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0,100] dengan dimensi sesuai dimensi matriks \textit{dataset}.
-    \[
+    \end{equation}
+    \item Membuat matriks translasi yang diambil mengikuti distribusi \textit{uniform} dengan rentang [0,100] dengan dimensi sesuai dimensi matriks \textit{dataset}. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-translasi}.
+    \begin{equation}\label{eq:matriks-translasi}
         \begin{bmatrix}
             1				&		0				&		0				&		0			&		0 \\
             0				&		1				&		0				&		0			&		0 \\
@@ -145,9 +145,9 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
             0				&		0				&		0				&		1 			&		0 \\
             71.35281261		&		93.96479736		&		77.16763568		&		27.88189356 &		1 \\
         \end{bmatrix}_{5\times 5}
-    \]
-    \item Untuk keperluan translasi, matriks \textit{dataset} ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya.
-    \[
+    \end{equation}
+    \item Untuk keperluan translasi, matriks \textit{dataset} yang dapat dilihat pada Matriks~\ref{eq:matriks-dataset} ditambahkan sebuah kolom dengan nilai 1 pada setiap barisnya. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-dataset-translasi}.
+    \begin{equation}\label{eq:matriks-dataset-translasi}
         \begin{bmatrix}
             5.1		&		3.5		&		1.4		&		0.2		&		1 \\
             4.9		&		3		&		1.4		&		0.2		&		1 \\
@@ -159,31 +159,9 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
             5		&		3.4		&		1.5		&		0.2		&		1 \\
             4.4		&		2.9		&		1.4		&		0.2		&		1
         \end{bmatrix}_{9\times 5}
-    \]
-    \item Dilakukan transformasi translasi dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} dengan matriks translasi.
-    \[
-        \begin{bmatrix}
-            5.1		&		3.5		&		1.4		&		0.2		&		1 \\
-            4.9		&		3		&		1.4		&		0.2		&		1 \\
-            4.7		&		3.2		&		1.3		&		0.2		&		1 \\
-            4.6		&		3.1		&		1.5		&		0.2		&		1 \\
-            5		&		3.6		&		1.4		&		0.2		&		1 \\
-            5.4		&		3.9		&		1.7		&		0.4		&		1 \\
-            4.6		&		3.4		&		1.4		&		0.3		&		1 \\
-            5		&		3.4		&		1.5		&		0.2		&		1 \\
-            4.4		&		2.9		&		1.4		&		0.2		&		1
-        \end{bmatrix} 
-        \times
-        \begin{bmatrix}
-            1				&		0				&		0				&		0				&		0 \\
-            0				&		1				&		0				&		0				&		0 \\
-            0				&		0				&		1				&		0				&		0 \\
-            0				&		0				&		0				&		1				&		0 \\
-            71.35281261		&		93.96479736		&		77.16763568		&		27.88189356		&		1 \\
-        \end{bmatrix} 
-    \]
-    \item Berikut adalah hasil translasi pada matriks \textit{dataset}. Dapat dilihat kolom terakhir adalah kolom yang harus dibuang karena kolom tersebut ada hanya untuk melakukan transformasi translasi yang sudah dilakukan pada langkah sebelumnya.
-    \[
+    \end{equation}
+    \item Dilakukan transformasi translasi terhadap matriks \textit{dataset} dengan matriks translasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} yang dapat dilihat pada Matriks~\ref{eq:matriks-dataset-translasi} dengan matriks translasi yang dapat dilihat pada Matriks~\ref{eq:matriks-translasi}. Hasil translasi pada matriks \textit{dataset} dapat dilihat pada Matriks~\ref{eq:matriks-hasil-translasi}. Dapat dilihat kolom terakhir adalah kolom yang harus dibuang karena kolom tersebut ada hanya untuk melakukan transformasi translasi yang telah dilakukan.
+    \begin{equation}\label{eq:matriks-hasil-translasi}
         \begin{bmatrix}
             76.45281261  & 97.46479736 &  78.56763568 &  28.08189356 & 1 \\
             76.25281261  & 96.96479736 &  78.56763568 &  28.08189356 & 1 \\
@@ -195,19 +173,18 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
             76.35281261  & 97.36479736 &  78.66763568 &  28.08189356 & 1 \\
             75.75281261  & 96.86479736 &  78.56763568 &  28.08189356 & 1 \\
         \end{bmatrix}_{9\times 5}
-    \]
-    \item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial \textit{orthogonal} yang berdimensi sesuai dimensi matriks \textit{dataset}. Matriks rotasi berikut dibuat dengan menggunakan \textit{library} Scipy\footnote{http://scipy.github.io/devdocs/generated/scipy.stats.special\_ortho\_group.html} pada bahasa pemograman Python.
-    \[
+    \end{equation}
+    \item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial \textit{orthogonal} yang berdimensi sesuai dimensi matriks \textit{dataset}. Matriks rotasi berikut dibuat dengan menggunakan \textit{library} Scipy\footnote{http://scipy.github.io/devdocs/generated/scipy.stats.special\_ortho\_group.html} pada bahasa pemograman Python. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-rotasi}.
+    \begin{equation}\label{eq:matriks-rotasi}
         \begin{bmatrix}
             -0.45126938		&		-0.70425922		&		 0.32389616		&		0.44211556 \\
             -0.43989334		&		 0.70728617		&		 0.39249528		&		0.39011226 \\
             -0.17797534		&		 0.06110969		&		-0.83056872		&		0.52416218 \\
              0.75576092		&		 0.00555185		&		 0.22626167		&		0.61449187 \\
         \end{bmatrix}_{4\times 4}
-    \]
-    \item Dilakukan transformasi rotasi dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} dengan matriks rotasi
-    \item Berikut adalah hasil rotasi pada matriks \textit{dataset}. Hasil teknik \textit{Random Rotation Perturbation} pada \textit{dataset} \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data.
-    \[
+    \end{equation}
+    \item Dilakukan transformasi rotasi terhadap matriks \textit{dataset} dengan matriks rotasi yang telah dibuat pada langkah sebelumnya dengan cara mengkalikan matriks \textit{dataset} yang dapat dilihat pada Matriks~\ref{eq:matriks-hasil-translasi} dengan matriks rotasi yang dapat dilihat pada Matriks~\ref{eq:matriks-rotasi}. Hasil rotasi dapat dilihat pada Matriks~\ref{eq:matriks-hasil-rotasi}. Hasil dari penerapan teknik \textit{Random Rotation Perturbation} pada \textit{dataset iris} ini sudah dapat langsung digunakan untuk penambangan data.
+    \begin{equation}\label{eq:matriks-hasil-rotasi}
         \begin{bmatrix}
         -70.13483265  &  20.05005561  &   4.11528068  & 130.26146931 \\
         -69.8246321   &  19.83726437  &   3.85425381 &  129.97799007 \\
@@ -219,7 +196,7 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
         -70.06351391 &   20.05586388   &  3.96058467 &  130.23066274 \\
         -69.55500808  &  20.11866536  &   3.65305621  & 129.71792106 \\
         \end{bmatrix}_{9\times 4}
-    \]
+    \end{equation}
 \end{enumerate} 
 
 \subsection{\textit{Random Projection Perturbation}}
@@ -229,8 +206,8 @@ Teknik \textit{Random Projection Perturbation} memiliki persyaratan pada \textit
 
 Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diaplikasikan pada \textit{dataset} \textit{iris} pada Tabel~\ref{table:iris_table}.
 \begin{enumerate}
-    \item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan.
-    \[
+    \item Fitur-fitur pada \textit{dataset} tersebut yang berbentuk tabel akan direpresentasikan sebagai matriks. Labelnya tidak diikutsertakan. Matriks tersebut dapat dilihat pada Matriks~\ref{eq:matriks-dataset-proyeksi} dan selanjutnya akan disebut sebagai matriks \textit{dataset}.
+    \begin{equation}\label{eq:matriks-dataset-proyeksi}
         \begin{bmatrix}
         5.1		&		3.5		&		1.4		&		0.2	\\
         4.9		&		3		&		1.4		&		0.2	\\
@@ -242,8 +219,8 @@ Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diap
         5		&		3.4		&		1.5		&		0.2	\\
         4.4		&		2.9		&		1.4		&		0.2 
         \end{bmatrix}_{9\times 4}
-    \]
-    \item Ditentukan nilai \(\epsilon\) (\textit{epsilon}) yang diinginkan adalah 0.5. Dengan rumus berikut dapat dihitung untuk melihat rentang jarak Euclidean antara sebuah titik yang merepresentasikan sebuah objek data dan titik lainnya dari \textit{dataset} yang telah diproyeksi. Contoh yang akan diberikan berikut menguji rentang jarak Euclidean antara baris ke-6 dan ke-9 setelah diproyeksi.
+    \end{equation}
+    \item Ditentukan nilai \(\epsilon\) (\textit{epsilon}) yang diinginkan adalah 0.5. Dengan menggunakan Pertidaksamaan~\ref{eq:epsilon} dapat dihitung untuk melihat rentang jarak Euclidean antara sebuah titik yang merepresentasikan sebuah objek data dan titik lainnya dari \textit{dataset} yang telah diproyeksi. Contoh yang akan diberikan berikut menguji rentang jarak Euclidean antara baris ke-6 dan ke-9 setelah diproyeksi.
     \begin{align*}
         ||u - v||^{2} &= (5.4-4.4)^2 + (3.9-2.9)^2 + (1.7-1.4)^2 + (0.4-0.2)^2
         \\
@@ -256,46 +233,25 @@ Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diap
         \\
         1.065&<||p(u) - p(v)||^{2}<3.195
     \end{align*}
-    \item Nilai minimal variabel \(k\) (dimensi minimal) dihitung dengan rumus berikut.
+    \item Nilai minimal variabel \(k\) (dimensi minimal) dihitung dengan Pertidaksamaan~\ref{eq:nilaik}.
     \begin{align*}
-        k &= \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
-        &= \frac{4\ln{1000}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
-        &= \frac{27.63}{0.125-0.041666} \\
-        &= 331.57
+        k &\geq \frac{4\ln{n}}{\frac{\epsilon^{2}}{2}-\frac{\epsilon^{3}}{3}} \\
+        &\geq \frac{4\ln{1000}}{\frac{0.5^{2}}{2}-\frac{0.5^{3}}{3}} \\
+        &\geq \frac{27.63}{0.125-0.041666} \\
+        &\geq 331.57
     \end{align*}
-    \item Nilai variabel \(k\) dipilih sesuai keinginan, dalam kasus ini dipilih nilai \(k\) sebesar 332. Untuk keperluan kemudahan dalam melakukan studi kasus, nilai \(k\) yang digunakan adalah 3.
-    \item Membuat matriks proyeksi berukuran \(d \times k\) dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Untuk keperluan kemudahan dalam melakukan studi kasus, \textit{dataset} \textit{iris} akan direduksi dimensinya menjadi 3 dimensi.
-    \[
+    \item Nilai variabel \(k\) dipilih sesuai keinginan, dalam kasus ini dipilih nilai \(k\) sebesar 332. Tetapi untuk keperluan kemudahan dalam melakukan studi kasus, nilai \(k\) yang digunakan adalah 3 saja.
+    \item Membuat matriks proyeksi berukuran \(d \times k\) dengan cara membuat matriks acak yang diambil mengikuti distribusi normal dengan rata-rata bernilai 0 dan standar deviasi bernilai \(1/\sqrt{k}\). Untuk keperluan kemudahan dalam melakukan studi kasus, \textit{dataset} \textit{iris} akan direduksi dimensinya menjadi 3 dimensi. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-proyeksi}.
+    \begin{equation}\label{eq:matriks-proyeksi}
         \begin{bmatrix}
         0.11483014 &  -0.10167359  &  0.06652355 \\
         0.0638684 &   -0.1499892   &  0.10146435 \\
         -0.10429573 &   0.03839861 &   0.04955419 \\
         -0.0315941  &  -0.06905021  & -0.17782438 \\
         \end{bmatrix}_{4\times 3}
-    \]
-    \item Dilakukan proyeksi dengan cara mengkalikan matriks \textit{dataset} dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya.
-    \[
-        \begin{bmatrix}
-        5.1		&		3.5		&		1.4		&		0.2	\\
-        4.9		&		3		&		1.4		&		0.2	\\
-        4.7		&		3.2		&		1.3		&		0.2	\\
-        4.6		&		3.1		&		1.5		&		0.2	\\
-        5		&		3.6		&		1.4		&		0.2	\\
-        5.4		&		3.9		&		1.7		&		0.4	\\
-        4.6		&		3.4		&		1.4		&		0.3	\\
-        5		&		3.4		&		1.5		&		0.2	\\
-        4.4		&		2.9		&		1.4		&		0.2 
-        \end{bmatrix}
-        \times
-        \begin{bmatrix}
-        0.11483014 &  -0.10167359  &  0.06652355 \\
-        0.0638684 &   -0.1499892   &  0.10146435 \\
-        -0.10429573 &   0.03839861 &   0.04955419 \\
-        -0.0315941  &  -0.06905021  & -0.17782438 \\
-        \end{bmatrix}
-    \]
-    \item Berikut adalah hasil matriks yang telah diproyeksi. Hasil dari teknik \textit{Random Projection Perturbation} pada \textit{dataset} \textit{iris} ini sudah dapat langsung digunakan untuk dilakukan penambangan data.
-    \[
+    \end{equation}
+    \item Dilakukan proyeksi dengan cara mengkalikan matriks \textit{dataset} yang dapat dilihat pada Matriks~\ref{eq:matriks-dataset-proyeksi} dengan matriks proyeksi yang telah dibuat pada langkah sebelumnya dan dapat dilihat pada Matriks~\ref{eq:matriks-proyeksi}. Hasil proyeksi dapat dilihat pada Matriks~\ref{eq:matriks-hasil-proyeksi}. Hasil dari penerapan teknik \textit{Random Projection Perturbation} pada \textit{dataset iris} ini sudah dapat langsung digunakan untuk penambangan data.
+    \begin{equation}\label{eq:matriks-hasil-proyeksi}
         \begin{bmatrix}
         0.65684027 &  -1.0035495   &  0.72820632 \\
         0.60194004 &  -0.90822018  &  0.66416944 \\
@@ -307,7 +263,7 @@ Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diap
         0.62854085  & -0.97454336  &  0.71636295 \\
         0.53813813  & -0.84238446  &  0.62076123 \\
         \end{bmatrix}_{9\times 3}
-    \]
+    \end{equation}
 \end{enumerate}
 
 \section{Gambaran Umum Perangkat Lunak}

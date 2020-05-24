@@ -4,9 +4,9 @@
    
 \section{Latar Belakang}
 \label{sec:latar}
-Dengan semakin banyaknya penambangan data yang dilakukan dan data yang digunakan juga semakin banyak, semakin banyak juga privasi di dalam data tersebut yang tersebar kepada pihak yang melakukan penambangan data. Data privasi tersebut dapat tersebar kepada pihak yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah privasi tersebar pada proses penambangan data, menjaga privasi pada data tersebut. Istilah untuk hal tersebut adalah \textit{privacy preserving data mining}.
+Dengan semakin banyaknya penambangan data yang dilakukan dan data yang digunakan juga semakin banyak, semakin banyak juga privasi di dalam data tersebut yang tersebar kepada pihak yang melakukan penambangan data. Data privasi tersebut dapat tersebar kepada pihak yang tidak bertanggung jawab dan disalahgunakan. Oleh karena itu perlu adanya suatu cara untuk mencegah privasi tersebar pada proses penambangan data, menjaga privasi pada data tersebut. Istilah untuk hal tersebut adalah \textit{privacy preserving data mining}~\cite{rezaseifi:11:ppdm}.
 
-Ada kesulitan dalam menentukan data seperti apa yang dapat disebut sebagai privasi. Privasi dapat dikatakan adalah sebuah informasi personal seseorang yang dapat mengidentifikasi suatu hal pada orang tersebut. Konsep yang sering kali digunakan untuk mendeskripsikan informasi personal adalah\textit{Personally Identifiable Information} yang disingkat PII. PII adalah segala informasi mengenai individu yang dikelola oleh sebuah instansi, termasuk segala informasi yang dapat digunakan untuk membedakan atau mengusut identitas seseorang dan juga segala informasi yang berhubungan atau dapat dihubungkan kepada suatu individu, seperti informasi medis, pendidikan, finansial, dan pekerjaan seseorang. 
+Ada kesulitan dalam menentukan data seperti apa yang dapat disebut sebagai privasi. Privasi dapat dikatakan adalah sebuah informasi personal seseorang yang dapat mengidentifikasi suatu hal pada orang tersebut. Konsep yang sering kali digunakan untuk mendeskripsikan informasi personal adalah \textit{Personally Identifiable Information} yang disingkat PII. PII~\cite{nist:08:pii} adalah segala informasi mengenai individu yang dikelola oleh sebuah instansi, termasuk segala informasi yang dapat digunakan untuk membedakan atau mengusut identitas seseorang dan juga segala informasi yang berhubungan atau dapat dihubungkan kepada suatu individu, seperti informasi medis, pendidikan, finansial, dan pekerjaan seseorang. 
 
 Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah dengan melakukan modifikasi data yang ada sebelum diberikan kepada pihak lain. Ada macam-macam teknik dan algoritma yang bertujuan modifikasi data untuk \textit{privacy preserving data mining}, dibagi menjadi dua jenis yaitu \textit{Perturbation Approach} dan \textit{Anonymization Approach}. \textit{Perturbation Approach} adalah pendekatan untuk \textit{privacy preserving data mining} dengan cara mengacaukan data yang ada, tetapi hasil data yang dikacaukan masih tetap dapat ditambang. \textit{Perturbation Approach} dapat dibagi menjadi dua jenis yaitu \textit{Value-based Perturbation Techniques} dan \textit{Multi-Dimensional Perturbation}.
 
@@ -19,9 +19,9 @@ Salah satu cara untuk melakukan \textit{privacy preserving data mining} adalah d
 
 \textit{Value-based Perturbation Techniques} adalah teknik yang bekerja dengan cara menyisipkan \textit{random noise} pada data. Sedangkan terdapat dua jenis teknik \textit{Multi-Dimensional Perturbation} yaitu \textit{Data mining Task-based Perturbation} dan \textit{Dimension Reduction-based Perturbation}. \textit{Data mining Task-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sehingga properti yang bertahan pada data yang telah dimodifikasi spesifik hanya properti yang digunakan oleh suatu teknik penambangan data tertentu. Sedangkan \textit{Dimension Reduction-based Perturbation} adalah teknik yang bekerja dengan cara modifikasi data sekaligus mengurangi dimensi dari data asli.
 
-Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar~\ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}.
+Dari berbagai macam teknik modifikasi data untuk \textit{privacy preserving data mining} yang dapat dilihat pada Gambar~\ref{fig:ppdm}, terdapat empat teknik yang menggunakan metode \textit{Randomization} yaitu \textit{Random Noise Addition}, \textit{Randomized Response}, \textit{Random Rotation Perturbation}, dan \textit{Random Projection Perturbation}. Pada penelitian ini, akan dibuat sebuah perangkat lunak yang dapat memproses data yang akan ditambang menjadi data yang telah dimodifikasi dengan metode \textit{Randomization} sehingga privasi pada data tersebut terlindungi, tetapi masih dapat ditambang. Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih dua buah teknik yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk diimplementasikan pada perangkat lunak serta membandingkan hasil dari kedua teknik tersebut.
 
-Pada penelitian ini, akan dibuat sebuah perangkat lunak yang dapat memproses data yang akan ditambang menjadi data yang telah dimodifikasi dengan metode \textit{Randomization} sehingga privasi pada data tersebut terlindungi, tetapi masih dapat ditambang. Dari berbagai macam teknik dengan metode \textit{Randomization} yang ada, dipilih dua buah teknik yaitu \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk diimplementasikan pada perangkat lunak serta membandingkan hasil dari kedua teknik tersebut.
+Pengujian akan dilakukan dengan menerapkan penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} dan penambangan data \textit{clustering} dengan algoritma \textit{k-means}. Pada penambangan data klasifikasi akan dihitung akurasinya dan dibandingkan antara model yang dilatih dengan \textit{dataset} asli dan \textit{dataset} yang telah diacak dengan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}. Tujuannya untuk melihat apakah antara kedua model tersebut memiliki akurasi yang sama. Pada penambangan data \textit{clustering}, \textit{dataset} asli dan \textit{dataset} yang telah diacak akan digunakan untuk membuat model \textit{clustering}. Kemudian visualisasi hasil \textit{clustering}-nya akan dibandingkan untuk melihat hasil \textit{cluster} tersebut apakah sama. Kemiripan model \textit{clustering} juga akan dihitung dengan metode \textit{Adjusted Rand Index}. Tujuannya untuk melihat apakah antara kedua model tersebut memiliki hasil \textit{cluster} yang sama.
 
 \section{Rumusan Masalah}
 \label{sec:rumusan}
@@ -38,17 +38,15 @@ Berdasarkan rumusan masalah, maka tujuan dari penelitian ini adalah sebagai beri
 \begin{enumerate}
 	\item Mempelajari cara kerja dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} untuk \textit{privacy preserving data mining}.
 	\item Mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} pada perangkat lunak.
-	\item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
+	\item Melakukan analisis dan pengujian untuk membandingkan hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation} dengan menggunakan penambangan data.
 \end{enumerate}
 
 \section{Batasan Masalah}
 \label{sec:batasan}
 Batasan-batasan masalah untuk penelitian ini adalah sebagai berikut.
 \begin{enumerate}
-    \item Penelitian ini hanya menguji apakah \textit{dataset} yang telah diacak dapat digunakan untuk penambangan data dan menghasilkan kualitas yang sama atau mendekati aslinya.
-    \item Penelitian ini tidak menguji kualitas privasi yang hilang atau apakah ada potensi \textit{dataset} yang telah diacak dapat dikembalikan ke aslinya.
-    \item Penelitian ini hanya menguji dengan teknik penambangan data tertentu dengan metode tertentu dan menggunakan data tertentu saja yang telah dipilih.
-    \item Penelitian ini hanya menggunakan data yang bersifat numerik.
+    \item Penelitian ini hanya menguji dengan teknik penambangan data klasifikasi dengan algoritma \textit{k-nearest neighbors} dan \textit{clustering} dengan algoritma \textit{k-means}.
+    \item Perangkat lunak yang dibuat hanya dapat menerima masukan yang valid yaitu seluruh datanya bersifat numerik.
 \end{enumerate}
 
 \section{Metodologi}
@@ -62,8 +60,8 @@ Metodologi yang digunakan dalam penelitian ini adalah sebagai berikut.
     \item Melakukan perancangan perangkat lunak yang mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
     \item Membangun perangkat lunak yang mengimplementasikan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
     \item Menguji perangkat lunak secara fungsional dan eksperimental dengan menggunakan \textit{real} data.
-    \item Menerapkan teknik penambangan data terhadap data yang telah diproses untuk menganalisis hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
-    \item Melakukan analisis dan pengujian untuk membandingkan dan mengukur hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
+    \item Menerapkan teknik penambangan data terhadap data yang telah diacak untuk menganalisis hasil dari teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
+    \item Melakukan analisis dan pengujian untuk membandingkan hasil penambangan data menggunakan data yang telah diacak dengan teknik \textit{Random Rotation Perturbation} dan \textit{Random Projection Perturbation}.
     \item Menarik kesimpulan berdasarkan hasil eksperimen yang telah dilakukan.
 \end{enumerate}
 
