@@ -20,7 +20,7 @@ Metode \textit{Randomization} akan diimplementasikan dengan bantuan bahasa pemog
 \subsubsection{Teknik \textit{Random Rotation Perturbation}}
 \label{subsubsec:analisis-rrp}
 
-Teknik \textit{Random Rotation Perturbation} menggunakan matriks \textit{orthogonal} untuk mengacak \textit{dataset} tanpa mengubah jarak Euclidean \textit{dataset} tersebut. Matriks \textit{orthogonal} relatif sulit dibuat pada dimensi yang tinggi dan kompleksitasnya tidak kecil yaitu \(O(n^2)\)~\cite{stewart:80:orthogonal}. Untuk \textit{dataset} yang sangat besar, masih dapat dilakukan pengacakan dengan teknik ini walaupun mungkin akan sedikit memakan waktu.
+Teknik \textit{Random Rotation Perturbation} menggunakan matriks \textit{special orthogonal} untuk mengacak \textit{dataset} tanpa mengubah jarak Euclidean \textit{dataset} tersebut. Matriks \textit{special orthogonal} relatif sulit dibuat pada dimensi yang tinggi dan kompleksitasnya tidak kecil yaitu \(O(n^2)\)~\cite{stewart:80:orthogonal}. Untuk \textit{dataset} yang sangat besar, masih dapat dilakukan pengacakan dengan teknik ini walaupun mungkin akan sedikit memakan waktu.
 
 Walaupun seperti itu, teknik ini dapat menjamin bahwa tidak akan ada distorsi yang terjadi pada jarak Euclidean pada seluruh data atau dengan kata lain jarak Euclideannya tidak berubah sama sekali. Hal ini disebabkan oleh metode yang dipakai hanya dengan merotasi seluruh titik yang merepresentasikan sebuah objek data dalam bidang Euclidean. Transformasi rotasi akan merubah nilai setiap titik pada bidang tersebut tetapi karena pada dasarnya setiap titik bergerak dengan gerakan yang sama yaitu sebuah rotasi yang sama sehingga tidak akan ada perubahan pada jarak Euclidean antara seluruh titik-titik yang ada.
 
@@ -174,7 +174,7 @@ Berikut langkah-langkah teknik \textit{Random Rotation Perturbation} yang diapli
             75.4&95.9&78.4&27.2&1 \\
         \end{bmatrix}_{9\times 5}
     \end{equation}
-    \item Berikutnya matriks rotasi dibuat dengan cara membuat matriks spesial \textit{orthogonal} yang berdimensi sesuai dimensi matriks \textit{dataset}. Matriks rotasi berikut dibuat dengan menggunakan \textit{library} Scipy\footnote{http://scipy.github.io/devdocs/generated/scipy.stats.special\_ortho\_group.html} pada bahasa pemograman Python. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-rotasi}.
+    \item Berikutnya matriks rotasi dibuat dengan cara membuat matriks \textit{special orthogonal} yang berdimensi sesuai dimensi matriks \textit{dataset}. Matriks rotasi berikut dibuat dengan menggunakan \textit{library} Scipy\footnote{http://scipy.github.io/devdocs/generated/scipy.stats.special\_ortho\_group.html} pada bahasa pemograman Python. Hasilnya dapat dilihat pada Matriks~\ref{eq:matriks-rotasi}.
     \begin{equation}\label{eq:matriks-rotasi}
         \begin{bmatrix}
             -0.45126938		&		-0.70425922		&		 0.32389616		&		0.44211556 \\
