@@ -196,7 +196,16 @@ Modifikasi pada algoritma penambangan data yang digunakan juga perlu dilakukan. 
 \subsection{\textit{Random Rotation Perturbation}}
 \label{subsec:rrp}
 
-Ide utama dari teknik \textit{Random Rotation Perturbation} adalah jika data direpresentasikan sebagai matriks \(X_{n \times d}\) , \textit{rotation perturbation} dari \textit{dataset} X didefinisikan sebagai berikut.
+Ide utama dari teknik \textit{Random Rotation Perturbation} adalah melakukan tranformasi rotasi pada data. Dalam rangka memahami teknik ini, dapat dilihat ilustrasi penjelasannya pada Gambar~\ref{fig:rotasi}. Misalkan sebuah data yang memiliki 2 buah fitur dipetakan kepada bidang Euclidean 2 dimensi. Ada sebuah objek data yang direpresentasikan sebagai titik pada bidang Euclidean dengan nilai \(X_{old}\) dan \(Y_{old}\). Teknik \textit{Random Rotation Perturbation} melakukan rotasi terhadap bidang Euclidean tersebut sebesar \(\theta\) derajat sehingga nilai objek data tersebut berubah menjadi \(X_{new}\) dan \(Y_{new}\). Apabila rotasi tersebut dilakukan pada data yang direpresentasikan sebagai matriks maka diperlukan sebuah matriks rotasi. Pada teknik \textit{Random Rotation Perturbation}, matriks rotasi akan dibuat secara acak.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{rotasi}
+	\caption{Ilustrasi penjelasan teknik \textit{Random Rotation Perturbation} pada bidang Euclidean}
+	\label{fig:rotasi}
+\end{figure}
+
+Jika data direpresentasikan sebagai matriks \(X_{n \times d}\) , \textit{rotation perturbation} dari \textit{dataset} X didefinisikan sebagai berikut.
 \begin{equation}
 	G(X) = X_{n \times d} R_{d \times d}
 \end{equation}
