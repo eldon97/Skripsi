@@ -29,8 +29,8 @@ Transformasi rotasi mempunyai kelemahan yaitu apabila ada titik pada bidang Eucl
 \subsubsection{Teknik \textit{Random Projection Perturbation}}
 \label{subsubsec:analisis-projection}
 
-Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. Distorsi terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi dilakukan ditentukan oleh nilai variabel \textit{epsilon} dengan Pertidaksamaan~\ref{eq:epsilon} yang menunjukkan rentang jarak Euclidean sebuah objek data dengan sebuah objek data yang lain setelah diproyeksi.
-\begin{equation}\label{eq:epsilon}
+Teknik \textit{Random Projection Perturbation} didasarkan pada lemma \textit{Johnson-Lindenstrauss} yang mengatakan bahwa sejumlah titik pada bidang Euclidean berdimensi tertentu dapat diproyeksikan ke dimensi yang lebih kecil tanpa mengubah secara signifikan jarak Euclidean antara titik-titik tersebut. Distorsi terburuk yang dapat terjadi pada jarak Euclidean setelah proyeksi dilakukan ditentukan oleh nilai variabel \textit{epsilon} dengan Pertidaksamaan~\ref{eq:jarakeuclidean} yang menunjukkan rentang jarak Euclidean sebuah objek data dengan sebuah objek data yang lain setelah diproyeksi.
+\begin{equation}\label{eq:jarakeuclidean}
 	(1-eps)||u - v||^{2}<||p(u) - p(v)||^{2}<(1+eps)||u - v||^{2}
 \end{equation}
 Pertidaksamaan di atas menyatakan bahwa kuadrat dari jarak Euclidean antara dua buah titik setelah diproyeksi tidak akan kurang dari kuadrat jarak Euclidean aslinya dikalikan \((1-eps)\) dan tidak akan lebih dari kuadrat jarak Euclidean aslinya dikalikan \((1+eps)\). Lemma \textit{Johnson-Lindenstrauss} menjamin bahwa jarak Euclidean pada data setelah diproyeksi hanya akan berada pada rentang tersebut dan bisa saja jarak Euclidean setelah diproyeksi sangat dekat dengan jarak Euclidean aslinya karena belum tentu jarak Euclidean data setelah diproyeksi menyentuh batas pertidaksamaan tersebut. Tetapi pertidaksamaan ini juga dapat menyatakan bahwa jarak Euclidean setelah diproyeksi dengan aslinya tidak mungkin sama persis.
@@ -220,7 +220,7 @@ Berikut langkah-langkah teknik \textit{Random Projection Perturbation} yang diap
         4.4		&		2.9		&		1.4		&		0.2 
         \end{bmatrix}_{9\times 4}
     \end{equation}
-    \item Ditentukan nilai \(\epsilon\) (\textit{epsilon}) yang diinginkan adalah 0.5. Dengan menggunakan Pertidaksamaan~\ref{eq:epsilon} dapat dihitung untuk melihat rentang jarak Euclidean antara sebuah titik yang merepresentasikan sebuah objek data dan titik lainnya dari \textit{dataset} yang telah diproyeksi. Contoh yang akan diberikan berikut menguji rentang jarak Euclidean antara baris ke-6 dan ke-9 setelah diproyeksi.
+    \item Ditentukan nilai \(\epsilon\) (\textit{epsilon}) yang diinginkan adalah 0.5. Dengan menggunakan Pertidaksamaan~\ref{eq:jarakeuclidean} dapat dihitung untuk melihat rentang jarak Euclidean antara sebuah titik yang merepresentasikan sebuah objek data dan titik lainnya dari \textit{dataset} yang telah diproyeksi. Contoh yang akan diberikan berikut menguji rentang jarak Euclidean antara baris ke-6 dan ke-9 setelah diproyeksi.
     \begin{align*}
         ||u - v||^{2} &= (5.4-4.4)^2 + (3.9-2.9)^2 + (1.7-1.4)^2 + (0.4-0.2)^2
         \\
