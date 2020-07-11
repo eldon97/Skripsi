@@ -302,12 +302,13 @@ Berikut adalah deskripsi setiap fungsi pada kelas \textit{RotationMatrixPreproce
 	\item \textit{getTranslationMatrix} adalah fungsi untuk mendapatkan matriks translasi berbentuk objek kelas \textit{Matrix} yang didapatkan dari fungsi \textit{readFromCSV} atau dengan kata lain mendapatkan variabel \textit{translationMatrix}. Fungsi ini tidak memiliki masukan apapun tetapi mempunyai kembalian berupa matriks translasi yang bertipe data \textit{Matrix}.
 \end{itemize}
 
-\section{Masukan Perangkat Lunak}
+\section{Masukan dan Keluaran Perangkat Lunak}
 \label{sec:masukan-pl}
 
-Perangkat lunak mempunyai sebuah masukan yang berupa \textit{dataset}. \textit{Dataset} yang ingin diacak memiliki persyaratan yaitu harus berupa sebuah matriks. Tetapi mayoritas \textit{dataset} yang ada didistribusikan bukan sebagai matriks melainkan dokumen berjenis tertentu antara lain seperti dokumen berjenis \textit{comma-separated values}. Oleh karena itu, perangkat lunak ini hanya dapat menerima masukan berupa dokumen berjenis \textit{comma-separated values}. Berikut penjelasan secara rinci masukan yang dapat diterima oleh perangkat lunak.
+Perangkat lunak mempunyai 2 buah masukan dan keluaran yang berupa \textit{dataset} dan matriks rotasi/proyeksi. Ada persyaratan apabila sebuah \textit{dataset} ingin diacak oleh perangkat lunak yaitu \textit{dataset} tersebut harus berupa sebuah matriks. Tetapi mayoritas \textit{dataset} yang ada didistribusikan bukan sebagai matriks melainkan dokumen berjenis tertentu antara lain seperti dokumen berjenis \textit{comma-separated values}. Oleh karena itu, perangkat lunak ini hanya dapat menerima masukan \textit{dataset} berupa dokumen berjenis \textit{comma-separated values} yang umum digunakan dan keluaran perangkat lunak hasil pengacakan akan berupa \textit{dataset} yang berbentuk dokumen berjenis \textit{comma-separated values}. Matriks rotasi/proyeksi adalah matriks yang dibuat oleh perangkat lunak atau dengan kata lain salah satu keluaran dari perangkat lunak. Dalam rangka memudahkan penggunaan perangkat lunak, keluaran matriks rotasi/proyeksi dirancang menjadi sebuah dokumen \textit{comma-separated values} sehingga masukan matriks rotasi/proyeksi juga sebuah dokumen \textit{comma-separated values}. Berikut penjelasan secara rinci masukan yang dapat diterima oleh perangkat lunak.
 
-Dokumen \textit{comma-separated values} adalah dokumen berisi teks yang menggunakan koma untuk memisahkan antara setiap nilai dengan nilai lainnya. Berikut adalah contoh isi dari dokumen berjenis \textit{comma-separated values}.
+Dokumen \textit{comma-separated values} adalah dokumen berisi teks yang menggunakan koma untuk memisahkan antara setiap nilai dengan nilai lainnya. Masukan \textit{dataset} dan keluaran hasil pengacakan \textit{dataset} dari perangkat lunak harus berbentuk seperti ini. Baris pertama pada dokumen merupakan nama semua kolom yang ada pada \textit{dataset}. Baris lainnya adalah nilai-nilai setiap kolom pada suatu rekord. Pada \textit{dataset} di atas, kolom terakhir adalah kolom label. Kolom-kolom lainnya selain kolom label tersebut adalah kolom fitur yang ingin diacak. Kolom fitur tersebut untuk perangkat lunak \textit{Randomization} ini mempunyai persyaratan yaitu nilai kolom tersebut harus berjenis numerik. Ada sedikit perbedaan pada keluaran yang dihasilkan oleh teknik \textit{Random Projection Perturbation} yaitu baris pertama pada dokumen yang mana adalah nama kolom akan hilang dan digantikan menjadi penanda nomor kolom saja. Hal ini dikarenakan teknik \textit{Random Projection Perturbation} mengubah jumlah kolom yang ada pada \textit{dataset}. Berikut adalah contoh sebagian isi dari sebuah \textit{dataset} yang berbentuk dokumen berjenis \textit{comma-separated values}.
+
 \begin{verbatim}
 	sepal_length,sepal_width,petal_length,petal_width,species
 	5.1,3.5,1.4,0.2,setosa
@@ -321,4 +322,29 @@ Dokumen \textit{comma-separated values} adalah dokumen berisi teks yang mengguna
 	4.4,2.9,1.4,0.2,setosa
 	4.9,3.1,1.5,0.1,setosa
 \end{verbatim}
-Baris pertama pada contoh di atas merupakan nama semua kolom yang ada pada \textit{dataset}. Baris lainnya adalah nilai-nilai setiap kolom pada suatu rekord. Pada \textit{dataset} di atas, kolom terakhir adalah kolom label. Kolom-kolom lainnya selain kolom label tersebut adalah kolom fitur yang ingin diacak. Kolom fitur tersebut untuk perangkat lunak \textit{Randomization} ini mempunyai persyaratan yaitu nilai kolom tersebut harus berjenis numerik.
+
+Masukan dan keluaran matriks rotasi/proyeksi perangkat lunak akan sedikit berbeda pada isinya walaupun sama-sama berbentuk dokumen berjenis \textit{comma-separated values}. Pada dokumen matriks rotasi akan mempunyai 2 buah bagian yaitu matriks rotasi dan translasi. Keberadaan matriks translasi pada dokumen matriks rotasi memudahkan teknik pengacakan diterapkan, oleh karena itu matriks translasi digabungkan dengan matriks rotasi menjadi sebuah dokumen berjenis \textit{comma-separated values}. Baris pertama pada dokumen merupakan penanda nomor kolom saja, bukan bagian dari matriks. Bagian matriks rotasi dimulai dari kolom pertama yang memiliki penanda nomor kolom 0 sampai nomor terakhir sebelum angka 0 kembali muncul. Bagian matriks translasi dimulai dari kolom yang mempunyai penanda nomor kolom 0 yang muncul kedua kali tersebut. Berikut adalah contoh isi dari sebuah matriks rotasi yang berbentuk dokumen berjenis \textit{comma-separated values}. Berikut adalah contoh seluruh isi dari sebuah matriks rotasi yang berbentuk dokumen berjenis \textit{comma-separated values}.
+
+\begin{verbatim}
+	0,1,2,0,1,2,3
+	-0.2737716404975301,0.743341774437851,-0.6103213049164171,1.0,0.0,0.0,0.0
+	0.8536109472109308,-0.10459954079843309,-0.5103011727072695,0.0,1.0,0.0,0.0
+	-0.44316750745169564,-0.6606829363925966,-0.6058882882996728,0.0,0.0,1.0,0.0
+	,,,9.0,96.0,88.0,1.0
+\end{verbatim}
+
+Matriks proyeksi memiliki struktur isi dokumen yang sama dengan hasil pengacakan \textit{dataset} dengan teknik \textit{Random Projection Perturbation}. Berikut adalah contoh sebagian isi dari sebuah matriks proyeksi yang berbentuk dokumen berjenis \textit{comma-separated values}.
+
+\begin{verbatim}
+	0,1,2
+	-0.032756130696027896,0.040109091244847996,-0.014778026984848048
+	0.021816749340792828,-0.02083306952406259,0.020940957583698783
+	-0.056361221296269706,0.03145783528236356,0.0063571544281266585
+	-0.01216494001525144,0.013803174806436643,-0.04911448956050144
+	0.04678923305352013,-0.00879955101081008,0.1182068962729779
+	0.01889361892606515,0.0022156968489482603,-0.03214602208969308
+	-0.03261188064537208,-0.01111126558652498,-0.050088304590882364
+	-0.034938899444486554,0.08603745694049988,0.006150749680846169
+	0.012141482571524835,-0.03205321005199006,-0.05187040825477614
+	-0.02034022884118899,-0.022079475287664244,0.08089064784187873
+\end{verbatim}

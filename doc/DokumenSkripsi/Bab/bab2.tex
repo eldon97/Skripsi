@@ -87,9 +87,9 @@ Berikut langkah kerja dari teknik \textit{K-means}.~\cite{jiawei:12:datmin}
 	\item Tentukan secara acak sebuah \textit{centroid} sebanyak \(k\)  untuk setiap kluster.
 	\item Lakukan perulangan sampai nilai fitur-fitur semua \textit{centroid} (titik tengah kluster) relatif tidak berubah atau dengan kata lain perubahannya kurang dari \textit{treshold}.
 	\begin{enumerate}
-		\item Menghitung jarak Euclidean tiap titik dari \textit{centroid} ke titik tersebut dengan menggunakan beberapa fitur yang dipilih.
+		\item Menghitung jarak Euclidean setiap titik dari \textit{centroid} ke titik tersebut dengan menggunakan beberapa fitur yang dipilih.
 		\item Kluster yang memiliki jarak Euclidean paling kecil dengan sebuah titik adalah kluster titik tersebut.
-		\item Tentukan kembali \textit{centroid} setiap kluster dengan cara menghitung rata-rata tiap fitur pada seluruh objek data pada kluster tersebut.
+		\item Tentukan kembali \textit{centroid} setiap kluster dengan cara menghitung rata-rata setiap fitur pada seluruh objek data pada kluster tersebut.
 	\end{enumerate}
 \end{enumerate}
 
@@ -162,7 +162,7 @@ Setelah teknik \textit{Random Noise Addition} ditemukan, berbagai macam teknik l
 
 Ide utama dari teknik \textit{Random Noise Addition}~\cite{agrawalsrikant:00:randomnoise} adalah mendistorsi nilai pada data dengan cara menambahkan \textit{random noise} yang diambil dari distribusi \textit{Uniform} atau \textit{Gaussian} dan memiliki rata-rata bernilai 0. Tetapi menurut penelitian yang telah dilakukan, distribusi \textit{Gaussian} lebih baik digunakan untuk teknik ini. \textit{Random noise} yang digunakan memiliki nilai yang berbeda untuk setiap nilai pada data.
 
-Dengan teknik \textit{Random Noise Addition}, dari data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Algoritma~\ref{alg:rekonstruksi}. Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena teknik \textit{Random Noise Addition} hanya menjaga distribusi pada data maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
+Pada teknik \textit{Random Noise Addition}, data yang sudah didistorsi bisa didapatkan kembali distribusi data asli dengan merekonstruksi distribusinya tanpa mendapatkan setiap nilai-nilai yang ada pada data asli. Metode rekonstruksi yang digunakan berdasarkan pada aturan \textit{Bayes}. Algoritma rekonstruksi untuk mendapatkan distribusi dari data asli dapat dilihat pada Algoritma~\ref{alg:rekonstruksi}. Algoritma ini berhenti sampai kriteria berhentinya terpenuhi. Kriteria tersebut adalah perbedaan estimasi distribusi iterasi sekarang dengan yang sebelumnya sangat kecil. Algoritma ini akan menghasilkan estimasi distribusi data asli dengan menggunakan data yang telah terdistorsi tanpa menggunakan nilai-nilai pada data asli, sehingga nilai-nilai pada data asli tidak tersebar. Oleh karena teknik \textit{Random Noise Addition} hanya menjaga distribusi pada data maka teknik penambangan data yang dapat digunakan hanya teknik-teknik yang bergantung pada distribusi data saja.
 
 \begin{algorithm}
 	\DontPrintSemicolon\SetAlgoNoLine\LinesNumbered
