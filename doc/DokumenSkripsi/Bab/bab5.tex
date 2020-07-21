@@ -416,8 +416,6 @@ Pengujian ini membandingkan properti data pada \textit{dataset} asli dan \textit
 \subsubsection{\textit{Random Rotation Perturbation}}
 \label{subsubsec:pengujian-properti-rrp}
 
-Pengujian teknik \textit{Random Rotation Perturbation} untuk membandingkan properti data dilakukan dengan menggunakan \textit{dataset} \textit{diabetes}\footnote{https://www.kaggle.com/uciml/pima-indians-diabetes-database} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. \textit{Dataset} ini diacak dengan teknik \textit{Random Rotation Perturbation} dan hasil pengacakan dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}.
-
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.9]{diabetes_asli}
@@ -431,6 +429,8 @@ Pengujian teknik \textit{Random Rotation Perturbation} untuk membandingkan prope
 	\caption{Dua puluh baris pertama \textit{dataset} \textit{diabetes} setelah diacak}
 	\label{fig:rotated_diabetes}
 \end{figure}
+
+Pengujian teknik \textit{Random Rotation Perturbation} untuk membandingkan properti data dilakukan dengan menggunakan \textit{dataset} \textit{diabetes}\footnote{https://www.kaggle.com/uciml/pima-indians-diabetes-database} yang dapat dilihat 20 baris pertamanya pada Gambar~\ref{fig:diabetes_asli}. \textit{Dataset} ini diacak dengan teknik \textit{Random Rotation Perturbation} dan hasil pengacakan dapat dilihat pada Gambar~\ref{fig:rotated_diabetes}.
 
 Properti-properti 4 kolom terakhir pada \textit{dataset} \textit{diabetes} asli dapat dilihat pada Tabel~\ref{table:properti-diabetes-asli}. Sementara untuk \textit{dataset} \textit{diabetes} yang telah diacak dapat dilihat pada Tabel~\ref{table:properti-diabetes-diacak}. Jika dilihat pada kedua tabel tersebut, seluruh properti pada \textit{dataset} yang telah diacak mempunyai nilai yang berbeda kecuali jumlah baris (\textit{count}) dan kolom label (\textit{Outcome}). Hal ini menunjukkan selain nilai pada setiap data, teknik \textit{Random Rotation Perturbation} juga mengacak bermacam properti data seperti rata-rata, standar deviasi, nilai terkecil, nilai terbesar, kuartil bawah, kuartil tengah dan kuartil atas setiap kolom pada \textit{dataset}.
 	
@@ -623,8 +623,6 @@ Pada Gambar~\ref{fig:plot_akurasi_mobile_sensor} dapat dilihat grafik akurasi mo
 	\label{fig:plot_akurasi_mobile_sensor}
 \end{figure}
 
-Contoh sebagian kecil keluaran perangkat lunak pengujian yaitu akurasi model untuk setiap nilai variabel \textit{k} dari 19 sampai 23 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_diacak}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua \textit{dataset} berbeda. Akurasi \textit{test set} tertinggi pada \textit{dataset} asli adalah sebesar 0.9077027485578555 dengan nilai variabel \textit{k} sebesar 16. Sementara pada \textit{dataset} yang telah diacak, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai variabel \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan nilai variabel \textit{k} pada model yang memiliki akurasi tertinggi. Dari perbedaan akurasi yang relatif kecil maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan distorsinya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sangat mirip.
-	
 \noindent\begin{minipage}{.48\textwidth}
 	\begin{lstlisting}[caption=\textit{Dataset mobile\_sensor} Asli,frame=tlrb, label=mobile_sensor_akurasi_asli]{Name}
 Akurasi setiap K pada training 
@@ -663,6 +661,8 @@ set dataset diacak:
 23: 0.8988802171700034
 	\end{lstlisting}
 \end{minipage}
+
+Contoh sebagian kecil keluaran perangkat lunak pengujian yaitu akurasi model untuk setiap nilai variabel \textit{k} dari 19 sampai 23 pada \textit{dataset} asli dan \textit{dataset} yang telah diacak dapat dilihat masing-masing pada Listing~\ref{mobile_sensor_akurasi_asli} dan Listing~\ref{mobile_sensor_akurasi_diacak}. Dapat dilihat pada kedua listing tersebut akurasi \textit{test set} pada kedua \textit{dataset} berbeda. Akurasi \textit{test set} tertinggi pada \textit{dataset} asli adalah sebesar 0.9077027485578555 dengan nilai variabel \textit{k} sebesar 16. Sementara pada \textit{dataset} yang telah diacak, akurasi \textit{test set} tertingginya adalah sebesar 0.9005768578215134 dengan nilai variabel \textit{k} sebesar 21. Jika dihitung perbedaan akurasinya adalah sebesar 0.0071258907363421 yang mana relatif kecil tetapi ada perbedaan nilai variabel \textit{k} pada model yang memiliki akurasi tertinggi. Dari perbedaan akurasi yang relatif kecil maka dapat disimpulkan bahwa teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan distorsinya terkontrol sesuai yang pengguna inginkan. Oleh karena itu, model \textit{k-nearest neighbors} yang terbuat memiliki hasil yang sangat mirip.
 
 Waktu eksekusi yang dibutuhkan untuk melatih model klasifikasi dengan nilai variabel \textit{k} sebesar 16 memakai \textit{dataset} asli adalah sebesar 0.2872335910797119 detik dan waktu yang dibutuhkan untuk memprediksi \textit{test set} adalah sebesar 17.754546642303467 detik. Sementara untuk \textit{dataset} yang telah diacak membutuhkan waktu eksekusi untuk melatih model klasifikasi dengan nilai variabel \textit{k} sebesar 21 adalah sebesar 0.5630350112915039 detik dan waktu yang dibutuhkan untuk melakukan prediksi adalah sebesar 12.86760687828064 detik. Pada \textit{dataset} yang telah diacak waktu prediksi lebih cepat dikarenakan fitur-fitur yang ada lebih sedikit daripada \textit{dataset} asli. Hal ini menunjukkan ada pengaruh yang signifikan terhadap durasi waktu eksekusi untuk melatih model dan memprediksi dengan \textit{dataset} asli dan \textit{dataset} yang telah diacak.
 
@@ -781,14 +781,14 @@ Pengujian teknik \textit{Random Projection Perturbation} untuk penambangan data 
 
 Sebelum melakukan teknik \textit{clustering} dengan algoritma \textit{k-means}, \textit{dataset} yang memiliki fitur yang sangat banyak tersebut dimensinya harus direduksi terlebih dahulu agar model dapat divisualisasikan dengan mudah. Reduksi dimensi dilakukan sampai \textit{dataset} hanya memiliki 2 dimensi saja. Reduksi dimensi dilakukan dengan menerapkan teknik \textit{Principal Component Analysis} yang sudah umum digunakan pada penambangan data dan hasilnya relatif baik. Dalam menguji teknik \textit{Random Projection Perturbation}, \textit{dataset} yang tidak diacak langsung direduksi dimensinya dengan teknik \textit{Principal Component Analysis}. Sementara \textit{Dataset} yang ingin diacak, direduksi dimensinya menjadi 2 dimensi dengan teknik \textit{Principal Component Analysis} setelah dataset tersebut diacak.
 
-Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada \textit{dataset} asli dan \textit{dataset} yang telah diacak. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai variabel \textit{k} yang dipakai pada \textit{dataset} asli maupun \textit{dataset} yang telah diacak. Walaupun seperti itu, pada kedua \textit{dataset} tersebut grafik \textit{Sum of Squared Error}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai variabel \textit{k} yang terbaik untuk dipakai membuat model, \textit{Silhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai variabel \textit{k} yang terbaik.
-
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.18]{elbow_mobile_sensor}
 	\caption{Grafik \textit{Sum of Squared Error} model \textit{clustering} pada \textit{dataset} \textit{mobile\_sensor}}
 	\label{fig:elbow_mobile_sensor}
 \end{figure}
+
+Pada Gambar~\ref{fig:elbow_mobile_sensor} terdapat grafik \textit{Sum of Squared Error} untuk menggunakan metode Elbow pada \textit{dataset} asli dan \textit{dataset} yang telah diacak. Pada grafik ini tidak terlalu terlihat nilai yang terbaik untuk menjadi nilai variabel \textit{k} yang dipakai pada \textit{dataset} asli maupun \textit{dataset} yang telah diacak. Walaupun seperti itu, pada kedua \textit{dataset} tersebut grafik \textit{Sum of Squared Error}-nya terlihat sangat mirip dikarenakan teknik \textit{Random Projection Perturbation} menjaga jarak Euclidean dengan baik dan terkontrol. Dalam menentukan nilai variabel \textit{k} yang terbaik untuk dipakai membuat model, \textit{Silhoutte Score} dapat digunakan untuk metode alternatif untuk menentukan nilai variabel \textit{k} yang terbaik.
 
 Pada Gambar~\ref{fig:siluet_mobile_sensor} terdapat grafik \textit{Silhoutte Score} dari \textit{dataset} \textit{mobile\_sensor} yang asli dan yang telah diacak. Dapat terlihat kedua grafik \textit{Silhoutte Score} terlihat sangat mirip dan dapat dilihat nilai-nilai pada setiap \textit{k} tersebut di Listing~\ref{mobile_sensor_siluet_asli} dan Listing~\ref{mobile_sensor_siluet_diacak} ada sedikit perbedaan yang tidak terlalu signifikan. Hal ini dikarenakan oleh jarak Euclidean pada \textit{dataset} asli dan yang telah diacak sedikit berbeda sehingga mempengaruhi sedikit pada hasil algoritma \textit{Silhoutte Score}. Dapat dilihat \textit{Silhoutte Score} pada nilai variabel \textit{k} sebesar 2 adalah nilai paling besar yaitu 0.7568010158989575 pada \textit{dataset} asli dan 0.7581796759180272 pada \textit{dataset} yang telah diacak. Hal ini menunjukkan teknik \textit{Random Projection Perturbation} tidak mempengaruhi secara signifikan nilai \textit{Silhoutte Score} pada setiap \textit{k}.
 
@@ -832,15 +832,15 @@ pada dataset diacak:
 
 Teknik penambangan data \textit{k-means} diterapkan menggunakan dua buah fitur hasil dari teknik \textit{Principal Component Analysis} untuk menguji apakah \textit{dataset} asli dan \textit{dataset} yang telah diacak menghasilkan \textit{cluster} yang hampir sama. Pengujian tersebut didasarkan pada sifat teknik \textit{Random Projection Perturbation} yang menjamin jarak Euclidean terjaga dengan besar distorsi yang ditentukan oleh pengguna. Model \textit{k-means} dibuat dengan nilai variabel \textit{k} yang terbaik dihitung menggunakan metode Elbow dan nilai variabel \textit{k} yang memiliki \textit{Silhoutte Score} tertinggi. Implementasi kode teknik penambangan data ini diterapkan dengan bahasa pemograman Python dan dibantu oleh \textit{library} Scikit-learn. 
 
-Visualisasi model \textit{clustering} dengan nilai variabel \textit{k} sebesar 2 pada \textit{dataset} \textit{mobile\_sensor} asli dan yang telah diacak dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama yaitu 2 \textit{cluster} dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak, hasil \textit{clustering} ini tidak secara spesifik menentukan aktivitas setiap orang karena informasi tersebut sudah hilang oleh teknik yang digunakan sebelumnya, \textit{Principal Component Analysis}. 
-	
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.35]{kmeans_mobile_sensor}
 	\caption{Visualisasi \textit{cluster} pada \textit{dataset mobile\_sensor}}
 	\label{fig:kmeans_mobile_sensor}
 \end{figure}
-	
+
+Visualisasi model \textit{clustering} dengan nilai variabel \textit{k} sebesar 2 pada \textit{dataset} \textit{mobile\_sensor} asli dan yang telah diacak dapat dilihat pada Gambar~\ref{fig:kmeans_mobile_sensor}. Dapat dilihat pada kedua visualisasi tersebut mempunyai jumlah \textit{cluster} yang sama yaitu 2 \textit{cluster} dan terlihat dari lokasi titik-titik yang ada jika dibandingkan ada sedikit perbedaan tetapi tidak terlalu signifikan. Hasil \textit{clustering} menyatakan bahwa ada dua buah \textit{cluster} yaitu kelompok orang-orang yang diam dan kelompok orang-orang yang bergerak, hasil \textit{clustering} ini tidak secara spesifik menentukan aktivitas setiap orang karena informasi tersebut sudah hilang oleh teknik yang digunakan sebelumnya, \textit{Principal Component Analysis}. 
+
 Apabila dihitung kemiripan \textit{cluster} tersebut dengan metode \textit{Adjusted Rand Index} maka kedua hasil \textit{clustering} tersebut mempunyai nilai 0.9994558701020273 yang berarti titik-titik yang ada pada setiap \textit{cluster} pada kedua model sangat mirip sekali. Hal ini dikarenakan jarak Euclidean kedua buah \textit{dataset} tidak rusak secara signifikan dan distorsinya terkendali sesuai yang pengguna inginkan.
 
 Waktu eksekusi yang dibutuhkan untuk melatih model \textit{k-means} dengan nilai variabel \textit{k} sebesar 2 adalah sebesar 0.031239032745361328 detik pada \textit{dataset} asli dan sebesar 0.031217575073242188 detik pada \textit{dataset} yang telah diacak. Jika dibandingkan, kedua \textit{dataset} memiliki waktu eksekusi yang hampir sama, hal ini dikarenakan kedua \textit{dataset} tersebut diterapkan terlebih dahulu teknik \textit{Principal Component Analysis} sehingga kedua \textit{dataset} memiliki ukuran yang sama. Perbedaan pada kedua \textit{dataset} dapat terlihat pada waktu eksekusi teknik \textit{Principal Component Analysis} pada kedua \textit{dataset} yang mana masing-masing sebesar 0.1405951976776123 detik dan 0.1093449592590332 detik. Oleh karena itu, teknik \textit{Random Projection Perturbation} mempengaruhi waktu eksekusi penambangan data \textit{clustering} karena besar dimensi \textit{dataset} berkurang sehingga waktu eksekusinya juga berkurang.
